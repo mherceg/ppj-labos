@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.StringReader;
 
 import javax.xml.bind.JAXBContext;
@@ -9,10 +10,17 @@ public class S implements Snjeguljica {
 	private Definicija definicija;
 	
 	
-	S() throws JAXBException{
+	S(String xmlPath) throws JAXBException{
+		
 		JAXBContext context = JAXBContext.newInstance(Definicija.class);
-		Unmarshaller um = context.createUnmarshaller();
-		definicija = (Definicija) um.unmarshal(new StringReader("Definicija.xml"));
+	    Unmarshaller um = context.createUnmarshaller();
+	    definicija = (Definicija) um.unmarshal( new File(xmlPath) );
+	
+		
+//		JAXBContext context = JAXBContext.newInstance(Definicija.class);
+//		Unmarshaller um = context.createUnmarshaller();
+//		definicija = (Definicija) um.unmarshal(new StringReader(xmlPath));
+		
 	}
 	
 	
