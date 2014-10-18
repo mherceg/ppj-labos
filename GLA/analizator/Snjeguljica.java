@@ -8,4 +8,10 @@ public interface Snjeguljica {
 	 * @return
 	 */
 	public Patuljak prelazim(String stanje,String ucitano);
+	
+	/**
+	 * Vrati pocetno stanje 
+	 * @return
+	 */
+	public String getPocetno();
 }
