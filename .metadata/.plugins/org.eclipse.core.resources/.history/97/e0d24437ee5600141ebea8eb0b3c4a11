@@ -58,8 +58,9 @@ public class GLA {
 				cleanChars[i] = chars[p];
 			} else {
 				p++;
+				continue;
 			}
-			
+			i++;
 			p++;
 		}
 		/*
@@ -69,13 +70,11 @@ public class GLA {
 
 		a = String.join("", cleanChars);
 
-		if (a.contains("^")) {
-			a.replaceAll("^", "\\^");
-		}
-		if (a.contains("\\_")) {
-			a.replaceAll("\\_", "\\u0020");
-		}
-
+		/*
+		 * if(a.contains("$|")){ a.replaceAll("$|", ""); } if(a.contains("^")){
+		 * a.replaceAll("^", "\\^"); } if(a.contains("\\_")){
+		 * a.replaceAll("\\_", "\\u0020"); }
+		 */
 		return a;
 	}
 
