@@ -106,12 +106,6 @@ public class GLA {
 						s.getAkcija().add(a);
 						def.getStanje().add(s);
 					}
-					iIme = null;
-					iGex = null;
-					iIden = null;
-					iNovi = false;
-					ivrati = 0;
-					iStanje = null;
 				}
 				else
 				if (ucitano.startsWith("NOVI_REDAK")){

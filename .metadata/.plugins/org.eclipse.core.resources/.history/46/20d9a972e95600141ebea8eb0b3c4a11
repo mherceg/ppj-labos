@@ -1,18 +1,9 @@
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.transform.Result;
 
 
 public class GLA {
@@ -38,7 +29,7 @@ public class GLA {
 		return a;
 	}
 
-	public static void main(String[] args) throws IOException, JAXBException {
+	public static void main(String[] args) throws IOException {
 		
 		Definicija def = new Definicija();
 		
@@ -54,7 +45,6 @@ public class GLA {
 			//System.out.println(s[0].matches(s[1]));
 			mp.put(s[0], srediGex(s[1]));
 		} while (! ucitano.startsWith("%"));
-			def.setPocetno(ucitano.split(" ")[1].trim());
 			ucitano = reader.readLine();
 		
 		String iIme = null;
@@ -65,7 +55,7 @@ public class GLA {
 		String iStanje = null;
 		
 		int red = 0;
-		while((ucitano = reader.readLine()) != null && ! ucitano.startsWith("XXX")){
+		while((ucitano = reader.readLine()) != null){
 			if (red == 0){
 				red = 1;
 				int delim = 0;
@@ -106,12 +96,6 @@ public class GLA {
 						s.getAkcija().add(a);
 						def.getStanje().add(s);
 					}
-					iIme = null;
-					iGex = null;
-					iIden = null;
-					iNovi = false;
-					ivrati = 0;
-					iStanje = null;
 				}
 				else
 				if (ucitano.startsWith("NOVI_REDAK")){
@@ -132,14 +116,8 @@ public class GLA {
 			}
 		}
 		
-		FileWriter fw = new FileWriter("analizator/Definicija.xml");
-		JAXBContext context = JAXBContext.newInstance(Definicija.class);
-		Marshaller um = context.createMarshaller();
-//		StringWriter writer =  new StringWriter();
-		um.marshal(def, fw);
-//		String xml = writer.toString();
-//		System.out.println(xml);
-		fw.close();
+		//TODO Ispisi XML
+		
 	}
 
 }
