@@ -44,12 +44,15 @@ public class LA {
 	}
 	
 	public void ispisiIzlaz(String izvorniTekst, int red){
-	
+		//ispisujem string od pocetka do zadnjeg nadenog
+		String tekstZaIspis=izvorniTekst.substring(pocetak,zadnjeNadeno);
+		
+		String uniformniZnak = zadnjiNeNullPatuljak.
 		
 	}
 	
 	
 
 	
-	private static void 
+
 }
