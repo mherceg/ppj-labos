@@ -63,7 +63,7 @@ public class GLA {
 				for (int i = 0; ucitano.charAt(i) != '>'; ++i){
 					delim = i;
 				}
-				s[0] = ucitano.substring(1, delim + 1 );
+				s[0] = ucitano.substring(1, delim + 1 ); //TODO Verify
 				s[1] = ucitano.substring(delim + 2);
 				iIme = s[0];
 				iGex = srediGex(s[1]);
