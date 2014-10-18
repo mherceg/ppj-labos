@@ -1,4 +1,6 @@
 
 public interface Snjeguljica {
-	Patuljak prelazim(String stanje,String prelazim);
+	static Patuljak prelazim(String stanje,String ucitano){
+		return null;
+	}
 }
