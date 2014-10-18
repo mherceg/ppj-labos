@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 
 
 public class LA {
-	public static int pocetak,zadnjeNadeno,trenutni;
+	public static int pocetak=0,zadnjeNadeno=0,trenutni=0;
 	Patuljak zadnjiNeNullPatuljak;
 
 	public static void main(String[] args) {
@@ -19,6 +19,9 @@ public class LA {
 		Patuljak zadnjiNeNull;
 		String stanje;
 		Snjeguljica snjeguljica;
+		
+		stanje=snjeguljica.getPocetno();
+				
 		
 		// Compile Snjeguljice i onda konstruktor snjeguljice
 		compile("Snjeguljica.java");
@@ -44,7 +47,7 @@ public class LA {
 		}
 		
 		
-		
+	
 		
 		
 	}
