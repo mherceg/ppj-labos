@@ -44,7 +44,7 @@ public class LA {
 		//ispisujem string od pocetka do zadnjeg nadenog
 		String tekstZaIspis=izvorniTekst.substring(pocetak,zadnjeNadeno);
 		
-		String uniformniZnak;
+		String uniformniZnak=zadnjiNeNullPatuljak.getNasao();
 		
 	}
 	
