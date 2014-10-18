@@ -47,7 +47,7 @@ public class LA {
 		try {
 			while ((niz = reader.readLine()) != null) {
 				source += niz;
-				source += "/n";
+				source += '\n';
 			}
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
