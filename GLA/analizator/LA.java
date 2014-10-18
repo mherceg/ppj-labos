@@ -31,13 +31,15 @@ public class LA {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
+		
+
+		// Compile Snjeguljice i onda konstruktor snjeguljice
+		compile("Snjeguljica.java");
+		
 		/*
 		 * Pocetno stanje dobivamo iz snjeguljice i trebalo bi bit pocetno
 		 */
 		stanje = snjeguljica.getPocetno();
-
-		// Compile Snjeguljice i onda konstruktor snjeguljice
-		compile("Snjeguljica.java");
 
 		/*
 		 * Ucitavanje s stdina i radenje ogromnog stringa u kojem je sve
@@ -46,7 +48,6 @@ public class LA {
 			while ((niz = reader.readLine()) != null) {
 				source += niz;
 				source += "/n";
-
 			}
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
@@ -71,7 +72,6 @@ public class LA {
 				patuljak = snjeguljica.prelazim(
 						source.substring(pocetak, i + 1), stanje);
 				obradiPatuljka(patuljak, i + 1);
-
 			}
 			// Ako nije nista matchao do kraja ulaza onda je greska i ispisuje
 			// se znak
