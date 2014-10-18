@@ -33,7 +33,6 @@ public class GLA {
 			ucitano = reader.readLine();
 		}
 		int red = 0;
-		Stanje st = new Stanje();
 		while((ucitano = reader.readLine()) != null){
 			if (red == 0){
 				red = 1;
@@ -44,7 +43,9 @@ public class GLA {
 				}
 				s[0] = ucitano.substring(1, delim); //TODO Verify
 				s[1] = ucitano.substring(delim +1);
-					
+				//def.s
+				
+				
 			}
 		}
 		
