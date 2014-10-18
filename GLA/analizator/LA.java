@@ -34,7 +34,7 @@ public class LA {
 		
 
 		// Compile Snjeguljice i onda konstruktor snjeguljice
-		compile("Snjeguljica.java");
+		//compile("Snjeguljica.java");
 		
 		/*
 		 * Pocetno stanje dobivamo iz snjeguljice i trebalo bi bit pocetno
@@ -146,9 +146,10 @@ public class LA {
 
 	}
 
-	private static void compile(String className) {
+	/*private static void compile(String className) {
 		try {
-			Process pro = Runtime.getRuntime().exec(className);
+			String command = "javac "+className;
+			Process pro = Runtime.getRuntime().exec(command);
 			printLines(className + " stdout:", pro.getInputStream());
 			printLines(className + " stderr:", pro.getErrorStream());
 		} catch (Exception e) {
@@ -164,5 +165,5 @@ public class LA {
 		while ((line = in.readLine()) != null) {
 			System.out.println(name + " " + line);
 		}
-	}
+	}*/
 }
