@@ -1,14 +1,8 @@
-import java.awt.List;
+
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-<<<<<<< HEAD
-import java.util.ArrayList;
-=======
-import java.io.StringWriter;
->>>>>>> fc42415aa06d18180fc4c91d03ac0fc9c02daa5e
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -17,8 +11,6 @@ import java.util.TreeSet;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.transform.Result;
 
 
 public class GLA {
@@ -66,12 +58,12 @@ public class GLA {
 		while(i<cleanChars.length){
 			if(! indexiZaBrisanje.contains(i)){
 				cleanChars[i] = chars[p];
+				i++;
 			}
 			else{
 				p++;
-				continue;
 			}
-			i++;
+			
 			p++;
 		}
 		/*for(int i=0; i < cleanChars.length; p++){
