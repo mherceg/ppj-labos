@@ -1,0 +1,20 @@
+<Definicija>
+	<Stanje>
+		<ime>S_MadafakaJoe</ime>
+		<Akcija>
+			<regex>(mada)|(faka)</regex>
+			<identifikator>MADAFAKA</identifikator>
+			<noviRed>true</noviRed>
+			<vraca>2</vraca>
+			<novoStanje>S_YoMama</novoStanje>
+		</Akcija>
+	</Stanje>
+	<Stanje>
+		<ime>S_MadafakaPete</ime>
+		<Akcija>
+			<regex>(mada)|(faka)</regex>
+			<identifikator>MADAFAKA</identifikator>
+			<noviRed>false</noviRed>
+		</Akcija>
+	</Stanje>
+</Definicija>
