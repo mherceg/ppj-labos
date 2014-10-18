@@ -1,6 +1,11 @@
 
 public interface Snjeguljica {
-	static Patuljak prelazim(String stanje,String ucitano){
-		return null;
-	}
+	
+	/**
+	 * Matcha regexe
+	 * @param stanje
+	 * @param ucitano
+	 * @return
+	 */
+	public Patuljak prelazim(String stanje,String ucitano);
 }
