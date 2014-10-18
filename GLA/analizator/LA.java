@@ -4,6 +4,8 @@ import java.io.InputStreamReader;
 
 
 public class LA {
+	public static int pocetak,zadnjeNadeno,trenutni;
+	Patuljak zadnjiNeNullPatuljak;
 
 	public static void main(String[] args) {
 		
@@ -14,7 +16,7 @@ public class LA {
 		
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+		int red=1;
 		
 		try {
 			while((niz = reader.readLine()) != null){
@@ -24,10 +26,7 @@ public class LA {
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
-		
-		
-		
+		}		
 		
 		
 		try{
@@ -36,8 +35,17 @@ public class LA {
 		catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		
+		
 	}
-
 	
-	private static void 
+	public void ispisiIzlaz(String izvorniTekst, int red){
+		//ispisujem string od pocetka do zadnjeg nadenog
+		String tekstZaIspis=izvorniTekst.substring(pocetak,zadnjeNadeno);
+		
+		String uniformniZnak;
+		
+	}
+	
 }
