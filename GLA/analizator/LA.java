@@ -12,18 +12,22 @@ public class LA {
 		
 		System.out.println("Run LA");
 		
-		String niz;
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int red=1;
+		String niz="";
+		String source="";
 		Patuljak zadnjiNeNull;
+		String stanje;
+		Snjeguljica snjeguljica;
 		
 		// Compile Snjeguljice i onda konstruktor snjeguljice
 		compile("Snjeguljica.java");
 		
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		int red=1;
 		
 		try {
 			while((niz = reader.readLine()) != null){
-				
+				source+=niz;
+				source+="/n";
 				
 			}
 		} catch (IOException e1) {
@@ -41,8 +45,14 @@ public class LA {
 		
 		
 		
+		
+		
 	}
-	
+	/**
+	 * ispisivanje leksièkih jedinki
+	 * @param izvorniTekst tekst koji je kljucna rijec za odredenu jedinku
+	 * @param red
+	 */
 	public void ispisiIzlaz(String izvorniTekst, int red){
 		//ispisujem string od pocetka do zadnjeg nadenog
 		String tekstZaIspis=izvorniTekst.substring(pocetak,zadnjeNadeno);
@@ -54,7 +64,11 @@ public class LA {
 		
 		
 	}
-	
+	/**
+	 * Ispisivanje greške
+	 * @param greska je greška u kodu
+	 * @param red je linija reda
+	 */
 	public void ispisiGresku(String greska, int red){
 		
 		System.err.println("ERROR " + red + " "+ greska);
