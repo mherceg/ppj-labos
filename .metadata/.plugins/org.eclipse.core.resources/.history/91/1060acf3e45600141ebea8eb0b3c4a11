@@ -10,9 +10,13 @@ public class Stanje {
 	private String ime;
 	private List<Akcija> akcija;
 	
+<<<<<<< HEAD
 	Stanje(){
 		akcija = new ArrayList<>();
 	}
+	
+=======
+>>>>>>> 44f81a2f4e1e808d4c1daa4d0398f2be029d57f1
 	public String getIme() {
 		return ime;
 	}

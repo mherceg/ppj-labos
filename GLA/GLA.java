@@ -3,13 +3,29 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 
 public class GLA {
 	
 	static Map<String,String> mp;
 	
-	public static String srediGex(String a){
+	public static String srediGex(String a){		// TODO istestirat
+		Set<String> keys = mp.keySet();
+		for(String key : keys){
+			if(a.contains(key)){
+				a.replace(key, "("+mp.get(key)+")");
+			}
+		}
+		if(a.contains("$")){
+			a.replace("$", "");
+		}
+		if(a.contains("^")){
+			a.replace("^", "\\^");
+		}
+		if(a.contains("\\_")){
+			a.replace("\\_", "\\u0020");
+		}		
 		return a;
 	}
 
