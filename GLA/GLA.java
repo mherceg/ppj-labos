@@ -1,9 +1,12 @@
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 
 public class GLA {
@@ -11,21 +14,72 @@ public class GLA {
 	static Map<String,String> mp;
 	
 	public static String srediGex(String a){		// TODO istestirat
-		Set<String> keys = mp.keySet();
-		for(String key : keys){
-			if(a.contains(key)){
-				a.replace(key, "("+mp.get(key)+")");
+		if(mp != null){
+			Set<String> keys = mp.keySet();
+			for(String key : keys){
+				if(a.contains(key)){
+					a = a.replace(key, "("+mp.get(key)+")");
+				}
 			}
 		}
-		if(a.contains("$")){
-			a.replace("$", "");
+		// sve |$| pretvorit u "||" ali ako su sami	
+		/*System.out.println("1 -> " + a);
+		if(a.contains("|$|")){
+			a = a.replaceAll("|$|", "||");
+		}
+		
+		System.out.println(a);*/
+		
+		String[] chars = a.split("");
+		
+		// paran broj \ brisem
+		// neparan broj \\ ostavljam
+		Set<Integer> indexiZaBrisanje = new TreeSet<Integer>();
+		for(int i=0; i<chars.length; i++){
+			if(chars[i].equals("$")){
+				int nOfBackSlasha = 0;
+				int p = i;
+				while(chars[--p].equals("\\")){
+					nOfBackSlasha++;				
+				}
+				if(nOfBackSlasha%2 == 0){
+					indexiZaBrisanje.add(i);
+				}
+			}
+		}
+		
+		String[] cleanChars = new String[chars.length - indexiZaBrisanje.size()];
+		int p=0;
+		int i=0;
+		while(i<cleanChars.length){
+			if(! indexiZaBrisanje.contains(i)){
+				cleanChars[i] = chars[p];
+			}
+			else{
+				p++;
+				continue;
+			}
+			i++;
+			p++;
+		}
+		/*for(int i=0; i < cleanChars.length; p++){
+			if(! indexiZaBrisanje.contains(i)){
+				cleanChars[i] = chars[p];
+				i+=1;
+			}
+		}*/
+		
+		a = String.join("", cleanChars);
+		
+		/*if(a.contains("$|")){
+			a.replaceAll("$|", "");
 		}
 		if(a.contains("^")){
-			a.replace("^", "\\^");
+			a.replaceAll("^", "\\^");
 		}
 		if(a.contains("\\_")){
-			a.replace("\\_", "\\u0020");
-		}		
+			a.replaceAll("\\_", "\\u0020");
+		}		*/
 		return a;
 	}
 
@@ -111,5 +165,22 @@ public class GLA {
 		//TODO Ispisi XML
 		
 	}
+	
+	/*public static void main(String[] args) {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String line;
+		try {
+			while((line = reader.readLine()) != null){
+				System.out.println(srediGex(line));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}*/
 
 }
