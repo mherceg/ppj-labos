@@ -25,8 +25,7 @@ public class GLA {
 		}
 		if(a.contains("\\_")){
 			a.replace("\\_", "\\u0020");
-		}
-		
+		}		
 		return a;
 	}
 
