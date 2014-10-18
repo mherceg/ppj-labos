@@ -29,7 +29,7 @@ public class GLA {
 			System.out.println(s[0].matches(s[1]));
 			mp.put(s[0], s[1]);
 		} while (! ucitano.startsWith("%"));
-		while (ucitano.startsWith("%")){
+		/*while (ucitano.startsWith("%")){
 			ucitano = reader.readLine();
 		}
 		
@@ -59,40 +59,11 @@ public class GLA {
 				red = 2;
 			}
 			if (red == 2){
-				if (ucitano.startsWith("}")){
-					red = 0;
-					Akcija a = new Akcija();
-					a.setIdentifikator(iIden);
-					a.setNoviRed(iNovi);
-					a.setNovoStanje(iStanje);
-					a.setRegex(iGex);
-					a.setVraca(ivrati);
-					for (Stanje s : def.getStanje()){
-						if (s.getIme().equals(iIme)){
-							s.getAkcija().add(a);
-						}
-					}
+				if (ucitano.equals("}")){
+					//TODO 
 				}
-				else
-				if (ucitano.startsWith("NOVI_REDAK")){
-					iNovi = true;
-				}
-				else
-				if (ucitano.startsWith("UDJI_U_STANJE")){
-					iStanje = ucitano.split(" ")[1].trim();
-				}
-				else 
-				if (ucitano.startsWith("VRATI_SE")){
-					ivrati = Integer.parseInt(ucitano.split(" ")[1].trim());
-				}
-				else 
-				if ( !ucitano.startsWith("-")){
-					iIden = ucitano.trim();
-				}
-			}
 		}
-		
-		//TODO Ispisi XML
+			}*/
 		
 	}
 

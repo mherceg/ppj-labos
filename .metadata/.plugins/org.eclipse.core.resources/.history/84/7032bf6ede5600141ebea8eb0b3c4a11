@@ -60,7 +60,6 @@ public class GLA {
 			}
 			if (red == 2){
 				if (ucitano.startsWith("}")){
-					red = 0;
 					Akcija a = new Akcija();
 					a.setIdentifikator(iIden);
 					a.setNoviRed(iNovi);
@@ -91,8 +90,6 @@ public class GLA {
 				}
 			}
 		}
-		
-		//TODO Ispisi XML
 		
 	}
 
