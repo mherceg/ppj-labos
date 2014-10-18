@@ -26,7 +26,7 @@ public class LA {
 		String stanje;
 		Snjeguljica snjeguljica = null;
 		try {
-			snjeguljica = new S();
+			snjeguljica = new S("Definicija.xml");
 		} catch (JAXBException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
@@ -116,7 +116,7 @@ public class LA {
 	}
 
 	/**
-	 * ispisivanje leksièkih jedinki
+	 * ispisivanje leksiï¿½kih jedinki
 	 * 
 	 * @param izvorniTekst
 	 *            tekst koji je kljucna rijec za odredenu jedinku
@@ -133,10 +133,10 @@ public class LA {
 	}
 
 	/**
-	 * Ispisivanje greške
+	 * Ispisivanje greï¿½ke
 	 * 
 	 * @param greska
-	 *            je greška u kodu
+	 *            je greï¿½ka u kodu
 	 * @param red
 	 *            je linija reda
 	 */
