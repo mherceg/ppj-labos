@@ -1,6 +1,4 @@
 import java.io.File;
-import java.io.StringReader;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.JAXBContext;
@@ -9,13 +7,15 @@ import javax.xml.bind.Unmarshaller;
 
 public class S implements Snjeguljica {
 	private List<Stanje> stanja;
-
+	private String pocetno;
+	
 	S(String xmlPath) throws JAXBException {
 
 		JAXBContext context = JAXBContext.newInstance(Definicija.class);
 		Unmarshaller um = context.createUnmarshaller();
 		Definicija definicija = (Definicija) um.unmarshal(new File(xmlPath));
-
+		
+		pocetno = definicija.getPocetno();
 		stanja = definicija.getStanje();
 
 	}
@@ -28,10 +28,10 @@ public class S implements Snjeguljica {
 					String regex = akcija.getRegex();
 					if (ucitano.matches(regex)) {
 						String novoStanje = akcija.getNovoStanje();
-						if(novoStanje.equals(null)){
+						if(novoStanje==null){
 							novoStanje=element.getIme();
 						}
-						return new P(akcija.getNovoStanje(), akcija.getVraca(),
+						return new P(novoStanje, akcija.getVraca(),
 								akcija.getIdentifikator(), akcija.isNoviRed());
 					}
 				}
@@ -42,6 +42,6 @@ public class S implements Snjeguljica {
 
 	@Override
 	public String getPocetno() {
-		return null;
+		return pocetno;
 	}
 }
