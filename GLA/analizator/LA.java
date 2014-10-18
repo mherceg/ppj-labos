@@ -41,12 +41,11 @@ public class LA {
 	}
 	
 	public void ispisiIzlaz(String izvorniTekst, int red){
-	
+		//ispisujem string od pocetka do zadnjeg nadenog
+		String tekstZaIspis=izvorniTekst.substring(pocetak,zadnjeNadeno);
+		
+		String uniformniZnak;
 		
 	}
 	
-	private void compile(String className) throws IOException, InterruptedException{
-		Process pro = Runtime.getRuntime().exec(className);
-		pro.waitFor();
-	}
 }
