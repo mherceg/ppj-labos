@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -24,13 +25,6 @@ public class GLA {
 				}
 			}
 		}
-		// sve |$| pretvorit u "||" ali ako su sami
-		/*
-		 * System.out.println("1 -> " + a); if(a.contains("|$|")){ a =
-		 * a.replaceAll("|$|", "||"); }
-		 * 
-		 * System.out.println(a);
-		 */
 
 		String[] chars = a.split("");
 
@@ -45,35 +39,73 @@ public class GLA {
 					nOfBackSlasha++;
 				}
 				if (nOfBackSlasha % 2 == 0) {
+					System.out.println("Dodajem index -> " + i);
 					indexiZaBrisanje.add(i);
 				}
 			}
 		}
-
+		
 		String[] cleanChars = new String[chars.length - indexiZaBrisanje.size()];
 		int p = 0;
 		int i = 0;
-		while (i < cleanChars.length) {
-			if (!indexiZaBrisanje.contains(i)) {
-				cleanChars[i] = chars[p];
-			} else {
+		while(i < cleanChars.length){
+			if(indexiZaBrisanje.contains(p)){
 				p++;
 			}
-			
-			p++;
+			cleanChars[i] = chars[p];
+			i++;
+			p++;	
 		}
-		/*
-		 * for(int i=0; i < cleanChars.length; p++){ if(!
-		 * indexiZaBrisanje.contains(i)){ cleanChars[i] = chars[p]; i+=1; } }
-		 */
 
 		a = String.join("", cleanChars);
 
-		if (a.contains("^")) {
-			a.replaceAll("^", "\\^");
+		byte[] stringBytes = null;
+		try {
+			stringBytes = a.getBytes("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			System.out.println("String bytes are null");
+			e.printStackTrace();
 		}
+		
+		if(stringBytes != null){
+			System.out.println("StringBytes nije null");
+			indexiZaBrisanje.clear();
+			for(int k=0; k<stringBytes.length; k++){
+				if((stringBytes[k] & 0xFF) == (0x5E)){	
+					int nOfBackSlasha = 0;
+					int tp = k;
+					while ((stringBytes[--tp] & 0xFF) == (0x5C)) {
+						nOfBackSlasha++;
+					}
+					if (nOfBackSlasha % 2 == 0) {
+						System.out.println("Dodajem index -> " + k);
+						indexiZaBrisanje.add(k);
+					}
+				}
+			}			
+		}
+		
+		byte[] cleanCharsBytes = new byte[stringBytes.length - indexiZaBrisanje.size()];
+		p = 0;
+		i = 0;
+		while(i < cleanCharsBytes.length){
+			if(indexiZaBrisanje.contains(p)){
+				p++;
+			}
+			cleanCharsBytes[i] = stringBytes[p];
+			i++;
+			p++;	
+		}
+
+		try {
+			a = new String(cleanCharsBytes);
+		} catch (Exception e) {
+			System.out.println("bytes 2 string fail");
+			e.printStackTrace();
+		}
+		
 		if (a.contains("\\_")) {
-			a.replaceAll("\\_", "\\u0020");
+			a = a.replaceAll("\\_", "\\u0020");
 		}
 
 		return a;
@@ -173,13 +205,22 @@ public class GLA {
 		fw.close();
 	}
 
-	/*
-	 * public static void main(String[] args) { BufferedReader reader = new
-	 * BufferedReader(new InputStreamReader(System.in)); String line; try {
-	 * while((line = reader.readLine()) != null){
-	 * System.out.println(srediGex(line)); } } catch (IOException e) {
-	 * e.printStackTrace(); } try { reader.close(); } catch (IOException e) {
-	 * e.printStackTrace(); } }
-	 */
+	
+	/*public static void main(String[] args) { BufferedReader reader = new
+	  BufferedReader(new InputStreamReader(System.in));
+	  String line;
+	  String cleanedLine;
+	  try {
+	  while((line = reader.readLine()) != null){
+		  cleanedLine = srediGex(line);
+		  System.out.println(cleanedLine);
+		  break;
+	  }
+	  } catch (IOException e) {
+	  e.printStackTrace(); }
+	  try { reader.close(); } catch (IOException e) {
+	  e.printStackTrace(); }
+	}*/
+	 
 
 }
