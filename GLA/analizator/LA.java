@@ -3,11 +3,13 @@ import java.io.InputStreamReader;
 
 
 public class LA {
+	public static int pocetak,zadnjeNadeno,trenutni;
+	Patuljak zadnjiNeNullPatuljak;
 
 	public static void main(String[] args) {
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+		int red=1;
 		
 		
 		
@@ -18,6 +20,16 @@ public class LA {
 		catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		
+		
 	}
+	
+	public void ispisiIzlaz(String izvorniTekst, int red){
+	
+		
+	}
+	
+	
 
 }
