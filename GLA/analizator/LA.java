@@ -1,9 +1,43 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 
 public class LA {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		String niz;
+		Patuljak zadnjiNeNull;
+		
+		// Compile Snjeguljice i onda konstruktor snjeguljice
+		
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		
+		try {
+			while((niz = reader.readLine()) != null){
+				
+				
+			}
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		try{
+			reader.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
+	
+	private static void 
 }
