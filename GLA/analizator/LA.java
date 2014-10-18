@@ -39,7 +39,11 @@ public class LA {
 		
 		
 	}
-	
+	/**
+	 * ispisivanje leksièkih jedinki
+	 * @param izvorniTekst tekst koji je kljucna rijec za odredenu jedinku
+	 * @param red
+	 */
 	public void ispisiIzlaz(String izvorniTekst, int red){
 		//ispisujem string od pocetka do zadnjeg nadenog
 		String tekstZaIspis=izvorniTekst.substring(pocetak,zadnjeNadeno);
@@ -51,7 +55,11 @@ public class LA {
 		
 		
 	}
-	
+	/**
+	 * Ispisivanje greške
+	 * @param greska je greška u kodu
+	 * @param red je linija reda
+	 */
 	public void ispisiGresku(String greska, int red){
 		
 		System.err.println("ERROR " + red + " "+ greska);
