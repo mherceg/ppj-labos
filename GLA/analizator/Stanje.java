@@ -10,6 +10,9 @@ public class Stanje {
 	private String ime;
 	private List<Akcija> akcija;
 	
+	Stanje(){
+		akcija = new ArrayList<>();
+	}
 	public String getIme() {
 		return ime;
 	}

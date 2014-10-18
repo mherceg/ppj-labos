@@ -1,12 +1,24 @@
 import java.awt.List;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+import java.io.StringWriter;
+>>>>>>> fc42415aa06d18180fc4c91d03ac0fc9c02daa5e
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.Result;
 
 
 public class GLA {
@@ -83,7 +95,7 @@ public class GLA {
 		return a;
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, JAXBException {
 		
 		Definicija def = new Definicija();
 		
@@ -96,12 +108,11 @@ public class GLA {
 				break;
 			}
 			String[] s = ucitano.split(" ");
-			System.out.println(s[0].matches(s[1]));
-			mp.put(s[0], s[1]);
+			//System.out.println(s[0].matches(s[1]));
+			mp.put(s[0], srediGex(s[1]));
 		} while (! ucitano.startsWith("%"));
-		while (ucitano.startsWith("%")){
+			def.setPocetno(ucitano.split(" ")[1].trim());
 			ucitano = reader.readLine();
-		}
 		
 		String iIme = null;
 		String iGex = null;
@@ -111,7 +122,7 @@ public class GLA {
 		String iStanje = null;
 		
 		int red = 0;
-		while((ucitano = reader.readLine()) != null){
+		while((ucitano = reader.readLine()) != null && ! ucitano.startsWith("XXX")){
 			if (red == 0){
 				red = 1;
 				int delim = 0;
@@ -119,15 +130,17 @@ public class GLA {
 				for (int i = 0; ucitano.charAt(i) != '>'; ++i){
 					delim = i;
 				}
-				s[0] = ucitano.substring(1, delim); //TODO Verify
-				s[1] = ucitano.substring(delim +1);
+				s[0] = ucitano.substring(1, delim + 1 );
+				s[1] = ucitano.substring(delim + 2);
 				iIme = s[0];
-				iGex = s[1];
+				iGex = srediGex(s[1]);
 			}
+			else
 			if (red == 1){
 				//ucitano mora bit {
 				red = 2;
 			}
+			else
 			if (red == 2){
 				if (ucitano.startsWith("}")){
 					red = 0;
@@ -137,11 +150,25 @@ public class GLA {
 					a.setNovoStanje(iStanje);
 					a.setRegex(iGex);
 					a.setVraca(ivrati);
+					boolean flag = false;
 					for (Stanje s : def.getStanje()){
 						if (s.getIme().equals(iIme)){
+							flag = true;
 							s.getAkcija().add(a);
 						}
 					}
+					if (!flag){
+						Stanje s = new Stanje();
+						s.setIme(iIme);
+						s.getAkcija().add(a);
+						def.getStanje().add(s);
+					}
+					iIme = null;
+					iGex = null;
+					iIden = null;
+					iNovi = false;
+					ivrati = 0;
+					iStanje = null;
 				}
 				else
 				if (ucitano.startsWith("NOVI_REDAK")){
@@ -162,8 +189,14 @@ public class GLA {
 			}
 		}
 		
-		//TODO Ispisi XML
-		
+		FileWriter fw = new FileWriter("analizator/Definicija.xml");
+		JAXBContext context = JAXBContext.newInstance(Definicija.class);
+		Marshaller um = context.createMarshaller();
+//		StringWriter writer =  new StringWriter();
+		um.marshal(def, fw);
+//		String xml = writer.toString();
+//		System.out.println(xml);
+		fw.close();
 	}
 	
 	/*public static void main(String[] args) {
