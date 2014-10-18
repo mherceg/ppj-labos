@@ -47,8 +47,8 @@ public class GLA {
 				for (int i = 0; ucitano.charAt(i) != '>'; ++i){
 					delim = i;
 				}
-				s[0] = ucitano.substring(1, delim + 1 ); //TODO Verify
-				s[1] = ucitano.substring(delim + 2);
+				s[0] = ucitano.substring(1, delim); //TODO Verify
+				s[1] = ucitano.substring(delim + 1);
 				iIme = s[0];
 				iGex = srediGex(s[1]);
 			}
@@ -67,17 +67,10 @@ public class GLA {
 					a.setNovoStanje(iStanje);
 					a.setRegex(iGex);
 					a.setVraca(ivrati);
-					boolean flag = false;
 					for (Stanje s : def.getStanje()){
 						if (s.getIme().equals(iIme)){
-							flag = true;
 							s.getAkcija().add(a);
 						}
-					}
-					if (!flag){
-						Stanje s = new Stanje();
-						s.getAkcija().add(a);
-						def.getStanje().add(s);
 					}
 				}
 				else
