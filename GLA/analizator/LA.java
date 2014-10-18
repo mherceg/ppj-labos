@@ -46,6 +46,16 @@ public class LA {
 		
 		String uniformniZnak=zadnjiNeNullPatuljak.getNasao();
 		
+		System.out.println(uniformniZnak+" "+red+" "+tekstZaIspis);
+		
+		
+		
+	}
+	
+	public void ispisiGresku(String greska, int red){
+		
+		System.err.println("ERROR " + red + " "+ greska);
+		
 	}
 	
 }
