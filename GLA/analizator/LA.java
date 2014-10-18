@@ -12,18 +12,22 @@ public class LA {
 		
 		System.out.println("Run LA");
 		
-		String niz;
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int red=1;
+		String niz="";
+		String source="";
 		Patuljak zadnjiNeNull;
+		String stanje;
+		Snjeguljica snjeguljica;
 		
 		// Compile Snjeguljice i onda konstruktor snjeguljice
 		compile("Snjeguljica.java");
 		
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		int red=1;
 		
 		try {
 			while((niz = reader.readLine()) != null){
-				
+				source+=niz;
+				source+="/n";
 				
 			}
 		} catch (IOException e1) {
@@ -38,6 +42,8 @@ public class LA {
 		catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		
 		
 		
 		
