@@ -10,10 +10,10 @@ public class LA {
 	public static int pocetak = 0, zadnjeNadeno = 0, trenutni = 0;
 	public static Patuljak zadnjiNeNullPatuljak;
 	public static int red = 1;
+	public static String stanje;
 
 	public static void main(String[] args) {
 
-		System.out.println("Run LA");
 		/*
 		 * Inicijalizacija pocetnih varijabli
 		 */
@@ -23,7 +23,7 @@ public class LA {
 		String niz = "";
 		String source = "";
 		Patuljak patuljak;
-		String stanje;
+
 		Snjeguljica snjeguljica = null;
 		try {
 			snjeguljica = new S("Definicija.xml");
@@ -31,11 +31,10 @@ public class LA {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
-		
 
 		// Compile Snjeguljice i onda konstruktor snjeguljice
 		//compile("Snjeguljica.java");
-		
+
 		/*
 		 * Pocetno stanje dobivamo iz snjeguljice i trebalo bi bit pocetno
 		 */
@@ -47,7 +46,7 @@ public class LA {
 		try {
 			while ((niz = reader.readLine()) != null) {
 				source += niz;
-				source += "/n";
+				source += '\n';
 			}
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
@@ -77,11 +76,16 @@ public class LA {
 			// se znak
 			if (zadnjiNeNullPatuljak == null) {
 				ispisiGresku((source.substring(pocetak, 1)), red);
+				pocetak++;
+				trenutni = pocetak;
+				zadnjeNadeno=pocetak;
 			}
 			// Ako je nasao neki povoljni match onda ga ispise i idemo dalje
 			else {
 				ispisiIzlaz(source.substring(pocetak, zadnjeNadeno), red);
 				pocetak = pocetak + zadnjeNadeno;
+				trenutni = pocetak;
+				zadnjeNadeno=pocetak;
 			}
 		}
 	}
@@ -105,7 +109,7 @@ public class LA {
 		} else { // ako je nasao nesto onda pamti tog patuljka i pamti substring
 			zadnjiNeNullPatuljak = patuljak;
 			zadnjeNadeno = i;
-			//povecava brojac reda ako je potrebno
+			// povecava brojac reda ako je potrebno
 			if (patuljak.getNoviRed() == true) {
 				red++;
 
@@ -130,13 +134,15 @@ public class LA {
 
 		System.out.println(uniformniZnak + " " + red + " " + tekstZaIspis);
 
+		stanje = zadnjiNeNullPatuljak.getStanje();
+
 	}
 
 	/**
-	 * Ispisivanje gre�ke
+	 * Ispisivanje greske
 	 * 
 	 * @param greska
-	 *            je gre�ka u kodu
+	 *            je greska u kodu
 	 * @param red
 	 *            je linija reda
 	 */
