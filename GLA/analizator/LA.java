@@ -6,7 +6,15 @@ public class LA {
 
 	public static void main(String[] args) {
 		
+		String niz;
+		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		
+		while((niz = reader.readLine()) != null){
+			
+			
+		}
 		
 		
 		
