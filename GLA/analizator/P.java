@@ -6,7 +6,15 @@ public class P implements Patuljak {
 	private String nasao;
 	private boolean NoviRed;
 	
-
+	
+	public P(String stanje, Integer vraca, String nasao, boolean noviRed) {
+		super();
+		this.stanje = stanje;
+		this.vraca = vraca;
+		this.nasao = nasao;
+		NoviRed = noviRed;
+	}
+	
 	public void setStanje(String stanje) {
 		this.stanje = stanje;
 	}
