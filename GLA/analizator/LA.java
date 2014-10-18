@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 
@@ -8,8 +9,25 @@ public class LA {
 
 	public static void main(String[] args) {
 		
+		String niz;
+		Patuljak zadnjiNeNull;
+		
+		// Compile Snjeguljice i onda konstruktor snjeguljice
+		
+		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int red=1;
+		
+		try {
+			while((niz = reader.readLine()) != null){
+				
+				
+			}
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		
 		
 		
@@ -32,4 +50,6 @@ public class LA {
 	
 	
 
+	
+	private static void 
 }
