@@ -16,7 +16,7 @@ public class GLA {
 
 	static Map<String, String> mp;
 
-	public static String srediGex(String a) { // TODO istestirat
+	public static String srediGex(String a) { // TODO istestirat -> vise manje istestirano :D
 		if (mp != null) {
 			Set<String> keys = mp.keySet();
 			for (String key : keys) {
@@ -31,11 +31,12 @@ public class GLA {
 		// paran broj \ brisem
 		// neparan broj \\ ostavljam
 		Set<Integer> indexiZaBrisanje = new TreeSet<Integer>();
+		Set<Integer> indexiZaPopunitRazmakom = new TreeSet<Integer>();
 		for (int i = 0; i < chars.length; i++) {
 			if (chars[i].equals("$")) {
 				int nOfBackSlasha = 0;
 				int p = i;
-				while (chars[--p].equals("\\")) {
+				while ( p>0 && chars[--p].equals("\\")) {
 					nOfBackSlasha++;
 				}
 				if (nOfBackSlasha % 2 == 0) {
@@ -51,6 +52,7 @@ public class GLA {
 		while(i < cleanChars.length){
 			if(indexiZaBrisanje.contains(p)){
 				p++;
+				continue;
 			}
 			cleanChars[i] = chars[p];
 			i++;
@@ -63,18 +65,19 @@ public class GLA {
 		try {
 			stringBytes = a.getBytes("UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			System.out.println("String bytes are null");
+			System.err.println("String bytes are null");
 			e.printStackTrace();
 		}
 		
 		if(stringBytes != null){
 			System.out.println("StringBytes nije null");
 			indexiZaBrisanje.clear();
+			indexiZaPopunitRazmakom.clear();
 			for(int k=0; k<stringBytes.length; k++){
 				if((stringBytes[k] & 0xFF) == (0x5E)){	
 					int nOfBackSlasha = 0;
 					int tp = k;
-					while ((stringBytes[--tp] & 0xFF) == (0x5C)) {
+					while ( tp>0 && (stringBytes[--tp] & 0xFF) == (0x5C)) {
 						nOfBackSlasha++;
 					}
 					if (nOfBackSlasha % 2 == 0) {
@@ -82,15 +85,34 @@ public class GLA {
 						indexiZaBrisanje.add(k);
 					}
 				}
+				if((stringBytes[k] & 0xFF) == (0x5f)){		// underscore
+					int nOfBackSlasha = 0;
+					int tp = k;
+					while ( tp>0 && (stringBytes[--tp] & 0xFF) == (0x5C)) {
+						nOfBackSlasha++;
+					}
+					if (nOfBackSlasha % 2 == 1) {		// Mora bit neparan zbog escape backslasha
+						System.out.println("Dodajem index za razmak -> " + (k-1));
+						indexiZaPopunitRazmakom.add(k-1);							// k-1 je \ koji treba zamjenit sa razmakom i pobrisat _
+					}
+				}
 			}			
 		}
 		
-		byte[] cleanCharsBytes = new byte[stringBytes.length - indexiZaBrisanje.size()];
+		byte[] cleanCharsBytes = new byte[stringBytes.length - indexiZaBrisanje.size() - indexiZaPopunitRazmakom.size()];
 		p = 0;
 		i = 0;
 		while(i < cleanCharsBytes.length){
+			if(indexiZaPopunitRazmakom.contains(p)){
+				p+=2;
+				cleanCharsBytes[i] = 0x20;		// Razmak
+				i++;
+				
+				continue;
+			}
 			if(indexiZaBrisanje.contains(p)){
 				p++;
+				continue;
 			}
 			cleanCharsBytes[i] = stringBytes[p];
 			i++;
@@ -100,12 +122,8 @@ public class GLA {
 		try {
 			a = new String(cleanCharsBytes);
 		} catch (Exception e) {
-			System.out.println("bytes 2 string fail");
+			System.err.println("bytes 2 string fail");
 			e.printStackTrace();
-		}
-		
-		if (a.contains("\\_")) {
-			a = a.replaceAll("\\_", "\\u0020");
 		}
 
 		return a;
