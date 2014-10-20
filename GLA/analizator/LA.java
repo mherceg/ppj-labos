@@ -19,7 +19,7 @@ public class LA {
 
 		String niz = "";
 		String source = "";
-		Patuljak patuljak;
+		Patuljak patuljak = null;
 
 		Snjeguljica snjeguljica = null;
 		try {
@@ -72,15 +72,18 @@ public class LA {
 			// Ako nije nista matchao do kraja ulaza onda je greska i ispisuje
 			// se znak
 			if (zadnjiNeNullPatuljak == null) {
-				ispisiGresku((source.substring(pocetak, 1)), red);
+				ispisiGresku((source.substring(pocetak, pocetak+1)), red);
 				pocetak++;
 				trenutni = pocetak;
 				zadnjeNadeno=pocetak;
 			}
-			// Ako je nasao neki povoljni match onda ga ispise i idemo dalje
+			// Ako je nasao neki povoljni match onda ga ispise i idemo dalje osim ako nema identifikator
 			else {
-				String ispisi = source.substring(pocetak, zadnjeNadeno);
-				ispisiIzlaz(source.substring(pocetak, zadnjeNadeno), red);
+				if (zadnjiNeNullPatuljak.getNasao()!=null){
+					String ispisi = source.substring(pocetak, zadnjeNadeno);
+					ispisiIzlaz(source.substring(pocetak, zadnjeNadeno), red);
+				}
+				stanje = zadnjiNeNullPatuljak.getStanje();
 				pocetak = zadnjeNadeno;
 				trenutni = pocetak;
 				zadnjeNadeno=pocetak;
@@ -133,7 +136,7 @@ public class LA {
 
 		System.out.println(uniformniZnak + " " + red + " " + tekstZaIspis);
 
-		stanje = zadnjiNeNullPatuljak.getStanje();
+		
 		//System.out.println("stanje promijenjeno" + stanje);
 
 	}
