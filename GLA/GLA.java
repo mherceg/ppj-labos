@@ -16,7 +16,8 @@ public class GLA {
 
 	static Map<String, String> mp;
 
-	public static String srediGex(String a) { // TODO istestirat -> vise manje istestirano :D
+	public static String srediGex(String a) { // TODO istestirat -> vise manje
+												// istestirano :D
 		if (mp != null) {
 			Set<String> keys = mp.keySet();
 			for (String key : keys) {
@@ -36,7 +37,7 @@ public class GLA {
 			if (chars[i].equals("$")) {
 				int nOfBackSlasha = 0;
 				int p = i;
-				while ( p>0 && chars[--p].equals("\\")) {
+				while (p > 0 && chars[--p].equals("\\")) {
 					nOfBackSlasha++;
 				}
 				if (nOfBackSlasha % 2 == 0) {
@@ -45,18 +46,18 @@ public class GLA {
 				}
 			}
 		}
-		
+
 		String[] cleanChars = new String[chars.length - indexiZaBrisanje.size()];
 		int p = 0;
 		int i = 0;
-		while(i < cleanChars.length){
-			if(indexiZaBrisanje.contains(p)){
+		while (i < cleanChars.length) {
+			if (indexiZaBrisanje.contains(p)) {
 				p++;
 				continue;
 			}
 			cleanChars[i] = chars[p];
 			i++;
-			p++;	
+			p++;
 		}
 
 		a = String.join("", cleanChars);
@@ -68,16 +69,16 @@ public class GLA {
 			System.err.println("String bytes are null");
 			e.printStackTrace();
 		}
-		
-		if(stringBytes != null){
+
+		if (stringBytes != null) {
 			System.out.println("StringBytes nije null");
 			indexiZaBrisanje.clear();
 			indexiZaPopunitRazmakom.clear();
-			for(int k=0; k<stringBytes.length; k++){
-				if((stringBytes[k] & 0xFF) == (0x5E)){	
+			for (int k = 0; k < stringBytes.length; k++) {
+				if ((stringBytes[k] & 0xFF) == (0x5E)) {
 					int nOfBackSlasha = 0;
 					int tp = k;
-					while ( tp>0 && (stringBytes[--tp] & 0xFF) == (0x5C)) {
+					while (tp > 0 && (stringBytes[--tp] & 0xFF) == (0x5C)) {
 						nOfBackSlasha++;
 					}
 					if (nOfBackSlasha % 2 == 0) {
@@ -85,38 +86,44 @@ public class GLA {
 						indexiZaBrisanje.add(k);
 					}
 				}
-				if((stringBytes[k] & 0xFF) == (0x5f)){		// underscore
+				if ((stringBytes[k] & 0xFF) == (0x5f)) { // underscore
 					int nOfBackSlasha = 0;
 					int tp = k;
-					while ( tp>0 && (stringBytes[--tp] & 0xFF) == (0x5C)) {
+					while (tp > 0 && (stringBytes[--tp] & 0xFF) == (0x5C)) {
 						nOfBackSlasha++;
 					}
-					if (nOfBackSlasha % 2 == 1) {		// Mora bit neparan zbog escape backslasha
-						System.out.println("Dodajem index za razmak -> " + (k-1));
-						indexiZaPopunitRazmakom.add(k-1);							// k-1 je \ koji treba zamjenit sa razmakom i pobrisat _
+					if (nOfBackSlasha % 2 == 1) { // Mora bit neparan zbog
+													// escape backslasha
+						System.out.println("Dodajem index za razmak -> "
+								+ (k - 1));
+						indexiZaPopunitRazmakom.add(k - 1); // k-1 je \ koji
+															// treba zamjenit sa
+															// razmakom i
+															// pobrisat _
 					}
 				}
-			}			
+			}
 		}
-		
-		byte[] cleanCharsBytes = new byte[stringBytes.length - indexiZaBrisanje.size() - indexiZaPopunitRazmakom.size()];
+
+		byte[] cleanCharsBytes = new byte[stringBytes.length
+				- indexiZaBrisanje.size() - indexiZaPopunitRazmakom.size()];
 		p = 0;
 		i = 0;
-		while(i < cleanCharsBytes.length){
-			if(indexiZaPopunitRazmakom.contains(p)){
-				p+=2;
-				cleanCharsBytes[i] = 0x20;		// Razmak
+		while (i < cleanCharsBytes.length) {
+			if (indexiZaPopunitRazmakom.contains(p)) {
+				p += 2;
+				cleanCharsBytes[i] = 0x20; // Razmak
 				i++;
-				
+
 				continue;
 			}
-			if(indexiZaBrisanje.contains(p)){
+			if (indexiZaBrisanje.contains(p)) {
 				p++;
 				continue;
 			}
 			cleanCharsBytes[i] = stringBytes[p];
 			i++;
-			p++;	
+			p++;
 		}
 
 		try {
@@ -157,8 +164,7 @@ public class GLA {
 		String iStanje = null;
 
 		int red = 0;
-		while ((ucitano = reader.readLine()) != null
-				&& !ucitano.startsWith("XXX")) {
+		while ((ucitano = reader.readLine()) != null) {
 			if (red == 0) {
 				red = 1;
 				int delim = 0;
@@ -223,22 +229,13 @@ public class GLA {
 		fw.close();
 	}
 
-	
-	/*public static void main(String[] args) { BufferedReader reader = new
-	  BufferedReader(new InputStreamReader(System.in));
-	  String line;
-	  String cleanedLine;
-	  try {
-	  while((line = reader.readLine()) != null){
-		  cleanedLine = srediGex(line);
-		  System.out.println(cleanedLine);
-		  break;
-	  }
-	  } catch (IOException e) {
-	  e.printStackTrace(); }
-	  try { reader.close(); } catch (IOException e) {
-	  e.printStackTrace(); }
-	}*/
-	 
+	/*
+	 * public static void main(String[] args) { BufferedReader reader = new
+	 * BufferedReader(new InputStreamReader(System.in)); String line; String
+	 * cleanedLine; try { while((line = reader.readLine()) != null){ cleanedLine
+	 * = srediGex(line); System.out.println(cleanedLine); break; } } catch
+	 * (IOException e) { e.printStackTrace(); } try { reader.close(); } catch
+	 * (IOException e) { e.printStackTrace(); } }
+	 */
 
 }

@@ -23,9 +23,8 @@ public class LA {
 
 		Snjeguljica snjeguljica = null;
 		try {
-			snjeguljica = new S("Definicija.xml");
+			snjeguljica = new Snjeguljica("Definicija.xml");
 		} catch (JAXBException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 
@@ -46,7 +45,6 @@ public class LA {
 				source += '\n';
 			}
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
