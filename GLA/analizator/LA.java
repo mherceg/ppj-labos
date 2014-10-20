@@ -72,7 +72,7 @@ public class LA {
 			// Ako nije nista matchao do kraja ulaza onda je greska i ispisuje
 			// se znak
 			if (zadnjiNeNullPatuljak == null) {
-				ispisiGresku((source.substring(pocetak, 1)), red);
+				ispisiGresku((source.substring(pocetak, pocetak + 1)), red);
 				pocetak++;
 				trenutni = pocetak;
 				zadnjeNadeno=pocetak;
@@ -81,6 +81,7 @@ public class LA {
 			else {
 				String ispisi = source.substring(pocetak, zadnjeNadeno);
 				ispisiIzlaz(source.substring(pocetak, zadnjeNadeno), red);
+				//if (zadnjiNeNullPatuljak.getVraca() != null)
 				pocetak = zadnjeNadeno;
 				trenutni = pocetak;
 				zadnjeNadeno=pocetak;
@@ -128,7 +129,6 @@ public class LA {
 	public static void ispisiIzlaz(String izvorniTekst, int red) {
 		// ispisujem string od pocetka do zadnjeg nadenog
 		String tekstZaIspis = izvorniTekst;//.substring(pocetak, zadnjeNadeno);
-		Patuljak Mirko = zadnjiNeNullPatuljak;
 		String uniformniZnak = zadnjiNeNullPatuljak.getNasao();
 
 		System.out.println(uniformniZnak + " " + red + " " + tekstZaIspis);
