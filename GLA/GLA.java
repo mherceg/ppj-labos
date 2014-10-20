@@ -16,8 +16,7 @@ public class GLA {
 
 	static Map<String, String> mp;
 
-	public static String srediGex(String a) { // TODO istestirat -> vise manje
-												// istestirano :D
+	public static String srediGex(String a) {
 		if (mp != null) {
 			Set<String> keys = mp.keySet();
 			for (String key : keys) {
@@ -26,7 +25,8 @@ public class GLA {
 				}
 			}
 		}
-
+		a = a.replace("^", "\\^").replace("+", "\\+").replace("?", "\\?")
+				.replace("[", "\\[").replace("]", "\\]").replace(".", "\\.");
 		String[] chars = a.split("");
 
 		// paran broj \ brisem
@@ -71,21 +71,17 @@ public class GLA {
 		}
 
 		if (stringBytes != null) {
-			System.out.println("StringBytes nije null");
+			// System.out.println("StringBytes nije null");
 			indexiZaBrisanje.clear();
 			indexiZaPopunitRazmakom.clear();
 			for (int k = 0; k < stringBytes.length; k++) {
-				if ((stringBytes[k] & 0xFF) == (0x5E)) {
-					int nOfBackSlasha = 0;
-					int tp = k;
-					while (tp > 0 && (stringBytes[--tp] & 0xFF) == (0x5C)) {
-						nOfBackSlasha++;
-					}
-					if (nOfBackSlasha % 2 == 0) {
-						System.out.println("Dodajem index -> " + k);
-						indexiZaBrisanje.add(k);
-					}
-				}
+				/*
+				 * if ((stringBytes[k] & 0xFF) == (0x5E)) { int nOfBackSlasha =
+				 * 0; int tp = k; while (tp > 0 && (stringBytes[--tp] & 0xFF) ==
+				 * (0x5C)) { nOfBackSlasha++; } if (nOfBackSlasha % 2 == 0) {
+				 * System.out.println("Dodajem index -> " + k);
+				 * indexiZaBrisanje.add(k); } }
+				 */
 				if ((stringBytes[k] & 0xFF) == (0x5f)) { // underscore
 					int nOfBackSlasha = 0;
 					int tp = k;
@@ -139,7 +135,6 @@ public class GLA {
 	public static void main(String[] args) throws IOException, JAXBException {
 
 		Definicija def = new Definicija();
-
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				System.in));
 		mp = new HashMap<>();
@@ -150,7 +145,6 @@ public class GLA {
 				break;
 			}
 			String[] s = ucitano.split(" ");
-			// System.out.println(s[0].matches(s[1]));
 			mp.put(s[0], srediGex(s[1]));
 		} while (!ucitano.startsWith("%"));
 		def.setPocetno(ucitano.split(" ")[1].trim());

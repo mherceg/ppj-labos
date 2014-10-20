@@ -63,8 +63,10 @@ public class LA {
 			zadnjiNeNullPatuljak = null;
 			// Idemo for petlju po svakom substringu u nizu
 			for (int i = pocetak; i < source.length(); i++) {
-				patuljak = snjeguljica.prelazim(
-						source.substring(pocetak, i + 1), stanje);
+				String upit = source.substring (pocetak, i+1);
+				//System.out.println(stanje);
+				patuljak = snjeguljica.prelazim(stanje,
+						source.substring(pocetak, i + 1));
 				obradiPatuljka(patuljak, i + 1);
 			}
 			// Ako nije nista matchao do kraja ulaza onda je greska i ispisuje
@@ -77,8 +79,9 @@ public class LA {
 			}
 			// Ako je nasao neki povoljni match onda ga ispise i idemo dalje
 			else {
+				String ispisi = source.substring(pocetak, zadnjeNadeno);
 				ispisiIzlaz(source.substring(pocetak, zadnjeNadeno), red);
-				pocetak = pocetak + zadnjeNadeno;
+				pocetak = zadnjeNadeno;
 				trenutni = pocetak;
 				zadnjeNadeno=pocetak;
 			}
@@ -103,6 +106,7 @@ public class LA {
 			return;
 		} else { // ako je nasao nesto onda pamti tog patuljka i pamti substring
 			zadnjiNeNullPatuljak = patuljak;
+			//System.out.println(zadnjiNeNullPatuljak);
 			zadnjeNadeno = i;
 			// povecava brojac reda ako je potrebno
 			if (patuljak.getNoviRed() == true) {
@@ -123,13 +127,14 @@ public class LA {
 	 */
 	public static void ispisiIzlaz(String izvorniTekst, int red) {
 		// ispisujem string od pocetka do zadnjeg nadenog
-		String tekstZaIspis = izvorniTekst.substring(pocetak, zadnjeNadeno);
-
+		String tekstZaIspis = izvorniTekst;//.substring(pocetak, zadnjeNadeno);
+		Patuljak Mirko = zadnjiNeNullPatuljak;
 		String uniformniZnak = zadnjiNeNullPatuljak.getNasao();
 
 		System.out.println(uniformniZnak + " " + red + " " + tekstZaIspis);
 
 		stanje = zadnjiNeNullPatuljak.getStanje();
+		//System.out.println("stanje promijenjeno" + stanje);
 
 	}
 

@@ -26,6 +26,7 @@ public class Snjeguljica {
 			if (element.getIme().equals(stanje)) {
 				for (Akcija akcija : element.getAkcija()) {
 					String regex = akcija.getRegex();
+					//System.out.println(regex + "HERC" +  ucitano);
 					if (ucitano.matches(regex)) {
 						String novoStanje = akcija.getNovoStanje();
 						if(novoStanje==null){
