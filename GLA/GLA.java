@@ -154,7 +154,7 @@ public class GLA {
 		String iGex = null;
 		String iIden = null;
 		boolean iNovi = false;
-		Integer ivrati = 0;
+		Integer ivrati = -1;
 		String iStanje = null;
 
 		int red = 0;
@@ -199,7 +199,7 @@ public class GLA {
 					iGex = null;
 					iIden = null;
 					iNovi = false;
-					ivrati = 0;
+					ivrati = -1;
 					iStanje = null;
 				} else if (ucitano.startsWith("NOVI_REDAK")) {
 					iNovi = true;

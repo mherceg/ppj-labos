@@ -83,8 +83,14 @@ public class LA {
 					String ispisi = source.substring(pocetak, zadnjeNadeno);
 					ispisiIzlaz(source.substring(pocetak, zadnjeNadeno), red);
 				}
+				int uzmiPrvihToliko = zadnjiNeNullPatuljak.getVraca();
+				
+				if(uzmiPrvihToliko!=-1){
+					pocetak = pocetak + uzmiPrvihToliko;
+				}else{
+					pocetak = zadnjeNadeno;
+				}
 				stanje = zadnjiNeNullPatuljak.getStanje();
-				pocetak = zadnjeNadeno;
 				trenutni = pocetak;
 				zadnjeNadeno=pocetak;
 			}
