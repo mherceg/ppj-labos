@@ -63,7 +63,6 @@ public class LA {
 			zadnjiNeNullPatuljak = null;
 			// Idemo for petlju po svakom substringu u nizu
 			for (int i = pocetak; i < source.length(); i++) {
-				String upit = source.substring (pocetak, i+1);
 				//System.out.println(stanje);
 				patuljak = snjeguljica.prelazim(stanje,
 						source.substring(pocetak, i + 1));
@@ -80,7 +79,9 @@ public class LA {
 			// Ako je nasao neki povoljni match onda ga ispise i idemo dalje osim ako nema identifikator
 			else {
 				if (zadnjiNeNullPatuljak.getNasao()!=null){
-					String ispisi = source.substring(pocetak, zadnjeNadeno);
+					if (zadnjiNeNullPatuljak.getVraca() != -1){
+						zadnjeNadeno = pocetak + zadnjiNeNullPatuljak.getVraca();
+					}
 					ispisiIzlaz(source.substring(pocetak, zadnjeNadeno), red);
 				}
 				int uzmiPrvihToliko = zadnjiNeNullPatuljak.getVraca();
