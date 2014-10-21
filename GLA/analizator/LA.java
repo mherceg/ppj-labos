@@ -128,7 +128,7 @@ public class LA {
 	}
 
 	/**
-	 * ispisivanje leksi�kih jedinki
+	 * ispisivanje leksikih jedinki
 	 * 
 	 * @param izvorniTekst
 	 *            tekst koji je kljucna rijec za odredenu jedinku

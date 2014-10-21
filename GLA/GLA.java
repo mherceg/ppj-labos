@@ -41,7 +41,7 @@ public class GLA {
 					nOfBackSlasha++;
 				}
 				if (nOfBackSlasha % 2 == 0) {
-					System.out.println("Dodajem index -> " + i);
+					//System.out.println("Dodajem index -> " + i);
 					indexiZaBrisanje.add(i);
 				}
 			}
@@ -59,8 +59,12 @@ public class GLA {
 			i++;
 			p++;
 		}
-
-		a = String.join("", cleanChars);
+		
+		StringBuilder b = new StringBuilder();
+		for (String c : cleanChars){
+			b.append(c);
+		}
+		a = b.toString();
 
 		byte[] stringBytes = null;
 		try {
@@ -90,8 +94,8 @@ public class GLA {
 					}
 					if (nOfBackSlasha % 2 == 1) { // Mora bit neparan zbog
 													// escape backslasha
-						System.out.println("Dodajem index za razmak -> "
-								+ (k - 1));
+//						System.out.println("Dodajem index za razmak -> "
+//								+ (k - 1));
 						indexiZaPopunitRazmakom.add(k - 1); // k-1 je \ koji
 															// treba zamjenit sa
 															// razmakom i
@@ -213,7 +217,6 @@ public class GLA {
 			}
 		}
 
-		System.out.println(def);
 		FileWriter fw = new FileWriter("analizator/Definicija.xml");
 		JAXBContext context = JAXBContext.newInstance(Definicija.class);
 		Marshaller um = context.createMarshaller();
@@ -222,6 +225,7 @@ public class GLA {
 		// String xml = writer.toString();
 		// System.out.println(xml);
 		fw.close();
+		System.out.println("Everything OK");
 	}
 
 	/*
