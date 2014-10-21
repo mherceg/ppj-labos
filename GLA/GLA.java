@@ -17,6 +17,8 @@ public class GLA {
 	static Map<String, String> mp;
 
 	public static String srediGex(String a) {
+		a = a.replace("^", "\\^").replace("+", "\\+").replace("?", "\\?")
+				.replace("[", "\\[").replace("]", "\\]").replace(".", "\\.");
 		if (mp != null) {
 			Set<String> keys = mp.keySet();
 			for (String key : keys) {
@@ -25,8 +27,6 @@ public class GLA {
 				}
 			}
 		}
-		a = a.replace("^", "\\^").replace("+", "\\+").replace("?", "\\?")
-				.replace("[", "\\[").replace("]", "\\]").replace(".", "\\.");
 		String[] chars = a.split("");
 
 		// paran broj \ brisem
@@ -213,6 +213,7 @@ public class GLA {
 			}
 		}
 
+		System.out.println(def);
 		FileWriter fw = new FileWriter("analizator/Definicija.xml");
 		JAXBContext context = JAXBContext.newInstance(Definicija.class);
 		Marshaller um = context.createMarshaller();
