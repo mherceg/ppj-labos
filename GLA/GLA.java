@@ -86,10 +86,10 @@ public class GLA {
 				 * System.out.println("Dodajem index -> " + k);
 				 * indexiZaBrisanje.add(k); } }
 				 */
-				if ((stringBytes[k] & 0xFF) == (0x5f)) { // underscore
+				if ((stringBytes[k] & 0xFF) == (0x5f)) { // underscore (0x5F)
 					int nOfBackSlasha = 0;
 					int tp = k;
-					while (tp > 0 && (stringBytes[--tp] & 0xFF) == (0x5C)) {
+					while (tp > 0 && (stringBytes[--tp] & 0xFF) == (0x5C)) {	// "\" (0x5C)
 						nOfBackSlasha++;
 					}
 					if (nOfBackSlasha % 2 == 1) { // Mora bit neparan zbog
@@ -112,7 +112,7 @@ public class GLA {
 		while (i < cleanCharsBytes.length) {
 			if (indexiZaPopunitRazmakom.contains(p)) {
 				p += 2;
-				cleanCharsBytes[i] = 0x20; // Razmak
+				cleanCharsBytes[i] = 0x20; // Razmak (0x20)
 				i++;
 
 				continue;
