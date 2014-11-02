@@ -71,7 +71,7 @@ public class Stanje {
 		}
 	}
 	
-	// obavezno dodati
+	// obavezno dodati, ista su ako imaju ista imena
 	@Override
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub

@@ -23,5 +23,7 @@ public class Automat {
 	public List<Stanje> getStanja() {
 		return stanja;
 	}
+	
+	
 
 }

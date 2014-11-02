@@ -1,32 +1,80 @@
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class AutomatonTranformator {
 
 	public Automat eNkaToNka(Automat eNka) {
 		Automat nka = new Automat();
 
-		List<Stanje> staroPocetnoStanje = new ArrayList<Stanje>();
-		staroPocetnoStanje.add(eNka.getPocetnoStanje());
+		for (Stanje staroStanje : eNka.getStanja()) {
 
-		Stanje novoPocetnoStanje = new Stanje(staroPocetnoStanje.get(0)
-				.getImeStanja());
+			Stanje novoStanje = new Stanje(staroStanje.getImeStanja());
+			List<String> znakoviPrijelaza = staroStanje.getZnakoviPrijelaza();
 
-		List<String> znakoviPrijelaza = eNka.getPocetnoStanje()
-				.getZnakoviPrijelaza();
+			for (String znak : znakoviPrijelaza) {
 
-		for (String znak : znakoviPrijelaza) {
-			List<Stanje> novaStanja = prijelazKapica(staroPocetnoStanje, znak);
+				List<Stanje> staroStanjeUListi = new ArrayList<Stanje>();
+				staroStanjeUListi.add(staroStanje);
 
-			for (Stanje novoStanje : novaStanja) {
-				novoPocetnoStanje.dodajPrijelaz(new Prijelaz(znak, novoStanje));
+				List<Stanje> novaStanjaNakonPrijelaza = prijelazKapica(
+						staroStanjeUListi, znak);
+
+				for (Stanje stanjeNakonPrijelaza : novaStanjaNakonPrijelaza) {
+					novoStanje.dodajPrijelaz(new Prijelaz(znak,
+							stanjeNakonPrijelaza));
+				}
+
+				novoStanje.dodajProdukcij(staroStanje.getlistuProdukcija().get(
+						0));
 			}
+			nka.dodajStanje(novoStanje);
 		}
-
 		return nka;
+	}
+
+	public Automat nkaToDka(Automat nka) {
+		Automat dka = new Automat();
+
+		return dka;
+	}
+
+	private void srediPrijelazeNkaDka(Stanje stanje, List<Stanje> stvorenaStanja) {
+		for (String znak : stanje.getZnakoviPrijelaza()) {
+			List<Prijelaz> prijelazi = stanje.getListaPrijelazaPoZnaku(znak);
+
+			String imeStanja = new String();
+
+			for (Prijelaz prijelaz : prijelazi) {
+				imeStanja += prijelaz.getNovoStanje().getImeStanja();
+
+			}
+			
+			Stanje novoStanje = new Stanje(imeStanja);
+			
+			if (stvorenaStanja.contains(novoStanje)) {
+				//vec postoji, promjeni referencu na njega
+				for (Stanje stanjeIzListe : stvorenaStanja) {
+					if (stanjeIzListe.equals(novoStanje)) {
+						novoStanje = stanjeIzListe;
+						break;
+					}
+				}
+			} else { //stvori ga spajanje ova dva stanja
+				for (Prijelaz prijelaz : prijelazi) {
+					novoStanje.dodajProdukcij(prijelaz.getNovoStanje().getlistuProdukcija().get(0));
+					for(Prijelaz buduciPrijelaz:prijelaz.getNovoStanje().getListaPrijelaza()){
+						//pazi da ne dodajes duplo
+						novoStanje.dodajPrijelaz(buduciPrijelaz);
+					}
+
+				}
+				stvorenaStanja.add(novoStanje);
+				//sad sredi njega
+				srediPrijelazeNkaDka(novoStanje, stvorenaStanja);
+			}
+			
+			
+		}
 
 	}
 
@@ -34,12 +82,11 @@ public class AutomatonTranformator {
 		List<Stanje> novaStanja = new ArrayList<Stanje>();
 
 		for (Stanje stanje : stanja) {
-			for (Prijelaz prijelaz : stanje.getListaPrijelaza()) {
-				if (prijelaz.getZnak().equals(znak)) {
-					if (!novaStanja.contains(prijelaz.getNovoStanje())) {
-						novaStanja.add(prijelaz.getNovoStanje());
-					}
+			for (Prijelaz prijelaz : stanje.getListaPrijelazaPoZnaku(znak)) {
+				if (!novaStanja.contains(prijelaz.getNovoStanje())) {
+					novaStanja.add(prijelaz.getNovoStanje());
 				}
+
 			}
 		}
 		return novaStanja;
