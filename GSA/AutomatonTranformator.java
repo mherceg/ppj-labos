@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AutomatonTranformator {
-	
-	public Automat eNkaToDka(Automat eNka){
+
+	public Automat eNkaToDka(Automat eNka) {
 		return nkaToDka(eNkaToNka(eNka));
 	}
-	
+
 	private Automat eNkaToNka(Automat eNka) {
 		Automat nka = new Automat();
 
@@ -67,13 +67,16 @@ public class AutomatonTranformator {
 				}
 			} else { // stvori ga spajanje ova dva stanja
 				for (Prijelaz prijelaz : prijelazi) {
-					// krivo, treba ic po svim produkcijama, ne pretpostavljat
-					// da ima samo jednu
-					novoStanje.dodajProdukcij(prijelaz.getNovoStanje()
-							.getlistuProdukcija().get(0));
+
+					for (Produkcija produkcija : prijelaz.getNovoStanje()
+							.getlistuProdukcija()) {
+						if (!novoStanje.getlistuProdukcija().contains(
+								produkcija)) {
+							novoStanje.dodajProdukcij(produkcija);
+						}
+					}
 					for (Prijelaz buduciPrijelaz : prijelaz.getNovoStanje()
 							.getListaPrijelaza()) {
-						// pazi da ne dodajes duplo
 						if (!novoStanje.getListaPrijelaza().contains(
 								buduciPrijelaz)) {
 							novoStanje.dodajPrijelaz(buduciPrijelaz);
