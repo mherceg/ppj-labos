@@ -25,38 +25,45 @@ public class GSA {
 			e.printStackTrace();
 		}
 		
-		System.out.println(definator.getNezavrsniZnakovi().toString());
+		/*System.out.println(definator.getNezavrsniZnakovi().toString());
 		System.out.println(definator.getZavrsniZnakovi().toString());
 		System.out.println(definator.getSinkronizacijskiZnakovi().toString());
 		
-		System.out.println();
+		System.out.println();*/
 		
 		List<String> vecPunjeniNezavrsniZnakovi = new ArrayList<String>();
 		GramatickaProdukcija tempGramtickaProdukcija = new GramatickaProdukcija();
 				
 		try {
 			line = reader.readLine();
-			while(line != null){
+			while(line != null && !line.isEmpty()){
 				if(line.startsWith("<")){
+					tempGramtickaProdukcija = new GramatickaProdukcija();
 					if(vecPunjeniNezavrsniZnakovi.contains(line)){
 						tempGramtickaProdukcija = listaGramtickihProdukcija.get(getIndex(line, listaGramtickihProdukcija));
 					}
 					else{
 						tempGramtickaProdukcija.setLijevaStrana(line);
 						vecPunjeniNezavrsniZnakovi.add(line);						
-					}						
+					}
+					line = reader.readLine();
 				}
 				else{
-					while((line = reader.readLine()).startsWith("\\s")){
+					while(Character.isWhitespace(line.charAt(0))){
 						tempGramtickaProdukcija.dodajNoviDesniIzraz(line.trim());
+						line = reader.readLine();
+						if(line == null || line.isEmpty()){
+							break;
+						}
 					}
+					listaGramtickihProdukcija.add(tempGramtickaProdukcija);
 				}
 			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 		
-		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
+		/*for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
 			System.out.print(gramatickaProdukcija.getLijevaStrana());
 			System.out.print(" -> ");
 			List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
@@ -64,8 +71,7 @@ public class GSA {
 				System.out.print(s + "|");
 			}
 			System.out.println();			
-		}
-		
+		}*/
 		
 		
 		
@@ -82,9 +88,11 @@ public class GSA {
 	}
 	
 	private static int getIndex(String string, List<GramatickaProdukcija> list){
-		int i=0;
+		int i = 0;
+		System.out.println(list.size());
 		for(GramatickaProdukcija gramatickaProdukcija : list){
-			if(gramatickaProdukcija.getLijevaStrana().equals(string)){
+			System.out.println("usporedujem -> " + gramatickaProdukcija.getLijevaStrana() + " i " + string);
+			if(gramatickaProdukcija.getLijevaStrana().equals(string)){				
 				return i;
 			}
 			else{
