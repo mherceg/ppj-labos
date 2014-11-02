@@ -11,6 +11,13 @@ public class Stanje {
 		this.imeStanja = imeStanja;
 	}
 
+
+	
+	public void dodajProdukcij(Produkcija nova){
+		listaProdukcija.add(nova);
+	}
+
+
 	public void dodajPrijelaz(Prijelaz novi) {
 		if (!listaPrijelaza.contains(novi)) {
 			listaPrijelaza.add(novi);

@@ -13,8 +13,12 @@ public class Produkcija {
 		this.left = nezavrsni;
 		this.ljevoOdTockice = new ArrayList<String>();
 		this.desnoOdTockice = new ArrayList<String>();
-		this.zapocinje = new ArrayList<String>();
+
 	}	
+
+	public void setZapocinje(List<String> zapocinje) {
+		this.zapocinje = zapocinje;
+	}
 
 	public String getLeft() {
 		return left;
