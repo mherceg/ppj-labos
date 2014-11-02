@@ -9,6 +9,7 @@ public class GSA {
 		
 		Definator definator = new Definator();
 		String line;
+		Automat eNKA=new Automat();
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		Stanje stanjeUuctavanju;
