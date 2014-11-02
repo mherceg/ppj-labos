@@ -27,44 +27,11 @@ public class GLA {
 				}
 			}
 		}
-		String[] chars = a.split("");
 
 		// paran broj \ brisem
 		// neparan broj \\ ostavljam
 		Set<Integer> indexiZaBrisanje = new TreeSet<Integer>();
 		Set<Integer> indexiZaPopunitRazmakom = new TreeSet<Integer>();
-		for (int i = 0; i < chars.length; i++) {
-			if (chars[i].equals("$")) {
-				int nOfBackSlasha = 0;
-				int p = i;
-				while (p > 0 && chars[--p].equals("\\")) {
-					nOfBackSlasha++;
-				}
-				if (nOfBackSlasha % 2 == 0) {
-					//System.out.println("Dodajem index -> " + i);
-					indexiZaBrisanje.add(i);
-				}
-			}
-		}
-
-		String[] cleanChars = new String[chars.length - indexiZaBrisanje.size()];
-		int p = 0;
-		int i = 0;
-		while (i < cleanChars.length) {
-			if (indexiZaBrisanje.contains(p)) {
-				p++;
-				continue;
-			}
-			cleanChars[i] = chars[p];
-			i++;
-			p++;
-		}
-		
-		StringBuilder b = new StringBuilder();
-		for (String c : cleanChars){
-			b.append(c);
-		}
-		a = b.toString();
 
 		byte[] stringBytes = null;
 		try {
@@ -79,17 +46,11 @@ public class GLA {
 			indexiZaBrisanje.clear();
 			indexiZaPopunitRazmakom.clear();
 			for (int k = 0; k < stringBytes.length; k++) {
-				/*
-				 * if ((stringBytes[k] & 0xFF) == (0x5E)) { int nOfBackSlasha =
-				 * 0; int tp = k; while (tp > 0 && (stringBytes[--tp] & 0xFF) ==
-				 * (0x5C)) { nOfBackSlasha++; } if (nOfBackSlasha % 2 == 0) {
-				 * System.out.println("Dodajem index -> " + k);
-				 * indexiZaBrisanje.add(k); } }
-				 */
-				if ((stringBytes[k] & 0xFF) == (0x5f)) { // underscore
+
+				if ((stringBytes[k] & 0xFF) == (0x5f)) { // underscore (0x5F)
 					int nOfBackSlasha = 0;
 					int tp = k;
-					while (tp > 0 && (stringBytes[--tp] & 0xFF) == (0x5C)) {
+					while (tp > 0 && (stringBytes[--tp] & 0xFF) == (0x5C)) {	// "\" (0x5C)
 						nOfBackSlasha++;
 					}
 					if (nOfBackSlasha % 2 == 1) { // Mora bit neparan zbog
@@ -102,17 +63,27 @@ public class GLA {
 															// pobrisat _
 					}
 				}
+				if((stringBytes[k] & 0xFF) == '$'){
+					int nOfBackSlasha = 0;
+					int tp = k;
+					while (tp > 0 && (stringBytes[--tp] & 0xFF) == '\\') {	// 
+						nOfBackSlasha++;
+					}
+					if (nOfBackSlasha % 2 == 0) { // Mora bit neparan
+						indexiZaBrisanje.add(k); 	
+					}
+				}
 			}
 		}
 
 		byte[] cleanCharsBytes = new byte[stringBytes.length
 				- indexiZaBrisanje.size() - indexiZaPopunitRazmakom.size()];
-		p = 0;
-		i = 0;
+		int p = 0;
+		int i = 0;
 		while (i < cleanCharsBytes.length) {
 			if (indexiZaPopunitRazmakom.contains(p)) {
 				p += 2;
-				cleanCharsBytes[i] = 0x20; // Razmak
+				cleanCharsBytes[i] = 0x20; // Razmak (0x20)
 				i++;
 
 				continue;
@@ -228,13 +199,27 @@ public class GLA {
 		System.out.println("Everything OK");
 	}
 
-	/*
-	 * public static void main(String[] args) { BufferedReader reader = new
-	 * BufferedReader(new InputStreamReader(System.in)); String line; String
-	 * cleanedLine; try { while((line = reader.readLine()) != null){ cleanedLine
-	 * = srediGex(line); System.out.println(cleanedLine); break; } } catch
-	 * (IOException e) { e.printStackTrace(); } try { reader.close(); } catch
-	 * (IOException e) { e.printStackTrace(); } }
-	 */
+	
+	/*public static void main(String[] args) {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(
+				System.in));
+		String line;
+		String cleanedLine;
+		try {
+			while ((line = reader.readLine()) != null) {
+				cleanedLine = srediGex(line);
+				System.out.println(cleanedLine);
+				//break;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}*/
+	 
 
 }
