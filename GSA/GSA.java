@@ -100,21 +100,29 @@ public class GSA {
 
 		for (GramatickaProdukcija produkcija : listaGramtickihProdukcija) {
 
-			for (String desnaStrana : produkcija.getDesnaStrana()) {
-				String lijevo = produkcija.getLijevaStrana();
-				String desno = desnaStrana;
-				napraviSvePrijelazeStockicom(lijevo, desno);
+			String lijevo=produkcija.getLijevaStrana();
+			
+			for(int i=0;i<produkcija.getDesnaStrana().size();i++){
+				Produkcija novaProdukcija=new Produkcija(lijevo);
+				if(i==0){
+					novaProdukcija.setLjevoOdTockice(null);
+					novaProdukcija.setDesnoOdTockice(produkcija.getDesnaStrana());
+					
+				}
+				else if(i==produkcija.getDesnaStrana().size()-1){
+					novaProdukcija.setLjevoOdTockice(produkcija.getDesnaStrana());
+					novaProdukcija.setDesnoOdTockice(null);
+					
+				}
+				else{
+					
+				}
+				
 			}
-
 		}
 
 	}
 
-	private static void napraviSvePrijelazeStockicom(String lijevo, String desno) {
-		String[] desnoKaoPolje = desno.split("");
-		System.out.println(desnoKaoPolje);
-
-	}
 
 	private static int getIndex(String string, List<GramatickaProdukcija> list) {
 		int i = 0;

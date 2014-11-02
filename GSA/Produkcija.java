@@ -35,5 +35,17 @@ public class Produkcija {
 	public List<String> getZapocinje() {
 		return zapocinje;
 	}
+
+	public void setLeft(String left) {
+		this.left = left;
+	}
+
+	public void setLjevoOdTockice(List<String> ljevoOdTockice) {
+		this.ljevoOdTockice = ljevoOdTockice;
+	}
+
+	public void setDesnoOdTockice(List<String> desnoOdTockice) {
+		this.desnoOdTockice = desnoOdTockice;
+	}
 	
 }
