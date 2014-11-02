@@ -1,15 +1,15 @@
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Stanje {
 	private String imeStanja;
-	private ArrayList<Prijelaz> listaPrijelaza = new ArrayList<Prijelaz>();
+	private List<Prijelaz> listaPrijelaza = new ArrayList<Prijelaz>();
 	
 	public Stanje(String imeStanja) {
 		super();
 		this.imeStanja = imeStanja;
 	}
-
 	
 	public void dodajPrijelaz(Prijelaz novi){
 		listaPrijelaza.add(novi);		
@@ -26,7 +26,7 @@ public class Stanje {
 	}
 
 
-	public ArrayList<Prijelaz> getListaPrijelaza() {
+	public List<Prijelaz> getListaPrijelaza() {
 		if(listaPrijelaza.isEmpty()){
 			return null;
 		}
