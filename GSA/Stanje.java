@@ -40,6 +40,12 @@ public class Stanje {
 		}
 
 	}
+	public void setZnakoviPrijelaza(List<Prijelaz> novo){
+		listaPrijelaza.clear();
+		for(Prijelaz prijelaz : novo){
+			listaPrijelaza.add(new Prijelaz(prijelaz.getZnak(), prijelaz.getNovoStanje()));
+		}
+	}
 
 	public List<String> getZnakoviPrijelaza() {
 		List<String> nadeniZnakovi = new ArrayList<String>();
@@ -71,10 +77,11 @@ public class Stanje {
 		}
 	}
 	
-	// obavezno dodati, ista su ako imaju ista imena
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		if(! (obj instanceof Stanje)){
+			return false;
+		}
+		return this.imeStanja.equals(((Stanje) obj).getImeStanja());
 	}
 }

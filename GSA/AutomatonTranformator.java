@@ -29,7 +29,11 @@ public class AutomatonTranformator {
 		
 	}
 
-	public Automat eNkaToNka(Automat eNka) {
+	public Automat eNkaToDka(Automat eNka) {
+		return nkaToDka(eNkaToNka(eNka));
+	}
+
+	private Automat eNkaToNka(Automat eNka) {
 		Automat nka = new Automat();
 		
 		
@@ -60,13 +64,16 @@ public class AutomatonTranformator {
 		return nka;
 	}
 
-	public Automat nkaToDka(Automat nka) {
+	private Automat nkaToDka(Automat nka) {
 		Automat dka = new Automat();
 
 		return dka;
 	}
 
 	private void srediPrijelazeNkaDka(Stanje stanje, List<Stanje> stvorenaStanja) {
+
+		List<Prijelaz> noviPrijelazi = new ArrayList<Prijelaz>();
+
 		for (String znak : stanje.getZnakoviPrijelaza()) {
 			List<Prijelaz> prijelazi = stanje.getListaPrijelazaPoZnaku(znak);
 
@@ -74,35 +81,45 @@ public class AutomatonTranformator {
 
 			for (Prijelaz prijelaz : prijelazi) {
 				imeStanja += prijelaz.getNovoStanje().getImeStanja();
-
 			}
-			
+
 			Stanje novoStanje = new Stanje(imeStanja);
-			
+
 			if (stvorenaStanja.contains(novoStanje)) {
-				//vec postoji, promjeni referencu na njega
+				// vec postoji, promjeni referencu na njega
 				for (Stanje stanjeIzListe : stvorenaStanja) {
 					if (stanjeIzListe.equals(novoStanje)) {
 						novoStanje = stanjeIzListe;
 						break;
 					}
 				}
-			} else { //stvori ga spajanje ova dva stanja
+			} else { // stvori ga spajanje ova dva stanja
 				for (Prijelaz prijelaz : prijelazi) {
-					novoStanje.dodajProdukcij(prijelaz.getNovoStanje().getlistuProdukcija().get(0));
-					for(Prijelaz buduciPrijelaz:prijelaz.getNovoStanje().getListaPrijelaza()){
-						//pazi da ne dodajes duplo
-						novoStanje.dodajPrijelaz(buduciPrijelaz);
+
+					for (Produkcija produkcija : prijelaz.getNovoStanje()
+							.getlistuProdukcija()) {
+						if (!novoStanje.getlistuProdukcija().contains(
+								produkcija)) {
+							novoStanje.dodajProdukcij(produkcija);
+						}
+					}
+					for (Prijelaz buduciPrijelaz : prijelaz.getNovoStanje()
+							.getListaPrijelaza()) {
+						if (!novoStanje.getListaPrijelaza().contains(
+								buduciPrijelaz)) {
+							novoStanje.dodajPrijelaz(buduciPrijelaz);
+						}
 					}
 
 				}
 				stvorenaStanja.add(novoStanje);
-				//sad sredi njega
+				// sad sredi njega
 				srediPrijelazeNkaDka(novoStanje, stvorenaStanja);
 			}
-			
-			
+			noviPrijelazi.add(new Prijelaz(znak, novoStanje));
+
 		}
+		stanje.setZnakoviPrijelaza(noviPrijelazi);
 
 	}
 
@@ -131,7 +148,7 @@ public class AutomatonTranformator {
 
 	}
 
-	public List<Stanje> getEpsilonOkruzenje(List<Stanje> stanja) {
+	private List<Stanje> getEpsilonOkruzenje(List<Stanje> stanja) {
 
 		List<Stanje> okruzenje = new ArrayList<Stanje>();
 		for (Stanje stanje : stanja) {
