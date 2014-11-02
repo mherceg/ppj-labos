@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class GramatickaProdukcija {
 	private String lijevaStrana;
-	private List<String> desnaStrana;
+	private List<String> desnaStrana=new ArrayList<String>();
 
 	public GramatickaProdukcija(String lijevaStrana) {
 
