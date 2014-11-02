@@ -11,6 +11,7 @@ public class GSA {
 		
 		Definator definator = new Definator();
 		String line;
+		Automat eNKA=new Automat();
 		
 		List<GramatickaProdukcija> listaGramtickihProdukcija = new ArrayList<GramatickaProdukcija>();
 		
