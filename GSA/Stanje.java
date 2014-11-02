@@ -1,17 +1,30 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Stanje {
+public class Stanje{
 	private String imeStanja;
-	private List<Prijelaz> listaPrijelaza = new ArrayList<Prijelaz>();
-	private List<Produkcija> listaProdukcija = new ArrayList<Produkcija>();
+	private List<Prijelaz> listaPrijelaza;
+	private List<Produkcija> listaProdukcija;
 
 	public Stanje(String imeStanja) {
 		super();
 		this.imeStanja = imeStanja;
+		listaPrijelaza = new ArrayList<Prijelaz>();
+		listaProdukcija = new ArrayList<Produkcija>();
 	}
 
-
+	public Stanje(Stanje drugo) {
+		listaPrijelaza = new ArrayList<Prijelaz>();
+		listaProdukcija = new ArrayList<Produkcija>();
+		
+		this.imeStanja = new String(drugo.getImeStanja());
+		for(Prijelaz prijelaz:drugo.getListaPrijelaza()){
+			this.listaPrijelaza.add(new Prijelaz(prijelaz));
+		}
+		for(Produkcija produkcija : drugo.getlistuProdukcija()){
+			this.listaProdukcija.add(new Produkcija(produkcija));
+		}
+	}
 	
 	public void dodajProdukcij(Produkcija nova){
 		listaProdukcija.add(nova);
@@ -84,4 +97,10 @@ public class Stanje {
 		}
 		return this.imeStanja.equals(((Stanje) obj).getImeStanja());
 	}
+	
+	@Override
+	public int hashCode() {
+		return this.getImeStanja().hashCode();
+	}
+
 }

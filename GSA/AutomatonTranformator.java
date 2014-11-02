@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.TreeSet;
 
 public class AutomatonTranformator {
 	
@@ -23,8 +25,28 @@ public class AutomatonTranformator {
 		novi.dodajStanje(trece);
 		novi.setPocetnoStanje(prvo);
 		
+		Stanje prvo2= new Stanje("0");
+		Stanje drugo2= new Stanje("1");
+
+		prvo2.dodajPrijelaz(new Prijelaz("0", prvo2));
+		prvo2.dodajPrijelaz(new Prijelaz("0", drugo2));
+		prvo2.dodajPrijelaz(new Prijelaz("1", drugo2));
+
+		drugo2.dodajPrijelaz(new Prijelaz("1", prvo2));
+		drugo2.dodajPrijelaz(new Prijelaz("1", drugo2));
+		
+		prvo2.dodajProdukcij(new Produkcija("nekaj"));
+		drugo2.dodajProdukcij(new Produkcija("nekaj"));
+		
+		Automat novi2= new Automat();
+		novi2.dodajStanje(prvo2);
+		novi2.dodajStanje(drugo2);
+		novi2.setPocetnoStanje(prvo2);
+		
+		
 		AutomatonTranformator auto= new AutomatonTranformator();
-		auto.eNkaToNka(novi);
+//		Automat nka = auto.eNkaToNka(novi);
+		Automat dka = auto.nkaToDka(novi2);
 		System.out.println(1);
 		
 	}
@@ -41,10 +63,17 @@ public class AutomatonTranformator {
 		for (Stanje staroStanje : eNka.getStanja()) {
 
 			Stanje novoStanje = new Stanje(staroStanje.getImeStanja());
+			
+			if(staroStanje.equals(eNka.getPocetnoStanje())){
+				nka.setPocetnoStanje(novoStanje);
+			}
+			
 			List<String> znakoviPrijelaza = staroStanje.getZnakoviPrijelaza();
 
 			for (String znak : znakoviPrijelaza) {
-
+				if (znak.equals("$")){
+					continue;
+				}
 				List<Stanje> staroStanjeUListi = new ArrayList<Stanje>();
 				staroStanjeUListi.add(staroStanje);
 
@@ -59,6 +88,9 @@ public class AutomatonTranformator {
 				novoStanje.dodajProdukcij(staroStanje.getlistuProdukcija().get(
 						0));
 			}
+			if(novoStanje.getlistuProdukcija().isEmpty()){
+				continue;
+			}
 			nka.dodajStanje(novoStanje);
 		}
 		return nka;
@@ -66,7 +98,17 @@ public class AutomatonTranformator {
 
 	private Automat nkaToDka(Automat nka) {
 		Automat dka = new Automat();
-
+		List<Stanje> stvorenaStanja = new ArrayList<Stanje>();
+		Stanje dkaPocetno = new Stanje(nka.getPocetnoStanje());
+		dka.setPocetnoStanje(dkaPocetno);
+		
+		stvorenaStanja.add(dkaPocetno);
+		srediPrijelazeNkaDka(dkaPocetno, stvorenaStanja);
+		
+		for(Stanje stanje:stvorenaStanja){
+			dka.dodajStanje(stanje);
+		}
+		
 		return dka;
 	}
 
@@ -74,9 +116,15 @@ public class AutomatonTranformator {
 
 		List<Prijelaz> noviPrijelazi = new ArrayList<Prijelaz>();
 
+		System.out.println(stanje.getZnakoviPrijelaza());
 		for (String znak : stanje.getZnakoviPrijelaza()) {
-			List<Prijelaz> prijelazi = stanje.getListaPrijelazaPoZnaku(znak);
+			//preventivno
+			if(znak.equals("$")){
+				continue;
+			}
 
+			List<Prijelaz> prijelazi = stanje.getListaPrijelazaPoZnaku(znak);
+			
 			String imeStanja = new String();
 
 			for (Prijelaz prijelaz : prijelazi) {
@@ -98,17 +146,15 @@ public class AutomatonTranformator {
 
 					for (Produkcija produkcija : prijelaz.getNovoStanje()
 							.getlistuProdukcija()) {
-						if (!novoStanje.getlistuProdukcija().contains(
-								produkcija)) {
+						
 							novoStanje.dodajProdukcij(produkcija);
-						}
+						
 					}
 					for (Prijelaz buduciPrijelaz : prijelaz.getNovoStanje()
 							.getListaPrijelaza()) {
-						if (!novoStanje.getListaPrijelaza().contains(
-								buduciPrijelaz)) {
+						
 							novoStanje.dodajPrijelaz(buduciPrijelaz);
-						}
+						
 					}
 
 				}
