@@ -1,4 +1,4 @@
-public class Prijelaz{
+public class  Prijelaz implements Comparable<Prijelaz>{
 	private String znak;
 	private Stanje novoStanje;
 
@@ -33,6 +33,12 @@ public class Prijelaz{
 			return false;
 		}
 		return this.znak.equals(((Prijelaz) obj).getZnak()) && this.novoStanje.equals(((Prijelaz) obj).getNovoStanje());
+	}
+
+
+	@Override
+	public int compareTo(Prijelaz o) {
+		return this.novoStanje.hashCode()-o.hashCode();
 	}
 	
 

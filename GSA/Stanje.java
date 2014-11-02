@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 
 public class Stanje{
 	private String imeStanja;
@@ -60,8 +61,8 @@ public class Stanje{
 		}
 	}
 
-	public List<String> getZnakoviPrijelaza() {
-		List<String> nadeniZnakovi = new ArrayList<String>();
+	public TreeSet<String> getZnakoviPrijelaza() {
+		TreeSet<String> nadeniZnakovi = new TreeSet<String>();
 		for (Prijelaz prijelaz : this.listaPrijelaza) {
 			if (!nadeniZnakovi.contains(prijelaz.getZnak())) {
 				nadeniZnakovi.add(prijelaz.getZnak());
@@ -70,8 +71,8 @@ public class Stanje{
 		return nadeniZnakovi;
 	}
 
-	public List<Prijelaz> getListaPrijelazaPoZnaku(String znak) {
-		List<Prijelaz> nadeniPrijelazi = new ArrayList<Prijelaz>();
+	public TreeSet<Prijelaz> getListaPrijelazaPoZnaku(String znak) {
+		TreeSet<Prijelaz> nadeniPrijelazi = new TreeSet<Prijelaz>();
 		for (Prijelaz prijelaz : this.listaPrijelaza) {
 			if (prijelaz.getZnak().equals(znak)) {
 				nadeniPrijelazi.add(prijelaz);

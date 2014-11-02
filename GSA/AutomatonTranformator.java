@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -68,7 +67,7 @@ public class AutomatonTranformator {
 				nka.setPocetnoStanje(novoStanje);
 			}
 			
-			List<String> znakoviPrijelaza = staroStanje.getZnakoviPrijelaza();
+			TreeSet<String> znakoviPrijelaza = staroStanje.getZnakoviPrijelaza();
 
 			for (String znak : znakoviPrijelaza) {
 				if (znak.equals("$")){
@@ -115,7 +114,7 @@ public class AutomatonTranformator {
 	private void srediPrijelazeNkaDka(Stanje stanje, List<Stanje> stvorenaStanja) {
 
 		List<Prijelaz> noviPrijelazi = new ArrayList<Prijelaz>();
-
+		// zasto se tu pojavljuje $ kad stvaram iz eNka?
 		System.out.println(stanje.getZnakoviPrijelaza());
 		for (String znak : stanje.getZnakoviPrijelaza()) {
 			//preventivno
@@ -123,7 +122,7 @@ public class AutomatonTranformator {
 				continue;
 			}
 
-			List<Prijelaz> prijelazi = stanje.getListaPrijelazaPoZnaku(znak);
+			TreeSet<Prijelaz> prijelazi = stanje.getListaPrijelazaPoZnaku(znak);
 			
 			String imeStanja = new String();
 
