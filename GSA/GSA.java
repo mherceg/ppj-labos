@@ -19,9 +19,10 @@ public class GSA {
 
 	static List<GramatickaProdukcija> listaGramtickihProdukcija = new ArrayList<GramatickaProdukcija>();
 
+	static List<Produkcija> listaProdukcija = new LinkedList<Produkcija>();
+
 	static BufferedReader reader = new BufferedReader(new InputStreamReader(
 			System.in));
-	static List<Produkcija> listaProdukcija = new ArrayList<Produkcija>();
 
 	public static void main(String[] args) {
 
@@ -92,6 +93,10 @@ public class GSA {
 		}
 
 		izGramatickihProdukcijaNapraviProdukcije();
+		System.out.println();
+		System.out.println();
+		
+		ispisiProdukcije();
 
 		try {
 			reader.close();
@@ -101,23 +106,55 @@ public class GSA {
 
 	}
 
+	private static void ispisiProdukcije() {
+		for(Produkcija prod:listaProdukcija){
+			prod.ispisi();
+		}
+		
+	}
+
 	private static void izGramatickihProdukcijaNapraviProdukcije() {
 
 		for (GramatickaProdukcija produkcija : listaGramtickihProdukcija) {
 
-			for (String desnaStrana : produkcija.getDesnaStrana()) {
-				String lijevo = produkcija.getLijevaStrana();
-				String desno = desnaStrana;
-				napraviSvePrijelazeStockicom(lijevo, desno);
+			String lijevo = produkcija.getLijevaStrana();
+
+			for (int i = 0; i <= produkcija.getDesnaStrana().size(); i++) {
+				Produkcija novaProdukcija = new Produkcija(lijevo);
+				if (i == 0) {
+					novaProdukcija.setLjevoOdTockice(null);
+					novaProdukcija.setDesnoOdTockice(produkcija
+							.getDesnaStrana());
+					listaProdukcija.add(novaProdukcija);
+
+				} else if (i == produkcija.getDesnaStrana().size()) {
+					novaProdukcija.setLjevoOdTockice(produkcija
+							.getDesnaStrana());
+					novaProdukcija.setDesnoOdTockice(null);
+					listaProdukcija.add(novaProdukcija);
+
+				} else {
+					List<String> pomList = new LinkedList<String>();
+					for (int j = 0; j < i; j++) {
+						pomList.add(produkcija.getDesnaStrana().get(j));
+
+					}
+					novaProdukcija.setLjevoOdTockice(pomList);
+
+					pomList.clear();
+
+					for (int j = i; j < produkcija.getDesnaStrana().size(); j++) {
+						pomList.add(produkcija.getDesnaStrana().get(j));
+
+					}
+					novaProdukcija.setDesnoOdTockice(pomList);
+
+					listaProdukcija.add(novaProdukcija);
+
+				}
+
 			}
-
 		}
-
-	}
-
-	private static void napraviSvePrijelazeStockicom(String lijevo, String desno) {
-		String[] desnoKaoPolje = desno.split("");
-		System.out.println(desnoKaoPolje);
 
 	}
 
