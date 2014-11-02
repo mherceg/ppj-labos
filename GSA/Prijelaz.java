@@ -1,8 +1,8 @@
 public class Prijelaz {
 	private String znak;
-	private String novoStanje;
+	private Stanje novoStanje;
 
-	public Prijelaz(String znak, String novoStanje) {
+	public Prijelaz(String znak, Stanje novoStanje) {
 		this.znak = znak;
 		this.novoStanje = novoStanje;
 	}
@@ -15,11 +15,11 @@ public class Prijelaz {
 		this.znak = znak;
 	}
 
-	public String getNovoStanje() {
+	public Stanje getNovoStanje() {
 		return novoStanje;
 	}
 
-	public void setNovoStanje(String novoStanje) {
+	public void setNovoStanje(Stanje novoStanje) {
 		this.novoStanje = novoStanje;
 	}
 
