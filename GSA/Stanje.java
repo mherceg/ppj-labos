@@ -15,6 +15,10 @@ public class Stanje {
 	public void dodajPrijelaz(Prijelaz novi){
 		listaPrijelaza.add(novi);		
 	}
+	
+	public void dodajProdukcij(Produkcija nova){
+		listaProdukcija.add(nova);
+	}
 
 
 	public String getImeStanja() {
