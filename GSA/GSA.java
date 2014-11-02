@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class GSA {
@@ -15,7 +16,7 @@ public class GSA {
 
 	static BufferedReader reader = new BufferedReader(new InputStreamReader(
 			System.in));
-	static List<Produkcija> listaProdukcija=new ArrayList<Produkcija>();
+	static List<Produkcija> listaProdukcija = new ArrayList<Produkcija>();
 
 	public static void main(String[] args) {
 
@@ -39,21 +40,35 @@ public class GSA {
 		List<String> vecPunjeniNezavrsniZnakovi = new ArrayList<String>();
 		GramatickaProdukcija tempGramtickaProdukcija = new GramatickaProdukcija();
 
+		boolean dodaj = true;
+
 		try {
 			line = reader.readLine();
-			while (line != null) {
+			while (line != null && !line.isEmpty()) {
 				if (line.startsWith("<")) {
+					tempGramtickaProdukcija = new GramatickaProdukcija();
 					if (vecPunjeniNezavrsniZnakovi.contains(line)) {
+						dodaj = false;
 						tempGramtickaProdukcija = listaGramtickihProdukcija
 								.get(getIndex(line, listaGramtickihProdukcija));
 					} else {
+						dodaj = true;
 						tempGramtickaProdukcija.setLijevaStrana(line);
 						vecPunjeniNezavrsniZnakovi.add(line);
 					}
+					line = reader.readLine();
 				} else {
-					while ((line = reader.readLine()).startsWith("\\s")) {
+					while (Character.isWhitespace(line.charAt(0))) {
 						tempGramtickaProdukcija
 								.dodajNoviDesniIzraz(line.trim());
+						line = reader.readLine();
+						if (line == null || line.isEmpty()) {
+							break;
+						}
+					}
+					if (dodaj) {
+						listaGramtickihProdukcija.add(tempGramtickaProdukcija);
+
 					}
 				}
 			}
@@ -82,32 +97,31 @@ public class GSA {
 	}
 
 	private static void izGramatickihProdukcijaNapraviProdukcije() {
-		
 
 		for (GramatickaProdukcija produkcija : listaGramtickihProdukcija) {
-			
-			for(String desnaStrana: produkcija.getDesnaStrana()){
-				String lijevo=produkcija.getLijevaStrana();
-				String desno=desnaStrana;
-				napraviSvePrijelazeStockicom(lijevo,desno);
+
+			for (String desnaStrana : produkcija.getDesnaStrana()) {
+				String lijevo = produkcija.getLijevaStrana();
+				String desno = desnaStrana;
+				napraviSvePrijelazeStockicom(lijevo, desno);
 			}
-			
+
 		}
 
 	}
 
-
-
 	private static void napraviSvePrijelazeStockicom(String lijevo, String desno) {
-		String[] desnoKaoPolje=desno.split("");
+		String[] desnoKaoPolje = desno.split("");
 		System.out.println(desnoKaoPolje);
-		
+
 	}
 
 	private static int getIndex(String string, List<GramatickaProdukcija> list) {
 		int i = 0;
+		System.out.println(list.size());
 		for (GramatickaProdukcija gramatickaProdukcija : list) {
 			if (gramatickaProdukcija.getLijevaStrana().equals(string)) {
+
 				return i;
 			} else {
 				i++;
