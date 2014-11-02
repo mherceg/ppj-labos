@@ -5,6 +5,8 @@ public class Automat {
 	private List<Stanje> stanja = new ArrayList<Stanje>();
 	private Stanje pocetnoStanje;
 
+	
+	
 	public void dodajStanje(Stanje novoStanje) {
 		stanja.add(novoStanje);
 
