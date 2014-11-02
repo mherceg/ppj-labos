@@ -22,5 +22,12 @@ public class Prijelaz {
 	public void setNovoStanje(Stanje novoStanje) {
 		this.novoStanje = novoStanje;
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if(!( obj instanceof Prijelaz)){
+			return false;
+		}
+		return this.znak.equals(((Prijelaz) obj).getZnak()) && this.novoStanje.equals(((Prijelaz) obj).getNovoStanje());
+	}
 
 }
