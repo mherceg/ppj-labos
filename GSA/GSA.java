@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -10,6 +11,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
 public class GSA {
 
 	static Automat eNKA = new Automat();
@@ -20,9 +25,10 @@ public class GSA {
 
 	static List<GramatickaProdukcija> listaGramtickihProdukcija = new LinkedList<GramatickaProdukcija>();
 
+	static List<Produkcija> listaProdukcija = new LinkedList<Produkcija>();
+
 	static BufferedReader reader = new BufferedReader(new InputStreamReader(
 			System.in));
-	static List<Produkcija> listaProdukcija = new ArrayList<Produkcija>();
 
 	public static void main(String[] args) {
 
@@ -102,6 +108,10 @@ public class GSA {
 		System.out.println("#");
 		
 		izGramatickihProdukcijaNapraviProdukcije();
+		System.out.println();
+		System.out.println();
+		
+		ispisiProdukcije();
 
 		try {
 			reader.close();
@@ -111,23 +121,55 @@ public class GSA {
 
 	}
 
+	private static void ispisiProdukcije() {
+		for(Produkcija prod:listaProdukcija){
+			prod.ispisi();
+		}
+		
+	}
+
 	private static void izGramatickihProdukcijaNapraviProdukcije() {
 
 		for (GramatickaProdukcija produkcija : listaGramtickihProdukcija) {
 
-			for (String desnaStrana : produkcija.getDesnaStrana()) {
-				String lijevo = produkcija.getLijevaStrana();
-				String desno = desnaStrana;
-				napraviSvePrijelazeStockicom(lijevo, desno);
+			String lijevo = produkcija.getLijevaStrana();
+
+			for (int i = 0; i <= produkcija.getDesnaStrana().size(); i++) {
+				Produkcija novaProdukcija = new Produkcija(lijevo);
+				if (i == 0) {
+					novaProdukcija.setLjevoOdTockice(null);
+					novaProdukcija.setDesnoOdTockice(produkcija
+							.getDesnaStrana());
+					listaProdukcija.add(novaProdukcija);
+
+				} else if (i == produkcija.getDesnaStrana().size()) {
+					novaProdukcija.setLjevoOdTockice(produkcija
+							.getDesnaStrana());
+					novaProdukcija.setDesnoOdTockice(null);
+					listaProdukcija.add(novaProdukcija);
+
+				} else {
+					List<String> pomList = new LinkedList<String>();
+					for (int j = 0; j < i; j++) {
+						pomList.add(produkcija.getDesnaStrana().get(j));
+
+					}
+					novaProdukcija.setLjevoOdTockice(pomList);
+
+					pomList.clear();
+
+					for (int j = i; j < produkcija.getDesnaStrana().size(); j++) {
+						pomList.add(produkcija.getDesnaStrana().get(j));
+
+					}
+					novaProdukcija.setDesnoOdTockice(pomList);
+
+					listaProdukcija.add(novaProdukcija);
+
+				}
+
 			}
-
 		}
-
-	}
-
-	private static void napraviSvePrijelazeStockicom(String lijevo, String desno) {
-		String[] desnoKaoPolje = desno.split("");
-		System.out.println(desnoKaoPolje);
 
 	}
 
@@ -195,6 +237,26 @@ public class GSA {
 			zapocinjeMap.put(gramatickaProdukcija.getLijevaStrana(), lista);
 		}				
 		
+	}
+	
+	private static void AutomatUTablice(Automat DKA) throws IOException, JAXBException{
+		
+		Tablica akcija = new Tablica();
+		Tablica novoStanje = new Tablica();
+		
+		akcija.setPocetno(DKA.getPocetnoStanje().getImeStanja());		
+		
+		FileWriter fw = new FileWriter("analizator/Akcija.xml");
+		JAXBContext context = JAXBContext.newInstance(Tablica.class);
+		Marshaller um = context.createMarshaller();
+		um.marshal(akcija, fw);
+		fw.close();
+		
+		fw = new FileWriter("analizator/NovoStanje.xml");
+		context = JAXBContext.newInstance(Tablica.class);
+		um = context.createMarshaller();
+		um.marshal(novoStanje, fw);
+		fw.close();
 	}
 
 }
