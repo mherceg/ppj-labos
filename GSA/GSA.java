@@ -1,10 +1,15 @@
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
 public class GSA {
 
@@ -128,6 +133,30 @@ public class GSA {
 			}
 		}
 		return -1;
+	}
+	
+	private static void AutomatUTablice(Automat DKA) throws IOException, JAXBException{
+		
+		Tablica akcija = new Tablica();
+		Tablica novoStanje = new Tablica();
+		
+		akcija.setPocetno(DKA.getPocetnoStanje().getImeStanja());
+		
+		
+		
+		
+		
+		FileWriter fw = new FileWriter("analizator/Akcija.xml");
+		JAXBContext context = JAXBContext.newInstance(Tablica.class);
+		Marshaller um = context.createMarshaller();
+		um.marshal(akcija, fw);
+		fw.close();
+		
+		fw = new FileWriter("analizator/NovoStanje.xml");
+		context = JAXBContext.newInstance(Tablica.class);
+		um = context.createMarshaller();
+		um.marshal(novoStanje, fw);
+		fw.close();
 	}
 
 }
