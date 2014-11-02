@@ -40,6 +40,12 @@ public class Stanje {
 		}
 
 	}
+	public void setZnakoviPrijelaza(List<Prijelaz> novo){
+		listaPrijelaza.clear();
+		for(Prijelaz prijelaz : novo){
+			listaPrijelaza.add(new Prijelaz(prijelaz.getZnak(), prijelaz.getNovoStanje()));
+		}
+	}
 
 	public List<String> getZnakoviPrijelaza() {
 		List<String> nadeniZnakovi = new ArrayList<String>();
