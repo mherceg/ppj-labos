@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class GSA {	
 
@@ -11,7 +12,7 @@ public class GSA {
 		Definator definator = new Definator();
 		String line;
 		
-		List<GramatickeProdukcije> listaGramtickihProdukcija = new ArrayList<GramatickaProdukcija>();
+		List<GramatickaProdukcija> listaGramtickihProdukcija = new ArrayList<GramatickaProdukcija>();
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -23,29 +24,46 @@ public class GSA {
 			e.printStackTrace();
 		}
 		
-		/*System.out.println(definator.getNezavrsniZnakovi().toString());
+		System.out.println(definator.getNezavrsniZnakovi().toString());
 		System.out.println(definator.getZavrsniZnakovi().toString());
-		System.out.println(definator.getSinkronizacijskiZnakovi().toString());*/
+		System.out.println(definator.getSinkronizacijskiZnakovi().toString());
 		
-		List<String> vecPunjeniNezavrsniZnakovi = new ArrayList<>();
-		GramatickaProdukcija tempGramtickaProdukcija = new GramtickaProdukcija();
+		System.out.println();
 		
+		List<String> vecPunjeniNezavrsniZnakovi = new ArrayList<String>();
+		GramatickaProdukcija tempGramtickaProdukcija = new GramatickaProdukcija();
+				
 		try {
-			while((line = reader.readLine()) != null){
+			line = reader.readLine();
+			while(line != null){
 				if(line.startsWith("<")){
-					tempGramtickaProdukcija.setLijevaStrana(line);
+					if(vecPunjeniNezavrsniZnakovi.contains(line)){
+						tempGramtickaProdukcija = listaGramtickihProdukcija.get(getIndex(line, listaGramtickihProdukcija));
+					}
+					else{
+						tempGramtickaProdukcija.setLijevaStrana(line);
+						vecPunjeniNezavrsniZnakovi.add(line);						
+					}						
+				}
+				else{
 					while((line = reader.readLine()).startsWith("\\s")){
-						tempGramtickaProdukcija.
+						tempGramtickaProdukcija.dodajNoviDesniIzraz(line.trim());
 					}
 				}
-				
-				
 			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 		
-		
+		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
+			System.out.print(gramatickaProdukcija.getLijevaStrana());
+			System.out.print(" -> ");
+			List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
+			for(String s : desneStrane){
+				System.out.print(s + "|");
+			}
+			System.out.println();			
+		}
 		
 		
 		
@@ -60,6 +78,19 @@ public class GSA {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	private static int getIndex(String string, List<GramatickaProdukcija> list){
+		int i=0;
+		for(GramatickaProdukcija gramatickaProdukcija : list){
+			if(gramatickaProdukcija.getLijevaStrana().equals(string)){
+				return i;
+			}
+			else{
+				i++;
+			}
+		}		
+		return -1;
 	}
 	
 }
