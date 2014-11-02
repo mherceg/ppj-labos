@@ -2,9 +2,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AutomatonTranformator {
+	
+	public static void main(String[] args) {
+		Stanje prvo= new Stanje("0");
+		Stanje drugo= new Stanje("1");
+		Stanje trece = new Stanje("2");
+		prvo.dodajPrijelaz(new Prijelaz("0", prvo));
+		prvo.dodajPrijelaz(new Prijelaz("$", drugo));
+		drugo.dodajPrijelaz(new Prijelaz("1", drugo));
+		drugo.dodajPrijelaz(new Prijelaz("$", trece));
+		trece.dodajPrijelaz(new Prijelaz("2", trece));
+		
+		prvo.dodajProdukcij(new Produkcija("nekaj"));
+		drugo.dodajProdukcij(new Produkcija("nekaj"));
+		trece.dodajProdukcij(new Produkcija("nekaj"));
+		
+		Automat novi= new Automat();
+		novi.dodajStanje(prvo);
+		novi.dodajStanje(drugo);
+		novi.dodajStanje(trece);
+		novi.setPocetnoStanje(prvo);
+		
+		AutomatonTranformator auto= new AutomatonTranformator();
+		auto.eNkaToNka(novi);
+		System.out.println(1);
+		
+	}
 
 	public Automat eNkaToNka(Automat eNka) {
 		Automat nka = new Automat();
+		
+		
 
 		for (Stanje staroStanje : eNka.getStanja()) {
 
