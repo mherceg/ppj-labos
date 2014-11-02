@@ -77,10 +77,11 @@ public class Stanje {
 		}
 	}
 	
-	// obavezno dodati, ista su ako imaju ista imena
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		if(! (obj instanceof Stanje)){
+			return false;
+		}
+		return this.imeStanja.equals(((Stanje) obj).getImeStanja());
 	}
 }
