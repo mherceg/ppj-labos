@@ -21,7 +21,26 @@ public class GSA {
 			e.printStackTrace();
 		}
 		
+		/*System.out.println(definator.getNezavrsniZnakovi().toString());
+		System.out.println(definator.getZavrsniZnakovi().toString());
+		System.out.println(definator.getSinkronizacijskiZnakovi().toString());*/
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		try {
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
