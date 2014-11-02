@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class eNKA {
+public class Automat {
 	private List<Stanje> stanja = new ArrayList<Stanje>();
 
-	public eNKA(Stanje pocetnoStanje) {
+	public Automat(Stanje pocetnoStanje) {
 
 		dodajStanje(pocetnoStanje);
 	}

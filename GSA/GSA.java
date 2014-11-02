@@ -11,6 +11,7 @@ public class GSA {
 		String line;
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		Stanje stanjeUuctavanju;
 		
 		try {
 			definator.dodajNezavrsnuListu(Arrays.asList(reader.readLine().replace("%V ","").split("\\s+")));
@@ -24,7 +25,15 @@ public class GSA {
 		System.out.println(definator.getZavrsniZnakovi().toString());
 		System.out.println(definator.getSinkronizacijskiZnakovi().toString());*/
 		
-		
+		try {
+			while((line = reader.readLine()) != null){
+				
+				
+				
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 		
 		
 		
