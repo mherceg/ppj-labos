@@ -3,16 +3,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class GSA {
 
 	static Automat eNKA = new Automat();
 	static Definator definator = new Definator();
 	static String line;
+	
+	static HashMap<String, List<String>> zapocinjeMap = new HashMap<String, List<String>>();
 
-	static List<GramatickaProdukcija> listaGramtickihProdukcija = new ArrayList<GramatickaProdukcija>();
+	static List<GramatickaProdukcija> listaGramtickihProdukcija = new LinkedList<GramatickaProdukcija>();
 
 	static BufferedReader reader = new BufferedReader(new InputStreamReader(
 			System.in));
@@ -85,7 +91,16 @@ public class GSA {
 			}
 			System.out.println();
 		}
-
+		
+		izracunajSkupoveZapocinje();
+		
+		System.out.println("#");
+		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
+			System.out.print(gramatickaProdukcija.getLijevaStrana() + " -> ");
+			System.out.println(zapocinjeMap.get(gramatickaProdukcija.getLijevaStrana()));
+		}
+		System.out.println("#");
+		
 		izGramatickihProdukcijaNapraviProdukcije();
 
 		try {
@@ -128,6 +143,58 @@ public class GSA {
 			}
 		}
 		return -1;
+	}
+	
+	private static void izracunajSkupoveZapocinje(){
+		List<String> produkcijeSaEpsilonom = new ArrayList<String>();
+		
+		Map<String, Set<String>> pomocnaMapa = new HashMap<String, Set<String>>();
+		
+		// Ubacim sve osim epsilone u kam ide.. cak i nezavrsne znakove
+		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
+			Set<String> zapocinje = new HashSet<String>();
+			List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
+			for(String desnaStrana : desneStrane){
+				String[] znakoviDesneStrane = desnaStrana.split("\\s+");
+				if(znakoviDesneStrane[0].equals("$")){
+					produkcijeSaEpsilonom.add(gramatickaProdukcija.getLijevaStrana());
+				}
+				else{
+					zapocinje.add(znakoviDesneStrane[0]);
+				}
+			}
+			pomocnaMapa.put(gramatickaProdukcija.getLijevaStrana(), zapocinje);
+		}
+		
+		// Pobrinem se za epsilone -> ako neki nezavrsni ide u epsilom, u desnim stranama tih produkcija
+		// pretvorim taj zavesni u sve kaj on ide.
+		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
+			Set<String> zapocinje = pomocnaMapa.get(gramatickaProdukcija.getLijevaStrana());
+			for(GramatickaProdukcija gramatickaProdukcija2 : listaGramtickihProdukcija){
+				if(zapocinje.contains(gramatickaProdukcija2.getLijevaStrana()) &&
+						produkcijeSaEpsilonom.contains(gramatickaProdukcija2.getLijevaStrana())){
+					zapocinje.remove(gramatickaProdukcija2.getLijevaStrana());
+					zapocinje.addAll(pomocnaMapa.get(gramatickaProdukcija2.getLijevaStrana()));
+				}
+			}
+		}
+		
+		// Samo maknem sve preostale nezavrsne u kam ide
+		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
+			Set<String> zapocinje = pomocnaMapa.get(gramatickaProdukcija.getLijevaStrana());
+			for(GramatickaProdukcija gramatickaProdukcija2 : listaGramtickihProdukcija){
+				if(zapocinje.contains(gramatickaProdukcija2.getLijevaStrana())){
+					zapocinje.remove(gramatickaProdukcija2.getLijevaStrana());				
+				}
+			}
+		}
+		
+		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
+			List<String> lista = new ArrayList<String>();
+			lista.addAll(pomocnaMapa.get(gramatickaProdukcija.getLijevaStrana()));
+			zapocinjeMap.put(gramatickaProdukcija.getLijevaStrana(), lista);
+		}				
+		
 	}
 
 }
