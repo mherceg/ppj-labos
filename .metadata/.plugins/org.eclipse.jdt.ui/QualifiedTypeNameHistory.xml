@@ -8,4 +8,5 @@
 <fullyQualifiedTypeName name="javax.xml.bind.Marshaller"/>
 <fullyQualifiedTypeName name="java.io.StringWriter"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 </qualifiedTypeNameHistroy>
