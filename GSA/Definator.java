@@ -19,6 +19,18 @@ public class Definator {
 	public void dodajSinkronizacijskuListu(List list) {
 		sinkronizacijskiZnakovi=list;
 	}
+
+	public List<String> getZavrsniZnakovi() {
+		return zavrsniZnakovi;
+	}
+
+	public List<String> getNezavrsniZnakovi() {
+		return nezavrsniZnakovi;
+	}
+
+	public List<String> getSinkronizacijskiZnakovi() {
+		return sinkronizacijskiZnakovi;
+	}
 	
 	
 
