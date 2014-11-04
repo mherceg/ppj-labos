@@ -16,8 +16,20 @@ public class Produkcija {
 
 	}
 
+	public Produkcija(Produkcija produkcija) {
+		this.ljevoOdTockice = new ArrayList<String>();
+		this.desnoOdTockice = new ArrayList<String>();
+		this.zapocinje = new ArrayList<String>();
+		
+		this.left = new String(produkcija.left);
+		this.ljevoOdTockice.addAll(produkcija.getLjevoOdTockice());
+		this.desnoOdTockice.addAll(produkcija.getDesnoOdTockice());
+		this.zapocinje=produkcija.getZapocinje();
+	}
+
 	public void setZapocinje(List<String> zapocinje) {
-		this.zapocinje = zapocinje;
+		this.zapocinje.clear();
+		this.zapocinje.addAll(zapocinje);
 	}
 
 	public String getLeft() {

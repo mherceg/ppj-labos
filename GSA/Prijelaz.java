@@ -1,10 +1,15 @@
-public class Prijelaz {
+public class Prijelaz{
 	private String znak;
 	private Stanje novoStanje;
 
 	public Prijelaz(String znak, Stanje novoStanje) {
 		this.znak = znak;
 		this.novoStanje = novoStanje;
+	}
+
+	public Prijelaz(Prijelaz prijelaz) {
+		this.znak = new String(prijelaz.znak);
+		this.novoStanje = prijelaz.getNovoStanje();
 	}
 
 	public String getZnak() {
@@ -29,5 +34,7 @@ public class Prijelaz {
 		}
 		return this.znak.equals(((Prijelaz) obj).getZnak()) && this.novoStanje.equals(((Prijelaz) obj).getNovoStanje());
 	}
+	
+
 
 }
