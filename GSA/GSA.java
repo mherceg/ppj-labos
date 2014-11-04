@@ -135,19 +135,16 @@ public class GSA {
 			for (String pojedinacnaProdukcija : gramatickaProdukcija
 					.getDesnaStrana()) {
 				List<String> tempList = new ArrayList<String>();
-				String[] polje= pojedinacnaProdukcija.split(" ");
-				for(String prod: polje){
+				String[] polje = pojedinacnaProdukcija.split(" ");
+				for (String prod : polje) {
 					tempList.add(prod);
 				}
-				Produkcija novaProdukcija = new Produkcija(tempList);
-
-				novaProdukcija.ispisi();
+				Produkcija novaProdukcija = new Produkcija(
+						gramatickaProdukcija.getLijevaStrana(), tempList);
 
 				listaProdukcija.add(novaProdukcija);
 
 				Produkcija iterator = novaProdukcija.createNextProdukcija();
-
-				iterator.ispisi();
 
 				while (iterator != null) {
 					listaProdukcija.add(iterator);
