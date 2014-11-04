@@ -15,7 +15,9 @@ public class Produkcija {
 		this.ljevoOdTockice = new ArrayList<String>();
 		this.desnoOdTockice = new ArrayList<String>();
 		this.zapocinje = new ArrayList<String>();
-		this.desnoOdTockice.addAll(listZapocinje);
+
+		this.desnoOdTockice.addAll(tempList);
+		this.zapocinje.addAll(listZapocinje);
 
 	}
 
@@ -103,7 +105,7 @@ public class Produkcija {
 				sb.append(string);
 			}
 		}
-		return sb.toString() + "\n\n" + zapocinje.toString();
+		return sb.toString() + "\n" + zapocinje.toString() + "\n";
 	}
 
 	public void ispisi() {

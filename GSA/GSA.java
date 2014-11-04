@@ -134,7 +134,7 @@ public class GSA {
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
 			for (String pojedinacnaProdukcija : gramatickaProdukcija
 					.getDesnaStrana()) {
-				List<String> tempList = new ArrayList<String>();
+				List<String> tempList = new LinkedList<String>();
 				String[] polje = pojedinacnaProdukcija.split(" ");
 				for (String prod : polje) {
 					tempList.add(prod);
