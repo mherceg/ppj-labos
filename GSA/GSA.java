@@ -132,18 +132,30 @@ public class GSA {
 	private static void izGramatickihProdukcijaNapraviProdukcije() {
 
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
+			for (String pojedinacnaProdukcija : gramatickaProdukcija
+					.getDesnaStrana()) {
+				List<String> tempList = new ArrayList<String>();
+				String[] polje= pojedinacnaProdukcija.split(" ");
+				for(String prod: polje){
+					tempList.add(prod);
+				}
+				Produkcija novaProdukcija = new Produkcija(tempList);
 
-			Produkcija novaProdukcija = new Produkcija(gramatickaProdukcija);
+				novaProdukcija.ispisi();
 
-			listaProdukcija.add(novaProdukcija);
+				listaProdukcija.add(novaProdukcija);
 
-			Produkcija iterator = novaProdukcija.createNextProdukcija();
+				Produkcija iterator = novaProdukcija.createNextProdukcija();
 
-			while (iterator != null) {
-				listaProdukcija.add(iterator);
-				iterator = iterator.createNextProdukcija();
+				iterator.ispisi();
+
+				while (iterator != null) {
+					listaProdukcija.add(iterator);
+					iterator = iterator.createNextProdukcija();
+
+				}
+
 			}
-
 		}
 
 	}
