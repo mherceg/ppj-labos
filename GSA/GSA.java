@@ -192,43 +192,66 @@ public class GSA {
 		
 		Map<String, Set<String>> pomocnaMapa = new HashMap<String, Set<String>>();
 		
+		//Potrpam u listu one sa epsilon prijalzima
+		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
+			List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
+			for(String desnaStrana : desneStrane){
+				if((Arrays.asList(desnaStrana.split("\\s+"))).contains("$")){
+					produkcijeSaEpsilonom.add(gramatickaProdukcija.getLijevaStrana());
+				}
+			}
+		}		
+		
 		// Ubacim sve osim epsilone u kam ide.. cak i nezavrsne znakove
 		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
 			Set<String> zapocinje = new HashSet<String>();
 			List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
 			for(String desnaStrana : desneStrane){
 				String[] znakoviDesneStrane = desnaStrana.split("\\s+");
-				if(znakoviDesneStrane[0].equals("$")){
-					produkcijeSaEpsilonom.add(gramatickaProdukcija.getLijevaStrana());
+				for(int i=0; i<znakoviDesneStrane.length; i++){
+					if(definator.getZavrsniZnakovi().contains(znakoviDesneStrane[i])){
+						zapocinje.add(znakoviDesneStrane[i]);
+						break;
+					}
+					if(i==0 && definator.getNezavrsniZnakovi().contains(znakoviDesneStrane[i])){
+						zapocinje.add(znakoviDesneStrane[i]);
+					}
+					if(i>0 && definator.getNezavrsniZnakovi().contains(znakoviDesneStrane[i]) &&
+							produkcijeSaEpsilonom.contains(znakoviDesneStrane[i-1])){
+						zapocinje.add(znakoviDesneStrane[i]);
+					}
+					if(!produkcijeSaEpsilonom.contains(znakoviDesneStrane[i])){
+						break;
+					}
+					
 				}
-				else{
+				if(znakoviDesneStrane.length != 0 && !znakoviDesneStrane[0].equals("$")){
 					zapocinje.add(znakoviDesneStrane[0]);
 				}
 			}
 			pomocnaMapa.put(gramatickaProdukcija.getLijevaStrana(), zapocinje);
 		}
 		
-		// Pobrinem se za epsilone -> ako neki nezavrsni ide u epsilom, u desnim stranama tih produkcija
-		// pretvorim taj zavesni u sve kaj on ide.
-		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
-			Set<String> zapocinje = pomocnaMapa.get(gramatickaProdukcija.getLijevaStrana());
-			for(GramatickaProdukcija gramatickaProdukcija2 : listaGramtickihProdukcija){
-				if(zapocinje.contains(gramatickaProdukcija2.getLijevaStrana()) &&
-						produkcijeSaEpsilonom.contains(gramatickaProdukcija2.getLijevaStrana())){
-					zapocinje.remove(gramatickaProdukcija2.getLijevaStrana());
-					zapocinje.addAll(pomocnaMapa.get(gramatickaProdukcija2.getLijevaStrana()));
-				}
+		boolean podesi = true;		// mijenja sve nezavrsne sa njegovom desnom stranom dok ne nestanu svi nezavrsni
+		while(podesi){
+			podesi = false;
+			for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
+				Set<String> zapocinje = pomocnaMapa.get(gramatickaProdukcija.getLijevaStrana());
+				zapocinje.remove(gramatickaProdukcija.getLijevaStrana());		// micem <A> -> <A> da nebude beskonacno
+				pomocnaMapa.put(gramatickaProdukcija.getLijevaStrana(), zapocinje);
 			}
-		}
-		
-		// Samo maknem sve preostale nezavrsne u kam ide
-		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
-			Set<String> zapocinje = pomocnaMapa.get(gramatickaProdukcija.getLijevaStrana());
-			for(GramatickaProdukcija gramatickaProdukcija2 : listaGramtickihProdukcija){
-				if(zapocinje.contains(gramatickaProdukcija2.getLijevaStrana())){
-					zapocinje.remove(gramatickaProdukcija2.getLijevaStrana());				
+			for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
+				Set<String> zapocinje = pomocnaMapa.get(gramatickaProdukcija.getLijevaStrana());
+				for(GramatickaProdukcija gramatickaProdukcija2 : listaGramtickihProdukcija){
+					if(zapocinje.contains(gramatickaProdukcija2.getLijevaStrana())){
+						podesi = true;
+						zapocinje.remove(gramatickaProdukcija2.getLijevaStrana());
+						zapocinje.addAll(pomocnaMapa.get(gramatickaProdukcija2.getLijevaStrana()));
+					}
 				}
+				pomocnaMapa.put(gramatickaProdukcija.getLijevaStrana(), zapocinje);
 			}
+			
 		}
 		
 		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
