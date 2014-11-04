@@ -140,7 +140,9 @@ public class GSA {
 					tempList.add(prod);
 				}
 				Produkcija novaProdukcija = new Produkcija(
-						gramatickaProdukcija.getLijevaStrana(), tempList);
+						gramatickaProdukcija.getLijevaStrana(),
+						tempList,
+						zapocinjeMap.get(gramatickaProdukcija.getLijevaStrana()));
 
 				listaProdukcija.add(novaProdukcija);
 

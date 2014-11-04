@@ -9,17 +9,13 @@ public class Produkcija {
 
 	private List<String> zapocinje;
 
-	public Produkcija(String left, List<String> desnaStrana) {
-		this.left = left;
-		this.ljevoOdTockice = new ArrayList<String>();
-		this.desnoOdTockice = new ArrayList<String>();
-		this.desnoOdTockice.addAll(desnaStrana);
-	}
-
-	public Produkcija(String nezavrsni) {
+	public Produkcija(String nezavrsni, List<String> tempList,
+			List<String> listZapocinje) {
 		this.left = nezavrsni;
 		this.ljevoOdTockice = new ArrayList<String>();
 		this.desnoOdTockice = new ArrayList<String>();
+		this.zapocinje = new ArrayList<String>();
+		this.desnoOdTockice.addAll(listZapocinje);
 
 	}
 
@@ -69,13 +65,12 @@ public class Produkcija {
 
 	/**
 	 * Stvara novu produkciju koja je jednaka trenutnoj osim sto je tockica za
-	 * jedno mjesto udesno.
-	 * Ako je tockica na kraju vraca null.
+	 * jedno mjesto udesno. Ako je tockica na kraju vraca null.
 	 * 
 	 * @return nova produkcija
 	 */
 	public Produkcija createNextProdukcija() {
-		if(this.getDesnoOdTockice().isEmpty()){
+		if (this.getDesnoOdTockice().isEmpty()) {
 			return null;
 		}
 		Produkcija novaProdukcija = new Produkcija(this);
@@ -92,23 +87,25 @@ public class Produkcija {
 		this.ljevoOdTockice.add(znakKojiPreskacem);
 
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.left).append("->");
-		if(!this.ljevoOdTockice.isEmpty()){
+		if (!this.ljevoOdTockice.isEmpty()) {
 			for (String string : ljevoOdTockice) {
 				sb.append(string);
 			}
 		}
 		sb.append("*");
-		if(!this.desnoOdTockice.isEmpty()){
+		if (!this.desnoOdTockice.isEmpty()) {
 			for (String string : desnoOdTockice) {
 				sb.append(string);
 			}
 		}
-		return sb.toString();
+		return sb.toString() + "\n\n" + zapocinje.toString();
 	}
+
 	public void ispisi() {
 		System.out.println(this.toString());
 	}
