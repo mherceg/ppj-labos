@@ -9,11 +9,11 @@ public class Produkcija {
 
 	private List<String> zapocinje;
 
-	public Produkcija(GramatickaProdukcija gp) {
-		this.left = gp.getLijevaStrana();
+	public Produkcija(String left, List<String> desnaStrana) {
+		this.left = left;
 		this.ljevoOdTockice = new ArrayList<String>();
 		this.desnoOdTockice = new ArrayList<String>();
-		this.desnoOdTockice.addAll(gp.getDesnaStrana());
+		this.desnoOdTockice.addAll(desnaStrana);
 	}
 
 	public Produkcija(String nezavrsni) {
@@ -88,29 +88,29 @@ public class Produkcija {
 	 */
 	private void pomakniTockicu() {
 		String znakKojiPreskacem = this.desnoOdTockice.get(0);
-		if(desnoOdTockice.isEmpty()){
-			throw new ArrayIndexOutOfBoundsException();
-		}
 		this.desnoOdTockice.remove(0);
 		this.ljevoOdTockice.add(znakKojiPreskacem);
 
 	}
-
-	public void ispisi() {
-		System.out.print(left + "->");
-		if (ljevoOdTockice != null) {
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.left).append("->");
+		if(!this.ljevoOdTockice.isEmpty()){
 			for (String string : ljevoOdTockice) {
-				System.out.print(string);
+				sb.append(string);
 			}
 		}
-		System.out.print("*");
-
-		if (desnoOdTockice != null) {
+		sb.append("*");
+		if(!this.desnoOdTockice.isEmpty()){
 			for (String string : desnoOdTockice) {
-				System.out.print(string);
+				sb.append(string);
 			}
 		}
-		System.out.println();
+		return sb.toString();
+	}
+	public void ispisi() {
+		System.out.println(this.toString());
 	}
 
 }
