@@ -9,6 +9,13 @@ public class Produkcija {
 
 	private List<String> zapocinje;
 
+	public Produkcija(GramatickaProdukcija gp) {
+		this.left = gp.getLijevaStrana();
+		this.ljevoOdTockice = new ArrayList<String>();
+		this.desnoOdTockice = new ArrayList<String>();
+		this.desnoOdTockice.addAll(gp.getDesnaStrana());
+	}
+
 	public Produkcija(String nezavrsni) {
 		this.left = nezavrsni;
 		this.ljevoOdTockice = new ArrayList<String>();
@@ -20,11 +27,11 @@ public class Produkcija {
 		this.ljevoOdTockice = new ArrayList<String>();
 		this.desnoOdTockice = new ArrayList<String>();
 		this.zapocinje = new ArrayList<String>();
-		
+
 		this.left = new String(produkcija.left);
 		this.ljevoOdTockice.addAll(produkcija.getLjevoOdTockice());
 		this.desnoOdTockice.addAll(produkcija.getDesnoOdTockice());
-		this.zapocinje=produkcija.getZapocinje();
+		this.zapocinje = produkcija.getZapocinje();
 	}
 
 	public void setZapocinje(List<String> zapocinje) {
@@ -58,6 +65,35 @@ public class Produkcija {
 
 	public void setDesnoOdTockice(List<String> desnoOdTockice) {
 		this.desnoOdTockice = desnoOdTockice;
+	}
+
+	/**
+	 * Stvara novu produkciju koja je jednaka trenutnoj osim sto je tockica za
+	 * jedno mjesto udesno.
+	 * Ako je tockica na kraju vraca null.
+	 * 
+	 * @return nova produkcija
+	 */
+	public Produkcija createNextProdukcija() {
+		if(this.getDesnoOdTockice().isEmpty()){
+			return null;
+		}
+		Produkcija novaProdukcija = new Produkcija(this);
+		novaProdukcija.pomakniTockicu();
+		return novaProdukcija;
+	}
+
+	/**
+	 * Pomice tockicu za jedno mjesto udesno.
+	 */
+	private void pomakniTockicu() {
+		String znakKojiPreskacem = this.desnoOdTockice.get(0);
+		if(desnoOdTockice.isEmpty()){
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		this.desnoOdTockice.remove(0);
+		this.ljevoOdTockice.add(znakKojiPreskacem);
+
 	}
 
 	public void ispisi() {
