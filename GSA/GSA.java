@@ -134,6 +134,9 @@ public class GSA {
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
 			for (String pojedinacnaProdukcija : gramatickaProdukcija
 					.getDesnaStrana()) {
+				if (pojedinacnaProdukcija.equals("$")) {
+					continue;
+				}
 				List<String> tempList = new LinkedList<String>();
 				String[] polje = pojedinacnaProdukcija.split(" ");
 				for (String prod : polje) {

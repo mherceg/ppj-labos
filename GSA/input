@@ -9,3 +9,18 @@
 <A>
  $
  
+%V <A> <B> <C> <D>
+%T a b d e
+%Syn b
+<A>
+ <B> <A>
+<B>
+ a <B>
+ b
+ $
+<A>
+ $
+<C>
+ <A> d
+<D>
+ <A> <B> <C> e
