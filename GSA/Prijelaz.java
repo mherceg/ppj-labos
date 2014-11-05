@@ -38,7 +38,7 @@ public class  Prijelaz implements Comparable<Prijelaz>{
 
 	@Override
 	public int compareTo(Prijelaz o) {
-		return this.novoStanje.hashCode()-o.hashCode();
+		return this.getNovoStanje().getImeStanja().compareTo(o.getNovoStanje().getImeStanja());
 	}
 	
 

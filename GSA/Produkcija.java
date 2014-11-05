@@ -21,6 +21,7 @@ public class Produkcija {
 
 	}
 
+	
 	public Produkcija(Produkcija produkcija) {
 		this.ljevoOdTockice = new ArrayList<String>();
 		this.desnoOdTockice = new ArrayList<String>();
