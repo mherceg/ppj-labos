@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -10,13 +11,13 @@ public class Stanje {
 	public Stanje(String imeStanja) {
 		super();
 		this.imeStanja = imeStanja;
-		listaPrijelaza = new ArrayList<Prijelaz>();
-		listaProdukcija = new ArrayList<Produkcija>();
+		listaPrijelaza = new LinkedList<Prijelaz>();
+		listaProdukcija = new LinkedList<Produkcija>();
 	}
 
 	public Stanje(Stanje drugo) {
-		listaPrijelaza = new ArrayList<Prijelaz>();
-		listaProdukcija = new ArrayList<Produkcija>();
+		listaPrijelaza = new LinkedList<Prijelaz>();
+		listaProdukcija = new LinkedList<Produkcija>();
 
 		this.imeStanja = new String(drugo.getImeStanja());
 		for (Prijelaz prijelaz : drugo.getListaPrijelaza()) {
@@ -109,7 +110,16 @@ public class Stanje {
 
 	@Override
 	public String toString() {
-		return this.imeStanja.toString();
+		String sve;
+		sve = this.imeStanja;
+		for (Prijelaz prijelaz : this.listaPrijelaza) {
+			sve = sve + "\n" + prijelaz.toString();
+		}
+		for (Produkcija produkcija : this.listaProdukcija) {
+			sve = sve + " " + produkcija.toString();
+		}
+
+		return sve;
 	}
 
 }

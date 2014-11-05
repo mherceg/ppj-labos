@@ -1,4 +1,4 @@
-public class  Prijelaz implements Comparable<Prijelaz>{
+public class Prijelaz implements Comparable<Prijelaz> {
 	private String znak;
 	private Stanje novoStanje;
 
@@ -27,20 +27,28 @@ public class  Prijelaz implements Comparable<Prijelaz>{
 	public void setNovoStanje(Stanje novoStanje) {
 		this.novoStanje = novoStanje;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
-		if(!( obj instanceof Prijelaz)){
+		if (!(obj instanceof Prijelaz)) {
 			return false;
 		}
-		return this.znak.equals(((Prijelaz) obj).getZnak()) && this.novoStanje.equals(((Prijelaz) obj).getNovoStanje());
+		return this.znak.equals(((Prijelaz) obj).getZnak())
+				&& this.novoStanje.equals(((Prijelaz) obj).getNovoStanje());
 	}
-
 
 	@Override
 	public int compareTo(Prijelaz o) {
-		return this.getNovoStanje().getImeStanja().compareTo(o.getNovoStanje().getImeStanja());
+		return this.getNovoStanje().getImeStanja()
+				.compareTo(o.getNovoStanje().getImeStanja());
 	}
-	
 
+	public String toString() {
+		String string;
+
+		string = znak + this.novoStanje.getImeStanja();
+
+		return string;
+	}
 
 }
