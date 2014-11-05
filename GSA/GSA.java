@@ -15,6 +15,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
+import org.ietf.jgss.Oid;
+
 public class GSA {
 
 	static Automat eNKA = new Automat();
@@ -111,6 +113,10 @@ public class GSA {
 		System.out.println("#");
 
 		izGramatickihProdukcijaNapraviProdukcijeIStanja();
+
+		dodajEpsilonProdukcije();
+
+		izgradiAutomat();
 		System.out.println();
 		System.out.println();
 
@@ -128,7 +134,50 @@ public class GSA {
 
 	}
 
+	private static void izgradiAutomat() {
+		Stanje pocetno = new Stanje("q0");
+
+		String pocetniZnakGramatike = listaGramtickihProdukcija.get(0)
+				.getLijevaStrana();
+
+		for (Stanje stanje : listaSvihStanja) {
+			if (stanje.getlistuProdukcija().get(0).getLeft()
+					.equals(pocetniZnakGramatike)) {
+				pocetno.dodajPrijelaz(new Prijelaz("$", stanje));
+			}
+		}
+
+		eNKA.dodajStanje(pocetno);
+		eNKA.setPocetnoStanje(pocetno);
+
+		for (Stanje stanje : listaSvihStanja) {
+			eNKA.dodajStanje(stanje);
+		}
+
+	}
+
+	private static void dodajEpsilonProdukcije() {
+		String trazi;
+		for (Stanje stanjeKojeObradujem : listaSvihStanja) {
+			if (stanjeKojeObradujem.getlistuProdukcija() != null
+					&& !(stanjeKojeObradujem.getlistuProdukcija().get(0)
+							.getDesnoOdTockice().isEmpty())) {
+				trazi = stanjeKojeObradujem.getlistuProdukcija().get(0)
+						.getDesnoOdTockice().get(0);
+				for (Stanje stanjeKojimaJeLijevaStranaTrazi : listaSvihStanja) {
+					if (stanjeKojimaJeLijevaStranaTrazi.getlistuProdukcija()
+							.get(0).getLeft().equals(trazi)) {
+						stanjeKojeObradujem.dodajPrijelaz(new Prijelaz("$",
+								stanjeKojimaJeLijevaStranaTrazi));
+					}
+				}
+			}
+		}
+
+	}
+
 	private static void ispisiStanja() {
+
 		for (Stanje stanje : listaSvihStanja) {
 			System.out.println(stanje.toString());
 		}
