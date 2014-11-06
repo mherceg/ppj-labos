@@ -198,42 +198,62 @@ public class GSA {
 
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
 			String imeStanja;
+			List<String> tempList = new LinkedList<String>();
+			Produkcija novaProdukcija;
 			for (String pojedinacnaProdukcija : gramatickaProdukcija
 					.getDesnaStrana()) {
 				/*
 				 * Izbacuje prazne prijelaze
 				 */
+
 				if (pojedinacnaProdukcija.equals("$")) {
-					continue;
+					System.err.println("DOSO $");
+					tempList = new LinkedList<String>();
+					novaProdukcija = new Produkcija(
+							gramatickaProdukcija.getLijevaStrana(), tempList,
+							zapocinjeMap.get(gramatickaProdukcija
+									.getLijevaStrana()));
+
+				} else {
+					/*
+					 * Radi listu po kojoj napravi prvu produkciju
+					 */
+					tempList = new LinkedList<String>();
+					String[] polje = pojedinacnaProdukcija.split(" ");
+					for (String prod : polje) {
+						tempList.add(prod);
+					}
+					novaProdukcija = new Produkcija(
+							gramatickaProdukcija.getLijevaStrana(), tempList,
+							zapocinjeMap.get(gramatickaProdukcija
+									.getLijevaStrana()));
+
 				}
-				/*
-				 * Radi listu po kojoj napravi prvu produkciju
-				 */
-				List<String> tempList = new LinkedList<String>();
-				String[] polje = pojedinacnaProdukcija.split(" ");
-				for (String prod : polje) {
-					tempList.add(prod);
-				}
-				Produkcija novaProdukcija = new Produkcija(
-						gramatickaProdukcija.getLijevaStrana(),
-						tempList,
-						zapocinjeMap.get(gramatickaProdukcija.getLijevaStrana()));
+
 				/*
 				 * Slaže ime stanja
 				 */
 				imeStanja = novaProdukcija.getLeft() + "->";
-				if (novaProdukcija.getLjevoOdTockice() != null) {
-					imeStanja += novaProdukcija.getLjevoOdTockice();
+				if (pojedinacnaProdukcija.equals("$")) {
+					imeStanja += "*";
+
+					System.err.println(imeStanja);
+				} else {
+					if (novaProdukcija.getLjevoOdTockice() != null) {
+						imeStanja += novaProdukcija.getLjevoOdTockice();
+					}
+					imeStanja += "*";
+					if (novaProdukcija.getDesnoOdTockice() != null) {
+						imeStanja += novaProdukcija.getDesnoOdTockice();
+					}
 				}
-				imeStanja += "*";
-				if (novaProdukcija.getDesnoOdTockice() != null) {
-					imeStanja += novaProdukcija.getDesnoOdTockice();
-				}
+
 				/*
 				 * Stvaranje produkcije
 				 */
 				Stanje prethodnoStanje = new Stanje(imeStanja);
 				prethodnoStanje.dodajProdukcij(novaProdukcija);
+
 				/*
 				 * Dodamo produkciju u listu
 				 */
@@ -242,6 +262,11 @@ public class GSA {
 				/*
 				 * Tražimo dalje produkcije
 				 */
+				if (pojedinacnaProdukcija.equals("$")) {
+					listaSvihStanja.add(prethodnoStanje);
+					continue;
+				}
+
 				Produkcija iterator = novaProdukcija.createNextProdukcija();
 
 				Stanje trenutnoStanje = null;
