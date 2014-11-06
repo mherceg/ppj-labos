@@ -11,8 +11,8 @@ public class Stanje {
 	public Stanje(String imeStanja) {
 		super();
 		this.imeStanja = imeStanja;
-		listaPrijelaza = new LinkedList<Prijelaz>();
-		listaProdukcija = new LinkedList<Produkcija>();
+		listaPrijelaza = new ArrayList<Prijelaz>();
+		listaProdukcija = new ArrayList<Produkcija>();
 	}
 
 	public Stanje(Stanje drugo) {

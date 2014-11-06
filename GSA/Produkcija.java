@@ -12,21 +12,13 @@ public class Produkcija {
 	public Produkcija(String nezavrsni, List<String> tempList,
 			List<String> listZapocinje) {
 
-		if (tempList.isEmpty()) {
-			this.left = nezavrsni;
-			this.ljevoOdTockice = new ArrayList<String>();
-			this.desnoOdTockice = new ArrayList<String>();
-			this.zapocinje = new ArrayList<String>();
-			this.zapocinje.addAll(listZapocinje);
-		} else {
-			this.left = nezavrsni;
-			this.ljevoOdTockice = new ArrayList<String>();
-			this.desnoOdTockice = new ArrayList<String>();
-			this.zapocinje = new ArrayList<String>();
+		this.left = nezavrsni;
+		this.ljevoOdTockice = new ArrayList<String>();
+		this.desnoOdTockice = new ArrayList<String>();
+		this.zapocinje = new ArrayList<String>();
 
-			this.desnoOdTockice.addAll(tempList);
-			this.zapocinje.addAll(listZapocinje);
-		}
+		this.desnoOdTockice.addAll(tempList);
+		this.zapocinje.addAll(listZapocinje);
 
 	}
 

@@ -39,7 +39,7 @@ public class AutomatonTranformator {
 		AutomatonTranformator auto = new AutomatonTranformator();
 
 		Automat nka = auto.eNkaToNka(eNka);
-//		System.out.println("zavrsio nka");
+		System.out.println("zavrsio nka");
 		Automat dka = auto.nkaToDka(nka);
 //		System.out.println("zavrsio dka");
 
