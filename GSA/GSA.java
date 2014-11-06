@@ -166,7 +166,10 @@ public class GSA {
 						.getDesnoOdTockice().get(0);
 				for (Stanje stanjeKojimaJeLijevaStranaTrazi : listaSvihStanja) {
 					if (stanjeKojimaJeLijevaStranaTrazi.getlistuProdukcija()
-							.get(0).getLeft().equals(trazi)) {
+							.get(0).getLeft().equals(trazi)
+							&& stanjeKojimaJeLijevaStranaTrazi
+									.getlistuProdukcija().get(0)
+									.getLjevoOdTockice().isEmpty()) {
 						stanjeKojeObradujem.dodajPrijelaz(new Prijelaz("$",
 								stanjeKojimaJeLijevaStranaTrazi));
 					}

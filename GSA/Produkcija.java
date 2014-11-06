@@ -21,7 +21,6 @@ public class Produkcija {
 
 	}
 
-	
 	public Produkcija(Produkcija produkcija) {
 		this.ljevoOdTockice = new ArrayList<String>();
 		this.desnoOdTockice = new ArrayList<String>();
@@ -106,11 +105,12 @@ public class Produkcija {
 				sb.append(string);
 			}
 		}
-		return sb.toString() + "\n" + zapocinje.toString() + "\n";
+		return "Produkcija: " + sb.toString() + "\n" + "Zapocinje: "
+				+ zapocinje.toString() + "\n";
 	}
 
 	public void ispisi() {
-		System.out.println(this.toString());
+		System.out.println("Produkcija :" + this.toString());
 	}
 
 }

@@ -46,7 +46,8 @@ public class Prijelaz implements Comparable<Prijelaz> {
 	public String toString() {
 		String string;
 
-		string = znak + this.novoStanje.getImeStanja();
+		string = "Prijelaz: za znak: " + znak + " Prelazi u:"
+				+ this.novoStanje.getImeStanja();
 
 		return string;
 	}

@@ -111,15 +111,14 @@ public class Stanje {
 	@Override
 	public String toString() {
 		String sve;
-		sve = this.imeStanja;
+		sve = "Stanje :" + this.imeStanja;
 		for (Prijelaz prijelaz : this.listaPrijelaza) {
 			sve = sve + "\n" + prijelaz.toString();
 		}
 		for (Produkcija produkcija : this.listaProdukcija) {
-			sve = sve + " " + produkcija.toString();
+			sve = sve + "\n" + produkcija.toString();
 		}
 
 		return sve;
 	}
-
 }
