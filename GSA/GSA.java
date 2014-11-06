@@ -19,7 +19,6 @@ import org.ietf.jgss.Oid;
 
 public class GSA {
 
-	static Automat eNKA = new Automat();
 	static Definator definator = new Definator();
 	static String line;
 
@@ -116,43 +115,53 @@ public class GSA {
 
 		dodajEpsilonProdukcije();
 
-		izgradiAutomat();
+		Automat eNka = izgradiAutomat();
+
 		System.out.println();
-		System.out.println();
+		System.out.println("Zavrsio eNka");
+		
+		AutomatonTranformator trasformator = new AutomatonTranformator();
+		Automat dka = trasformator.eNkaToDka(eNka);
+		System.out.println("Zavrsio dka");
 
-		ispisiProdukcije();
-
-		System.out.println("\n \nTu su sva Stanja");
-
-		ispisiStanja();
+//		ispisiProdukcije();
+//		System.out.println("\n \nTu su sva Stanja");
+//		ispisiStanja();
 
 		try {
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		
 
 	}
 
-	private static void izgradiAutomat() {
+	private static Automat izgradiAutomat() {
 		Stanje pocetno = new Stanje("q0");
 
 		String pocetniZnakGramatike = listaGramtickihProdukcija.get(0)
 				.getLijevaStrana();
 
 		for (Stanje stanje : listaSvihStanja) {
+			System.out.println(stanje);
 			if (stanje.getlistuProdukcija().get(0).getLeft()
 					.equals(pocetniZnakGramatike)) {
 				pocetno.dodajPrijelaz(new Prijelaz("$", stanje));
 			}
 		}
 
-		eNKA.dodajStanje(pocetno);
-		eNKA.setPocetnoStanje(pocetno);
+		Automat eNka = new Automat();
+		
+//		eNKA.dodajStanje(pocetno);
+		eNka.setPocetnoStanje(pocetno);
 
 		for (Stanje stanje : listaSvihStanja) {
-			eNKA.dodajStanje(stanje);
+			eNka.dodajStanje(stanje);
 		}
+		
+		return eNka;
 
 	}
 
@@ -231,7 +240,7 @@ public class GSA {
 				}
 
 				/*
-				 * Slaže ime stanja
+				 * Slaze ime stanja
 				 */
 				imeStanja = novaProdukcija.getLeft() + "->";
 				if (pojedinacnaProdukcija.equals("$")) {
@@ -260,7 +269,7 @@ public class GSA {
 				listaProdukcija.add(novaProdukcija);
 
 				/*
-				 * Tražimo dalje produkcije
+				 * Trazimo dalje produkcije
 				 */
 				if (pojedinacnaProdukcija.equals("$")) {
 					listaSvihStanja.add(prethodnoStanje);

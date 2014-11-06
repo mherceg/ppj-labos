@@ -41,7 +41,7 @@ public class AutomatonTranformator {
 		Automat nka = auto.eNkaToNka(eNka);
 		System.out.println("zavrsio nka");
 		Automat dka = auto.nkaToDka(nka);
-//		System.out.println("zavrsio dka");
+		// System.out.println("zavrsio dka");
 
 	}
 
@@ -79,9 +79,9 @@ public class AutomatonTranformator {
 			// sva stanja u koja moze doc sa ovim znakom
 			List<Stanje> novaStanjaNakonPrijelaza = prijelazKapica(stanje, znak);
 
-//			 System.out.format("%s e za %s: %s%n", stanje.getImeStanja(),
-//			 znak,
-//			 novaStanjaNakonPrijelaza);
+			// System.out.format("%s e za %s: %s%n", stanje.getImeStanja(),
+			// znak,
+			// novaStanjaNakonPrijelaza);
 
 			/*
 			 * Za svaki znak gledaj sve prijelaze koje ima
@@ -105,16 +105,18 @@ public class AutomatonTranformator {
 							.getlistuProdukcija()) {
 						novoStanjeZaPrijelaze.dodajProdukcij(produkcija);
 					}
-					for (Prijelaz buduciPrijelaz : novoStanje
-							.getListaPrijelaza()) {
-						novoStanjeZaPrijelaze.dodajPrijelaz(buduciPrijelaz);
+					if (novoStanje.getListaPrijelaza() != null) {
+						for (Prijelaz buduciPrijelaz : novoStanje
+								.getListaPrijelaza()) {
+							novoStanjeZaPrijelaze.dodajPrijelaz(buduciPrijelaz);
+						}
 					}
 					stvorenaStanja.add(novoStanjeZaPrijelaze);
 					srediPrijelazeENkaNka(novoStanjeZaPrijelaze,
 							stvorenaStanja, automat);
 				}
 				noviPrijelazi.add(new Prijelaz(znak, novoStanjeZaPrijelaze));
-				
+
 			}
 
 		}
@@ -172,9 +174,11 @@ public class AutomatonTranformator {
 							.getlistuProdukcija()) {
 						novoStanje.dodajProdukcij(produkcija);
 					}
-					for (Prijelaz buduciPrijelaz : prijelaz.getNovoStanje()
-							.getListaPrijelaza()) {
-						novoStanje.dodajPrijelaz(buduciPrijelaz);
+					if (prijelaz.getNovoStanje().getListaPrijelaza() != null) {
+						for (Prijelaz buduciPrijelaz : prijelaz.getNovoStanje()
+								.getListaPrijelaza()) {
+							novoStanje.dodajPrijelaz(buduciPrijelaz);
+						}
 					}
 				}
 				stvorenaStanja.add(novoStanje);
@@ -192,6 +196,9 @@ public class AutomatonTranformator {
 		List<Stanje> novaStanja = new ArrayList<Stanje>();
 
 		for (Stanje stanje : stanja) {
+			if (stanje.getListaPrijelaza() == null) {
+				continue;
+			}
 			for (Prijelaz prijelaz : stanje.getListaPrijelazaPoZnaku(znak)) {
 				if (!novaStanja.contains(prijelaz.getNovoStanje())) {
 					novaStanja.add(prijelaz.getNovoStanje());
@@ -234,7 +241,9 @@ public class AutomatonTranformator {
 		}
 
 		List<Stanje> novaStanja = new ArrayList<Stanje>();
-
+		if (stanje.getListaPrijelaza() == null) {
+			return;
+		}
 		for (Prijelaz prijelaz : stanje.getListaPrijelaza()) {
 
 			Stanje novoStanje = prijelaz.getNovoStanje();
