@@ -98,7 +98,7 @@ public class GSA {
 			System.out.println();
 		}
 
-		izracunajSkupoveZapocinje();
+		izracunajSkupoveZapocinjeZaNezavrsneZnakove();
 
 		System.out.println("#");
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
@@ -176,7 +176,7 @@ public class GSA {
 		return -1;
 	}
 
-	private static void izracunajSkupoveZapocinje() {
+	private static void izracunajSkupoveZapocinjeZaNezavrsneZnakove() {
 		List<String> produkcijeSaEpsilonom = new ArrayList<String>();
 
 		Map<String, Set<String>> pomocnaMapa = new HashMap<String, Set<String>>();
