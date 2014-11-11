@@ -5,49 +5,43 @@ import java.util.TreeSet;
 public class AutomatonTranformator {
 
 	public static void main(String[] args) {
-		Stanje prvo = new Stanje("0");
-		Stanje drugo = new Stanje("1");
-		Stanje trece = new Stanje("2");
-		prvo.dodajPrijelaz(new Prijelaz("0", prvo));
-		prvo.dodajPrijelaz(new Prijelaz("$", drugo));
-		drugo.dodajPrijelaz(new Prijelaz("1", drugo));
-		drugo.dodajPrijelaz(new Prijelaz("$", trece));
-		trece.dodajPrijelaz(new Prijelaz("2", trece));
+		Stanje nula = new Stanje("0");
+		Stanje jedan = new Stanje("1");
+		Stanje dva = new Stanje("2");
 
-		prvo.dodajProdukcij(new Produkcija("nekaj"));
-		drugo.dodajProdukcij(new Produkcija("nekaj"));
-		trece.dodajProdukcij(new Produkcija("nekaj"));
+		nula.dodajProdukcij(new Produkcija("<A0>", new ArrayList<String>(),
+				new ArrayList<String>()));
+		jedan.dodajProdukcij(new Produkcija("<A1>", new ArrayList<String>(),
+				new ArrayList<String>()));
+		dva.dodajProdukcij(new Produkcija("<A2>", new ArrayList<String>(),
+				new ArrayList<String>()));
 
-		Automat novi = new Automat();
-		novi.dodajStanje(prvo);
-		novi.dodajStanje(drugo);
-		novi.dodajStanje(trece);
-		novi.setPocetnoStanje(prvo);
+		nula.dodajPrijelaz(new Prijelaz("$", jedan));
+		nula.dodajPrijelaz(new Prijelaz("0", nula));
+		nula.dodajPrijelaz(new Prijelaz("1", dva));
 
-		// Stanje prvo2= new Stanje("0");
-		// Stanje drugo2= new Stanje("1");
-		//
-		// prvo2.dodajPrijelaz(new Prijelaz("0", prvo2));
-		// prvo2.dodajPrijelaz(new Prijelaz("0", drugo2));
-		// prvo2.dodajPrijelaz(new Prijelaz("1", drugo2));
-		//
-		// drugo2.dodajPrijelaz(new Prijelaz("1", prvo2));
-		// drugo2.dodajPrijelaz(new Prijelaz("1", drugo2));
-		//
-		// prvo2.dodajProdukcij(new Produkcija("nekaj"));
-		// drugo2.dodajProdukcij(new Produkcija("nekaj"));
-		//
-		// Automat novi2= new Automat();
-		// novi2.dodajStanje(prvo2);
-		// novi2.dodajStanje(drugo2);
-		// novi2.setPocetnoStanje(prvo2);
-		//
+		jedan.dodajPrijelaz(new Prijelaz("$", dva));
+		jedan.dodajPrijelaz(new Prijelaz("1", jedan));
+
+		dva.dodajPrijelaz(new Prijelaz("2", dva));
+
+		Automat eNka = new Automat();
+		eNka.dodajStanje(nula);
+		eNka.dodajStanje(jedan);
+		eNka.dodajStanje(dva);
+
+		Stanje pocetno = new Stanje("pocetno");
+		pocetno.dodajPrijelaz(new Prijelaz("$", nula));
+
+		eNka.setPocetnoStanje(pocetno);
+		// eNka.dodajStanje(pocetno);
 
 		AutomatonTranformator auto = new AutomatonTranformator();
-		Automat nka = auto.eNkaToNka(novi);
-		System.out.println(1);
+
+		Automat nka = auto.eNkaToNka(eNka);
+		System.out.println("zavrsio nka");
 		Automat dka = auto.nkaToDka(nka);
-		System.out.println(2);
+		// System.out.println("zavrsio dka");
 
 	}
 
@@ -62,8 +56,8 @@ public class AutomatonTranformator {
 		Stanje nkaPocetno = new Stanje(eNka.getPocetnoStanje());
 		nka.setPocetnoStanje(nkaPocetno);
 
-		stvorenaStanja.add(nkaPocetno);
-		srediPrijelazeENkaNka(nkaPocetno, stvorenaStanja);
+		// stvorenaStanja.add(nkaPocetno);
+		srediPrijelazeENkaNka(nkaPocetno, stvorenaStanja, eNka);
 
 		for (Stanje stanje : stvorenaStanja) {
 			nka.dodajStanje(stanje);
@@ -73,21 +67,22 @@ public class AutomatonTranformator {
 	}
 
 	private void srediPrijelazeENkaNka(Stanje stanje,
-			List<Stanje> stvorenaStanja) {
+			List<Stanje> stvorenaStanja, Automat automat) {
 		List<Prijelaz> noviPrijelazi = new ArrayList<Prijelaz>();
 		/*
 		 * Prodi po svakom znaku za to stanje
 		 */
-		for (String znak : stanje.getZnakoviPrijelaza()) {
+		for (String znak : automat.getZnakoviPrijelaza()) {
 			if (znak.equals("$")) {
 				continue;
 			}
-			// samo zbog prijelazKapica
-			List<Stanje> staroStanjeUListi = new ArrayList<Stanje>();
-			staroStanjeUListi.add(stanje);
 			// sva stanja u koja moze doc sa ovim znakom
-			List<Stanje> novaStanjaNakonPrijelaza = prijelazKapica(
-					staroStanjeUListi, znak);
+			List<Stanje> novaStanjaNakonPrijelaza = prijelazKapica(stanje, znak);
+
+			// System.out.format("%s e za %s: %s%n", stanje.getImeStanja(),
+			// znak,
+			// novaStanjaNakonPrijelaza);
+
 			/*
 			 * Za svaki znak gledaj sve prijelaze koje ima
 			 */
@@ -110,14 +105,18 @@ public class AutomatonTranformator {
 							.getlistuProdukcija()) {
 						novoStanjeZaPrijelaze.dodajProdukcij(produkcija);
 					}
-					for (Prijelaz buduciPrijelaz : novoStanje
-							.getListaPrijelaza()) {
-						novoStanjeZaPrijelaze.dodajPrijelaz(buduciPrijelaz);
+					if (novoStanje.getListaPrijelaza() != null) {
+						for (Prijelaz buduciPrijelaz : novoStanje
+								.getListaPrijelaza()) {
+							novoStanjeZaPrijelaze.dodajPrijelaz(buduciPrijelaz);
+						}
 					}
 					stvorenaStanja.add(novoStanjeZaPrijelaze);
-					srediPrijelazeENkaNka(novoStanjeZaPrijelaze, stvorenaStanja);
+					srediPrijelazeENkaNka(novoStanjeZaPrijelaze,
+							stvorenaStanja, automat);
 				}
 				noviPrijelazi.add(new Prijelaz(znak, novoStanjeZaPrijelaze));
+
 			}
 
 		}
@@ -131,13 +130,12 @@ public class AutomatonTranformator {
 		Stanje dkaPocetno = new Stanje(nka.getPocetnoStanje());
 		dka.setPocetnoStanje(dkaPocetno);
 
-		stvorenaStanja.add(dkaPocetno);
+		// stvorenaStanja.add(dkaPocetno);
 		srediPrijelazeNkaDka(dkaPocetno, stvorenaStanja);
 
 		for (Stanje stanje : stvorenaStanja) {
 			dka.dodajStanje(stanje);
 		}
-
 		return dka;
 	}
 
@@ -145,7 +143,7 @@ public class AutomatonTranformator {
 
 		List<Prijelaz> noviPrijelazi = new ArrayList<Prijelaz>();
 		// zasto se tu pojavljuje $ kad stvaram iz eNka?
-		System.out.println(stanje.getZnakoviPrijelaza());
+		// System.out.println(stanje.getZnakoviPrijelaza());
 		for (String znak : stanje.getZnakoviPrijelaza()) {
 			// preventivno
 			if (znak.equals("$")) {
@@ -176,9 +174,11 @@ public class AutomatonTranformator {
 							.getlistuProdukcija()) {
 						novoStanje.dodajProdukcij(produkcija);
 					}
-					for (Prijelaz buduciPrijelaz : prijelaz.getNovoStanje()
-							.getListaPrijelaza()) {
-						novoStanje.dodajPrijelaz(buduciPrijelaz);
+					if (prijelaz.getNovoStanje().getListaPrijelaza() != null) {
+						for (Prijelaz buduciPrijelaz : prijelaz.getNovoStanje()
+								.getListaPrijelaza()) {
+							novoStanje.dodajPrijelaz(buduciPrijelaz);
+						}
 					}
 				}
 				stvorenaStanja.add(novoStanje);
@@ -196,6 +196,9 @@ public class AutomatonTranformator {
 		List<Stanje> novaStanja = new ArrayList<Stanje>();
 
 		for (Stanje stanje : stanja) {
+			if (stanje.getListaPrijelaza() == null) {
+				continue;
+			}
 			for (Prijelaz prijelaz : stanje.getListaPrijelazaPoZnaku(znak)) {
 				if (!novaStanja.contains(prijelaz.getNovoStanje())) {
 					novaStanja.add(prijelaz.getNovoStanje());
@@ -207,12 +210,17 @@ public class AutomatonTranformator {
 
 	}
 
-	private List<Stanje> prijelazKapica(List<Stanje> staroStanje, String znak) {
+	private List<Stanje> prijelazKapica(Stanje staroStanje, String znak) {
+
+		List<Stanje> staraStanja = new ArrayList<Stanje>();
+		staraStanja.add(staroStanje);
+
 		List<Stanje> novaStanja = new ArrayList<Stanje>();
 
-		novaStanja = getEpsilonOkruzenje(staroStanje);
+		novaStanja = getEpsilonOkruzenje(staraStanja);
+		// System.out.println(novaStanja);
 		List<Stanje> novaStanjaNakonPrijelaz = prijelaz(novaStanja, znak);
-
+		// System.out.println(novaStanjaNakonPrijelaz);
 		return getEpsilonOkruzenje(novaStanjaNakonPrijelaz);
 
 	}
@@ -233,7 +241,9 @@ public class AutomatonTranformator {
 		}
 
 		List<Stanje> novaStanja = new ArrayList<Stanje>();
-
+		if (stanje.getListaPrijelaza() == null) {
+			return;
+		}
 		for (Prijelaz prijelaz : stanje.getListaPrijelaza()) {
 
 			Stanje novoStanje = prijelaz.getNovoStanje();

@@ -2,14 +2,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Automat {
-	private List<Stanje> stanja = new ArrayList<Stanje>();
+	private List<Stanje> stanja;
 	private Stanje pocetnoStanje;
 
-	
-	
+	private List<String> znakovi;
+
+	public Automat() {
+		stanja = new ArrayList<Stanje>();
+		znakovi = new ArrayList<String>();
+	}
+
 	public void dodajStanje(Stanje novoStanje) {
 		stanja.add(novoStanje);
+		
+		for(String znak :novoStanje.getZnakoviPrijelaza()){
+			if(!znakovi.contains(znak)){
+				znakovi.add(znak);
+			}
+		}
 
+	}
+	public List<String>getZnakoviPrijelaza(){
+		return znakovi;
 	}
 
 	public Stanje getPocetnoStanje() {
@@ -23,7 +37,5 @@ public class Automat {
 	public List<Stanje> getStanja() {
 		return stanja;
 	}
-	
-	
 
 }

@@ -43,3 +43,16 @@
 <E>
  e <A> f
  c
+
+%V <S> <A> <B>
+%T a b
+%Syn b
+<S>
+ <A>
+<A>
+ <B> <A>
+ $
+<B>
+ a <B>
+ b
+ 

@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeSet;
 
-public class Stanje{
+public class Stanje {
 	private String imeStanja;
 	private List<Prijelaz> listaPrijelaza;
 	private List<Produkcija> listaProdukcija;
@@ -15,22 +16,23 @@ public class Stanje{
 	}
 
 	public Stanje(Stanje drugo) {
-		listaPrijelaza = new ArrayList<Prijelaz>();
-		listaProdukcija = new ArrayList<Produkcija>();
-		
+		listaPrijelaza = new LinkedList<Prijelaz>();
+		listaProdukcija = new LinkedList<Produkcija>();
+
 		this.imeStanja = new String(drugo.getImeStanja());
-		for(Prijelaz prijelaz:drugo.getListaPrijelaza()){
+		for (Prijelaz prijelaz : drugo.getListaPrijelaza()) {
 			this.listaPrijelaza.add(new Prijelaz(prijelaz));
 		}
-		for(Produkcija produkcija : drugo.getlistuProdukcija()){
-			this.listaProdukcija.add(new Produkcija(produkcija));
+		if (drugo.getlistuProdukcija() != null) {
+			for (Produkcija produkcija : drugo.getlistuProdukcija()) {
+				this.listaProdukcija.add(new Produkcija(produkcija));
+			}
 		}
 	}
-	
-	public void dodajProdukcij(Produkcija nova){
+
+	public void dodajProdukcij(Produkcija nova) {
 		listaProdukcija.add(nova);
 	}
-
 
 	public void dodajPrijelaz(Prijelaz novi) {
 		if (!listaPrijelaza.contains(novi)) {
@@ -54,10 +56,12 @@ public class Stanje{
 		}
 
 	}
-	public void setZnakoviPrijelaza(List<Prijelaz> novo){
+
+	public void setZnakoviPrijelaza(List<Prijelaz> novo) {
 		listaPrijelaza.clear();
-		for(Prijelaz prijelaz : novo){
-			listaPrijelaza.add(new Prijelaz(prijelaz.getZnak(), prijelaz.getNovoStanje()));
+		for (Prijelaz prijelaz : novo) {
+			listaPrijelaza.add(new Prijelaz(prijelaz.getZnak(), prijelaz
+					.getNovoStanje()));
 		}
 	}
 
@@ -90,18 +94,31 @@ public class Stanje{
 			return listaProdukcija;
 		}
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
-		if(! (obj instanceof Stanje)){
+		if (!(obj instanceof Stanje)) {
 			return false;
 		}
 		return this.imeStanja.equals(((Stanje) obj).getImeStanja());
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return this.getImeStanja().hashCode();
 	}
 
+	@Override
+	public String toString() {
+		String sve;
+		sve = "Stanje :" + this.imeStanja;
+		for (Prijelaz prijelaz : this.listaPrijelaza) {
+			sve = sve + "\n" + prijelaz.toString();
+		}
+		for (Produkcija produkcija : this.listaProdukcija) {
+			sve = sve + "\n" + produkcija.toString();
+		}
+
+		return sve;
+	}
 }

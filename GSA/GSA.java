@@ -15,9 +15,10 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
+import org.ietf.jgss.Oid;
+
 public class GSA {
 
-	static Automat eNKA = new Automat();
 	static Definator definator = new Definator();
 	static String line;
 
@@ -26,6 +27,8 @@ public class GSA {
 	static List<GramatickaProdukcija> listaGramtickihProdukcija = new LinkedList<GramatickaProdukcija>();
 
 	static List<Produkcija> listaProdukcija = new LinkedList<Produkcija>();
+
+	static List<Stanje> listaSvihStanja = new LinkedList<Stanje>();
 
 	static BufferedReader reader = new BufferedReader(new InputStreamReader(
 			System.in));
@@ -108,16 +111,87 @@ public class GSA {
 		}
 		System.out.println("#");
 
-		izGramatickihProdukcijaNapraviProdukcije();
-		System.out.println();
-		System.out.println();
+		izGramatickihProdukcijaNapraviProdukcijeIStanja();
 
-		ispisiProdukcije();
+		dodajEpsilonProdukcije();
+
+		Automat eNka = izgradiAutomat();
+
+		System.out.println();
+		System.out.println("Zavrsio eNka");
+		
+		AutomatonTranformator trasformator = new AutomatonTranformator();
+		Automat dka = trasformator.eNkaToDka(eNka);
+		System.out.println("Zavrsio dka");
+
+//		ispisiProdukcije();
+//		System.out.println("\n \nTu su sva Stanja");
+//		ispisiStanja();
 
 		try {
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		
+		
+
+	}
+
+	private static Automat izgradiAutomat() {
+		Stanje pocetno = new Stanje("q0");
+
+		String pocetniZnakGramatike = listaGramtickihProdukcija.get(0)
+				.getLijevaStrana();
+
+		for (Stanje stanje : listaSvihStanja) {
+			System.out.println(stanje);
+			if (stanje.getlistuProdukcija().get(0).getLeft()
+					.equals(pocetniZnakGramatike)) {
+				pocetno.dodajPrijelaz(new Prijelaz("$", stanje));
+			}
+		}
+
+		Automat eNka = new Automat();
+		
+//		eNKA.dodajStanje(pocetno);
+		eNka.setPocetnoStanje(pocetno);
+
+		for (Stanje stanje : listaSvihStanja) {
+			eNka.dodajStanje(stanje);
+		}
+		
+		return eNka;
+
+	}
+
+	private static void dodajEpsilonProdukcije() {
+		String trazi;
+		for (Stanje stanjeKojeObradujem : listaSvihStanja) {
+			if (stanjeKojeObradujem.getlistuProdukcija() != null
+					&& !(stanjeKojeObradujem.getlistuProdukcija().get(0)
+							.getDesnoOdTockice().isEmpty())) {
+				trazi = stanjeKojeObradujem.getlistuProdukcija().get(0)
+						.getDesnoOdTockice().get(0);
+				for (Stanje stanjeKojimaJeLijevaStranaTrazi : listaSvihStanja) {
+					if (stanjeKojimaJeLijevaStranaTrazi.getlistuProdukcija()
+							.get(0).getLeft().equals(trazi)
+							&& stanjeKojimaJeLijevaStranaTrazi
+									.getlistuProdukcija().get(0)
+									.getLjevoOdTockice().isEmpty()) {
+						stanjeKojeObradujem.dodajPrijelaz(new Prijelaz("$",
+								stanjeKojimaJeLijevaStranaTrazi));
+					}
+				}
+			}
+		}
+
+	}
+
+	private static void ispisiStanja() {
+
+		for (Stanje stanje : listaSvihStanja) {
+			System.out.println(stanje.toString());
 		}
 
 	}
@@ -129,33 +203,134 @@ public class GSA {
 
 	}
 
-	private static void izGramatickihProdukcijaNapraviProdukcije() {
+	private static void izGramatickihProdukcijaNapraviProdukcijeIStanja() {
 
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
+			String imeStanja;
+			List<String> tempList = new LinkedList<String>();
+			Produkcija novaProdukcija;
 			for (String pojedinacnaProdukcija : gramatickaProdukcija
 					.getDesnaStrana()) {
+				/*
+				 * Izbacuje prazne prijelaze
+				 */
+
 				if (pojedinacnaProdukcija.equals("$")) {
+					System.err.println("DOSO $");
+					tempList = new LinkedList<String>();
+					novaProdukcija = new Produkcija(
+							gramatickaProdukcija.getLijevaStrana(), tempList,
+							zapocinjeMap.get(gramatickaProdukcija
+									.getLijevaStrana()));
+
+				} else {
+					/*
+					 * Radi listu po kojoj napravi prvu produkciju
+					 */
+					tempList = new LinkedList<String>();
+					String[] polje = pojedinacnaProdukcija.split(" ");
+					for (String prod : polje) {
+						tempList.add(prod);
+					}
+					novaProdukcija = new Produkcija(
+							gramatickaProdukcija.getLijevaStrana(), tempList,
+							zapocinjeMap.get(gramatickaProdukcija
+									.getLijevaStrana()));
+
+				}
+
+				/*
+				 * Slaze ime stanja
+				 */
+				imeStanja = novaProdukcija.getLeft() + "->";
+				if (pojedinacnaProdukcija.equals("$")) {
+					imeStanja += "*";
+
+					System.err.println(imeStanja);
+				} else {
+					if (novaProdukcija.getLjevoOdTockice() != null) {
+						imeStanja += novaProdukcija.getLjevoOdTockice();
+					}
+					imeStanja += "*";
+					if (novaProdukcija.getDesnoOdTockice() != null) {
+						imeStanja += novaProdukcija.getDesnoOdTockice();
+					}
+				}
+
+				/*
+				 * Stvaranje produkcije
+				 */
+				Stanje prethodnoStanje = new Stanje(imeStanja);
+				prethodnoStanje.dodajProdukcij(novaProdukcija);
+
+				/*
+				 * Dodamo produkciju u listu
+				 */
+				listaProdukcija.add(novaProdukcija);
+
+				/*
+				 * Trazimo dalje produkcije
+				 */
+				if (pojedinacnaProdukcija.equals("$")) {
+					listaSvihStanja.add(prethodnoStanje);
 					continue;
 				}
-				List<String> tempList = new LinkedList<String>();
-				String[] polje = pojedinacnaProdukcija.split(" ");
-				for (String prod : polje) {
-					tempList.add(prod);
-				}
-				Produkcija novaProdukcija = new Produkcija(
-						gramatickaProdukcija.getLijevaStrana(),
-						tempList,
-						zapocinjeMap.get(gramatickaProdukcija.getLijevaStrana()));
-
-				listaProdukcija.add(novaProdukcija);
 
 				Produkcija iterator = novaProdukcija.createNextProdukcija();
 
-				while (iterator != null) {
+				Stanje trenutnoStanje = null;
+				String prviLijevoOdTockice;
+				if (iterator != null) {
+
+					imeStanja = iterator.getLeft() + "->";
+					if (iterator.getLjevoOdTockice() != null) {
+						imeStanja += iterator.getLjevoOdTockice();
+					}
+					imeStanja += "*";
+					if (iterator.getDesnoOdTockice() != null) {
+						imeStanja += iterator.getDesnoOdTockice();
+					}
+
+					trenutnoStanje = new Stanje(imeStanja);
+					trenutnoStanje.dodajProdukcij(iterator);
+					prviLijevoOdTockice = iterator.getLjevoOdTockice().get(
+							iterator.getLjevoOdTockice().size() - 1);
+					prethodnoStanje.dodajPrijelaz(new Prijelaz(
+							prviLijevoOdTockice, trenutnoStanje));
+					listaSvihStanja.add(prethodnoStanje);
 					listaProdukcija.add(iterator);
+					prethodnoStanje = trenutnoStanje;
+					iterator = iterator.createNextProdukcija();
+
+				} else {
+					continue;
+				}
+
+				while (iterator != null) {
+					imeStanja = iterator.getLeft() + "->";
+					if (iterator.getLjevoOdTockice() != null) {
+						imeStanja += iterator.getLjevoOdTockice();
+					}
+					imeStanja += "*";
+					if (iterator.getDesnoOdTockice() != null) {
+						imeStanja += iterator.getDesnoOdTockice();
+					}
+
+					trenutnoStanje = new Stanje(imeStanja);
+					trenutnoStanje.dodajProdukcij(iterator);
+					prviLijevoOdTockice = iterator.getLjevoOdTockice().get(
+							iterator.getLjevoOdTockice().size() - 1);
+					prethodnoStanje.dodajPrijelaz(new Prijelaz(
+							prviLijevoOdTockice, trenutnoStanje));
+					listaSvihStanja.add(prethodnoStanje);
+					listaProdukcija.add(iterator);
+
+					prethodnoStanje = trenutnoStanje;
 					iterator = iterator.createNextProdukcija();
 
 				}
+
+				listaSvihStanja.add(prethodnoStanje);
 
 			}
 		}
