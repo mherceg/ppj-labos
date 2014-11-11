@@ -21,14 +21,18 @@ public class GSA {
 
 	static Definator definator = new Definator();
 	static String line;
+	
+	static final String znakZaKrajNiza = "┴";
 
-	static HashMap<String, List<String>> nezavrsniZnakoviZapocinjeMap = new HashMap<String, List<String>>();
+	static HashMap<String, Set<String>> nezavrsniZnakoviZapocinjeMap = new HashMap<String, Set<String>>();
 
 	static List<GramatickaProdukcija> listaGramtickihProdukcija = new LinkedList<GramatickaProdukcija>();
 
 	static List<Produkcija> listaProdukcija = new LinkedList<Produkcija>();
 
 	static List<Stanje> listaSvihStanja = new LinkedList<Stanje>();
+	
+	static List<String> listaPraznihZnakova = new LinkedList<String>();
 
 	static BufferedReader reader = new BufferedReader(new InputStreamReader(
 			System.in));
@@ -101,6 +105,8 @@ public class GSA {
 			System.out.println();
 		}
 
+		izracunajPrazneZnakove();
+		
 		izracunajSkupoveZapocinjeZaNezavrsneZnakove();
 
 		System.out.println("#");
@@ -126,6 +132,13 @@ public class GSA {
 			izracunajSkupZapocinjeZaGramatickuProdukciju(gramatickaProdukcija);
 		}
 		System.out.println("!!");
+		System.out.println();
+		System.out.println("%%");
+		System.out.println("prazni znakovi");
+		for(String prazanZnak : listaPraznihZnakova){
+			System.out.println(prazanZnak);
+		}
+		System.out.println("%%");
 
 		izGramatickihProdukcijaNapraviProdukcijeIStanja();
 
@@ -367,6 +380,43 @@ public class GSA {
 		return -1;
 	}
 
+	private static void izracunajPrazneZnakove() {
+		List<String> prazniZnakovi = new LinkedList<String>();
+		
+		// Inicijalni prazni znakovi
+		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
+			List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
+			for (String desnaStrana : desneStrane) {
+				if ((Arrays.asList(desnaStrana.split("\\s+"))).contains("$")) {
+					prazniZnakovi.add(gramatickaProdukcija
+							.getLijevaStrana());
+				}
+			}
+		}
+		//Dalje provjeravamo za sve dok se ne promijeni lista
+		boolean podesi = true;
+		while(podesi){
+			podesi = false;
+			for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
+				if(prazniZnakovi.contains(gramatickaProdukcija.getLijevaStrana())){
+					continue;
+				}
+				List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
+				for (String desnaStrana : desneStrane) {
+					if ((Arrays.asList(desnaStrana.split("\\s+"))).contains("$")) {
+						prazniZnakovi.add(gramatickaProdukcija
+								.getLijevaStrana());
+					}
+					if(prazniZnakovi.containsAll(Arrays.asList(desnaStrana.split("\\s+")))){
+						prazniZnakovi.add(gramatickaProdukcija.getLijevaStrana());
+						podesi = true;
+					}
+				}
+			}
+		}
+		listaPraznihZnakova = prazniZnakovi;		
+	}
+	
 	private static void izracunajSkupoveZapocinjeZaNezavrsneZnakove() {
 		List<String> produkcijeSaEpsilonom = new ArrayList<String>();
 
@@ -457,11 +507,58 @@ public class GSA {
 		}
 
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
-			List<String> lista = new ArrayList<String>();
+			Set<String> lista = new HashSet<String>();
 			lista.addAll(pomocnaMapa.get(gramatickaProdukcija.getLijevaStrana()));
 			nezavrsniZnakoviZapocinjeMap.put(gramatickaProdukcija.getLijevaStrana(), lista);
 		}
+		
+		//Pocetnom znaku stavljamo znak za kraj niza
+		Set<String> lista = nezavrsniZnakoviZapocinjeMap.get(definator.getNezavrsniZnakovi().get(0));
+		lista.add(znakZaKrajNiza);
+		nezavrsniZnakoviZapocinjeMap.put(definator.getNezavrsniZnakovi().get(0), lista);
 
+	}
+	
+	private static List<String> izracunajSkupZapocinjeZaProdukciju(Produkcija produkcija){
+		List<String> skupZapocinje = new LinkedList<String>();
+		List<String> desnoOdTockice = produkcija.getDesnoOdTockice();
+		boolean skipFirst = true;
+									// A -> alpha * B betha
+		for(String znakDesneStrane : desnoOdTockice){		// 1. uvjet -> znak b element zapocinje(betha)
+			if(skipFirst){
+				skipFirst = false;	// preskacemo prvi znak
+				continue;
+			}
+			if(definator.getNezavrsniZnakovi().contains(znakDesneStrane)){
+				skupZapocinje.addAll(nezavrsniZnakoviZapocinjeMap.get(znakDesneStrane));
+			}
+			else if(definator.getZavrsniZnakovi().contains(znakDesneStrane)){
+				skupZapocinje.add(znakDesneStrane);
+				break;
+			}			
+		}
+		// 2. uvjet -> ako je iz niza betha moguce generirati prazan niz ili je vec prazan niz -> zapocinje od A
+		if(isMoguceGeneriratPrazanNiz(desnoOdTockice)){
+			skupZapocinje.addAll(produkcija.getZapocinje());
+		}
+		
+		return skupZapocinje;
+	}
+	
+	private static boolean isMoguceGeneriratPrazanNiz(List<String> niz){
+		niz.remove(0);
+		if(niz.size() == 0){
+			return true;
+		}
+		for(String znak : niz){
+			if(listaPraznihZnakova.contains(znak)){
+				continue;
+			}
+			else{
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	private static List<String> izracunajSkupZapocinjeZaGramatickuProdukciju(GramatickaProdukcija produkcija){
@@ -486,7 +583,7 @@ public class GSA {
 			}
 			System.out.println(" }");
 		}
-		
+
 		return null;
 	}
 

@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Definator {
 	
-	private List<String> zavrsniZnakovi = new ArrayList<String>();
-	private List<String> nezavrsniZnakovi = new ArrayList<String>();
-	private List<String> sinkronizacijskiZnakovi = new ArrayList<String>();
+	private List<String> zavrsniZnakovi = new LinkedList<String>();
+	private List<String> nezavrsniZnakovi = new LinkedList<String>();
+	private List<String> sinkronizacijskiZnakovi = new LinkedList<String>();
 
 	public void dodajZavrsnuListu(List<String> list) {
 		zavrsniZnakovi = list;

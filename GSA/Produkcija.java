@@ -1,5 +1,8 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class Produkcija {
 
@@ -7,15 +10,15 @@ public class Produkcija {
 	private List<String> ljevoOdTockice;
 	private List<String> desnoOdTockice;
 
-	private List<String> zapocinje;
+	private Set<String> zapocinje;
 
 	public Produkcija(String nezavrsni, List<String> tempList,
-			List<String> listZapocinje) {
+			Set<String> listZapocinje) {
 
 		this.left = nezavrsni;
-		this.ljevoOdTockice = new ArrayList<String>();
-		this.desnoOdTockice = new ArrayList<String>();
-		this.zapocinje = new ArrayList<String>();
+		this.ljevoOdTockice = new LinkedList<String>();
+		this.desnoOdTockice = new LinkedList<String>();
+		this.zapocinje = new HashSet<String>();
 
 		this.desnoOdTockice.addAll(tempList);
 		this.zapocinje.addAll(listZapocinje);
@@ -23,9 +26,9 @@ public class Produkcija {
 	}
 
 	public Produkcija(Produkcija produkcija) {
-		this.ljevoOdTockice = new ArrayList<String>();
-		this.desnoOdTockice = new ArrayList<String>();
-		this.zapocinje = new ArrayList<String>();
+		this.ljevoOdTockice = new LinkedList<String>();
+		this.desnoOdTockice = new LinkedList<String>();
+		this.zapocinje = new HashSet<String>();
 
 		this.left = new String(produkcija.left);
 		this.ljevoOdTockice.addAll(produkcija.getLjevoOdTockice());
@@ -50,7 +53,7 @@ public class Produkcija {
 		return desnoOdTockice;
 	}
 
-	public List<String> getZapocinje() {
+	public Set<String> getZapocinje() {
 		return zapocinje;
 	}
 
