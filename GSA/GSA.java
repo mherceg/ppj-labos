@@ -24,7 +24,7 @@ public class GSA {
 	
 	static final String znakZaKrajNiza = "┴";
 
-	static HashMap<String, Set<String>> nezavrsniZnakoviZapocinjeMap = new HashMap<String, Set<String>>();
+	static HashMap<String, List<String>> nezavrsniZnakoviZapocinjeMap = new HashMap<String, List<String>>();
 
 	static List<GramatickaProdukcija> listaGramtickihProdukcija = new LinkedList<GramatickaProdukcija>();
 
@@ -507,13 +507,13 @@ public class GSA {
 		}
 
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
-			Set<String> lista = new HashSet<String>();
+			List<String> lista = new ArrayList<String>();
 			lista.addAll(pomocnaMapa.get(gramatickaProdukcija.getLijevaStrana()));
 			nezavrsniZnakoviZapocinjeMap.put(gramatickaProdukcija.getLijevaStrana(), lista);
 		}
 		
 		//Pocetnom znaku stavljamo znak za kraj niza
-		Set<String> lista = nezavrsniZnakoviZapocinjeMap.get(definator.getNezavrsniZnakovi().get(0));
+		List<String> lista = nezavrsniZnakoviZapocinjeMap.get(definator.getNezavrsniZnakovi().get(0));
 		lista.add(znakZaKrajNiza);
 		nezavrsniZnakoviZapocinjeMap.put(definator.getNezavrsniZnakovi().get(0), lista);
 
