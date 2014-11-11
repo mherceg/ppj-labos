@@ -22,7 +22,7 @@ public class GSA {
 	static Definator definator = new Definator();
 	static String line;
 
-	static HashMap<String, List<String>> zapocinjeMap = new HashMap<String, List<String>>();
+	static HashMap<String, List<String>> nezavrsniZnakoviZapocinjeMap = new HashMap<String, List<String>>();
 
 	static List<GramatickaProdukcija> listaGramtickihProdukcija = new LinkedList<GramatickaProdukcija>();
 
@@ -106,10 +106,26 @@ public class GSA {
 		System.out.println("#");
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
 			System.out.print(gramatickaProdukcija.getLijevaStrana() + " -> ");
-			System.out.println(zapocinjeMap.get(gramatickaProdukcija
+			System.out.println(nezavrsniZnakoviZapocinjeMap.get(gramatickaProdukcija
 					.getLijevaStrana()));
 		}
 		System.out.println("#");
+		System.out.println();
+		System.out.println("!!");
+		for(GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija){
+			/*System.out.print(gramatickaProdukcija.getLijevaStrana() + " -> ");
+			for(String s : gramatickaProdukcija.getDesnaStrana()){
+				System.out.print(" " + s);
+			}
+			System.out.print( "{");
+			for(String s : izracunajSkupZapocinjeZaGramatickuProdukciju(gramatickaProdukcija)){
+				System.out.print(" " + s);
+			}
+			System.out.print(" }");
+			System.out.println();*/
+			izracunajSkupZapocinjeZaGramatickuProdukciju(gramatickaProdukcija);
+		}
+		System.out.println("!!");
 
 		izGramatickihProdukcijaNapraviProdukcijeIStanja();
 
@@ -220,7 +236,7 @@ public class GSA {
 					tempList = new LinkedList<String>();
 					novaProdukcija = new Produkcija(
 							gramatickaProdukcija.getLijevaStrana(), tempList,
-							zapocinjeMap.get(gramatickaProdukcija
+							nezavrsniZnakoviZapocinjeMap.get(gramatickaProdukcija
 									.getLijevaStrana()));
 
 				} else {
@@ -234,7 +250,7 @@ public class GSA {
 					}
 					novaProdukcija = new Produkcija(
 							gramatickaProdukcija.getLijevaStrana(), tempList,
-							zapocinjeMap.get(gramatickaProdukcija
+							nezavrsniZnakoviZapocinjeMap.get(gramatickaProdukcija
 									.getLijevaStrana()));
 
 				}
@@ -443,9 +459,35 @@ public class GSA {
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
 			List<String> lista = new ArrayList<String>();
 			lista.addAll(pomocnaMapa.get(gramatickaProdukcija.getLijevaStrana()));
-			zapocinjeMap.put(gramatickaProdukcija.getLijevaStrana(), lista);
+			nezavrsniZnakoviZapocinjeMap.put(gramatickaProdukcija.getLijevaStrana(), lista);
 		}
 
+	}
+	
+	private static List<String> izracunajSkupZapocinjeZaGramatickuProdukciju(GramatickaProdukcija produkcija){
+		List<String> desneStrane = produkcija.getDesnaStrana();
+		Set<String> skupZapocinje = new HashSet<String>();
+		
+		for(String desnaStrana : desneStrane){
+			skupZapocinje.clear();
+			String[] znakoviDesneStrane = desnaStrana.split("\\s+");
+			for(String znak : znakoviDesneStrane){
+				if(definator.getNezavrsniZnakovi().contains(znak)){
+					skupZapocinje.addAll(nezavrsniZnakoviZapocinjeMap.get(znak));
+				}
+				else if(definator.getZavrsniZnakovi().contains(znak)){
+					skupZapocinje.add(znak);
+					break;
+				}
+			}
+			System.out.print("Zapocinje(" + desnaStrana + ")" + " -> {");
+			for(String s : skupZapocinje){
+				System.out.print(" " + s);
+			}
+			System.out.println(" }");
+		}
+		
+		return null;
 	}
 
 	private static void AutomatUTablice(Automat DKA) throws IOException,
