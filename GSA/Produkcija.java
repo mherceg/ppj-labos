@@ -12,8 +12,7 @@ public class Produkcija {
 
 	private List<String> zapocinje;
 
-	public Produkcija(String nezavrsni, List<String> tempList,
-			List<String> listZapocinje) {
+	public Produkcija(String nezavrsni, List<String> tempList) {
 
 		this.left = nezavrsni;
 		this.ljevoOdTockice = new LinkedList<String>();
@@ -21,7 +20,6 @@ public class Produkcija {
 		this.zapocinje = new LinkedList<String>();
 
 		this.desnoOdTockice.addAll(tempList);
-		this.zapocinje.addAll(listZapocinje);
 
 	}
 
@@ -109,8 +107,7 @@ public class Produkcija {
 				sb.append(string);
 			}
 		}
-		return "Produkcija: " + sb.toString() + "\n" + "Zapocinje: "
-				+ zapocinje.toString() + "\n";
+		return sb.toString() + "/" + zapocinje.toString();
 	}
 
 	public void ispisi() {

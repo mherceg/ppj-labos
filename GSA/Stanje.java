@@ -49,11 +49,8 @@ public class Stanje {
 	}
 
 	public List<Prijelaz> getListaPrijelaza() {
-		if (listaPrijelaza.isEmpty()) {
-			return null;
-		} else {
-			return listaPrijelaza;
-		}
+
+		return listaPrijelaza;
 
 	}
 

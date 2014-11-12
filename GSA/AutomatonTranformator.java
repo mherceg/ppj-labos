@@ -9,12 +9,12 @@ public class AutomatonTranformator {
 		Stanje jedan = new Stanje("1");
 		Stanje dva = new Stanje("2");
 
-		nula.dodajProdukcij(new Produkcija("<A0>", new ArrayList<String>(),
+		/*nula.dodajProdukcij(new Produkcija("<A0>", new ArrayList<String>(),
 				new ArrayList<String>()));
 		jedan.dodajProdukcij(new Produkcija("<A1>", new ArrayList<String>(),
 				new ArrayList<String>()));
 		dva.dodajProdukcij(new Produkcija("<A2>", new ArrayList<String>(),
-				new ArrayList<String>()));
+				new ArrayList<String>()));*/
 
 		nula.dodajPrijelaz(new Prijelaz("$", jedan));
 		nula.dodajPrijelaz(new Prijelaz("0", nula));
