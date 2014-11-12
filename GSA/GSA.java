@@ -30,8 +30,6 @@ public class GSA {
 
 	static List<Produkcija> listaProdukcija = new LinkedList<Produkcija>();
 
-	static List<Stanje> listaSvihStanja = new LinkedList<Stanje>();
-
 	static List<String> listaPraznihZnakova = new LinkedList<String>();
 
 	static BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -140,31 +138,24 @@ public class GSA {
 		System.out.println("%%");
 
 		izGramatickihProdukcijaNapraviProdukcije();
-		System.out
-				.println("-------------------------------------------------------");
-		//ispisiProdukcije();
 
-	
+		// ispisiProdukcije();
+		List<Stanje> listaSvihStanja = new ArrayList<Stanje>();
+		Automat eNka = napraviENKA(listaSvihStanja);
 
-		Automat eNka= napraviENKA();
-		
-		System.out.println("---------------------------------------------------------ISPIS STANJA");
-
-		ispisiStanja();
-
-		System.out
-				.println("------------------------------------------------------");
+		// ispisiStanja(listaSvihStanja);
 
 		System.out.println();
 		System.out.println("Zavrsio eNka");
 
 		AutomatonTranformator trasformator = new AutomatonTranformator();
+		System.out.println("Zapoceo izradu dka");
 		Automat dka = trasformator.eNkaToDka(eNka);
 		System.out.println("Zavrsio dka");
 
 		// ispisiProdukcije();
 		// System.out.println("\n \nTu su sva Stanja");
-		// ispisiStanja();
+		// ispisiStanja(listaSvihStanja);
 
 		try {
 			reader.close();
@@ -174,15 +165,16 @@ public class GSA {
 
 	}
 
-	private static Automat napraviENKA() {
+	private static Automat napraviENKA(List<Stanje> listaSvihStanja) {
 		Automat enka = new Automat();
 		Stanje q0 = new Stanje("q0");
 
 		for (Produkcija produkcija : listaProdukcija) {
 			if (produkcija.getLeft().equals(
-					definator.getNezavrsniZnakovi().get(0))) {
+					definator.getNezavrsniZnakovi().get(0))
+					&& produkcija.getLjevoOdTockice().isEmpty()) {
 				q0.dodajPrijelaz(new Prijelaz("$", stvoriStanje(null,
-						produkcija)));
+						produkcija, listaSvihStanja)));
 			}
 		}
 
@@ -197,15 +189,14 @@ public class GSA {
 	}
 
 	private static Stanje stvoriStanje(Produkcija proslaProdukcija,
-			Produkcija ovaPoslanaProdukcija) {
-		
-		if(ovaPoslanaProdukcija==null){
+			Produkcija ovaPoslanaProdukcija, List<Stanje> listaSvihStanja) {
+
+		if (ovaPoslanaProdukcija == null) {
 			return null;
 		}
-		Produkcija ovaProdukcija= new Produkcija(ovaPoslanaProdukcija);
-		ovaProdukcija.getZapocinje().clear();
+		Produkcija ovaProdukcija = new Produkcija(ovaPoslanaProdukcija);
+		// ovaProdukcija.getZapocinje().clear();
 		System.out.println(proslaProdukcija + "-----" + ovaProdukcija);
-		
 
 		// System.out.println(proslaProdukcija);
 
@@ -216,12 +207,14 @@ public class GSA {
 		} else {
 			tempList = izracunajSkupZapocinjeZaProdukciju(proslaProdukcija);
 		}
-		System.out.println("TempList"+ tempList);
-		ovaProdukcija.setZapocinje(tempList);
+		System.out.println("TempList" + tempList);
+		if (ovaProdukcija.getZapocinje().isEmpty()) {
+			ovaProdukcija.setZapocinje(tempList);
+		}
 		Stanje novoStanje = new Stanje(ovaProdukcija.toString());
-		
+
 		novoStanje.dodajProdukcij(ovaProdukcija);
-		
+
 		if (listaSvihStanja.contains(novoStanje)) {
 			return listaSvihStanja.get(listaSvihStanja.indexOf(novoStanje));
 		} else {
@@ -234,40 +227,41 @@ public class GSA {
 		} else {
 			return novoStanje;
 		}
-		
+
 		// if (definator.getZavrsniZnakovi().contains(sljedeciZnak)) {
 		Stanje sljedeceStanje = stvoriStanje(ovaProdukcija,
-				ovaProdukcija.createNextProdukcija());
-		
-		if (sljedeceStanje != null ) {
-			
-			
-			if (novoStanje.getListaPrijelaza().contains(
+				ovaProdukcija.createNextProdukcija(), listaSvihStanja);
+
+		if (sljedeceStanje != null) {
+
+			if (!novoStanje.getListaPrijelaza().contains(
 					new Prijelaz(sljedeciZnak, sljedeceStanje))) {
-				
+
 				novoStanje.dodajPrijelaz(new Prijelaz(sljedeciZnak,
 						sljedeceStanje));
 			}
-			
+
 		}
-		
-		
-		
-	
+
 		// } else {
 		for (Produkcija produkcija : listaProdukcija) {
 			if (produkcija.getLeft().equals(sljedeciZnak)) {
-				
-				sljedeceStanje = stvoriStanje(ovaProdukcija, produkcija);
-				
+
+				sljedeceStanje = stvoriStanje(ovaProdukcija, produkcija,
+						listaSvihStanja);
+
 				if (sljedeceStanje != null
-						&& novoStanje.getListaPrijelaza() != null) {					
-					
-					if (novoStanje.getListaPrijelaza().contains(							
+						&& !novoStanje.getListaPrijelaza().isEmpty()) {
+
+					if (!novoStanje.getListaPrijelaza().contains(
 							new Prijelaz("$", sljedeceStanje))) {
 						
-						novoStanje.dodajPrijelaz(new Prijelaz("$",
-								sljedeceStanje));
+						if (sljedeceStanje.getlistuProdukcija().get(0)
+								.getLjevoOdTockice().isEmpty()) {
+						
+							novoStanje.dodajPrijelaz(new Prijelaz("$",
+									sljedeceStanje));
+						}
 					}
 				}
 			}
@@ -277,7 +271,7 @@ public class GSA {
 		return novoStanje;
 	}
 
-	private static void ispisiStanja() {
+	private static void ispisiStanja(List<Stanje> listaSvihStanja) {
 
 		for (Stanje stanje : listaSvihStanja) {
 			System.out.println(stanje.getImeStanja());
@@ -508,8 +502,8 @@ public class GSA {
 		/**
 		 * NAPRAVIO SAM TI DA IMAS SVOJU PRODUKCIJU DA NASU NE MJENJAS
 		 */
-		Produkcija produkcija=new Produkcija(produkcija1);
-		
+		Produkcija produkcija = new Produkcija(produkcija1);
+
 		List<String> skupZapocinje = new LinkedList<String>();
 		List<String> desnoOdTockice = produkcija.getDesnoOdTockice();
 		boolean skipFirst = true;
@@ -525,9 +519,9 @@ public class GSA {
 				skupZapocinje.addAll(nezavrsniZnakoviZapocinjeMap
 						.get(znakDesneStrane));
 			} else if (definator.getZavrsniZnakovi().contains(znakDesneStrane)) {
-				
+
 				skupZapocinje.add(znakDesneStrane);
-				
+
 				break;
 			}
 		}
@@ -537,8 +531,8 @@ public class GSA {
 			/**
 			 * TU SI JA MISLIM FAILO JER NISI PROVJERAVAO DUPLICE
 			 */
-			for(String nekaj: produkcija.getZapocinje()){
-				if(!skupZapocinje.contains(nekaj)){
+			for (String nekaj : produkcija.getZapocinje()) {
+				if (!skupZapocinje.contains(nekaj)) {
 					skupZapocinje.add(nekaj);
 				}
 			}
@@ -548,7 +542,7 @@ public class GSA {
 	}
 
 	private static boolean isMoguceGeneriratPrazanNiz(List<String> niz) {
-		
+
 		niz.remove(0);
 		if (niz.size() == 0) {
 			return true;

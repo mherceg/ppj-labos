@@ -46,7 +46,9 @@ public class AutomatonTranformator {
 	}
 
 	public Automat eNkaToDka(Automat eNka) {
-		return nkaToDka(eNkaToNka(eNka));
+		Automat nka = eNkaToNka(eNka);
+		System.out.println("zavrsio nka");
+		return nkaToDka(nka);
 	}
 
 	private Automat eNkaToNka(Automat eNka) {
