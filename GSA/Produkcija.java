@@ -31,7 +31,7 @@ public class Produkcija {
 		this.left = new String(produkcija.left);
 		this.ljevoOdTockice.addAll(produkcija.getLjevoOdTockice());
 		this.desnoOdTockice.addAll(produkcija.getDesnoOdTockice());
-		this.zapocinje = produkcija.getZapocinje();
+		this.zapocinje.addAll(produkcija.zapocinje);
 	}
 
 	public void setZapocinje(List<String> zapocinje) {

@@ -142,12 +142,13 @@ public class GSA {
 		izGramatickihProdukcijaNapraviProdukcije();
 		System.out
 				.println("-------------------------------------------------------");
-		ispisiProdukcije();
+		//ispisiProdukcije();
 
-		System.out
-				.println("-------------------------------------------------------------------");
+	
 
 		napraviENKA();
+		
+		System.out.println("---------------------------------------------------------ISPIS STANJA");
 
 		ispisiStanja();
 
@@ -204,6 +205,7 @@ public class GSA {
 			return null;
 		}
 		Produkcija ovaProdukcija= new Produkcija(ovaPoslanaProdukcija);
+		ovaProdukcija.getZapocinje().clear();
 		System.out.println(proslaProdukcija + "-----" + ovaProdukcija);
 		
 
@@ -216,11 +218,12 @@ public class GSA {
 		} else {
 			tempList = izracunajSkupZapocinjeZaProdukciju(proslaProdukcija);
 		}
+		System.out.println("TempList"+ tempList);
 		ovaProdukcija.setZapocinje(tempList);
 		Stanje novoStanje = new Stanje(ovaProdukcija.toString());
 		
 		novoStanje.dodajProdukcij(ovaProdukcija);
-		System.out.println(novoStanje +"//**//"+ovaProdukcija);
+		
 		if (listaSvihStanja.contains(novoStanje)) {
 			return listaSvihStanja.get(listaSvihStanja.indexOf(novoStanje));
 		} else {
@@ -233,11 +236,11 @@ public class GSA {
 		} else {
 			return novoStanje;
 		}
-		System.out.println("####"+ovaProdukcija+"----"+novoStanje);
+		
 		// if (definator.getZavrsniZnakovi().contains(sljedeciZnak)) {
 		Stanje sljedeceStanje = stvoriStanje(ovaProdukcija,
 				ovaProdukcija.createNextProdukcija());
-		System.out.println("%%%%" + ovaProdukcija+"----"+novoStanje);
+		
 		if (sljedeceStanje != null ) {
 			
 			
@@ -279,7 +282,7 @@ public class GSA {
 	private static void ispisiStanja() {
 
 		for (Stanje stanje : listaSvihStanja) {
-			System.out.println(stanje.toString());
+			System.out.println(stanje.getImeStanja());
 		}
 
 	}
@@ -503,7 +506,12 @@ public class GSA {
 	}
 
 	private static List<String> izracunajSkupZapocinjeZaProdukciju(
-			Produkcija produkcija) {
+			Produkcija produkcija1) {
+		/**
+		 * NAPRAVIO SAM TI DA IMAS SVOJU PRODUKCIJU DA NASU NE MJENJAS
+		 */
+		Produkcija produkcija=new Produkcija(produkcija1);
+		
 		List<String> skupZapocinje = new LinkedList<String>();
 		List<String> desnoOdTockice = produkcija.getDesnoOdTockice();
 		boolean skipFirst = true;
@@ -519,14 +527,23 @@ public class GSA {
 				skupZapocinje.addAll(nezavrsniZnakoviZapocinjeMap
 						.get(znakDesneStrane));
 			} else if (definator.getZavrsniZnakovi().contains(znakDesneStrane)) {
+				
 				skupZapocinje.add(znakDesneStrane);
+				
 				break;
 			}
 		}
 		// 2. uvjet -> ako je iz niza betha moguce generirati prazan niz ili je
 		// vec prazan niz -> zapocinje od A
 		if (isMoguceGeneriratPrazanNiz(desnoOdTockice)) {
-			skupZapocinje.addAll(produkcija.getZapocinje());
+			/**
+			 * TU SI JA MISLIM FAILO JER NISI PROVJERAVAO DUPLICE
+			 */
+			for(String nekaj: produkcija.getZapocinje()){
+				if(!skupZapocinje.contains(nekaj)){
+					skupZapocinje.add(nekaj);
+				}
+			}
 		}
 
 		return skupZapocinje;
