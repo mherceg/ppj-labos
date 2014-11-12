@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -35,6 +36,8 @@ public class GSA {
 	static BufferedReader reader = new BufferedReader(new InputStreamReader(
 			System.in));
 
+	static BufferedWriter writer;
+
 	public static void main(String[] args) {
 
 		try {
@@ -44,13 +47,15 @@ public class GSA {
 					.replace("%T ", "").split("\\s+")));
 			definator.dodajSinkronizacijskuListu(Arrays.asList(reader
 					.readLine().replace("%Syn ", "").split("\\s+")));
+
+			writer = new BufferedWriter(new FileWriter("Output.txt"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		System.out.println(definator.getNezavrsniZnakovi().toString());
-		System.out.println(definator.getZavrsniZnakovi().toString());
-		System.out.println(definator.getSinkronizacijskiZnakovi().toString());
+		// System.out.println(definator.getNezavrsniZnakovi().toString());
+		// System.out.println(definator.getZavrsniZnakovi().toString());
+		// System.out.println(definator.getSinkronizacijskiZnakovi().toString());
 
 		System.out.println();
 
@@ -93,29 +98,31 @@ public class GSA {
 			e1.printStackTrace();
 		}
 
-		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
-			System.out.print(gramatickaProdukcija.getLijevaStrana());
-			System.out.print(" -> ");
-			List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
-			for (String s : desneStrane) {
-				System.out.print(s + "|");
-			}
-			System.out.println();
-		}
+		// for (GramatickaProdukcija gramatickaProdukcija :
+		// listaGramtickihProdukcija) {
+		// System.out.print(gramatickaProdukcija.getLijevaStrana());
+		// System.out.print(" -> ");
+		// List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
+		// for (String s : desneStrane) {
+		// System.out.print(s + "|");
+		// }
+		// System.out.println();
+		// }
 
 		izracunajPrazneZnakove();
 
 		izracunajSkupoveZapocinjeZaNezavrsneZnakove();
 
-		System.out.println("#");
-		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
-			System.out.print(gramatickaProdukcija.getLijevaStrana() + " -> ");
-			System.out.println(nezavrsniZnakoviZapocinjeMap
-					.get(gramatickaProdukcija.getLijevaStrana()));
-		}
-		System.out.println("#");
-		System.out.println();
-		System.out.println("!!");
+		// System.out.println("#");
+		// for (GramatickaProdukcija gramatickaProdukcija :
+		// listaGramtickihProdukcija) {
+		// System.out.print(gramatickaProdukcija.getLijevaStrana() + " -> ");
+		// System.out.println(nezavrsniZnakoviZapocinjeMap
+		// .get(gramatickaProdukcija.getLijevaStrana()));
+		// }
+		// System.out.println("#");
+		// System.out.println();
+		// System.out.println("!!");
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
 			/*
 			 * System.out.print(gramatickaProdukcija.getLijevaStrana() +
@@ -128,16 +135,38 @@ public class GSA {
 			 */
 			izracunajSkupZapocinjeZaGramatickuProdukciju(gramatickaProdukcija);
 		}
-		System.out.println("!!");
-		System.out.println();
-		System.out.println("%%");
-		System.out.println("prazni znakovi");
-		for (String prazanZnak : listaPraznihZnakova) {
-			System.out.println(prazanZnak);
-		}
-		System.out.println("%%");
+		// System.out.println("!!");
+		// System.out.println();
+		// System.out.println("%%");
+		// System.out.println("prazni znakovi");
+		// for (String prazanZnak : listaPraznihZnakova) {
+		// System.out.println(prazanZnak);
+		// }
+		// System.out.println("%%");
 
 		izGramatickihProdukcijaNapraviProdukcije();
+
+		for (Produkcija produkcija : listaProdukcija) {
+			String blank = "";
+			if (!produkcija.getLjevoOdTockice().isEmpty()) {
+				blank = "\t";
+			} else {
+				blank = "";
+			}
+			try {
+				writer.write(blank + produkcija.toString());
+				writer.newLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			writer.close();
+			writer = null;
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		// ispisiProdukcije();
 		List<Stanje> listaSvihStanja = new ArrayList<Stanje>();
@@ -147,7 +176,7 @@ public class GSA {
 
 		System.out.println();
 		System.out.println("Zavrsio eNka");
-
+		System.exit(0);
 		AutomatonTranformator trasformator = new AutomatonTranformator();
 		System.out.println("Zapoceo izradu dka");
 		Automat dka = trasformator.eNkaToDka(eNka);
@@ -196,7 +225,7 @@ public class GSA {
 		}
 		Produkcija ovaProdukcija = new Produkcija(ovaPoslanaProdukcija);
 		// ovaProdukcija.getZapocinje().clear();
-		System.out.println(proslaProdukcija + "-----" + ovaProdukcija);
+		// System.out.println(proslaProdukcija + "-----" + ovaProdukcija);
 
 		// System.out.println(proslaProdukcija);
 
@@ -207,12 +236,13 @@ public class GSA {
 		} else {
 			tempList = izracunajSkupZapocinjeZaProdukciju(proslaProdukcija);
 		}
-		System.out.println("TempList" + tempList);
+		// System.out.println("TempList" + tempList);
 		if (ovaProdukcija.getZapocinje().isEmpty()) {
 			ovaProdukcija.setZapocinje(tempList);
 		}
 		Stanje novoStanje = new Stanje(ovaProdukcija.toString());
-
+		
+		
 		novoStanje.dodajProdukcij(ovaProdukcija);
 
 		if (listaSvihStanja.contains(novoStanje)) {
@@ -255,10 +285,10 @@ public class GSA {
 
 					if (!novoStanje.getListaPrijelaza().contains(
 							new Prijelaz("$", sljedeceStanje))) {
-						
+
 						if (sljedeceStanje.getlistuProdukcija().get(0)
 								.getLjevoOdTockice().isEmpty()) {
-						
+
 							novoStanje.dodajPrijelaz(new Prijelaz("$",
 									sljedeceStanje));
 						}
@@ -574,11 +604,11 @@ public class GSA {
 					break;
 				}
 			}
-			System.out.print("Zapocinje(" + desnaStrana + ")" + " -> {");
+//			System.out.print("Zapocinje(" + desnaStrana + ")" + " -> {");
 			for (String s : skupZapocinje) {
-				System.out.print(" " + s);
+//				System.out.print(" " + s);
 			}
-			System.out.println(" }");
+//			System.out.println(" }");
 		}
 
 		return null;
