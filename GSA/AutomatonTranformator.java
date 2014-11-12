@@ -105,7 +105,7 @@ public class AutomatonTranformator {
 							.getlistuProdukcija()) {
 						novoStanjeZaPrijelaze.dodajProdukcij(produkcija);
 					}
-					if (novoStanje.getListaPrijelaza() != null) {
+					if (!novoStanje.getListaPrijelaza().isEmpty()) {
 						for (Prijelaz buduciPrijelaz : novoStanje
 								.getListaPrijelaza()) {
 							novoStanjeZaPrijelaze.dodajPrijelaz(buduciPrijelaz);
@@ -174,7 +174,7 @@ public class AutomatonTranformator {
 							.getlistuProdukcija()) {
 						novoStanje.dodajProdukcij(produkcija);
 					}
-					if (prijelaz.getNovoStanje().getListaPrijelaza() != null) {
+					if (!prijelaz.getNovoStanje().getListaPrijelaza().isEmpty()) {
 						for (Prijelaz buduciPrijelaz : prijelaz.getNovoStanje()
 								.getListaPrijelaza()) {
 							novoStanje.dodajPrijelaz(buduciPrijelaz);
@@ -196,7 +196,7 @@ public class AutomatonTranformator {
 		List<Stanje> novaStanja = new ArrayList<Stanje>();
 
 		for (Stanje stanje : stanja) {
-			if (stanje.getListaPrijelaza() == null) {
+			if (stanje.getListaPrijelaza().isEmpty()) {
 				continue;
 			}
 			for (Prijelaz prijelaz : stanje.getListaPrijelazaPoZnaku(znak)) {
@@ -241,7 +241,7 @@ public class AutomatonTranformator {
 		}
 
 		List<Stanje> novaStanja = new ArrayList<Stanje>();
-		if (stanje.getListaPrijelaza() == null) {
+		if (stanje.getListaPrijelaza().isEmpty()) {
 			return;
 		}
 		for (Prijelaz prijelaz : stanje.getListaPrijelaza()) {

@@ -146,7 +146,7 @@ public class GSA {
 
 	
 
-		napraviENKA();
+		Automat eNka= napraviENKA();
 		
 		System.out.println("---------------------------------------------------------ISPIS STANJA");
 
@@ -154,8 +154,6 @@ public class GSA {
 
 		System.out
 				.println("------------------------------------------------------");
-
-		Automat eNka = new Automat();
 
 		System.out.println();
 		System.out.println("Zavrsio eNka");
