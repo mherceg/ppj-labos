@@ -57,7 +57,8 @@ public class GSA {
 		// System.out.println(definator.getSinkronizacijskiZnakovi().toString());
 
 		System.out.println();
-
+		int brojDesneStraneProdukcije = 1;
+		
 		List<String> vecPunjeniNezavrsniZnakovi = new ArrayList<String>();
 		GramatickaProdukcija tempGramtickaProdukcija = new GramatickaProdukcija();
 
@@ -81,7 +82,7 @@ public class GSA {
 				} else {
 					while (Character.isWhitespace(line.charAt(0))) {
 						tempGramtickaProdukcija
-								.dodajNoviDesniIzraz(line.trim());
+								.dodajNoviDesniIzraz(line.trim(), brojDesneStraneProdukcije++);
 						line = reader.readLine();
 						if (line == null || line.isEmpty()) {
 							break;
@@ -97,16 +98,18 @@ public class GSA {
 			e1.printStackTrace();
 		}
 
-		// for (GramatickaProdukcija gramatickaProdukcija :
-		// listaGramtickihProdukcija) {
-		// System.out.print(gramatickaProdukcija.getLijevaStrana());
-		// System.out.print(" -> ");
-		// List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
-		// for (String s : desneStrane) {
-		// System.out.print(s + "|");
-		// }
-		// System.out.println();
-		// }
+		/*int i = 0;
+		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
+			 i = 0;
+			 System.out.print(gramatickaProdukcija.getLijevaStrana());
+			 System.out.print(" -> ");
+			 List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
+			 List<Integer> broj = gramatickaProdukcija.getRedosljedDesnihStrana();
+			 for (String s : desneStrane) {
+				 System.out.print(s + "( " + broj.get(i++) + " ) |");
+			 }
+			 System.out.println();
+		}*/
 
 		izracunajPrazneZnakove();
 

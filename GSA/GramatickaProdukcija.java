@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class GramatickaProdukcija {
 	private String lijevaStrana;
-	private List<String> desnaStrana = new LinkedList<String>();
+	private List<String> desnaStrana = new ArrayList<String>();
+	private List<Integer> redosljedDesneStrane = new ArrayList<Integer>();
 
 	public GramatickaProdukcija(String lijevaStrana) {
 
@@ -30,8 +32,13 @@ public class GramatickaProdukcija {
 		this.desnaStrana = desnaStrana;
 	}
 
-	public void dodajNoviDesniIzraz(String izraz) {
+	public void dodajNoviDesniIzraz(String izraz, int brojProdukcije) {
 		desnaStrana.add(izraz);
+		redosljedDesneStrane.add(brojProdukcije);
+	}
+	
+	public List<Integer> getRedosljedDesnihStrana(){
+		return redosljedDesneStrane;
 	}
 
 }
