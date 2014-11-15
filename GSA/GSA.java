@@ -631,13 +631,13 @@ public class GSA {
 	private static int brojcek(String imeStanja){
 		if (brojceki == null){
 			brojceki = new HashMap<>();
-			max = 0;
+			max = -1;
 		}
 		if (brojceki.containsKey(imeStanja)){
 			return brojceki.get(imeStanja);
 		}
 		else{
-			brojceki.put(imeStanja, max++);
+			brojceki.put(imeStanja, ++max);
 			return max;
 		}
 	}
