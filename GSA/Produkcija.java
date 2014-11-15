@@ -1,4 +1,5 @@
-import java.util.LinkedList;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Produkcija {
@@ -9,21 +10,21 @@ public class Produkcija {
 
 	private List<String> zapocinje;
 
-	public Produkcija(String nezavrsni, List<String> tempList) {
+	public Produkcija(String nezavrsni, List<String> desnoOdTockice) {
 
 		this.left = nezavrsni;
-		this.ljevoOdTockice = new LinkedList<String>();
-		this.desnoOdTockice = new LinkedList<String>();
-		this.zapocinje = new LinkedList<String>();
+		this.ljevoOdTockice = new ArrayList<String>();
+		this.desnoOdTockice = new ArrayList<String>();
+		this.zapocinje = new ArrayList<String>();
 
-		this.desnoOdTockice.addAll(tempList);
+		this.desnoOdTockice.addAll(desnoOdTockice);
 
 	}
 
 	public Produkcija(Produkcija produkcija) {
-		this.ljevoOdTockice = new LinkedList<String>();
-		this.desnoOdTockice = new LinkedList<String>();
-		this.zapocinje = new LinkedList<String>();
+		this.ljevoOdTockice = new ArrayList<String>();
+		this.desnoOdTockice = new ArrayList<String>();
+		this.zapocinje = new ArrayList<String>();
 
 		this.left = new String(produkcija.left);
 		this.ljevoOdTockice.addAll(produkcija.getLjevoOdTockice());

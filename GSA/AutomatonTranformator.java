@@ -4,50 +4,9 @@ import java.util.TreeSet;
 
 public class AutomatonTranformator {
 
-	public static void main(String[] args) {
-		Stanje nula = new Stanje("0");
-		Stanje jedan = new Stanje("1");
-		Stanje dva = new Stanje("2");
-
-		/*nula.dodajProdukcij(new Produkcija("<A0>", new ArrayList<String>(),
-				new ArrayList<String>()));
-		jedan.dodajProdukcij(new Produkcija("<A1>", new ArrayList<String>(),
-				new ArrayList<String>()));
-		dva.dodajProdukcij(new Produkcija("<A2>", new ArrayList<String>(),
-				new ArrayList<String>()));*/
-
-		nula.dodajPrijelaz(new Prijelaz("$", jedan));
-		nula.dodajPrijelaz(new Prijelaz("0", nula));
-		nula.dodajPrijelaz(new Prijelaz("1", dva));
-
-		jedan.dodajPrijelaz(new Prijelaz("$", dva));
-		jedan.dodajPrijelaz(new Prijelaz("1", jedan));
-
-		dva.dodajPrijelaz(new Prijelaz("2", dva));
-
-		Automat eNka = new Automat();
-		eNka.dodajStanje(nula);
-		eNka.dodajStanje(jedan);
-		eNka.dodajStanje(dva);
-
-		Stanje pocetno = new Stanje("pocetno");
-		pocetno.dodajPrijelaz(new Prijelaz("$", nula));
-
-		eNka.setPocetnoStanje(pocetno);
-		// eNka.dodajStanje(pocetno);
-
-		AutomatonTranformator auto = new AutomatonTranformator();
-
-		Automat nka = auto.eNkaToNka(eNka);
-//		System.out.println("zavrsio nka");
-		Automat dka = auto.nkaToDka(nka);
-//		System.out.println("zavrsio dka");
-
-	}
-
 	public Automat eNkaToDka(Automat eNka) {
 		Automat nka = eNkaToNka(eNka);
-//		System.out.println("zavrsio nka");
+		// System.out.println("zavrsio nka");
 		return nkaToDka(nka);
 	}
 
@@ -64,8 +23,36 @@ public class AutomatonTranformator {
 		for (Stanje stanje : stvorenaStanja) {
 			nka.dodajStanje(stanje);
 		}
-
+		List<Produkcija> pocetneProdukcije = new ArrayList<Produkcija>();
+		List<Stanje> prodenaStanja = new ArrayList<Stanje>();
+		pocetneProdukcije = getNkaPocetnoProdukcija(eNka.getPocetnoStanje(), prodenaStanja);
+		nka.getPocetnoStanje().dodajListuProdukcija(pocetneProdukcije);
 		return nka;
+	}
+
+	private List<Produkcija> getNkaPocetnoProdukcija(Stanje eNkaPocetno,
+			List<Stanje> prodenaStanja) {
+		List<Produkcija> pocetneProdukcije = new ArrayList<Produkcija>();
+		for (Prijelaz prijelaz : eNkaPocetno.getListaPrijelaza()) {
+			if (prijelaz.getZnak().equals("$")) {
+				if (!prodenaStanja.contains(prijelaz.getNovoStanje())) {
+					prodenaStanja.add(prijelaz.getNovoStanje());
+					pocetneProdukcije.add(prijelaz.getNovoStanje().getlistuProdukcija().get(0));
+					
+					List<Produkcija> noveProdukcije = (getNkaPocetnoProdukcija(
+							prijelaz.getNovoStanje(), prodenaStanja));
+					
+					if (!noveProdukcije.isEmpty()) {
+						for (Produkcija produkcija : noveProdukcije) {
+							if (!pocetneProdukcije.contains(produkcija)) {
+								pocetneProdukcije.add(produkcija);
+							}
+						}
+					}
+				}
+			}
+		}
+		return pocetneProdukcije;
 	}
 
 	private void srediPrijelazeENkaNka(Stanje stanje,
@@ -80,10 +67,6 @@ public class AutomatonTranformator {
 			}
 			// sva stanja u koja moze doc sa ovim znakom
 			List<Stanje> novaStanjaNakonPrijelaza = prijelazKapica(stanje, znak);
-
-			// System.out.format("%s e za %s: %s%n", stanje.getImeStanja(),
-			// znak,
-			// novaStanjaNakonPrijelaza);
 
 			/*
 			 * Za svaki znak gledaj sve prijelaze koje ima
@@ -122,7 +105,8 @@ public class AutomatonTranformator {
 			}
 
 		}
-		stanje.setZnakoviPrijelaza(noviPrijelazi);
+
+		stanje.setListaPrijelaza(noviPrijelazi);
 
 	}
 
@@ -190,7 +174,7 @@ public class AutomatonTranformator {
 			noviPrijelazi.add(new Prijelaz(znak, novoStanje));
 
 		}
-		stanje.setZnakoviPrijelaza(noviPrijelazi);
+		stanje.setListaPrijelaza(noviPrijelazi);
 
 	}
 
