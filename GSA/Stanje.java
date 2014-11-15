@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -16,8 +15,8 @@ public class Stanje {
 	}
 
 	public Stanje(Stanje drugo) {
-		listaPrijelaza = new LinkedList<Prijelaz>();
-		listaProdukcija = new LinkedList<Produkcija>();
+		listaPrijelaza = new ArrayList<Prijelaz>();
+		listaProdukcija = new ArrayList<Produkcija>();
 
 		this.imeStanja = new String(drugo.getImeStanja());
 		for (Prijelaz prijelaz : drugo.getListaPrijelaza()) {
@@ -53,8 +52,14 @@ public class Stanje {
 		return listaPrijelaza;
 
 	}
-
-	public void setZnakoviPrijelaza(List<Prijelaz> novo) {
+	public void dodajListuProdukcija(List<Produkcija> novo){
+		for(Produkcija produkcija: novo){
+			if(!listaProdukcija.contains(produkcija)){
+				listaProdukcija.add(produkcija);
+			}
+		}
+	}
+	public void setListaPrijelaza(List<Prijelaz> novo) {
 		listaPrijelaza.clear();
 		for (Prijelaz prijelaz : novo) {
 			listaPrijelaza.add(new Prijelaz(prijelaz.getZnak(), prijelaz

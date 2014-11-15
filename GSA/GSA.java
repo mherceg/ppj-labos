@@ -176,7 +176,7 @@ public class GSA {
 
 		System.out.println();
 		System.out.println("Zavrsio eNka");
-		System.exit(0);
+
 		AutomatonTranformator trasformator = new AutomatonTranformator();
 		System.out.println("Zapoceo izradu dka");
 		Automat dka = trasformator.eNkaToDka(eNka);
@@ -197,13 +197,28 @@ public class GSA {
 	private static Automat napraviENKA(List<Stanje> listaSvihStanja) {
 		Automat enka = new Automat();
 		Stanje q0 = new Stanje("q0");
+		String pocetniNezavrsni = definator.getNezavrsniZnakovi().get(0);
 
+		List<String> pocetnoDesno = new ArrayList<String>();
+		pocetnoDesno.add(pocetniNezavrsni);
+
+		Produkcija pocetnaProdukcija = new Produkcija("<%>", pocetnoDesno);
+		List<String> zapocinje = new ArrayList<>();
+		zapocinje.add(znakZaKrajNiza);
+		pocetnaProdukcija.setZapocinje(zapocinje);
+		q0.dodajProdukcij(pocetnaProdukcija);
+		
+		Produkcija novaProdukcija = pocetnaProdukcija.createNextProdukcija();
+		Stanje novoStanje = new Stanje(novaProdukcija.toString());
+		novoStanje.dodajProdukcij(novaProdukcija);
+		listaSvihStanja.add(novoStanje);
+		q0.dodajPrijelaz(new Prijelaz(pocetniNezavrsni, novoStanje));
+		
 		for (Produkcija produkcija : listaProdukcija) {
-			if (produkcija.getLeft().equals(
-					definator.getNezavrsniZnakovi().get(0))
+			if (produkcija.getLeft().equals(pocetniNezavrsni)
 					&& produkcija.getLjevoOdTockice().isEmpty()) {
-				q0.dodajPrijelaz(new Prijelaz("$", stvoriStanje(null,
-						produkcija, listaSvihStanja)));
+				q0.dodajPrijelaz(new Prijelaz("$", stvoriStanje(
+						pocetnaProdukcija, produkcija, listaSvihStanja)));
 			}
 		}
 
@@ -241,8 +256,7 @@ public class GSA {
 			ovaProdukcija.setZapocinje(tempList);
 		}
 		Stanje novoStanje = new Stanje(ovaProdukcija.toString());
-		
-		
+
 		novoStanje.dodajProdukcij(ovaProdukcija);
 
 		if (listaSvihStanja.contains(novoStanje)) {
@@ -604,11 +618,11 @@ public class GSA {
 					break;
 				}
 			}
-//			System.out.print("Zapocinje(" + desnaStrana + ")" + " -> {");
+			// System.out.print("Zapocinje(" + desnaStrana + ")" + " -> {");
 			for (String s : skupZapocinje) {
-//				System.out.print(" " + s);
+				// System.out.print(" " + s);
 			}
-//			System.out.println(" }");
+			// System.out.println(" }");
 		}
 
 		return null;
