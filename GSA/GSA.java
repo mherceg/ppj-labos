@@ -57,7 +57,8 @@ public class GSA {
 		// System.out.println(definator.getSinkronizacijskiZnakovi().toString());
 
 		System.out.println();
-
+		int brojDesneStraneProdukcije = 1;
+		
 		List<String> vecPunjeniNezavrsniZnakovi = new ArrayList<String>();
 		GramatickaProdukcija tempGramtickaProdukcija = new GramatickaProdukcija();
 
@@ -81,7 +82,7 @@ public class GSA {
 				} else {
 					while (Character.isWhitespace(line.charAt(0))) {
 						tempGramtickaProdukcija
-								.dodajNoviDesniIzraz(line.trim());
+								.dodajNoviDesniIzraz(line.trim(), brojDesneStraneProdukcije++);
 						line = reader.readLine();
 						if (line == null || line.isEmpty()) {
 							break;
@@ -97,16 +98,18 @@ public class GSA {
 			e1.printStackTrace();
 		}
 
-		// for (GramatickaProdukcija gramatickaProdukcija :
-		// listaGramtickihProdukcija) {
-		// System.out.print(gramatickaProdukcija.getLijevaStrana());
-		// System.out.print(" -> ");
-		// List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
-		// for (String s : desneStrane) {
-		// System.out.print(s + "|");
-		// }
-		// System.out.println();
-		// }
+		/*int i = 0;
+		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
+			 i = 0;
+			 System.out.print(gramatickaProdukcija.getLijevaStrana());
+			 System.out.print(" -> ");
+			 List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
+			 List<Integer> broj = gramatickaProdukcija.getRedosljedDesnihStrana();
+			 for (String s : desneStrane) {
+				 System.out.print(s + "( " + broj.get(i++) + " ) |");
+			 }
+			 System.out.println();
+		}*/
 
 		izracunajPrazneZnakove();
 
@@ -201,7 +204,7 @@ public class GSA {
 		List<String> pocetnoDesno = new ArrayList<String>();
 		pocetnoDesno.add(pocetniNezavrsni);
 
-		Produkcija pocetnaProdukcija = new Produkcija("<%>", pocetnoDesno);
+		Produkcija pocetnaProdukcija = new Produkcija("<%>", pocetnoDesno, 0);
 		List<String> zapocinje = new ArrayList<>();
 		zapocinje.add(znakZaKrajNiza);
 		pocetnaProdukcija.setZapocinje(zapocinje);
@@ -333,16 +336,19 @@ public class GSA {
 
 			List<String> tempList = new LinkedList<String>();
 			Produkcija novaProdukcija;
-			for (String pojedinacnaProdukcija : gramatickaProdukcija
-					.getDesnaStrana()) {
+			for(int i = 0; i< gramatickaProdukcija.getDesnaStrana().size(); i++){
+//			for (String pojedinacnaProdukcija : gramatickaProdukcija
+//					.getDesnaStrana()) {
 				/*
 				 * Izbacuje prazne prijelaze
 				 */
-
+			String pojedinacnaProdukcija = gramatickaProdukcija.getDesnaStrana().get(i);
+			int redniBroj = gramatickaProdukcija.getRedosljedDesnihStrana().get(i);
+			
 				if (pojedinacnaProdukcija.equals("$")) {
 					tempList = new LinkedList<String>();
 					novaProdukcija = new Produkcija(
-							gramatickaProdukcija.getLijevaStrana(), tempList);
+							gramatickaProdukcija.getLijevaStrana(), tempList, redniBroj);
 
 				} else {
 					/*
@@ -354,7 +360,7 @@ public class GSA {
 						tempList.add(prod);
 					}
 					novaProdukcija = new Produkcija(
-							gramatickaProdukcija.getLijevaStrana(), tempList);
+							gramatickaProdukcija.getLijevaStrana(), tempList, redniBroj);
 
 				}
 
