@@ -108,7 +108,7 @@ public class Produkcija {
 				sb.append(string);
 			}
 		}
-		return sb.toString() + "/" + zapocinje.toString();
+		return sb.toString() + "," + zapocinje.toString() + " <"+redniBrojPojavljivanja+">";
 	}
 
 	public void ispisi() {
