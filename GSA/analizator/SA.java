@@ -32,10 +32,15 @@ public class SA {
 		String in;
 		while ((in = reader.readLine()) != null) {
 			Akcija ak = akcija.getAkcija(stack.peek().getStanje(),in.split(" ")[0]);
+			if (ak == null) {
+				
+			}
+			else
 			if (ak.getAkcija().equals(Tip.Pomakni)){
 				stack.push(new StackElem(new Node(in)));
 				stack.push(new StackElem(ak.getLeft()));
 			}
+			else
 			if (ak.getAkcija().equals(Tip.Reduciraj)){
 				Stack<Node> st = new Stack<>();
 				List<String> right = ak.getRight();

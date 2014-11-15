@@ -16,14 +16,13 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import org.ietf.jgss.Oid;
-
 public class GSA {
 
 	static Definator definator = new Definator();
 	static String line;
 
 	static final String znakZaKrajNiza = "┴";
+	static final String imePocetnogStanja = "Neko1Nase1Pocetno2StanjeCijeImeq0SePojavljujeSamoOvdje";
 
 	static HashMap<String, List<String>> nezavrsniZnakoviZapocinjeMap = new HashMap<String, List<String>>();
 
@@ -38,7 +37,7 @@ public class GSA {
 
 	static BufferedWriter writer;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, JAXBException {
 
 		try {
 			definator.dodajNezavrsnuListu(Arrays.asList(reader.readLine()
@@ -164,7 +163,6 @@ public class GSA {
 			writer.close();
 			writer = null;
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -176,12 +174,12 @@ public class GSA {
 
 		System.out.println();
 		System.out.println("Zavrsio eNka");
-		System.exit(0);
 		AutomatonTranformator trasformator = new AutomatonTranformator();
 		System.out.println("Zapoceo izradu dka");
 		Automat dka = trasformator.eNkaToDka(eNka);
 		System.out.println("Zavrsio dka");
 
+		AutomatUTablice(dka);
 		// ispisiProdukcije();
 		// System.out.println("\n \nTu su sva Stanja");
 		// ispisiStanja(listaSvihStanja);
@@ -196,7 +194,7 @@ public class GSA {
 
 	private static Automat napraviENKA(List<Stanje> listaSvihStanja) {
 		Automat enka = new Automat();
-		Stanje q0 = new Stanje("q0");
+		Stanje q0 = new Stanje(imePocetnogStanja);
 
 		for (Produkcija produkcija : listaProdukcija) {
 			if (produkcija.getLeft().equals(
@@ -241,8 +239,7 @@ public class GSA {
 			ovaProdukcija.setZapocinje(tempList);
 		}
 		Stanje novoStanje = new Stanje(ovaProdukcija.toString());
-		
-		
+
 		novoStanje.dodajProdukcij(ovaProdukcija);
 
 		if (listaSvihStanja.contains(novoStanje)) {
@@ -301,21 +298,19 @@ public class GSA {
 		return novoStanje;
 	}
 
-	private static void ispisiStanja(List<Stanje> listaSvihStanja) {
-
-		for (Stanje stanje : listaSvihStanja) {
-			System.out.println(stanje.getImeStanja());
-		}
-
-	}
-
-	private static void ispisiProdukcije() {
-		for (Produkcija prod : listaProdukcija) {
-			prod.ispisi();
-		}
-
-	}
-
+	/*
+	 * private static void ispisiStanja(List<Stanje> listaSvihStanja) {
+	 * 
+	 * for (Stanje stanje : listaSvihStanja) {
+	 * System.out.println(stanje.getImeStanja()); }
+	 * 
+	 * }
+	 * 
+	 * private static void ispisiProdukcije() { for (Produkcija prod :
+	 * listaProdukcija) { prod.ispisi(); }
+	 * 
+	 * }
+	 */
 	private static void izGramatickihProdukcijaNapraviProdukcije() {
 
 		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
@@ -529,7 +524,7 @@ public class GSA {
 
 	private static List<String> izracunajSkupZapocinjeZaProdukciju(
 			Produkcija produkcija1) {
-		/**
+		/*
 		 * NAPRAVIO SAM TI DA IMAS SVOJU PRODUKCIJU DA NASU NE MJENJAS
 		 */
 		Produkcija produkcija = new Produkcija(produkcija1);
@@ -558,7 +553,7 @@ public class GSA {
 		// 2. uvjet -> ako je iz niza betha moguce generirati prazan niz ili je
 		// vec prazan niz -> zapocinje od A
 		if (isMoguceGeneriratPrazanNiz(desnoOdTockice)) {
-			/**
+			/*
 			 * TU SI JA MISLIM FAILO JER NISI PROVJERAVAO DUPLICE
 			 */
 			for (String nekaj : produkcija.getZapocinje()) {
@@ -604,11 +599,11 @@ public class GSA {
 					break;
 				}
 			}
-//			System.out.print("Zapocinje(" + desnaStrana + ")" + " -> {");
-			for (String s : skupZapocinje) {
-//				System.out.print(" " + s);
-			}
-//			System.out.println(" }");
+			/*
+			 * System.out.print("Zapocinje(" + desnaStrana + ")" + " -> {"); for
+			 * (String s : skupZapocinje) { System.out.print(" " + s); }
+			 * System.out.println(" }");
+			 */
 		}
 
 		return null;
@@ -621,6 +616,34 @@ public class GSA {
 		Tablica novoStanje = new Tablica();
 
 		akcija.setPocetno(DKA.getPocetnoStanje().getImeStanja());
+
+		for (Stanje s : DKA.getStanja()) {
+			for (Prijelaz p : s.getListaPrijelaza()) {
+				if (p.getZnak().startsWith("<")) {
+					novoStanje.setAkcija(s.getImeStanja(), p.getZnak(), new Akcija(Tip.Stavi,p.getNovoStanje().getImeStanja(),null));
+				} else {
+					akcija.setAkcija(s.getImeStanja(), p.getZnak(), new Akcija(
+							Tip.Pomakni));
+				}
+			}
+			for (Produkcija p : s.getlistuProdukcija()) {
+				if (p.getDesnoOdTockice() == null
+						|| p.getDesnoOdTockice().isEmpty()) {
+					for (String z : p.getZapocinje()) {
+
+						akcija.setAkcija(
+								s.getImeStanja(),
+								z,
+								new Akcija(Tip.Reduciraj, p.getLeft(), p
+										.getLjevoOdTockice()));
+					}
+				}
+			}
+			if (s.getImeStanja().equals(imePocetnogStanja)) {
+				akcija.setAkcija(s.getImeStanja(), znakZaKrajNiza, new Akcija(
+						Tip.Prihvati));
+			}
+		}
 
 		FileWriter fw = new FileWriter("analizator/Akcija.xml");
 		JAXBContext context = JAXBContext.newInstance(Tablica.class);

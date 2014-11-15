@@ -1,37 +1,42 @@
 import java.util.HashMap;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="Tablica")
 public class Tablica {
-	private HashMap<String,HashMap<String,Akcija>> tablica;
+	private HashMap<String,Red> tablica;
 	private String pocetno;
 	
 	Tablica(){
 		tablica = new HashMap<>();
 	}
 
-	public HashMap<String, HashMap<String, Akcija>> getTablica() {
+	public HashMap<String, Red> getTablica() {
 		return tablica;
 	}
-
-	public void setTablica(HashMap<String, HashMap<String, Akcija>> tablica) {
+	@XmlElement(name="tablica")
+	public void setTablica(HashMap<String, Red> tablica) {
 		this.tablica = tablica;
 	}
 	
 	public Akcija getAkcija(String i, String j){
-		return tablica.get(i).get(j);
+		if (tablica == null) return null;
+		if (tablica.get(i) == null) return null;
+		return tablica.get(i).getA().get(j);
 	}
-	
 	public void setAkcija(String i, String j, Akcija a){
 		if (!tablica.containsKey(i)){
-			tablica.put(i, new HashMap<>());
+			tablica.put(i, new Red());
 		}
-		tablica.get(i).put(j, a);
+		tablica.get(i).getA().put(j, a);
 	}
 
 	public String getPocetno() {
 		return pocetno;
 	}
 
+	@XmlElement(name="pocetno")
 	public void setPocetno(String pocetno) {
 		this.pocetno = pocetno;
 	}
