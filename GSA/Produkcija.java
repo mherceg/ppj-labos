@@ -7,16 +7,18 @@ public class Produkcija {
 	private String left;
 	private List<String> ljevoOdTockice;
 	private List<String> desnoOdTockice;
-
+	
 	private List<String> zapocinje;
 
-	public Produkcija(String nezavrsni, List<String> desnoOdTockice) {
+	private int redniBrojPojavljivanja;
+	
+	public Produkcija(String nezavrsni, List<String> desnoOdTockice, int rednibrojPojavljivanja) {
 
 		this.left = nezavrsni;
 		this.ljevoOdTockice = new ArrayList<String>();
 		this.desnoOdTockice = new ArrayList<String>();
 		this.zapocinje = new ArrayList<String>();
-
+		this.redniBrojPojavljivanja=rednibrojPojavljivanja;
 		this.desnoOdTockice.addAll(desnoOdTockice);
 
 	}
@@ -30,6 +32,7 @@ public class Produkcija {
 		this.ljevoOdTockice.addAll(produkcija.getLjevoOdTockice());
 		this.desnoOdTockice.addAll(produkcija.getDesnoOdTockice());
 		this.zapocinje.addAll(produkcija.zapocinje);
+		this.redniBrojPojavljivanja=produkcija.getRedniBrojPojavljivanja();
 	}
 
 	public void setZapocinje(List<String> zapocinje) {
@@ -111,5 +114,10 @@ public class Produkcija {
 	public void ispisi() {
 		System.out.println("Produkcija :" + this.toString());
 	}
+
+	public int getRedniBrojPojavljivanja() {
+		return redniBrojPojavljivanja;
+	}
+
 
 }

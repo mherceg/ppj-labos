@@ -201,7 +201,7 @@ public class GSA {
 		List<String> pocetnoDesno = new ArrayList<String>();
 		pocetnoDesno.add(pocetniNezavrsni);
 
-		Produkcija pocetnaProdukcija = new Produkcija("<%>", pocetnoDesno);
+		Produkcija pocetnaProdukcija = new Produkcija("<%>", pocetnoDesno, 0);
 		List<String> zapocinje = new ArrayList<>();
 		zapocinje.add(znakZaKrajNiza);
 		pocetnaProdukcija.setZapocinje(zapocinje);
@@ -333,16 +333,19 @@ public class GSA {
 
 			List<String> tempList = new LinkedList<String>();
 			Produkcija novaProdukcija;
-			for (String pojedinacnaProdukcija : gramatickaProdukcija
-					.getDesnaStrana()) {
+			for(int i = 0; i< gramatickaProdukcija.getDesnaStrana().size(); i++){
+//			for (String pojedinacnaProdukcija : gramatickaProdukcija
+//					.getDesnaStrana()) {
 				/*
 				 * Izbacuje prazne prijelaze
 				 */
-
+			String pojedinacnaProdukcija = gramatickaProdukcija.getDesnaStrana().get(i);
+			int redniBroj = gramatickaProdukcija.getRedosljedDesnihStrana().get(i);
+			
 				if (pojedinacnaProdukcija.equals("$")) {
 					tempList = new LinkedList<String>();
 					novaProdukcija = new Produkcija(
-							gramatickaProdukcija.getLijevaStrana(), tempList);
+							gramatickaProdukcija.getLijevaStrana(), tempList, redniBroj);
 
 				} else {
 					/*
@@ -354,7 +357,7 @@ public class GSA {
 						tempList.add(prod);
 					}
 					novaProdukcija = new Produkcija(
-							gramatickaProdukcija.getLijevaStrana(), tempList);
+							gramatickaProdukcija.getLijevaStrana(), tempList, redniBroj);
 
 				}
 
