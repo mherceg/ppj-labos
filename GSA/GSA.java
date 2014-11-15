@@ -624,22 +624,40 @@ public class GSA {
 
 		return null;
 	}
+	
+	private static HashMap<String,Integer> brojceki;
+	private static int max;
 
+	private static int brojcek(String imeStanja){
+		if (brojceki == null){
+			brojceki = new HashMap<>();
+			max = 0;
+		}
+		if (brojceki.containsKey(imeStanja)){
+			return brojceki.get(imeStanja);
+		}
+		else{
+			brojceki.put(imeStanja, max++);
+			return max;
+		}
+	}
+	
 	private static void AutomatUTablice(Automat DKA) throws IOException,
 			JAXBException {
 
 		Tablica akcija = new Tablica();
 		Tablica novoStanje = new Tablica();
 
-		akcija.setPocetno(DKA.getPocetnoStanje().getImeStanja());
-
+		akcija.setPocetno(""+brojcek(DKA.getPocetnoStanje().getImeStanja()));
+		DKA.dodajStanje(DKA.getPocetnoStanje());
+		
 		for (Stanje s : DKA.getStanja()) {
 			for (Prijelaz p : s.getListaPrijelaza()) {
 				if (p.getZnak().startsWith("<")) {
-					novoStanje.setAkcija(s.getImeStanja(), p.getZnak(), new Akcija(Tip.Stavi,p.getNovoStanje().getImeStanja(),null));
+					novoStanje.setAkcija("" + brojcek(s.getImeStanja()), p.getZnak(), new Akcija(Tip.Stavi,""+brojcek(p.getNovoStanje().getImeStanja()),null));
 				} else {
-					akcija.setAkcija(s.getImeStanja(), p.getZnak(), new Akcija(
-							Tip.Pomakni));
+					akcija.setAkcija(""+brojcek(s.getImeStanja()), p.getZnak(), new Akcija(
+							Tip.Pomakni, ""+brojcek(p.getNovoStanje().getImeStanja()),null));
 				}
 			}
 			for (Produkcija p : s.getlistuProdukcija()) {
@@ -648,15 +666,15 @@ public class GSA {
 					for (String z : p.getZapocinje()) {
 
 						akcija.setAkcija(
-								s.getImeStanja(),
+								""+brojcek(s.getImeStanja()),
 								z,
 								new Akcija(Tip.Reduciraj, p.getLeft(), p
 										.getLjevoOdTockice()));
 					}
 				}
 			}
-			if (s.getImeStanja().equals(imePocetnogStanja)) {
-				akcija.setAkcija(s.getImeStanja(), znakZaKrajNiza, new Akcija(
+			if (brojcek(s.getImeStanja()) == brojcek(imePocetnogStanja)) {
+				akcija.setAkcija("" + brojcek(s.getImeStanja()), znakZaKrajNiza, new Akcija(
 						Tip.Prihvati));
 			}
 		}
