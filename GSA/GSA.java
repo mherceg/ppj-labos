@@ -689,8 +689,7 @@ public class GSA {
 					}
 				}
 			}
-			if (s.getlistuProdukcija().size() == 1
-					&& s.getlistuProdukcija().get(0).getLeft()
+			if (s.getlistuProdukcija().get(0).getLeft()
 							.startsWith("<%>")) {
 				akcija.setAkcija("" + brojcek(s.getImeStanja()),
 						znakZaKrajNiza, new Akcija(Tip.Prihvati));
