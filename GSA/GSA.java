@@ -707,6 +707,15 @@ public class GSA {
 		um = context.createMarshaller();
 		um.marshal(novoStanje, fw);
 		fw.close();
+		
+		Sink s = new Sink();
+		s.setLista(definator.getSinkronizacijskiZnakovi());
+		
+		fw = new FileWriter("analizator/Sink.xml");
+		context = JAXBContext.newInstance(Sink.class);
+		um = context.createMarshaller();
+		um.marshal(s, fw);
+		fw.close();
 	}
 
 }

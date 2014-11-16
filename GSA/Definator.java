@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -5,7 +6,7 @@ public class Definator {
 	
 	private List<String> zavrsniZnakovi = new LinkedList<String>();
 	private List<String> nezavrsniZnakovi = new LinkedList<String>();
-	private List<String> sinkronizacijskiZnakovi = new LinkedList<String>();
+	private ArrayList<String> sinkronizacijskiZnakovi = new ArrayList<String>();
 
 	public void dodajZavrsnuListu(List<String> list) {
 		zavrsniZnakovi = list;
@@ -16,7 +17,9 @@ public class Definator {
 	}
 
 	public void dodajSinkronizacijskuListu(List<String> list) {
-		sinkronizacijskiZnakovi = list;
+		ArrayList<String> x = new ArrayList<>();
+		x.addAll(list);
+		sinkronizacijskiZnakovi = x;
 	}
 
 	public List<String> getZavrsniZnakovi() {
@@ -27,7 +30,7 @@ public class Definator {
 		return nezavrsniZnakovi;
 	}
 
-	public List<String> getSinkronizacijskiZnakovi() {
+	public ArrayList<String> getSinkronizacijskiZnakovi() {
 		return sinkronizacijskiZnakovi;
 	}
 	

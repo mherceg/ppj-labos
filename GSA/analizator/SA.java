@@ -21,6 +21,10 @@ public class SA {
 		context = JAXBContext.newInstance(Tablica.class);
 		um = context.createUnmarshaller();
 		Tablica novoStanje = (Tablica) um.unmarshal(new File("NovoStanje.xml"));
+		
+		context = JAXBContext.newInstance(Sink.class);
+		um = context.createUnmarshaller();
+		List<String> sinkronizacijski = ((Sink) um.unmarshal(new File("Sink.xml"))).getLista();
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				System.in));
@@ -40,11 +44,11 @@ public class SA {
 				}
 			}
 			Akcija ak = akcija.getAkcija(stack.peek().getStanje(),in.split(" ")[0]);
-			if (ak == null) {
-				f = false;
-				
+			while (ak == null) {
+				stack.pop();
+				stack.pop();
+				ak = akcija.getAkcija(stack.peek().getStanje(),in.split(" ")[0]);
 			}
-			else
 			if (ak.getAkcija().equals(Tip.Pomakni)){
 				stack.push(new StackElem(new Node(in)));
 				stack.push(new StackElem(ak.getLeft()));
@@ -52,23 +56,26 @@ public class SA {
 			}
 			else
 			if (ak.getAkcija().equals(Tip.Reduciraj)){
+				f = true;
+				Stack<Node> st = new Stack<>();
 				if (ak.getRight() == null){
 					ArrayList<String> r = new ArrayList<>();
 					r.add("$");
 					ak.setRight(r);
+					st.push(new Node("$"));
 				}
-				f = true;
-				Stack<Node> st = new Stack<>();
-				List<String> right = ak.getRight();
-				for (String c : right){
-					stack.pop();
-					Node n = stack.pop().getNode();
-					//if (n.getName().startsWith(c)){
-						st.push(n);
-					//}
-					//else{
-					//	throw new IllegalThreadStateException("Nemogu reducirati");
-					//}
+				else{	
+					List<String> right = ak.getRight();
+					for (String c : right){
+						stack.pop();
+						Node n = stack.pop().getNode();
+						//if (n.getName().startsWith(c)){
+							st.push(n);
+						//}
+						//else{
+						//	throw new IllegalThreadStateException("Nemogu reducirati");
+						//}
+					}
 				}
 				Node n = new Node(ak.getLeft());
 				List<Node> children = new ArrayList<>();
