@@ -1,5 +1,9 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class AutomatonTranformator {
@@ -112,20 +116,20 @@ public class AutomatonTranformator {
 
 	private Automat nkaToDka(Automat nka) {
 		Automat dka = new Automat();
-		List<Stanje> stvorenaStanja = new ArrayList<Stanje>();
+		Map<String,Stanje> stvorenaStanja = new HashMap<String,Stanje>();
 		Stanje dkaPocetno = new Stanje(nka.getPocetnoStanje());
 		dka.setPocetnoStanje(dkaPocetno);
 
 		// stvorenaStanja.add(dkaPocetno);
 		srediPrijelazeNkaDka(dkaPocetno, stvorenaStanja);
 
-		for (Stanje stanje : stvorenaStanja) {
+		for (Stanje stanje : stvorenaStanja.values()) {
 			dka.dodajStanje(stanje);
 		}
 		return dka;
 	}
 
-	private void srediPrijelazeNkaDka(Stanje stanje, List<Stanje> stvorenaStanja) {
+	private void srediPrijelazeNkaDka(Stanje stanje, Map<String,Stanje> stvorenaStanja) {
 
 		List<Prijelaz> noviPrijelazi = new ArrayList<Prijelaz>();
 		// zasto se tu pojavljuje $ kad stvaram iz eNka?
@@ -146,14 +150,15 @@ public class AutomatonTranformator {
 
 			Stanje novoStanje = new Stanje(imeStanja);
 
-			if (stvorenaStanja.contains(novoStanje)) {
+			if (stvorenaStanja.containsKey(novoStanje.getImeStanja())) {
 				// vec postoji, promjeni referencu na njega
-				for (Stanje stanjeIzListe : stvorenaStanja) {
-					if (stanjeIzListe.equals(novoStanje)) {
-						novoStanje = stanjeIzListe;
-						break;
-					}
-				}
+				novoStanje = stvorenaStanja.get(novoStanje.getImeStanja());
+//				for (Stanje stanjeIzListe : stvorenaStanja) {
+//					if (stanjeIzListe.equals(novoStanje)) {
+//						novoStanje = stanjeIzListe;
+//						break;
+//					}
+//				}
 			} else { // stvori ga spajanje ova dva stanja
 				for (Prijelaz prijelaz : prijelazi) {
 					for (Produkcija produkcija : prijelaz.getNovoStanje()
@@ -167,7 +172,7 @@ public class AutomatonTranformator {
 						}
 					}
 				}
-				stvorenaStanja.add(novoStanje);
+				stvorenaStanja.put(novoStanje.getImeStanja(),novoStanje);
 				// sad sredi njega
 				srediPrijelazeNkaDka(novoStanje, stvorenaStanja);
 			}

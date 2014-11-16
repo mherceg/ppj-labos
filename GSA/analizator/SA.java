@@ -68,6 +68,7 @@ public class SA {
 				f = true;
 				Stack<Node> st = new Stack<>();
 				if (ak.getRight() == null){
+					System.err.println("Error in code, line: " + in.split(" ")[1] + "\n" );
 					ArrayList<String> r = new ArrayList<>();
 					r.add("$");
 					ak.setRight(r);
