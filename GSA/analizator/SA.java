@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Stack;
 
@@ -25,6 +26,9 @@ public class SA {
 		context = JAXBContext.newInstance(Sink.class);
 		um = context.createUnmarshaller();
 		List<String> sinkronizacijski = ((Sink) um.unmarshal(new File("Sink.xml"))).getLista();
+		
+		HashSet<String> sinkro = new HashSet<>();
+		sinkro.addAll(sinkronizacijski);
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				System.in));
@@ -43,12 +47,17 @@ public class SA {
 					in = "┴";
 				}
 			}
+			f = false;
 			Akcija ak = akcija.getAkcija(stack.peek().getStanje(),in.split(" ")[0]);
-			while (ak == null) {
+			while (ak == null && sinkro.contains(in.split(" ")[0])) {
 				stack.pop();
 				stack.pop();
 				ak = akcija.getAkcija(stack.peek().getStanje(),in.split(" ")[0]);
 			}
+			if (ak == null){
+				continue;
+			}
+			else
 			if (ak.getAkcija().equals(Tip.Pomakni)){
 				stack.push(new StackElem(new Node(in)));
 				stack.push(new StackElem(ak.getLeft()));
