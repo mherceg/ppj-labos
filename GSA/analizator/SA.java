@@ -54,7 +54,7 @@ public class SA {
 			if (ak.getAkcija().equals(Tip.Reduciraj)){
 				if (ak.getRight() == null){
 					ArrayList<String> r = new ArrayList<>();
-					r.add("");
+					r.add("$");
 					ak.setRight(r);
 				}
 				f = true;
