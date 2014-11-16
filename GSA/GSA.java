@@ -58,7 +58,7 @@ public class GSA {
 
 		System.out.println();
 		int brojDesneStraneProdukcije = 1;
-		
+
 		List<String> vecPunjeniNezavrsniZnakovi = new ArrayList<String>();
 		GramatickaProdukcija tempGramtickaProdukcija = new GramatickaProdukcija();
 
@@ -81,8 +81,8 @@ public class GSA {
 					line = reader.readLine();
 				} else {
 					while (Character.isWhitespace(line.charAt(0))) {
-						tempGramtickaProdukcija
-								.dodajNoviDesniIzraz(line.trim(), brojDesneStraneProdukcije++);
+						tempGramtickaProdukcija.dodajNoviDesniIzraz(
+								line.trim(), brojDesneStraneProdukcije++);
 						line = reader.readLine();
 						if (line == null || line.isEmpty()) {
 							break;
@@ -98,18 +98,16 @@ public class GSA {
 			e1.printStackTrace();
 		}
 
-		/*int i = 0;
-		for (GramatickaProdukcija gramatickaProdukcija : listaGramtickihProdukcija) {
-			 i = 0;
-			 System.out.print(gramatickaProdukcija.getLijevaStrana());
-			 System.out.print(" -> ");
-			 List<String> desneStrane = gramatickaProdukcija.getDesnaStrana();
-			 List<Integer> broj = gramatickaProdukcija.getRedosljedDesnihStrana();
-			 for (String s : desneStrane) {
-				 System.out.print(s + "( " + broj.get(i++) + " ) |");
-			 }
-			 System.out.println();
-		}*/
+		/*
+		 * int i = 0; for (GramatickaProdukcija gramatickaProdukcija :
+		 * listaGramtickihProdukcija) { i = 0;
+		 * System.out.print(gramatickaProdukcija.getLijevaStrana());
+		 * System.out.print(" -> "); List<String> desneStrane =
+		 * gramatickaProdukcija.getDesnaStrana(); List<Integer> broj =
+		 * gramatickaProdukcija.getRedosljedDesnihStrana(); for (String s :
+		 * desneStrane) { System.out.print(s + "( " + broj.get(i++) + " ) |"); }
+		 * System.out.println(); }
+		 */
 
 		izracunajPrazneZnakove();
 
@@ -177,7 +175,7 @@ public class GSA {
 
 		System.out.println();
 		System.out.println("Zavrsio eNka");
-		
+
 		AutomatonTranformator trasformator = new AutomatonTranformator();
 		System.out.println("Zapoceo izradu dka");
 		Automat dka = trasformator.eNkaToDka(eNka);
@@ -209,13 +207,13 @@ public class GSA {
 		zapocinje.add(znakZaKrajNiza);
 		pocetnaProdukcija.setZapocinje(zapocinje);
 		q0.dodajProdukcij(pocetnaProdukcija);
-		
+
 		Produkcija novaProdukcija = pocetnaProdukcija.createNextProdukcija();
 		Stanje novoStanje = new Stanje(novaProdukcija.toString());
 		novoStanje.dodajProdukcij(novaProdukcija);
 		listaSvihStanja.add(novoStanje);
 		q0.dodajPrijelaz(new Prijelaz(pocetniNezavrsni, novoStanje));
-		
+
 		for (Produkcija produkcija : listaProdukcija) {
 			if (produkcija.getLeft().equals(pocetniNezavrsni)
 					&& produkcija.getLjevoOdTockice().isEmpty()) {
@@ -336,19 +334,22 @@ public class GSA {
 
 			List<String> tempList = new LinkedList<String>();
 			Produkcija novaProdukcija;
-			for(int i = 0; i< gramatickaProdukcija.getDesnaStrana().size(); i++){
-//			for (String pojedinacnaProdukcija : gramatickaProdukcija
-//					.getDesnaStrana()) {
+			for (int i = 0; i < gramatickaProdukcija.getDesnaStrana().size(); i++) {
+				// for (String pojedinacnaProdukcija : gramatickaProdukcija
+				// .getDesnaStrana()) {
 				/*
 				 * Izbacuje prazne prijelaze
 				 */
-			String pojedinacnaProdukcija = gramatickaProdukcija.getDesnaStrana().get(i);
-			int redniBroj = gramatickaProdukcija.getRedosljedDesnihStrana().get(i);
-			
+				String pojedinacnaProdukcija = gramatickaProdukcija
+						.getDesnaStrana().get(i);
+				int redniBroj = gramatickaProdukcija.getRedosljedDesnihStrana()
+						.get(i);
+
 				if (pojedinacnaProdukcija.equals("$")) {
 					tempList = new LinkedList<String>();
 					novaProdukcija = new Produkcija(
-							gramatickaProdukcija.getLijevaStrana(), tempList, redniBroj);
+							gramatickaProdukcija.getLijevaStrana(), tempList,
+							redniBroj);
 
 				} else {
 					/*
@@ -360,7 +361,8 @@ public class GSA {
 						tempList.add(prod);
 					}
 					novaProdukcija = new Produkcija(
-							gramatickaProdukcija.getLijevaStrana(), tempList, redniBroj);
+							gramatickaProdukcija.getLijevaStrana(), tempList,
+							redniBroj);
 
 				}
 
@@ -630,58 +632,68 @@ public class GSA {
 
 		return null;
 	}
-	
-	private static HashMap<String,Integer> brojceki;
+
+	private static HashMap<String, Integer> brojceki;
 	private static int max;
 
-	private static int brojcek(String imeStanja){
-		if (brojceki == null){
+	private static int brojcek(String imeStanja) {
+		if (brojceki == null) {
 			brojceki = new HashMap<>();
 			max = -1;
 		}
-		if (brojceki.containsKey(imeStanja)){
+		if (brojceki.containsKey(imeStanja)) {
 			return brojceki.get(imeStanja);
-		}
-		else{
+		} else {
 			brojceki.put(imeStanja, ++max);
 			return max;
 		}
 	}
-	
+
 	private static void AutomatUTablice(Automat DKA) throws IOException,
 			JAXBException {
 
 		Tablica akcija = new Tablica();
 		Tablica novoStanje = new Tablica();
 
-		akcija.setPocetno(""+brojcek(DKA.getPocetnoStanje().getImeStanja()));
+		akcija.setPocetno("" + brojcek(DKA.getPocetnoStanje().getImeStanja()));
 		DKA.dodajStanje(DKA.getPocetnoStanje());
-		
+
 		for (Stanje s : DKA.getStanja()) {
 			for (Prijelaz p : s.getListaPrijelaza()) {
 				if (p.getZnak().startsWith("<")) {
-					novoStanje.setAkcija("" + brojcek(s.getImeStanja()), p.getZnak(), new Akcija(Tip.Stavi,""+brojcek(p.getNovoStanje().getImeStanja()),null));
+					novoStanje.setAkcija("" + brojcek(s.getImeStanja()), p
+							.getZnak(), new Akcija(Tip.Stavi, ""
+							+ brojcek(p.getNovoStanje().getImeStanja()), null,
+							0));
 				} else {
-					akcija.setAkcija(""+brojcek(s.getImeStanja()), p.getZnak(), new Akcija(
-							Tip.Pomakni, ""+brojcek(p.getNovoStanje().getImeStanja()),null));
+					akcija.setAkcija("" + brojcek(s.getImeStanja()), p
+							.getZnak(), new Akcija(Tip.Pomakni, ""
+							+ brojcek(p.getNovoStanje().getImeStanja()), null,
+							0));
 				}
 			}
 			for (Produkcija p : s.getlistuProdukcija()) {
 				if (p.getDesnoOdTockice() == null
 						|| p.getDesnoOdTockice().isEmpty()) {
 					for (String z : p.getZapocinje()) {
-
-						akcija.setAkcija(
-								""+brojcek(s.getImeStanja()),
-								z,
-								new Akcija(Tip.Reduciraj, p.getLeft(), p
-										.getLjevoOdTockice()));
+						Akcija ak = akcija.getAkcija(
+								"" + brojcek(s.getImeStanja()), z);
+						if (ak == null || ak.getAkcija() == Tip.Reduciraj
+								&& ak.getBroj() < p.getRedniBrojPojavljivanja())
+							akcija.setAkcija(
+									"" + brojcek(s.getImeStanja()),
+									z,
+									new Akcija(Tip.Reduciraj, p.getLeft(), p
+											.getLjevoOdTockice(), p
+											.getRedniBrojPojavljivanja()));
 					}
 				}
 			}
-			if (brojcek(s.getImeStanja()) == brojcek(imePocetnogStanja)) {
-				akcija.setAkcija("" + brojcek(s.getImeStanja()), znakZaKrajNiza, new Akcija(
-						Tip.Prihvati));
+			if (s.getlistuProdukcija().size() == 1
+					&& s.getlistuProdukcija().get(0).getLeft()
+							.startsWith("<%>")) {
+				akcija.setAkcija("" + brojcek(s.getImeStanja()),
+						znakZaKrajNiza, new Akcija(Tip.Prihvati));
 			}
 		}
 

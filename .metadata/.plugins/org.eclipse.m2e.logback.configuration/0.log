@@ -1,1 +1,5 @@
 2014-11-02 14:00:19,641 [main] WARN  o.e.r.i.c.rcp.TypeBindingAnalyzer - Can't handle class org.eclipse.jdt.internal.compiler.ast.BinaryExpression as parent of completion location.
+2014-11-16 00:45:18,128 [main] WARN  o.e.r.i.c.rcp.TypeBindingAnalyzer - Can't handle class org.eclipse.jdt.internal.compiler.ast.OR_OR_Expression as parent of completion location.
+2014-11-16 00:45:48,371 [main] WARN  o.e.r.i.c.rcp.TypeBindingAnalyzer - Can't handle class org.eclipse.jdt.internal.compiler.ast.AND_AND_Expression as parent of completion location.
+2014-11-16 00:45:56,893 [main] WARN  o.e.r.i.c.rcp.TypeBindingAnalyzer - Can't handle class org.eclipse.jdt.internal.compiler.ast.AND_AND_Expression as parent of completion location.
+2014-11-16 01:02:12,617 [main] WARN  o.e.r.i.c.r.ChainCompletionProposalComputer - Can't handle %s as class member.

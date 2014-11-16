@@ -28,8 +28,9 @@ public class Node {
 		sb.append(spaces);
 		sb.append(name);
 		sb.append("\n");
+		if (children != null)
 		for (Node n : children){
-			sb.append(n.toPrint(spaces + " ")).append("\n");
+			sb.append(n.toPrint(spaces + " "));
 		}
 		return sb.toString();
 	}
