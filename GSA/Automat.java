@@ -31,6 +31,11 @@ public class Automat {
 	}
 
 	public void setPocetnoStanje(Stanje pocetnoStanje) {
+		for(String znak :pocetnoStanje.getZnakoviPrijelaza()){
+			if(!znakovi.contains(znak)){
+				znakovi.add(znak);
+			}
+		}
 		this.pocetnoStanje = pocetnoStanje;
 	}
 
