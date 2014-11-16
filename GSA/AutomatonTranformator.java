@@ -6,7 +6,7 @@ public class AutomatonTranformator {
 
 	public Automat eNkaToDka(Automat eNka) {
 		Automat nka = eNkaToNka(eNka);
-		// System.out.println("zavrsio nka");
+		System.out.println("zavrsio nka");
 		return nkaToDka(nka);
 	}
 
