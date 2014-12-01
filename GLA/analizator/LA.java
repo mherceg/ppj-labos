@@ -138,7 +138,7 @@ public class LA {
 	public static void ispisiIzlaz(String izvorniTekst, int red) {
 		// ispisujem string od pocetka do zadnjeg nadenog
 		String tekstZaIspis = izvorniTekst;//.substring(pocetak, zadnjeNadeno);
-		Patuljak Mirko = zadnjiNeNullPatuljak;
+		//Patuljak Mirko = zadnjiNeNullPatuljak;
 		String uniformniZnak = zadnjiNeNullPatuljak.getNasao();
 
 		System.out.println(uniformniZnak + " " + red + " " + tekstZaIspis);

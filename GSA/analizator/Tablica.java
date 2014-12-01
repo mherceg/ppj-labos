@@ -29,7 +29,13 @@ public class Tablica {
 		if (!tablica.containsKey(i)){
 			tablica.put(i, new Red());
 		}
-		tablica.get(i).getA().put(j, a);
+		HashMap<String, Akcija> red = tablica.get(i).getA();
+		if (red.get(j) != null){
+			Akcija polje = red.get(j);
+			System.out.println("Proturječje, red: " + i + " stupac: " + j);
+			System.out.println("  Mijenjam " + polje.getAkcija() + (polje.getAkcija().equals(Tip.Reduciraj) ? polje.getLeft() + "->" + polje.getRight().get(0) : "" ) + " sa " + a.getAkcija() + (a.getAkcija().equals(Tip.Reduciraj) ? a.getLeft() + "->" + a.getRight().get(0) : ""));
+		}
+		red.put(j, a);
 	}
 
 	public String getPocetno() {

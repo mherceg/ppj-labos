@@ -21,8 +21,8 @@ public class GSA {
 	static Definator definator = new Definator();
 	static String line;
 
-	static final String znakZaKrajNiza = "┴";
-	static final String imePocetnogStanja = "Neko1Nase1Pocetno2StanjeCijeImeq0SePojavljujeSamoOvdje";
+	static final String znakZaKrajNiza = "Patuljak";
+	static final String imePocetnogStanja = "Snjeguljica";
 
 	static HashMap<String, List<String>> nezavrsniZnakoviZapocinjeMap = new HashMap<String, List<String>>();
 

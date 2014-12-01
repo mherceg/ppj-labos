@@ -34,6 +34,7 @@ public class SA {
 				System.in));
 		
 		Stack<StackElem> stack = new Stack<>();
+		Stack<StackElem> errors = new Stack<>();
 		
 		stack.push(new StackElem(akcija.getPocetno()));
 		
@@ -41,23 +42,23 @@ public class SA {
 		Boolean f = false;
 		while (true) {
 			if (!f){
-				if (in != null && in.equals("┴")){ break;}
+				if (in != null && in.equals("Patuljak")){ break;}
 				in = reader.readLine();
 				if (in == null){
-					in = "┴";
+					in = "Patuljak";
 				}
 			}
 			f = false;
 			Akcija ak = akcija.getAkcija(stack.peek().getStanje(),in.split(" ")[0]);
 			while (ak == null && sinkro.contains(in.split(" ")[0])) {
+				//System.err.println("Syntax error\nSynchronization mark found: " + in.split(" ")[0] + " row: " + in.split(" ")[1]);
 				stack.pop();
-				stack.pop();
+				errors.push(stack.pop());
 				ak = akcija.getAkcija(stack.peek().getStanje(),in.split(" ")[0]);
 			}
 			if (ak == null){
-				continue;
+				ak = new Akcija(Tip.Pomakni);
 			}
-			else
 			if (ak.getAkcija().equals(Tip.Pomakni)){
 				stack.push(new StackElem(new Node(in)));
 				stack.push(new StackElem(ak.getLeft()));
@@ -68,7 +69,7 @@ public class SA {
 				f = true;
 				Stack<Node> st = new Stack<>();
 				if (ak.getRight() == null){
-					System.err.println("Error in code, line: " + in.split(" ")[1] + "\n" );
+					//System.err.println("Error in code, line: " + in.split(" ")[1] + "\n" );
 					ArrayList<String> r = new ArrayList<>();
 					r.add("$");
 					ak.setRight(r);
@@ -76,7 +77,7 @@ public class SA {
 				}
 				else{	
 					List<String> right = ak.getRight();
-					for (String c : right){
+					for (int i = 0; i < right.size(); i++) {
 						stack.pop();
 						Node n = stack.pop().getNode();
 						//if (n.getName().startsWith(c)){
@@ -103,7 +104,10 @@ public class SA {
 				break;
 			}
 		}
-		
+		while (!errors.isEmpty()){
+			String[] line = errors.pop().getNode().getName().split(" ");
+			System.err.println("Syntax error: " + line[2] + " in row " + line[1]);
+		}
 		System.out.println(stack.peek().getNode().toPrint(""));
 		
 	}
