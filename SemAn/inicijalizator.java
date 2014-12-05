@@ -12,8 +12,23 @@ public class inicijalizator extends Node{
 	 */
 	@Override
 	public void provjeri() {
-		// TODO Auto-generated method stub
-		
+		Node childNula = child.get(0);
+		if(childNula.getName().equals("<izraz_pridruzivanja>")){
+			childNula.provjeri();
+			if(false/*childNula => NIZ_ZNAKOVA*/){	// TODO
+				//this.characteristics.setBrElem(duljina niza znakova + 1);
+				//this.characteristics.addType(tip);
+			}
+			else{
+				this.characteristics.setType(childNula.getType());
+			}
+		}
+		else if(childNula.getName().equals("L_VIT_ZAGRADA")){	//  TODO provjerit dal se ovo ovak radi
+			Node childJedan = child.get(1);
+			childJedan.provjeri();
+			this.characteristics.setBrElem(childJedan.getBrElem());
+			this.characteristics.setType(childJedan.getType());
+		}	
 	}
 	
 	
