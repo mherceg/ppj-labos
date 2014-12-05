@@ -1,14 +1,14 @@
 import java.util.List;
 
-public class lista_argumenata extends Node {
+public class bin_i_izraz extends Node {
 
-	public lista_argumenata(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+	public bin_i_izraz(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
 		super(name, lIzraz, type, red, brElem);
 
 	}
 
 	/**
-	 * str 54.
+	 * Str. 59
 	 */
 	@Override
 	public void provjeri() {

@@ -1,14 +1,15 @@
 import java.util.List;
 
-public class lista_argumenata extends Node {
+public class specifikator_tipa extends Node {
 
-	public lista_argumenata(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+	public specifikator_tipa(String name, boolean lIzraz, List<Tip> type,
+			int red, int brElem) {
 		super(name, lIzraz, type, red, brElem);
 
 	}
 
 	/**
-	 * str 54.
+	 * Str 56.
 	 */
 	@Override
 	public void provjeri() {

@@ -7,12 +7,14 @@ public class Characteristics {
 	private boolean lIzraz;
 	private List<Tip> type = new ArrayList<Tip>();
 	private int red;
+	private int brElem;
 
-	public Characteristics(String name, boolean lIzraz, List<Tip> type, int red) {
+	public Characteristics(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
 		this.name = name;
 		this.lIzraz = lIzraz;
 		this.type = type;
 		this.red = red;
+		this.brElem = brElem;
 	}
 
 	public String getName() {
@@ -50,5 +52,15 @@ public class Characteristics {
 	public void setRed(int red) {
 		this.red = red;
 	}
+
+	public int getBrElem() {
+		return brElem;
+	}
+
+	public void setBrElem(int brElem) {
+		this.brElem = brElem;
+	}
+	
+	
 
 }

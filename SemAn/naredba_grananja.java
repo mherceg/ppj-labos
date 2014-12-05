@@ -1,14 +1,13 @@
 import java.util.List;
 
-public class lista_argumenata extends Node {
-
-	public lista_argumenata(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+public class naredba_grananja extends Node {
+	
+	public naredba_grananja(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
 		super(name, lIzraz, type, red, brElem);
 
 	}
-
 	/**
-	 * str 54.
+	 * Str 63f
 	 */
 	@Override
 	public void provjeri() {
