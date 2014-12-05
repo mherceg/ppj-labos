@@ -2,12 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Node {
-	private Characteristics characteristics;
+	protected Characteristics characteristics;
 
-	private List<Node> child = new ArrayList<Node>();
+	protected List<Node> child = new ArrayList<Node>();
 
-	public Node(String name, boolean lIzraz, Tip[] type, int red) {
+	public Node(String name, boolean lIzraz, List<Tip> type, int red) {
+
 		this.characteristics = new Characteristics(name, lIzraz, type, red);
+
+	}
+
+	public Node() {
+		super();
 	}
 
 	public Characteristics getCharacteristics() {
@@ -18,6 +24,30 @@ public abstract class Node {
 		child.add(newChild);
 	}
 
-	public abstract Characteristics provjeri();
+	public abstract void provjeri();
+
+	public String getName() {
+		return characteristics.getName();
+	}
+
+	public boolean getlIzraz() {
+		return characteristics.islIzraz();
+	}
+
+	public Tip getFirstType() {
+		return this.characteristics.getType().get(0);
+	}
+
+	public List<Tip> getType() {
+		return this.characteristics.getType();
+	}
+
+	public void setType(List<Tip> type) {
+		this.characteristics.setType(type);
+	}
+
+	public int getRed() {
+		return characteristics.getRed();
+	}
 
 }
