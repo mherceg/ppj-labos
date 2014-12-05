@@ -22,7 +22,7 @@ public class lista_deklaracija extends Node{
 			childJedan.provjeri();
 		}		
 		else{
-			System.err.println("Greska kod lista_deklaracija za -> " + child.toString());
+			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
 		}
 	}
 

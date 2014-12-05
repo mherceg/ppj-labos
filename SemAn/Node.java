@@ -23,6 +23,10 @@ public abstract class Node {
 	public void addChild(Node newChild) {
 		child.add(newChild);
 	}
+	
+	public int getChildCount(){
+		return child.size();
+	}
 
 	public abstract void provjeri();
 
