@@ -2,8 +2,8 @@ import java.util.List;
 
 public class aditivni_izraz extends Node {
 
-	public aditivni_izraz(String name, boolean lIzraz, List<Tip> type, int red) {
-		super(name, lIzraz, type, red);
+	public aditivni_izraz(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+		super(name, lIzraz, type, red, brElem);
 
 	}
 	/**

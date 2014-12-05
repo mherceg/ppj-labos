@@ -3,8 +3,8 @@ import java.util.List;
 
 public class slozena_naredba extends Node{
 	
-	public slozena_naredba(String name, boolean lIzraz, List<Tip> type, int red) {
-		super(name, lIzraz, type, red);
+	public slozena_naredba(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+		super(name, lIzraz, type, red, brElem);
 
 	}
 	/**

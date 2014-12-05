@@ -3,8 +3,8 @@ import java.util.List;
 
 public class lista_deklaracija extends Node{
 	
-	public lista_deklaracija(String name, boolean lIzraz, List<Tip> type, int red) {
-		super(name, lIzraz, type, red);
+	public lista_deklaracija(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+		super(name, lIzraz, type, red, brElem);
 
 	}
 	

@@ -3,8 +3,8 @@ import java.util.List;
 public class specifikator_tipa extends Node {
 
 	public specifikator_tipa(String name, boolean lIzraz, List<Tip> type,
-			int red) {
-		super(name, lIzraz, type, red);
+			int red, int brElem) {
+		super(name, lIzraz, type, red, brElem);
 
 	}
 

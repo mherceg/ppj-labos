@@ -3,8 +3,8 @@ import java.util.List;
 
 public class init_deklarator extends Node{
 	
-	public init_deklarator(String name, boolean lIzraz, List<Tip> type, int red) {
-		super(name, lIzraz, type, red);
+	public init_deklarator(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+		super(name, lIzraz, type, red, brElem);
 
 	}
 	/**

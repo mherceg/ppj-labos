@@ -2,8 +2,8 @@ import java.util.List;
 
 public class naredba_skoka extends Node {
 
-	public naredba_skoka(String name, boolean lIzraz, List<Tip> type, int red) {
-		super(name, lIzraz, type, red);
+	public naredba_skoka(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+		super(name, lIzraz, type, red, brElem);
 
 	}
 
