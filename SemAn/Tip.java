@@ -1,5 +1,6 @@
 
 public enum Tip {
+	nizOdX,
 	
 
 }

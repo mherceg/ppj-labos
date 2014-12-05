@@ -1,12 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Characteristics {
 
 	private String name;
 	private boolean lIzraz;
-	private Tip[] type;
+	private List<Tip> type = new ArrayList<Tip>();
 	private int red;
 
-	public Characteristics(String name, boolean lIzraz, Tip[] type, int red) {
-		super();
+	public Characteristics(String name, boolean lIzraz, List<Tip> type, int red) {
 		this.name = name;
 		this.lIzraz = lIzraz;
 		this.type = type;
@@ -29,16 +31,24 @@ public class Characteristics {
 		this.lIzraz = lIzraz;
 	}
 
-	public Tip[] getType() {
-		return type;
-	}
-
-	public void setType(Tip[] type) {
-		this.type = type;
+	public void addType(Tip tip) {
+		this.type.add(tip);
 	}
 
 	public int getRed() {
 		return red;
+	}
+
+	public List<Tip> getType() {
+		return type;
+	}
+
+	public void setType(List<Tip> type) {
+		this.type = type;
+	}
+
+	public void setRed(int red) {
+		this.red = red;
 	}
 
 }
