@@ -1,4 +1,0 @@
-
-public interface Snjeguljica {
-	Patuljak prelazim(String,String);
-}
