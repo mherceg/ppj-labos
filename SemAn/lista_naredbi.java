@@ -12,8 +12,18 @@ public class lista_naredbi extends Node {
 	 */
 	@Override
 	public void provjeri() {
-		// TODO Auto-generated method stub
-
+		Node childNula = child.get(0);
+		if(childNula.getName().equals("<"+naredba.class.getName()+">")){
+			childNula.provjeri();
+		}
+		else if(childNula.getName().equals("<"+lista_naredbi.class.getName()+">")){
+			Node childJedan = child.get(1);
+			childNula.provjeri();
+			childJedan.provjeri();
+		}		
+		else{
+			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
+		}
 	}
 
 }
