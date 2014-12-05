@@ -11,8 +11,16 @@ public class lista_parametara extends Node {
 	 */
 	@Override
 	public void provjeri() {
-		// TODO Auto-generated method stub
+		Node childNula = child.get(0);
+		if(childNula.getName().equals("<"+deklaracija_parametra.class.getName()+">")){
 
+		}
+		else if(childNula.getName().equals("<"+lista_parametara.class.getName()+">")){
+
+		}		
+		else{
+			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
+		}
 	}
 
 }

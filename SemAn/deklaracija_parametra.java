@@ -1,9 +1,9 @@
 import java.awt.Window.Type;
 import java.util.List;
 
-public class deklaracija_parametara extends Node {
+public class deklaracija_parametra extends Node {
 
-	public deklaracija_parametara(String name, boolean lIzraz, List<Tip> type,
+	public deklaracija_parametra(String name, boolean lIzraz, List<Tip> type,
 			int red, int brElem) {
 		super(name, lIzraz, type, red, brElem);
 
