@@ -13,8 +13,17 @@ public class lista_deklaracija extends Node{
 	 */
 	@Override
 	public void provjeri() {
-		// TODO Auto-generated method stub
-		
+		Node childNula = child.get(0);
+		if(childNula.getName().equals("<deklaracija>")){
+			childNula.provjeri();
+		}
+		else if(childNula.getName().equals("<lista_deklaracija>")){
+			Node childJedan = child.get(1);
+			childJedan.provjeri();
+		}		
+		else{
+			System.err.println("Greska kod lista_deklaracija za -> " + child.toString());
+		}
 	}
 
 }

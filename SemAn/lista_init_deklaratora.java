@@ -11,8 +11,13 @@ public class lista_init_deklaratora extends Node{
 	 * 68
 	 */
 	@Override
-	public void provjeri() {
-		// TODO Auto-generated method stub
+	public void provjeri() {		// TODO treba ubaciti nTip u characteristics
+		/*if(){
+			
+		}
+		else if(){
+			
+		}*/
 		
 	}
 

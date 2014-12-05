@@ -12,7 +12,7 @@ public class init_deklarator extends Node{
 	 */
 	@Override
 	public void provjeri() {
-		// TODO Auto-generated method stub
+		// TODO -> jos jedan grdi
 		
 	}
 

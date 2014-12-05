@@ -12,7 +12,7 @@ public class izravni_deklarator extends Node{
 	 */
 	@Override
 	public void provjeri() {
-		// TODO Auto-generated method stub
+		// TODO -> ovaj je grdi
 		
 	}
 
