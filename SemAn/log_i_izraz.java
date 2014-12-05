@@ -1,12 +1,15 @@
 import java.util.List;
 
-public class unarni_znak extends Node {
+public class log_i_izraz extends Node {
 
-	public unarni_znak(String name, boolean lIzraz, List<Tip> type, int red) {
+	public log_i_izraz(String name, boolean lIzraz, List<Tip> type, int red) {
 		super(name, lIzraz, type, red);
 
 	}
 
+	/**
+	 * Str 60.
+	 */
 	@Override
 	public void provjeri() {
 		// TODO Auto-generated method stub
