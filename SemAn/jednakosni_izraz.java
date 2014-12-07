@@ -11,8 +11,24 @@ public class jednakosni_izraz extends Node {
 	 */
 	@Override
 	public void provjeri() {
-		// TODO Auto-generated method stub
-
+		Node childNula = child.get(0);
+		if(childNula.getName().equals("<"+odnosni_izraz.class.getName()+">")){
+			childNula.provjeri();
+			this.characteristics.setType(childNula.getType());
+			this.characteristics.setlIzraz(childNula.getlIzraz());
+		}
+		else if(childNula.getName().equals("<"+jednakosni_izraz.class.getName()+">")){
+			Node childDva = child.get(2);
+			childNula.provjeri();
+			// TODO 2. <jednakosni_izraz>.tip  int
+			childDva.provjeri();
+			// TODO 4. <odnosni_izraz>.tip  int
+			// TODO this.characteristics.setType(Tip.int);
+			this.characteristics.setlIzraz(false);
+		}		
+		else{
+			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
+		}
 	}
 
 }
