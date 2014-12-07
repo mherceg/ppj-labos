@@ -12,7 +12,33 @@ public class primarni_izraz extends Node {
 	 */
 	@Override
 	public void provjeri() {
-		
+		if(child.size() == 1){
+			Node childNula = child.get(0);
+			if(childNula.getName().equals("IDN")){
+				
+			}
+			else if(childNula.getName().equals("BROJ")){
+				// TODO kasno mi je za desifrirat ovde kaj treba .. fuck it za danas 
+			}
+			else if(childNula.getName().equals("ZNAK")){
+				
+			}
+			else if(childNula.getName().equals("NIZ_ZNAKOVA")){
+				
+			}
+			else{
+				System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
+			}
+		}
+		else if(child.size() == 3){
+			Node childJedan = child.get(1);
+			childJedan.provjeri();
+			this.characteristics.setType(childJedan.getType());
+			this.characteristics.setlIzraz(childJedan.getlIzraz());
+		}		
+		else{
+			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
+		}
 	}
 
 }
