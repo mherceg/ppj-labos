@@ -13,8 +13,19 @@ public class specifikator_tipa extends Node {
 	 */
 	@Override
 	public void provjeri() {
-		// TODO Auto-generated method stub
-
+		Node childNula = child.get(0);
+		if(childNula.getName().equals("KR_VOID")){
+			//this.characteristics.setType(Tip.void);	TODO
+		}
+		else if(childNula.getName().equals("KR_CHAR")){
+			//this.characteristics.setType(Tip.char);
+		}
+		else if(childNula.getName().equals("KR_INT")){
+			//this.characteristics.setType(Tip.int);
+		}
+		else{
+			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
+		}
 	}
 
 }
