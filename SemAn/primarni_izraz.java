@@ -12,8 +12,7 @@ public class primarni_izraz extends Node {
 	 */
 	@Override
 	public void provjeri() {
-		// TODO
-
+		
 	}
 
 }
