@@ -1,4 +1,3 @@
-import java.util.List;
 
 
 public class inicijalizator extends Node{
@@ -23,7 +22,7 @@ public class inicijalizator extends Node{
 				this.characteristics.setType(childNula.getType());
 			}
 		}
-		else if(childNula.getName().equals("L_VIT_ZAGRADA")){	//  TODO provjerit dal se ovo ovak radi
+		else if(childNula.getName().equals("L_VIT_ZAGRADA")){
 			Node childJedan = child.get(1);
 			childJedan.provjeri();
 			this.characteristics.setBrElem(childJedan.getBrElem());

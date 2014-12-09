@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class unarni_izraz extends Node {
 

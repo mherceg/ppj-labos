@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class specifikator_tipa extends Node {
 

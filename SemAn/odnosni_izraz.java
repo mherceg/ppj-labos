@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class odnosni_izraz extends Node {
 
