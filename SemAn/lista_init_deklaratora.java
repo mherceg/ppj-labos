@@ -1,5 +1,3 @@
-import java.util.List;
-
 
 public class lista_init_deklaratora extends Node{
 	
@@ -9,15 +7,27 @@ public class lista_init_deklaratora extends Node{
 	}
 	/**
 	 * 68
+	 * gotov?
+	 * nasljedno svojstvo ntip
 	 */
 	@Override
-	public void provjeri() {		// TODO treba ubaciti nTip u characteristics
-		/*if(){
+	public void provjeri() {		
+		Node childNula = child.get(0);
+		if(childNula.getName().equals("<init_deklarator>")){
+			childNula.setType(this.getType());
+			childNula.provjeri();
+		}
+		else if(childNula.getName().equals("<lista_init_deklaratora>")){
+			childNula.setType(this.getType());
+			childNula.provjeri();
+			
+			Node childDva = child.get(2);
+			
+			childDva.setType(this.getType());
+			childDva.provjeri();
+			
 			
 		}
-		else if(){
-			
-		}*/
 		
 	}
 

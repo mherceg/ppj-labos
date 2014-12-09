@@ -12,8 +12,21 @@ public class izravni_deklarator extends Node{
 	 */
 	@Override
 	public void provjeri() {
-		// TODO -> ovaj je grdi
 		
+		if(child.size()==1){
+			//1.
+			if(this.getType().equals(new Tip(TipBasic.VOID))){
+				writeErrorMessage();
+			}
+			/*
+			 * IDN.ime nije deklarirano u lokalnom djelokrugu
+			 */
+			/*
+			 * zabiljezi deklaraciju IDN.ime s odgovaraju ́cim tipom
+			 */
+		}else{
+			//TODO ima jos dosta
+		}
 	}
 
 }
