@@ -33,10 +33,6 @@ public class Characteristics {
 		this.lIzraz = lIzraz;
 	}
 
-	public void addType(TipBasic tip) {
-		this.type.getPolje().add(tip);
-	}
-
 	public int getRed() {
 		return red;
 	}

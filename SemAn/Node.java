@@ -8,7 +8,9 @@ public abstract class Node {
 	private List<String> names;
 
 	protected List<Node> child = new ArrayList<Node>();
-
+	
+	protected static VariableMemory<Tip> mem = new VariableMemory<Tip>();
+	
 	public Node(String name, boolean lIzraz, Tip type, int red, int brElem) {
 
 		this.characteristics = new Characteristics(name, lIzraz, type, red,
