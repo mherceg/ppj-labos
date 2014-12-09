@@ -3,7 +3,7 @@ import java.util.List;
 
 public class lista_argumenata extends Node {
 
-	public lista_argumenata(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+	public lista_argumenata(String name, boolean lIzraz, Tip type, int red, int brElem) {
 		super(name, lIzraz, type, red, brElem);
 
 	}
@@ -16,15 +16,14 @@ public class lista_argumenata extends Node {
 		Node childNula = child.get(0);
 		if(childNula.getName().equals("<"+izraz_pridruzivanja.class.getName()+">")){
 			childNula.provjeri();
-			this.characteristics.setType(childNula.getType());
+			this.setTypes(childNula.getType());
 		}
 		else if(childNula.getName().equals("<"+lista_argumenata.class.getName()+">")){
-			Node childJedan = child.get(1);
+			Node childDva = child.get(2);
 			childNula.provjeri();
-			childJedan.provjeri();
-			List<Tip> tipovi = new ArrayList<Tip>(childNula.getType());
-			tipovi.addAll(childJedan.getType());
-			this.characteristics.setType(tipovi);
+			childDva.provjeri();
+			this.setTypes(childNula.getTypes());
+			this.getTypes().add(childDva.getType());
 		}		
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());

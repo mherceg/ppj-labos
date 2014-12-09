@@ -5,13 +5,15 @@ public class Characteristics {
 
 	private String name;
 	private boolean lIzraz;
-	private List<Tip> type = new ArrayList<Tip>();
+	private Tip type;
 	private int red;
 	private int brElem;
 
-	public Characteristics(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+	public Characteristics(String name, boolean lIzraz, Tip type, int red,
+			int brElem) {
 		this.name = name;
 		this.lIzraz = lIzraz;
+		if(type == null) type = new Tip();
 		this.type = type;
 		this.red = red;
 		this.brElem = brElem;
@@ -33,24 +35,24 @@ public class Characteristics {
 		this.lIzraz = lIzraz;
 	}
 
-	public void addType(Tip tip) {
-		this.type.add(tip);
+	public void addType(TipBasic tip) {
+		this.type.getPolje().add(tip);
 	}
 
 	public int getRed() {
 		return red;
 	}
 
-	public List<Tip> getType() {
+	public void setRed(int red) {
+		this.red = red;
+	}
+
+	public Tip getType() {
 		return type;
 	}
 
-	public void setType(List<Tip> type) {
+	public void setType(Tip type) {
 		this.type = type;
-	}
-
-	public void setRed(int red) {
-		this.red = red;
 	}
 
 	public int getBrElem() {
@@ -60,7 +62,5 @@ public class Characteristics {
 	public void setBrElem(int brElem) {
 		this.brElem = brElem;
 	}
-	
-	
 
 }

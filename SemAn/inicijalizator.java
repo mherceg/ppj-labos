@@ -3,7 +3,7 @@ import java.util.List;
 
 public class inicijalizator extends Node{
 	
-	public inicijalizator(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+	public inicijalizator(String name, boolean lIzraz, Tip type, int red, int brElem) {
 		super(name, lIzraz, type, red, brElem);
 
 	}

@@ -1,19 +1,20 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Node {
 	protected Characteristics characteristics;
+	private List<Tip> types;
+	private List<String> names;
 
 	protected List<Node> child = new ArrayList<Node>();
 
-	public Node(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+	public Node(String name, boolean lIzraz, Tip type, int red, int brElem) {
 
-		this.characteristics = new Characteristics(name, lIzraz, type, red, brElem);
-
-	}
-
-	public Node() {
-		super();
+		this.characteristics = new Characteristics(name, lIzraz, type, red,
+				brElem);
+		this.types = new LinkedList<Tip>();
+		this.names = new LinkedList<String>();
 	}
 
 	public Characteristics getCharacteristics() {
@@ -34,24 +35,52 @@ public abstract class Node {
 		return characteristics.islIzraz();
 	}
 
-	public Tip getFirstType() {
-		return this.characteristics.getType().get(0);
-	}
-
-	public List<Tip> getType() {
+	public Tip getType() {
 		return this.characteristics.getType();
 	}
 
-	public void setType(List<Tip> type) {
+	public void setType(Tip type) {
 		this.characteristics.setType(type);
 	}
 
 	public int getRed() {
 		return characteristics.getRed();
 	}
-	
+
 	public int getBrElem() {
 		return characteristics.getBrElem();
 	}
 
+	public List<Tip> getTypes() {
+		return types;
+	}
+
+	public void setTypes(Tip tip) {
+		this.types = new LinkedList<Tip>();
+		this.types.add(tip);
+	}
+
+	public void setTypes(List<Tip> tipovi) {
+		this.types = new LinkedList<Tip>();
+		this.types.addAll(tipovi);
+	}
+
+	public List<String> getNames() {
+		return names;
+	}
+
+	public void setNames(String ime) {
+		this.names = new LinkedList<String>();
+		this.names.add(ime);
+	}
+
+	public void setNames(List<String> imena) {
+		this.names = new LinkedList<String>();
+		this.names.addAll(imena);
+	}
+	
+	
+	public void writeErrorMessage(){
+		//TODO
+	}
 }

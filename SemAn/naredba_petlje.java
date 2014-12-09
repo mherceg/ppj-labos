@@ -3,7 +3,7 @@ import java.util.List;
 
 public class naredba_petlje extends Node{
 	
-	public naredba_petlje(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+	public naredba_petlje(String name, boolean lIzraz, Tip type, int red, int brElem) {
 		super(name, lIzraz, type, red, brElem);
 	}
 	/**

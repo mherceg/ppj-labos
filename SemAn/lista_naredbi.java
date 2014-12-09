@@ -2,7 +2,7 @@ import java.util.List;
 
 public class lista_naredbi extends Node {
 
-	public lista_naredbi(String name, boolean lIzraz, List<Tip> type, int red, int brElem) {
+	public lista_naredbi(String name, boolean lIzraz, Tip type, int red, int brElem) {
 		super(name, lIzraz, type, red, brElem);
 
 	}
