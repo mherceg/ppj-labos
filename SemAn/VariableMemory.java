@@ -1,21 +1,22 @@
 import java.util.HashMap;
+
 /**
- * @author Adriano Baćac
+ * @author Adriano Bacac
  *
  *
- * Memorija za varijable.
- * String => V
+ *         Memorija za varijable. String => V
  *
- * @param <V> Tip podataka, predlazem Characteristics
+ * @param <V>
+ *            Tip podataka, predlazem Characteristics
  */
 public class VariableMemory<V> {
 
-	private HashMap<String, V> hm;
+	protected HashMap<String, V> hm;
 
-	private VariableMemory<V> previous;
-	private VariableMemory<V> next;
+	protected VariableMemory<V> previous;
+	protected VariableMemory<V> next;
 
-	private VariableMemory<V> current;
+	protected VariableMemory<V> current;
 
 	public VariableMemory() {
 		this.hm = new HashMap<String, V>();
@@ -46,7 +47,7 @@ public class VariableMemory<V> {
 				return true;
 			}
 			iter = iter.previous;
-			
+
 		}
 		return false;
 	}
@@ -66,7 +67,7 @@ public class VariableMemory<V> {
 			if ((ret = iter.hm.get(name)) != null) {
 				return ret;
 			}
-			iter=iter.previous;
+			iter = iter.previous;
 		}
 		return null;
 
