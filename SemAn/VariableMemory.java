@@ -6,6 +6,7 @@ import java.util.HashMap;
  *
  *         Memorija za varijable. String => V
  *
+ * 
  * @param <V>
  *            Tip podataka, predlazem Characteristics
  */
@@ -41,7 +42,7 @@ public class VariableMemory<V> {
 	}
 
 	public boolean contains(String name) {
-		VariableMemory iter = current;
+		VariableMemory<V> iter = current;
 		while (iter != null) {
 			if (iter.containsAtThisLevel(name)) {
 				return true;

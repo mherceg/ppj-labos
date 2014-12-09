@@ -1,5 +1,3 @@
-import java.util.List;
-
 
 public class slozena_naredba extends Node{
 	

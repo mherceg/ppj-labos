@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class primarni_izraz extends Node {
 

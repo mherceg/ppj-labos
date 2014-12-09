@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class postfiks_izraz extends Node {
 

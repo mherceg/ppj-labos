@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class vanjska_deklaracija extends Node {
 
@@ -15,7 +14,7 @@ public class vanjska_deklaracija extends Node {
 	 * 
 	 * Nezavrsni znak <vanjska_deklaracija> generira ili definiciju funkcije
 	 * (znak <definicija_funkcije>) ili deklaraciju varijable ili funkcije (znak
-	 * <deklaracija>). Obje produkcije su jediniˇcne i u obje se provjeravaju
+	 * <deklaracija>). Obje produkcije su jedinicne i u obje se provjeravaju
 	 * pravila u podstablu kojem je znak s desne strane korijen.
 	 * 
 	 * 

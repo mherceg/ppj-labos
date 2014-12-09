@@ -1,10 +1,11 @@
 public class Provjerinator {
 	/**
 	 * pravila za raspon CHAR, str 40, Brojevni tipovi
+	 * 
 	 * @param value
 	 * @return
 	 */
-	
+
 	public static boolean rasponChar(String value) {
 		int charValue;
 		try {
@@ -17,8 +18,10 @@ public class Provjerinator {
 		}
 		return true;
 	}
+
 	/**
 	 * ravila za raspon INT, str 40, Brojevni tipovi
+	 * 
 	 * @param value
 	 * @return
 	 */
@@ -34,44 +37,89 @@ public class Provjerinator {
 		}
 		return true;
 	}
+
 	/**
 	 * Pravila za ZNAK, str 42, 4.3.2
+	 * 
 	 * @param znak
 	 * @return
 	 */
 	public static boolean znakOK(String znak) {
-		//TODO
+		// TODO
 		return true;
 	}
 
 	/**
 	 * Pravila za NIZ_ZNAKOVA, str 42, 4.3.2
+	 * 
 	 * @param znak
 	 * @return
 	 */
 	public static boolean konstNizZnakovaOK(String niz) {
-		//TODO
+		// TODO
 		return true;
 	}
+
 	/**
 	 * a se moze implicitno pretvorit u b, str41, Implicitne promjene tipa
+	 * 
 	 * @param a
 	 * @param b
 	 * @return
 	 */
 	public static boolean tilda(Tip a, Tip b) {
-		//TODO
+		/*
+		 * TODO
+		 * Provjeriti na primjerima, neznam sta sa T i X ako se pojave
+		 */
+		if (a.equals(b)) {// refleksivna
+			return true;
+		}
+
+		if (a.isFunction() || b.isFunction()) {
+			return false;// valjda, nigdje se ne spominju funkcije
+		}
+		if (!a.isArray() && !b.isArray()) {
+			if ((a.getGlavni() == TipBasic.CHAR && b.getGlavni() == TipBasic.const_CHAR)||
+					(a.getGlavni() == TipBasic.INT && b.getGlavni() == TipBasic.const_INT)||
+					(a.getGlavni() == TipBasic.const_CHAR && b.getGlavni() == TipBasic.CHAR)||
+					(a.getGlavni() == TipBasic.const_INT && b.getGlavni() == TipBasic.INT)) {
+				return true;
+			}
+			if (a.getGlavni() == TipBasic.CHAR && b.getGlavni() == TipBasic.INT) {
+				return true;
+			}
+		} else if(a.isArray() && b.isArray()){// oba su nizovi
+
+			if (TipBasic.equals(a.getGlavni(), TipBasic.T)
+					&& (TipBasic.equals(b.getGlavni(), TipBasic.const_T))) {
+				return true;
+			}
+		}
 		return false;
 
 	}
+
 	/**
 	 * a se moze kastat u b, str 42, Eksplicitne promjene tipa
+	 * 
 	 * @param a
 	 * @param b
 	 * @return
 	 */
-	public static boolean isCastable(Tip a, Tip b){
-		//TODO
+	public static boolean isCastable(Tip a, Tip b) {
+		/*
+		 * TODO
+		 * treba li dodati tilda(a,b) na pocetku?
+		 * ono sta se moze implicitno se moze i eksplicitno?
+		 * 
+		 */
+		
+		if (!a.isArray() && !b.isArray()) {
+			if (a.getGlavni() == TipBasic.INT && b.getGlavni() == TipBasic.CHAR) {
+				return true;
+			}
+		}
 		return false;
 	}
 }
