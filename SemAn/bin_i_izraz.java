@@ -9,6 +9,7 @@ public class bin_i_izraz extends Node {
 
 	/**
 	 * Str. 59
+	 * gotov
 	 */
 	@Override
 	public void provjeri() {
@@ -21,10 +22,14 @@ public class bin_i_izraz extends Node {
 		else if(childNula.getName().equals("<"+bin_i_izraz.class.getName()+">")){
 			Node childDva = child.get(2);
 			childNula.provjeri();
-			// TODO 2. <bin_i_izraz>.tip  int
+			if(!Provjerinator.tilda(childNula.getType(), new Tip(TipBasic.INT))){
+				writeErrorMessage();
+			}
 			childDva.provjeri();
-			// TODO 4. <jednakosni_izraz>.tip  int
-			// TODO this.characteristics.setType(Tip.int);
+			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
+				writeErrorMessage();
+			}
+			this.characteristics.setType(new Tip(TipBasic.INT));
 			this.characteristics.setlIzraz(false);
 		}		
 		else{

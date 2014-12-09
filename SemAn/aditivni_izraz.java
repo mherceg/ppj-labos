@@ -8,6 +8,7 @@ public class aditivni_izraz extends Node {
 	}
 	/**
 	 * Str 57.
+	 * gotov
 	 */
 	@Override
 	public void provjeri() {
@@ -20,10 +21,14 @@ public class aditivni_izraz extends Node {
 		else if(childNula.getName().equals("<"+aditivni_izraz.class.getName()+">")){
 			Node childDva = child.get(2);
 			childNula.provjeri();
-			// TODO 2. <aditivni_izraz>.tip  int
+			if(!Provjerinator.tilda(childNula.getType(), new Tip(TipBasic.INT))){
+				writeErrorMessage();
+			}
 			childDva.provjeri();
-			// TODO 4. <multiplikativni_izraz>.tip  int
-			// TODO this.characteristics.setType(Tip.int);
+			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
+				writeErrorMessage();
+			}
+			this.characteristics.setType(new Tip(TipBasic.INT));
 			this.characteristics.setlIzraz(false);
 		}		
 		else{
