@@ -1,5 +1,4 @@
-import java.awt.Window.Type;
-import java.util.List;
+
 
 public class deklaracija_parametra extends Node {
 
@@ -17,15 +16,20 @@ public class deklaracija_parametra extends Node {
 		Node childNula = child.get(0);
 		if(childCount == 2){
 			childNula.provjeri();
-			// TODO <ime_tipa>.tim != void .... childNula.getType != Tip.void
+			if(childNula.getType().equals(new Tip(TipBasic.VOID))){
+				writeErrorMessage();
+			}
 			this.characteristics.setType(childNula.getType());
-			// TODO this.characteristics.setName(IDN.name);
+			this.characteristics.setName(((UniformniZnak)child.get(1)).value);
 		}
 		else if(childCount == 4){
 			childNula.provjeri();
-			// TODO <ime_tipa>.tim != void .... childNula.getType != Tip.void
-			// TODO this.characteristics.setType(niz(childNula.getType()));
-			// TODO this.characteristics.setName(IDN.name); 
+			if(childNula.getType().equals(new Tip(TipBasic.VOID))){
+				writeErrorMessage();
+			}
+			this.characteristics.setType(childNula.getType());
+			this.characteristics.getType().setArray(true);
+			this.characteristics.setName(((UniformniZnak)child.get(1)).value);
 		}	
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());

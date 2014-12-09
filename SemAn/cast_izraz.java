@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class cast_izraz extends Node {
 
@@ -9,6 +8,7 @@ public class cast_izraz extends Node {
 
 	/**
 	 * Str 55.
+	 * gotov
 	 */
 	@Override
 	public void provjeri() {
@@ -22,9 +22,10 @@ public class cast_izraz extends Node {
 			Node childJedan = child.get(1);
 			Node childTri = child.get(3);
 			childJedan.provjeri();
+			Provjerinator.isCastable(childTri.getType(), childJedan.getType());
 			this.characteristics.setType(childJedan.getType());
 			this.characteristics.setlIzraz(false);
-			// TODO 3. <cast_izraz>.tip se moze pretvoriti u <ime_tipa>.tip po poglavlju 4.3.1
+			
 		}		
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());

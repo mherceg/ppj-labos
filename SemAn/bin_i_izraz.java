@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class bin_i_izraz extends Node {
 
