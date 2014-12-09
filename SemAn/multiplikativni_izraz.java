@@ -1,4 +1,3 @@
-import java.util.List;
 
 
 public class multiplikativni_izraz extends Node{

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class lista_argumenata extends Node {
 

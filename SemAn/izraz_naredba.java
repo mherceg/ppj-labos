@@ -1,4 +1,3 @@
-import java.util.List;
 
 
 public class izraz_naredba extends Node{
@@ -15,7 +14,8 @@ public class izraz_naredba extends Node{
 			this.characteristics.setType(childNula.getType());
 		}
 		else if(childNula.getName().equals("TOCKAZAREZ")){
-			//this.characteristics.setType(Tip.int)		TODO
+			//this.characteristics.setType(Tip.int)	
+			this.setType(new Tip(TipBasic.INT));
 		}		
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());

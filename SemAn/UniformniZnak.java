@@ -14,6 +14,7 @@ public class UniformniZnak extends Node {
 	 */
 	@Override
 	public void provjeri() {
+		//ovo treba bit prazno. Ili ce se ovdje ubacit provjera ta Tip.
 	}
 
 }

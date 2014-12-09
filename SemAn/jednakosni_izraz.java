@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class jednakosni_izraz extends Node {
 

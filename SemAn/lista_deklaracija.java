@@ -1,4 +1,3 @@
-import java.util.List;
 
 
 public class lista_deklaracija extends Node{

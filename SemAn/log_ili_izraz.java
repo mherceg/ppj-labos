@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class log_ili_izraz extends Node {
 

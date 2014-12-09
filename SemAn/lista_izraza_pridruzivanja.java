@@ -1,5 +1,3 @@
-import java.util.List;
-
 
 public class lista_izraza_pridruzivanja extends Node{
 	

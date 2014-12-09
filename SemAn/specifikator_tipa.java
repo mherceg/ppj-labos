@@ -14,13 +14,13 @@ public class specifikator_tipa extends Node {
 	public void provjeri() {
 		Node childNula = child.get(0);
 		if(childNula.getName().equals("KR_VOID")){
-			//this.characteristics.setType(Tip.void);	TODO
+			this.setType(new Tip(TipBasic.VOID));
 		}
 		else if(childNula.getName().equals("KR_CHAR")){
-			//this.characteristics.setType(Tip.char);
+			this.setType(new Tip(TipBasic.CHAR));
 		}
 		else if(childNula.getName().equals("KR_INT")){
-			//this.characteristics.setType(Tip.int);
+			this.setType(new Tip(TipBasic.INT));
 		}
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());

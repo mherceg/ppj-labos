@@ -12,7 +12,9 @@ public class naredba_skoka extends Node {
 	 */
 	@Override
 	public void provjeri() {
-		// TODO Auto-generated method stub
+		/*
+		 * ovo zahtjeva malo dodavanja
+		 */
 
 	}
 

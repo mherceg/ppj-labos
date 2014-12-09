@@ -8,6 +8,7 @@ public class prijevodna_jedinica extends Node {
 	}
 	/**
 	 * Str 65
+	 * gotov
 	 */
 	@Override
 	public void provjeri() {

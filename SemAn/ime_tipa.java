@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class ime_tipa extends Node {
 
