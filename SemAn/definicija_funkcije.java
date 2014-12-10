@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class definicija_funkcije extends Node {
 
 	public definicija_funkcije(String name, boolean lIzraz, Tip type, int red,
@@ -91,9 +93,18 @@ public class definicija_funkcije extends Node {
 			funcmem.add(imeFunkcije, new Function(new Tip(child.get(0)
 					.getType().getGlavni(), null, false, true), true));
 			/*
-			 * TODO provjeri (<slozena_naredba>) uz parametre funkcije koristeci
+			 *  provjeri (<slozena_naredba>) uz parametre funkcije koristeci
 			 * <lista_parametara>.tipovi i <lista_parametara>.imena.
 			 */
+			mem.goDown();
+			Iterator<Tip> tipIter = this.getTypes().iterator();
+			Iterator<String> imeIter = this.getNames().iterator();
+			
+			while(tipIter.hasNext() && imeIter.hasNext()){
+				mem.add(imeIter.next(), tipIter.next());
+			}
+			child.get(4).provjeri(); //provjeri (slozena naredba)
+			mem.goUp();
 		}
 	}
 
