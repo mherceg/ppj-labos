@@ -9,7 +9,7 @@ public class deklaracija extends Node {
 
 	/**
 	 * 68
-	 * gotov?
+	 * gotov
 	 */
 	@Override
 	public void provjeri() {

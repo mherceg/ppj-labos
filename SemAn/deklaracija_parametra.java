@@ -9,6 +9,7 @@ public class deklaracija_parametra extends Node {
 
 	/**
 	 * Str 67.
+	 * Gotovo
 	 */
 	@Override
 	public void provjeri() {
