@@ -14,7 +14,7 @@ public class naredba_grananja extends Node {
 			Node childDva = child.get(2);
 			
 			childDva.provjeri();
-			// 2. <izraz>.tip tilda int
+			//<izraz>.tip tilda int
 			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
 				writeErrorMessage();
 			}
@@ -24,7 +24,7 @@ public class naredba_grananja extends Node {
 			Node childDva = child.get(2);
 			
 			childDva.provjeri();
-			// TODO 2. <izraz>.tip tilda int
+			//<izraz>.tip tilda int
 			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
 				writeErrorMessage();
 			}
