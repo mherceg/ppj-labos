@@ -19,14 +19,12 @@ public class ime_tipa extends Node {
 
 			// Implementirano da ako je <specifikator_tipa>.tip == void
 			// ispisuje gresku
-			if (childJedan.getType().getGlavni().equals(TipBasic.VOID)) {
+
+			childJedan.provjeri();
+			if (childJedan.getType().equals(new Tip(TipBasic.VOID))) {
 				writeErrorMessage();
-			} else {
-				childJedan.provjeri();
-				this.characteristics.setType(childJedan.getType());
-				// TODO 2. <specifikator_tipa>.tip != void --> napravljen tako
-				// da ispisuje gresku ako je to tako moguce
 			}
+			this.characteristics.setType(childJedan.getType());
 
 		} else {
 			System.err.println("Greska kod " + this.getClass().getName()
