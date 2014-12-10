@@ -8,6 +8,7 @@ public class unarni_izraz extends Node {
 
 	/**
 	 * str 54
+	 * gotov
 	 */
 	@Override
 	public void provjeri() {

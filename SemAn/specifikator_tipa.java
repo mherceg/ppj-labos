@@ -8,6 +8,7 @@ public class specifikator_tipa extends Node {
 
 	/**
 	 * Str 56.
+	 * gotov
 	 */
 	@Override
 	public void provjeri() {
