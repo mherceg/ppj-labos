@@ -10,6 +10,7 @@ public abstract class Node {
 	protected List<Node> child = new ArrayList<Node>();
 	
 	protected static VariableMemory<Tip> mem = new VariableMemory<Tip>();
+	protected static FunctionMemory funcmem = new FunctionMemory();
 	
 	public Node(String name, boolean lIzraz, Tip type, int red, int brElem) {
 

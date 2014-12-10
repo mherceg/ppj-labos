@@ -1,3 +1,4 @@
+
 public class FunctionMemory extends VariableMemory<Function> {
 
 	public FunctionMemory() {
