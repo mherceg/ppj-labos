@@ -12,12 +12,41 @@ public abstract class Node {
 	protected static VariableMemory<Tip> mem = new VariableMemory<Tip>();
 	protected static FunctionMemory funcmem = new FunctionMemory();
 	
+	//potrebno za return tip;
+	private TipBasic activeFuncRetType;
+	
+	public TipBasic getActiveFuncRetType() {
+		return activeFuncRetType;
+	}
+
+	public void setActiveFuncRetType(TipBasic activeFuncRetType) {
+		this.activeFuncRetType = activeFuncRetType;
+	}
+	
+	
+	/* potrebno za break; i continue;
+	 * kaze u kojoj dubini petlje smo
+	 */
+	protected static int loopdepth;
+	
+	public static void enterLoop(){
+		++loopdepth;
+	}
+	public static void exitLoop(){
+		--loopdepth;
+	}
+	public static boolean inLoop(){
+		return loopdepth!=0;
+	}
+	
 	public Node(String name, boolean lIzraz, Tip type, int red, int brElem) {
 
 		this.characteristics = new Characteristics(name, lIzraz, type, red,
 				brElem);
 		this.types = new LinkedList<Tip>();
 		this.names = new LinkedList<String>();
+		loopdepth = 0;
+		activeFuncRetType=null;
 	}
 
 	public Characteristics getCharacteristics() {
@@ -86,4 +115,10 @@ public abstract class Node {
 	public void writeErrorMessage(){
 		//TODO
 	}
+
+
+
+	
+
+	
 }

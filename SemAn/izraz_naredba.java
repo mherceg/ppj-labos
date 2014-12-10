@@ -6,6 +6,9 @@ public class izraz_naredba extends Node{
 		super(name, lIzraz, type, red, brElem);
 	}
 
+	/**
+	 * str 63
+	 */
 	@Override
 	public void provjeri() {
 		Node childNula = child.get(0);

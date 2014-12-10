@@ -10,7 +10,7 @@ public class naredba_petlje extends Node{
 	@Override
 	public void provjeri() {
 		Node childDva = child.get(2);
-		if(childDva.getName().equals("<"+izraz.class.getName()+">")){
+		if(childDva.getName().equals("<izraz>")){
 			Node childCetiri = child.get(4);
 			childDva.provjeri();
 			
@@ -18,10 +18,11 @@ public class naredba_petlje extends Node{
 			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
 				writeErrorMessage();
 			}
-			
+			Node.enterLoop();
 			childCetiri.provjeri();
+			Node.exitLoop();
 		}
-		else if(childDva.getName().equals("<"+izraz_naredba.class.getName()+">")){
+		else if(childDva.getName().equals("<izraz_naredba>")){
 			int childCount = child.size();
 			if(childCount == 6){
 				Node childTri = child.get(3);
@@ -32,20 +33,25 @@ public class naredba_petlje extends Node{
 				if(!Provjerinator.tilda(childTri.getType(), new Tip(TipBasic.INT))){
 					writeErrorMessage();
 				}
+				Node.enterLoop();
 				childPet.provjeri();
+				Node.exitLoop();
 			}
 			else if(childCount == 7){
 				Node childTri = child.get(3);
-				Node childCetri = child.get(4);
-				Node childSedam = child.get(7);
+				Node izraz = child.get(4);
+				Node naredba = child.get(6);
 				childDva.provjeri();
 				childTri.provjeri();
 				//  <izraz_naredba>2.tip tilda int
 				if(!Provjerinator.tilda(childTri.getType(), new Tip(TipBasic.INT))){
 					writeErrorMessage();
 				}
-				childCetri.provjeri();
-				childSedam.provjeri();
+				izraz.provjeri();
+				
+				Node.enterLoop();
+				naredba.provjeri();
+				Node.exitLoop();
 			}
 			else{
 				System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
