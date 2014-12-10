@@ -20,10 +20,17 @@ public class multiplikativni_izraz extends Node{
 		else if(childNula.getName().equals("<"+multiplikativni_izraz.class.getName()+">")){
 			Node childDva = child.get(2);
 			childNula.provjeri();
-			// TODO 2. <mutliplikativni_izraz>.tip  int
+			//  2. <mutliplikativni_izraz>.tip tilda int
+			if(!Provjerinator.tilda(childNula.getType(), new Tip(TipBasic.INT))){
+				writeErrorMessage();
+			}
 			childDva.provjeri();
-			// TODO 4. <cast_izraz>.tip  int
-			// TODO this.characteristics.setType(Tip.int);
+			//  4. <cast_izraz>.tip  int
+			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
+				writeErrorMessage();
+			}
+			//  this.characteristics.setType(Tip.int);
+			this.setType(new Tip(TipBasic.INT));
 			this.characteristics.setlIzraz(false);
 		}		
 		else{

@@ -13,7 +13,12 @@ public class naredba_petlje extends Node{
 		if(childDva.getName().equals("<"+izraz.class.getName()+">")){
 			Node childCetiri = child.get(4);
 			childDva.provjeri();
-			// TODO 2. <izraz>.tip  int
+			
+			//  2. <izraz>.tip tilda int
+			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
+				writeErrorMessage();
+			}
+			
 			childCetiri.provjeri();
 		}
 		else if(childDva.getName().equals("<"+izraz_naredba.class.getName()+">")){
@@ -23,7 +28,10 @@ public class naredba_petlje extends Node{
 				Node childPet = child.get(5);
 				childDva.provjeri();
 				childTri.provjeri();
-				// TODO 3. <izraz_naredba>2.tip tilda int
+				//  3. <izraz_naredba>2.tip tilda int
+				if(!Provjerinator.tilda(childTri.getType(), new Tip(TipBasic.INT))){
+					writeErrorMessage();
+				}
 				childPet.provjeri();
 			}
 			else if(childCount == 7){
@@ -32,7 +40,10 @@ public class naredba_petlje extends Node{
 				Node childSedam = child.get(7);
 				childDva.provjeri();
 				childTri.provjeri();
-				// TODO <izraz_naredba>2.tip tilda int
+				//  <izraz_naredba>2.tip tilda int
+				if(!Provjerinator.tilda(childTri.getType(), new Tip(TipBasic.INT))){
+					writeErrorMessage();
+				}
 				childCetri.provjeri();
 				childSedam.provjeri();
 			}

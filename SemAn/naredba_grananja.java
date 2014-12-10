@@ -12,19 +12,24 @@ public class naredba_grananja extends Node {
 		int childCount = child.size();
 		if(childCount == 5){
 			Node childDva = child.get(2);
-			Node childCetri = child.get(4);
+			
 			childDva.provjeri();
-			// TODO 2. <izraz>.tip tilda int
-			childCetri.provjeri();
+			// 2. <izraz>.tip tilda int
+			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
+				writeErrorMessage();
+			}
+			child.get(4).provjeri();
 		}
 		else if(childCount == 7){
 			Node childDva = child.get(2);
-			Node childCetri = child.get(4);
-			Node childSest = child.get(6);
+			
 			childDva.provjeri();
 			// TODO 2. <izraz>.tip tilda int
-			childCetri.provjeri();
-			childSest.provjeri();
+			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
+				writeErrorMessage();
+			}
+			child.get(4).provjeri();
+			child.get(6).provjeri();
 		}		
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());

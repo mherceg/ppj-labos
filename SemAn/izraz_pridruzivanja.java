@@ -18,9 +18,14 @@ public class izraz_pridruzivanja extends Node {
 		else if(childNula.getName().equals("<"+postfiks_izraz.class.getName()+">")){
 			Node childDva = child.get(2);
 			childNula.provjeri();
-			// TODO <postfiks_izraz>.l-izraz = 1
+			//  <postfiks_izraz>.l-izraz = 1
+			childNula.getCharacteristics().setlIzraz(true);
+			
 			childDva.provjeri();
-			// TODO <izraz_pridruzivanja>.tip  <postfiks_izraz>.tip
+			//  <izraz_pridruzivanja>.tip tilda <postfiks_izraz>.tip
+			if(!Provjerinator.tilda(childDva.getType(), childNula.getType())){
+				writeErrorMessage();
+			}
 			this.characteristics.setType(childNula.getType());
 			this.characteristics.setlIzraz(false);
 		}		
