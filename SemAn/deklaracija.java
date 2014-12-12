@@ -10,6 +10,8 @@ public class deklaracija extends Node {
 	/**
 	 * 68
 	 * gotov
+	 * TODO
+	 * Tu nekaj fali, ne provjerava se lista
 	 */
 	@Override
 	public void provjeri() {
