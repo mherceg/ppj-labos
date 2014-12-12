@@ -13,14 +13,13 @@ public abstract class Node {
 	protected static FunctionMemory funcmem = new FunctionMemory();
 	
 	//potrebno za return tip;
-	private TipBasic activeFuncRetType;
-	
-	public TipBasic getActiveFuncRetType() {
+	protected static TipBasic activeFuncRetType;
+	protected TipBasic getActiveFuncRetType() {
 		return activeFuncRetType;
 	}
 
 	public void setActiveFuncRetType(TipBasic activeFuncRetType) {
-		this.activeFuncRetType = activeFuncRetType;
+		Node.activeFuncRetType = activeFuncRetType;
 	}
 	
 	

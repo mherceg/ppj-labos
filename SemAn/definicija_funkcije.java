@@ -10,7 +10,7 @@ public class definicija_funkcije extends Node {
 
 	/**
 	 * Str 66 Zadnji provjeri : provjeri(<slozena_naredba>) uz parametre
-	 * funkcije koristeci <lista_parametara>.tipovi i <lista_parametara>.imena.
+	 * funkcije koristeci <lista_parametara>.tipovi i <lista_parametara>.imena.
 	 * -->nije gotov
 	 */
 	@Override
@@ -80,6 +80,7 @@ public class definicija_funkcije extends Node {
 			 * funkcija(<lista_parametara>.tipovi → <ime_tipa>.tip)
 			 */
 			Function funkcijaKojuProvjeravamo = funcmem.get(imeFunkcije);
+			//TODO check this
 			if (!funkcijaKojuProvjeravamo.getTipFunkcije().equals(
 					new Tip(child.get(3).getType().getGlavni(), null, false,
 							true))) {
@@ -103,6 +104,9 @@ public class definicija_funkcije extends Node {
 			while(tipIter.hasNext() && imeIter.hasNext()){
 				mem.add(imeIter.next(), tipIter.next());
 			}
+			System.out.println("smth");
+			Node.activeFuncRetType = child.get(0)
+					.getType().getGlavni();
 			child.get(4).provjeri(); //provjeri (slozena naredba)
 			mem.goUp();
 		}
