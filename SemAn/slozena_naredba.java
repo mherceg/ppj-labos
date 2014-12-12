@@ -10,6 +10,7 @@ public class slozena_naredba extends Node{
 	 */
 	@Override
 	public void provjeri() {
+		mem.goDown();
 		Node childJedan = child.get(1);
 		if(childJedan.getName().equals("<"+lista_naredbi.class.getName()+">")){
 			childJedan.provjeri();
@@ -19,9 +20,8 @@ public class slozena_naredba extends Node{
 			childJedan.provjeri();
 			childDva.provjeri();
 		}		
-		else{
-			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
-		}
+		mem.goUp();
+		
 	}
 
 }
