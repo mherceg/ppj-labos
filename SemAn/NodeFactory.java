@@ -1,6 +1,6 @@
 
 public class NodeFactory {
-	//TODO
+	//TODONE
 	static Node create(String input){
 		if (input.startsWith("<")){
 			input.replaceAll(" ", "");
@@ -88,6 +88,7 @@ public class NodeFactory {
 		else{
 			String[] parts = input.split(" ");
 			Boolean lIzraz = parts[0].equals("IDN");
+			if (parts[0].equals("ZNAK")){ parts[2] = parts[2].replaceAll("'", "");}
 			return new UniformniZnak(parts[0], lIzraz, null, Integer.parseInt(parts[1]), 0, parts[2]);
 		}
 	}

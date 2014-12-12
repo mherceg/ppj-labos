@@ -45,8 +45,11 @@ public class Provjerinator {
 	 * @return
 	 */
 	public static boolean znakOK(String znak) {
-		// TODO
-		return true;
+		if (znak == null) return false;
+		if (znak.length() == 1) return true;
+		if (znak.length() == 2 && !znak.startsWith("\\")) return false;
+		if (new String("tn0'\"\\").contains("" + znak.charAt(1))) return true;
+		else return false;
 	}
 
 	/**
@@ -56,8 +59,17 @@ public class Provjerinator {
 	 * @return
 	 */
 	public static boolean konstNizZnakovaOK(String niz) {
-		// TODO
-		return true;
+		boolean isOK = true;
+		for (int i = 0; i < niz.length() - 1; ++i){
+			if (niz.charAt(i) == '\\'){
+				isOK &= znakOK("\\" + niz.charAt(i+1));
+				++i;
+			}
+			else{
+				isOK &= znakOK("" + niz.charAt(i));
+			}
+		}
+		return isOK && znakOK(""+niz.charAt(niz.length()-1));
 	}
 
 	/**
@@ -69,8 +81,7 @@ public class Provjerinator {
 	 */
 	public static boolean tilda(Tip a, Tip b) {
 		/*
-		 * TODO
-		 * Provjeriti na primjerima, neznam sta sa T i X ako se pojave
+		 * TODO Provjeriti na primjerima, neznam sta sa T i X ako se pojave
 		 */
 		if (a.equals(b)) {// refleksivna
 			return true;
@@ -80,16 +91,16 @@ public class Provjerinator {
 			return false;// valjda, nigdje se ne spominju funkcije
 		}
 		if (!a.isArray() && !b.isArray()) {
-			if ((a.getGlavni() == TipBasic.CHAR && b.getGlavni() == TipBasic.const_CHAR)||
-					(a.getGlavni() == TipBasic.INT && b.getGlavni() == TipBasic.const_INT)||
-					(a.getGlavni() == TipBasic.const_CHAR && b.getGlavni() == TipBasic.CHAR)||
-					(a.getGlavni() == TipBasic.const_INT && b.getGlavni() == TipBasic.INT)) {
+			if ((a.getGlavni() == TipBasic.CHAR && b.getGlavni() == TipBasic.const_CHAR)
+					|| (a.getGlavni() == TipBasic.INT && b.getGlavni() == TipBasic.const_INT)
+					|| (a.getGlavni() == TipBasic.const_CHAR && b.getGlavni() == TipBasic.CHAR)
+					|| (a.getGlavni() == TipBasic.const_INT && b.getGlavni() == TipBasic.INT)) {
 				return true;
 			}
 			if (a.getGlavni() == TipBasic.CHAR && b.getGlavni() == TipBasic.INT) {
 				return true;
 			}
-		} else if(a.isArray() && b.isArray()){// oba su nizovi
+		} else if (a.isArray() && b.isArray()) {// oba su nizovi
 
 			if (TipBasic.equals(a.getGlavni(), TipBasic.T)
 					&& (TipBasic.equals(b.getGlavni(), TipBasic.const_T))) {
@@ -109,12 +120,13 @@ public class Provjerinator {
 	 */
 	public static boolean isCastable(Tip a, Tip b) {
 		/*
-		 * TODO
-		 * treba li dodati tilda(a,b) na pocetku?
-		 * ono sta se moze implicitno se moze i eksplicitno?
-		 * 
+		 * TODONE treba li dodati tilda(a,b) na pocetku? ono sta se moze
+		 * implicitno se moze i eksplicitno?
 		 */
-		
+		if (Provjerinator.tilda(a, b)) {
+			return true;
+		}
+
 		if (!a.isArray() && !b.isArray()) {
 			if (a.getGlavni() == TipBasic.INT && b.getGlavni() == TipBasic.CHAR) {
 				return true;

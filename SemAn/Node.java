@@ -113,7 +113,21 @@ public abstract class Node {
 	
 	
 	public void writeErrorMessage(){
-		//TODO
+		StringBuilder sb = new StringBuilder();
+		sb.append("<"+this.getClass().getName()+"> ::=");
+		
+		for (Node c : child){
+			sb.append(" ");
+			if (c.getClass() == UniformniZnak.class){
+				sb.append(c.toString());
+			}
+			else{
+				sb.append("<"+c.getClass().getName()+">");
+			}
+		}
+		
+		System.out.println(sb.toString());
+		System.exit(0);
 	}
 
 

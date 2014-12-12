@@ -20,6 +20,7 @@ public class SemantickiAnalizator {
 		
 		int old_indent = 0;
 		while ((input = br.readLine()) != null){
+			if (input.isEmpty()) break;
 			int initial_length = input.length();
 			input = input.replaceFirst("^ *", "");
 			int new_indent = initial_length - input.length();
@@ -28,7 +29,7 @@ public class SemantickiAnalizator {
 				stack.pop();
 			}
 			if (new_indent < old_indent){
-				for (int i = new_indent; i < old_indent; ++i){
+				for (int i = new_indent; i < old_indent + 1; ++i){
 					stack.pop();
 				}
 			}
