@@ -1,6 +1,5 @@
 
 public class NodeFactory {
-	//TODONE
 	static Node create(String input){
 		if (input.startsWith("<")){
 			input.replaceAll(" ", "");

@@ -79,11 +79,7 @@ public class definicija_funkcije extends Node {
 				}
 			}
 			lista_parametara.provjeri();
-			/*
-			 * TODONE ako postoji deklaracija imena IDN.ime u globalnom
-			 * djelokrugu onda je pripadni tip te deklaracije
-			 * funkcija(<lista_parametara>.tipovi → <ime_tipa>.tip)
-			 */
+
 			Function funkcijaKojuProvjeravamo = funcmem.get(imeFunkcije);
 			// TODO check this
 			if (!funkcijaKojuProvjeravamo.getTipFunkcije().equals(

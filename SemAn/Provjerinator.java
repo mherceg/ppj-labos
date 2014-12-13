@@ -119,10 +119,6 @@ public class Provjerinator {
 	 * @return
 	 */
 	public static boolean isCastable(Tip a, Tip b) {
-		/*
-		 * TODONE treba li dodati tilda(a,b) na pocetku? ono sta se moze
-		 * implicitno se moze i eksplicitno?
-		 */
 		if (Provjerinator.tilda(a, b)) {
 			return true;
 		}

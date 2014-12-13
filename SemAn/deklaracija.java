@@ -10,7 +10,6 @@ public class deklaracija extends Node {
 	/**
 	 * 68
 	 * gotov
-	 * TODO
 	 * Tu nekaj fali, ne provjerava se lista
 	 */
 	@Override
@@ -20,7 +19,7 @@ public class deklaracija extends Node {
 		
 		ime_tipa.provjeri();
 		lista.setType(ime_tipa.getType());
-		
+		lista.provjeri();
 
 	}
 
