@@ -1,4 +1,3 @@
-
 public class postfiks_izraz extends Node {
 
 	public postfiks_izraz(String name, boolean lIzraz, Tip type, int red,
@@ -67,9 +66,14 @@ public class postfiks_izraz extends Node {
 					 * ovaj drugi ce bit nesto konkretnije i dat ce se usporedit
 					 * za ovo ispod
 					 */
+					// TODONE?
+					this.setType(new Tip(childNula.getType().getGlavni()));
 
-					// TODO this.characteristics.setlIzraz( l-izraz X !=
+					// TODONE this.characteristics.setlIzraz( l-izraz X !=
 					// const(T));
+					this.characteristics.setlIzraz(TipBasic.equals(childNula
+							.getType().getGlavni(), TipBasic.const_T));
+					
 				} else if (childDva.getName().equals("<lista_argumenata>")) {
 
 					childNula.provjeri();
