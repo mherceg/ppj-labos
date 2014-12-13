@@ -11,7 +11,6 @@ public class izravni_deklarator extends Node {
 	 */
 	@Override
 	public void provjeri() {
-
 		Node nula = child.get(0);
 		String name = ((UniformniZnak) nula).value;
 		if (child.size() == 1) {
@@ -29,7 +28,9 @@ public class izravni_deklarator extends Node {
 
 		} else {
 			Node dva = child.get(2);
+			
 			if (dva.getName().equals("BROJ")) {
+				
 				// 1
 				if (this.getType().equals(new Tip(TipBasic.VOID))) {
 					writeErrorMessage();
@@ -46,6 +47,7 @@ public class izravni_deklarator extends Node {
 				}
 				this.getType().setArray(true); // povratni tip
 				// 4
+				
 				mem.add(name, this.getType());
 
 			} else if (dva.getName().equals("KR_VOID")) {
