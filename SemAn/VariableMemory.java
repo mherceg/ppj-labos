@@ -25,9 +25,9 @@ public class VariableMemory<V> {
 	}
 
 	public void goDown() {
-		this.next = new VariableMemory<>();
-		this.next.previous = this;
-		this.current = this.next;
+		this.current.next = new VariableMemory<>();
+		this.current.next.previous = this.current;
+		this.current = this.current.next;
 	}
 
 	public void goUp() {

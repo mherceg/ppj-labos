@@ -19,7 +19,7 @@ public class definicija_funkcije extends Node {
 		Node IDN = child.get(1);
 		Node ime_tipa = child.get(0);
 		String imeFunkcije = ((UniformniZnak) child.get(1)).value;
-		
+
 		if (lista_parametara.getName().equals("KR_VOID")) {
 
 			ime_tipa.provjeri();
@@ -32,7 +32,7 @@ public class definicija_funkcije extends Node {
 			 * <ime_tipa>.tip)
 			 */
 			if (funcmem.contains((imeFunkcije))) {
-				if (funcmem.get(IDN.getName()).getImplementirana()) {
+				if (funcmem.get(imeFunkcije).getImplementirana()) {
 					writeErrorMessage();
 				}
 				/*
@@ -82,9 +82,10 @@ public class definicija_funkcije extends Node {
 
 			Function funkcijaKojuProvjeravamo = funcmem.get(imeFunkcije);
 			// TODO check this
-			if (!funkcijaKojuProvjeravamo.getTipFunkcije().equals(
-					new Tip(child.get(3).getType().getGlavni(), null, false,
-							true))) {
+			if (funkcijaKojuProvjeravamo != null
+					&& !funkcijaKojuProvjeravamo.getTipFunkcije().equals(
+							new Tip(child.get(0).getType().getGlavni(), child
+									.get(2).getTypes(), false, true))) {
 				writeErrorMessage();
 
 			}
@@ -93,19 +94,18 @@ public class definicija_funkcije extends Node {
 			 * zabiljezi definiciju i deklaraciju funkcije
 			 */
 			funcmem.add(imeFunkcije, new Function(new Tip(child.get(0)
-					.getType().getGlavni(), null, false, true), true));
+					.getType().getGlavni(), lista_parametara.getTypes(), false, true), true));
 			/*
 			 * provjeri (<slozena_naredba>) uz parametre funkcije koristeci
 			 * <lista_parametara>.tipovi i <lista_parametara>.imena.
 			 */
 			mem.goDown();
-			Iterator<Tip> tipIter = this.getTypes().iterator();
-			Iterator<String> imeIter = this.getNames().iterator();
+			Iterator<Tip> tipIter = child.get(3).getTypes().iterator();
+			Iterator<String> imeIter = child.get(3).getNames().iterator();
 
 			while (tipIter.hasNext() && imeIter.hasNext()) {
 				mem.add(imeIter.next(), tipIter.next());
 			}
-			System.out.println("smth");
 			Node.activeFuncRetType = child.get(0).getType().getGlavni();
 			child.get(5).provjeri(); // provjeri (slozena naredba)
 			mem.goUp();

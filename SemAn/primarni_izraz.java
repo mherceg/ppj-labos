@@ -16,10 +16,15 @@ public class primarni_izraz extends Node {
 			Node childNula = child.get(0);
 			String value = ((UniformniZnak) childNula).value;
 			if (childNula.getName().equals("IDN")) {
-				if (!mem.contains(value)) {
+				if (!mem.contains(value)&&!funcmem.contains(value)) {
 					writeErrorMessage();
 				}
-				this.setType(childNula.getType());
+				if (mem.contains(value)){					
+					this.setType(mem.get(value));
+				}
+				else{
+					this.setType(funcmem.get(value).getTipFunkcije());
+				}
 				this.characteristics.setlIzraz(childNula.getCharacteristics()
 						.islIzraz());
 			} else if (childNula.getName().equals("BROJ")) {

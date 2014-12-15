@@ -18,6 +18,7 @@ public class lista_deklaracija extends Node{
 		}
 		else if(childNula.getName().equals("<lista_deklaracija>")){
 			Node childJedan = child.get(1);
+			childNula.provjeri();
 			childJedan.provjeri();
 		}		
 		else{

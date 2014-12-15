@@ -27,12 +27,12 @@ public class init_deklarator extends Node {
 			nula.setType(this.getType()); // ntip
 			nula.provjeri();
 
-			Node inici = child.get(3);
+			Node inici = child.get(2);
 			inici.provjeri();
 
 			if (nula.getType().equals(new Tip(TipBasic.T))
 					|| nula.getType().equals(new Tip(TipBasic.const_T))) {
-				if (!Provjerinator.tilda(inici.getType(), new Tip(TipBasic.T))) {
+				if (!Provjerinator.tilda(inici.getType(), new Tip(TipBasic.stripConst(nula.getType().getGlavni())))) {
 					writeErrorMessage();
 				}
 			} else if (nula.getType().equals(new Tip(TipBasic.T, true))

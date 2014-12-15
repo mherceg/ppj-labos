@@ -13,6 +13,7 @@ public class deklaracija_parametra extends Node {
 	 */
 	@Override
 	public void provjeri() {
+		
 		int childCount = child.size();
 		Node childNula = child.get(0);
 		if(childCount == 2){

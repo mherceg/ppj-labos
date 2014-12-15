@@ -24,10 +24,10 @@ public class lista_parametara extends Node {
 				writeErrorMessage();
 			}
 			this.setTypes(childNula.getTypes());
-			this.getTypes().add(childNula.getType());
+			this.getTypes().add(childDva.getType());
 			
 			this.setNames(childNula.getNames());
-			this.getNames().add(childNula.getName());
+			this.getNames().add(childDva.getName());
 			
 		}		
 		else{

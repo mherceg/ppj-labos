@@ -33,9 +33,7 @@ public class postfiks_izraz extends Node {
 				childNula.provjeri();
 
 				// 2. <postfiks_izraz>.tip = funkcija(void ! pov)
-				if (!childNula.getType().equals(
-						new Tip(childNula.getType().getGlavni(), null, false,
-								true))) {
+				if (!childNula.getType().getPolje().isEmpty()||!childNula.getType().isFunction()){
 					writeErrorMessage();
 				}
 
