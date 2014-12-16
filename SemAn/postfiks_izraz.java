@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class postfiks_izraz extends Node {
 
 	public postfiks_izraz(String name, boolean lIzraz, Tip type, int red,
@@ -78,11 +80,24 @@ public class postfiks_izraz extends Node {
 
 					childNula.provjeri();
 					childDva.provjeri();
-					// TODO 3. <postfiks_izraz>.tip = funkcija(params ! pov) i
+					
+					//  3. <postfiks_izraz>.tip = funkcija(params -> pov) 
+					if(!childNula.getType().isFunction()){
+						writeErrorMessage();
+					}
 					// redom po elementima
 					// arg-tip iz <lista_argumenata>.tipovi i param-tip iz
-					// params vrijedi arg-tip
-					//  param-tip
+					// params vrijedi arg-tip tilda param-tip
+					
+					Iterator<Tip> argIter = childDva.getType().getPolje().iterator();
+					Iterator<Tip> paramIter = childNula.getType().getPolje().iterator();
+					
+					while(argIter.hasNext()&&paramIter.hasNext()){
+						if(!Provjerinator.tilda(argIter.next(), paramIter.next())){
+							writeErrorMessage();
+						}
+					}
+					
 					// TODO this.characteristics.setType(Tip.pov);
 					this.characteristics.setlIzraz(false);
 				} else {
