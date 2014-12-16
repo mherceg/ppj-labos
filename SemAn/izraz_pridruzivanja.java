@@ -11,9 +11,10 @@ public class izraz_pridruzivanja extends Node {
 	@Override
 	public void provjeri() {
 		Node childNula = child.get(0);
-		if(childNula.getName().equals("<"+log_ili_izraz.class.getName()+">")){
+		if(childNula.getName().equals("<log_ili_izraz>")){
 			childNula.provjeri();
-			this.characteristics.setType(childNula.getType());
+			this.setValue(childNula.getValue());
+			this.setType(childNula.getType());
 		}
 		else if(childNula.getName().equals("<"+postfiks_izraz.class.getName()+">")){
 			Node childDva = child.get(2);

@@ -12,9 +12,10 @@ public class log_ili_izraz extends Node {
 	@Override
 	public void provjeri() {
 		Node childNula = child.get(0);
-		if(childNula.getName().equals("<"+log_i_izraz.class.getName()+">")){
+		if(childNula.getName().equals("<log_i_izraz>")){
 			childNula.provjeri();
 			this.characteristics.setType(childNula.getType());
+			this.setValue(childNula.getValue());
 			this.characteristics.setlIzraz(childNula.getlIzraz());
 		}
 		else if(childNula.getName().equals("<"+log_ili_izraz.class.getName()+">")){

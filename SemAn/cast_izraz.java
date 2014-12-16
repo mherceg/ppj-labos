@@ -16,6 +16,7 @@ public class cast_izraz extends Node {
 			Node childNula = child.get(0);
 			childNula.provjeri();
 			this.characteristics.setType(childNula.getType());
+			this.setValue(childNula.getValue());
 			this.characteristics.setlIzraz(childNula.getlIzraz());
 		}
 		else if(child.size() == 4){

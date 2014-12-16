@@ -1,4 +1,3 @@
-
 public class init_deklarator extends Node {
 
 	public init_deklarator(String name, boolean lIzraz, Tip type, int red,
@@ -8,8 +7,7 @@ public class init_deklarator extends Node {
 	}
 
 	/**
-	 * 69
-	 *  gotov? ntip
+	 * 69 gotov? ntip
 	 */
 	@Override
 	public void provjeri() {
@@ -32,21 +30,31 @@ public class init_deklarator extends Node {
 
 			if (nula.getType().equals(new Tip(TipBasic.T))
 					|| nula.getType().equals(new Tip(TipBasic.const_T))) {
-				if (!Provjerinator.tilda(inici.getType(), new Tip(TipBasic.stripConst(nula.getType().getGlavni())))) {
+				if (!Provjerinator
+						.tilda(inici.getType(),
+								new Tip(TipBasic.stripConst(nula.getType()
+										.getGlavni())))) {
+					
 					writeErrorMessage();
 				}
+				
 			} else if (nula.getType().equals(new Tip(TipBasic.T, true))
 					|| nula.getType().equals(new Tip(TipBasic.const_T, true))) {
+				
 				if (inici.getCharacteristics().getBrElem() > nula
 						.getCharacteristics().getBrElem()) {
+				
 					writeErrorMessage();
 				}
-				for(Tip tip:inici.getTypes()){
-					if(!Provjerinator.tilda(tip, new Tip(TipBasic.T))){
+				for (Tip tip : inici.getTypes()) {
+					if (!Provjerinator.tilda(tip,
+							new Tip(TipBasic.stripConst(nula.getType()
+									.getGlavni())))) {
+						
 						writeErrorMessage();
 					}
 				}
-			}else{
+			} else {
 				writeErrorMessage();
 			}
 		}

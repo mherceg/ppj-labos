@@ -12,11 +12,12 @@ public class postfiks_izraz extends Node {
 	@Override
 	public void provjeri() {
 		Node childNula = child.get(0);
-		if (childNula.getName().equals(
-				"<" + primarni_izraz.class.getName() + ">")) {
+		if (childNula.getName().equals("<primarni_izraz>")) {
 			childNula.provjeri();
 			this.characteristics.setType(childNula.getType());
+			this.setValue(childNula.getValue());
 			this.characteristics.setlIzraz(childNula.getlIzraz());
+			
 		} else if (childNula.getName().equals(
 				"<" + postfiks_izraz.class.getName() + ">")) {
 			if (child.size() == 2) {
@@ -33,7 +34,8 @@ public class postfiks_izraz extends Node {
 				childNula.provjeri();
 
 				// 2. <postfiks_izraz>.tip = funkcija(void ! pov)
-				if (!childNula.getType().getPolje().isEmpty()||!childNula.getType().isFunction()){
+				if (!childNula.getType().getPolje().isEmpty()
+						|| !childNula.getType().isFunction()) {
 					writeErrorMessage();
 				}
 
@@ -71,7 +73,7 @@ public class postfiks_izraz extends Node {
 					// const(T));
 					this.characteristics.setlIzraz(TipBasic.equals(childNula
 							.getType().getGlavni(), TipBasic.const_T));
-					
+
 				} else if (childDva.getName().equals("<lista_argumenata>")) {
 
 					childNula.provjeri();

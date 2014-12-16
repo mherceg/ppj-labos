@@ -2,7 +2,6 @@
 
 public class UniformniZnak extends Node {
 
-	String value;
 	public UniformniZnak(String name, boolean lIzraz, Tip type, int red, int brElem, String value) {
 		super(name,lIzraz,type,red,brElem);
 		if (name.equals("NIZ_ZNAKOVA")){
@@ -14,7 +13,7 @@ public class UniformniZnak extends Node {
 		if (name.equals("ZNAK")){
 			this.setType(new Tip(TipBasic.CHAR));
 		}
-		this.value = value;
+		this.setValue(value);
 	}
 	
 	/**
@@ -25,12 +24,12 @@ public class UniformniZnak extends Node {
 		//ovo treba bit prazno. Ili ce se ovdje ubacit provjera ta Tip.
 	}
 
-	public String getValue(){
-		return value;
-	}
+	
 	
 	@Override
 	public String toString() {
-		return getName() + "(" + getRed() + "," + value + ")";
+		return getName() + "(" + getRed() + "," + getValue() + ")";
 	}
+
+	
 }

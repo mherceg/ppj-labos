@@ -12,9 +12,10 @@ public class aditivni_izraz extends Node {
 	@Override
 	public void provjeri() {
 		Node childNula = child.get(0);
-		if(childNula.getName().equals("<"+multiplikativni_izraz.class.getName()+">")){
+		if(childNula.getName().equals("<multiplikativni_izraz>")){
 			childNula.provjeri();
 			this.characteristics.setType(childNula.getType());
+			this.setValue(childNula.getValue());
 			this.characteristics.setlIzraz(childNula.getlIzraz());
 		}
 		else if(childNula.getName().equals("<"+aditivni_izraz.class.getName()+">")){
