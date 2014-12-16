@@ -127,6 +127,12 @@ public class Provjerinator {
 			if (a.getGlavni() == TipBasic.INT && b.getGlavni() == TipBasic.CHAR) {
 				return true;
 			}
+			if (a.getGlavni() == TipBasic.INT && b.getGlavni() == TipBasic.const_CHAR) {
+				return true;
+			}
+			if (a.getGlavni() == TipBasic.const_INT && b.getGlavni() == TipBasic.const_CHAR) {
+				return true;
+			}
 		}
 		return false;
 	}
