@@ -32,7 +32,6 @@ public class primarni_izraz extends Node {
 					writeErrorMessage();
 				}
 				this.setType(new Tip(TipBasic.INT));
-				this.setValue(value);
 				this.characteristics.setlIzraz(false);
 				
 			} else if (childNula.getName().equals("ZNAK")) {
@@ -41,7 +40,6 @@ public class primarni_izraz extends Node {
 				}
 
 				this.setType(new Tip(TipBasic.CHAR));
-				this.setValue(value);
 				this.characteristics.setlIzraz(false);
 			
 			} else if (childNula.getName().equals("NIZ_ZNAKOVA")) {

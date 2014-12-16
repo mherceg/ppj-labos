@@ -99,6 +99,7 @@ public class postfiks_izraz extends Node {
 					}
 					
 					// TODO this.characteristics.setType(Tip.pov);
+					this.setType(new Tip(childNula.getType().getGlavni()));
 					this.characteristics.setlIzraz(false);
 				} else {
 					System.err.println("Greska kod "
