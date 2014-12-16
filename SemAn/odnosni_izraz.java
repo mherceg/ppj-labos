@@ -16,6 +16,7 @@ public class odnosni_izraz extends Node {
 			this.characteristics
 					.setlIzraz(nula.getCharacteristics().islIzraz());
 			break;
+		//TODO check this
 		case "odnosni_izraz":
 			nula.provjeri();
 			if (!Provjerinator.tilda(nula.getType(), new Tip(TipBasic.INT))) {
