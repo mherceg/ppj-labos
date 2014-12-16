@@ -12,7 +12,7 @@ public class naredba_petlje extends Node {
 	@Override
 	public void provjeri() {
 		Node childDva = child.get(2);
-		mem.goDown();
+		
 		if (childDva.getName().equals("<izraz>")) {
 			Node childCetiri = child.get(4);
 			childDva.provjeri();
@@ -59,7 +59,8 @@ public class naredba_petlje extends Node {
 				Node.exitLoop();
 			}
 		}
-		mem.goUp();
+		
+
 	}
 
 }

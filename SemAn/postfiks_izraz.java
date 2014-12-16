@@ -89,7 +89,7 @@ public class postfiks_izraz extends Node {
 					// arg-tip iz <lista_argumenata>.tipovi i param-tip iz
 					// params vrijedi arg-tip tilda param-tip
 					
-					Iterator<Tip> argIter = childDva.getType().getPolje().iterator();
+					Iterator<Tip> argIter = childDva.getTypes().iterator();
 					Iterator<Tip> paramIter = childNula.getType().getPolje().iterator();
 					
 					while(argIter.hasNext()&&paramIter.hasNext()){
@@ -97,8 +97,12 @@ public class postfiks_izraz extends Node {
 							writeErrorMessage();
 						}
 					}
+					if(argIter.hasNext() || paramIter.hasNext()){
+						// neki ima vise argumenata
+						writeErrorMessage();
+					}
 					
-					// TODO this.characteristics.setType(Tip.pov);
+					//  this.characteristics.setType(Tip.pov);
 					this.setType(new Tip(childNula.getType().getGlavni()));
 					this.characteristics.setlIzraz(false);
 				} else {
