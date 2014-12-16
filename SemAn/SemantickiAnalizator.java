@@ -42,6 +42,28 @@ public class SemantickiAnalizator {
 		while(stack.size() > 1) stack.pop();
 		stack.pop().provjeri();
 		
+		/*
+		 * Ako postoji main
+		 */
+		if(node.funcmem.contains("main")){
+			/*
+			 * Ako programu NE postoji funkcija imena main i tipa funkcija(void -> int) syso...
+			 */
+			if(!(node.funcmem.get("main").getTipFunkcije().equals(new Tip(TipBasic.INT,null,false, true)))){
+				System.out.println("main");
+			}			
+		}
+		/*
+		 * Ako ne postoji syso...
+		 */
+		else {
+			System.out.println("main");
+		}
+		
+		
+		
+		
+		
 	}
 
 }
