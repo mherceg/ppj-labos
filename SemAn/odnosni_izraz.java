@@ -1,4 +1,3 @@
-
 public class odnosni_izraz extends Node {
 
 	public odnosni_izraz(String name, boolean lIzraz, Tip type, int red,
@@ -15,6 +14,7 @@ public class odnosni_izraz extends Node {
 			this.setType(nula.getType());
 			this.characteristics
 					.setlIzraz(nula.getCharacteristics().islIzraz());
+			this.setValue(nula.getValue());
 			break;
 		case "odnosni_izraz":
 			nula.provjeri();

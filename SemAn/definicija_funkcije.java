@@ -18,7 +18,7 @@ public class definicija_funkcije extends Node {
 		Node lista_parametara = child.get(3);
 		Node IDN = child.get(1);
 		Node ime_tipa = child.get(0);
-		String imeFunkcije = ((UniformniZnak) child.get(1)).value;
+		String imeFunkcije = ((UniformniZnak) child.get(1)).getValue();
 
 		if (lista_parametara.getName().equals("KR_VOID")) {
 

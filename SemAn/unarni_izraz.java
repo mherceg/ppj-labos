@@ -7,16 +7,15 @@ public class unarni_izraz extends Node {
 	}
 
 	/**
-	 * str 54
-	 * gotov
+	 * str 54 gotov
 	 */
 	@Override
 	public void provjeri() {
 		Node childNula = child.get(0);
-		if (childNula.getName().equals(
-				"<" + postfiks_izraz.class.getName() + ">")) {
+		if (childNula.getName().equals("<postfiks_izraz>")) {
 			childNula.provjeri();
 			this.characteristics.setType(childNula.getType());
+			this.setValue(childNula.getValue());
 			this.characteristics.setlIzraz(childNula.getlIzraz());
 		} else if (childNula.getName().equals("<unarni_operator>")) {
 			Node childJedan = child.get(1);
@@ -41,7 +40,7 @@ public class unarni_izraz extends Node {
 					writeErrorMessage();
 				}
 
-				//  this.characteristics.setType(Tip.int);
+				// this.characteristics.setType(Tip.int);
 				this.setType(new Tip(TipBasic.INT));
 				this.characteristics.setlIzraz(false);
 			} else {

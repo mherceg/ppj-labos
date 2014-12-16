@@ -12,7 +12,7 @@ public class izravni_deklarator extends Node {
 	@Override
 	public void provjeri() {
 		Node nula = child.get(0);
-		String name = ((UniformniZnak) nula).value;
+		String name = ((UniformniZnak) nula).getValue();
 		if (child.size() == 1) {
 			// 1.
 			if (this.getType().equals(new Tip(TipBasic.VOID))) {
@@ -40,7 +40,7 @@ public class izravni_deklarator extends Node {
 					writeErrorMessage();
 				}
 				int arraySize = Integer
-						.parseInt(((UniformniZnak) child.get(2)).value);
+						.parseInt(((UniformniZnak) child.get(2)).getValue());
 				// 3
 				if (arraySize <= 0 || arraySize > 1024) {
 					writeErrorMessage();
@@ -57,7 +57,7 @@ public class izravni_deklarator extends Node {
 				 * 2.zabiljezi deklaraciju IDN.ime s odgovarajucim tipom ako
 				 * ista funkcija vec nije deklarirana u lokalnom djelokrugu
 				 */
-				String imeFunkcije = ((UniformniZnak) child.get(0)).value;
+				String imeFunkcije = ((UniformniZnak) child.get(0)).getValue();
 				if (funcmem.contains(imeFunkcije)) {
 					if (!(funcmem.get(imeFunkcije).getTipFunkcije()
 							.equals(new Tip(this.getType().getGlavni(), null,
@@ -71,7 +71,7 @@ public class izravni_deklarator extends Node {
 
 			} else if (dva.getName().equals("<lista_parametara>")) {
 				dva.provjeri();
-				String imeFunkcije = ((UniformniZnak) child.get(0)).value;
+				String imeFunkcije = ((UniformniZnak) child.get(0)).getValue();
 				if (funcmem.contains(imeFunkcije)) {
 					if (!(funcmem.get(imeFunkcije).getTipFunkcije()
 							.equals(new Function(new Tip(this.getType()

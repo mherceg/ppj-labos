@@ -38,6 +38,9 @@ public abstract class Node {
 		return loopdepth!=0;
 	}
 	
+	protected String value;
+	
+	
 	public Node(String name, boolean lIzraz, Tip type, int red, int brElem) {
 
 		this.characteristics = new Characteristics(name, lIzraz, type, red,
@@ -50,6 +53,14 @@ public abstract class Node {
 
 	public Characteristics getCharacteristics() {
 		return characteristics;
+	}
+	
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	public void addChild(Node newChild) {
@@ -128,6 +139,8 @@ public abstract class Node {
 		System.out.println(sb.toString());
 		System.exit(0);
 	}
+
+	
 
 
 

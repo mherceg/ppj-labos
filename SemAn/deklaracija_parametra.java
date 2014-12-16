@@ -22,7 +22,7 @@ public class deklaracija_parametra extends Node {
 				writeErrorMessage();
 			}
 			this.characteristics.setType(childNula.getType());
-			this.characteristics.setName(((UniformniZnak)child.get(1)).value);
+			this.characteristics.setName(((UniformniZnak)child.get(1)).getValue());
 		}
 		else if(childCount == 4){
 			childNula.provjeri();
@@ -31,7 +31,7 @@ public class deklaracija_parametra extends Node {
 			}
 			this.characteristics.setType(childNula.getType());
 			this.characteristics.getType().setArray(true);
-			this.characteristics.setName(((UniformniZnak)child.get(1)).value);
+			this.characteristics.setName(((UniformniZnak)child.get(1)).getValue());
 		}	
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());

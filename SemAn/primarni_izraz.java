@@ -14,7 +14,7 @@ public class primarni_izraz extends Node {
 	public void provjeri() {
 		if (child.size() == 1) {
 			Node childNula = child.get(0);
-			String value = ((UniformniZnak) childNula).value;
+			String value =  childNula.getValue();
 			if (childNula.getName().equals("IDN")) {
 				if (!mem.contains(value)&&!funcmem.contains(value)) {
 					writeErrorMessage();
@@ -32,6 +32,7 @@ public class primarni_izraz extends Node {
 					writeErrorMessage();
 				}
 				this.setType(new Tip(TipBasic.INT));
+				this.setValue(value);
 				this.characteristics.setlIzraz(false);
 				
 			} else if (childNula.getName().equals("ZNAK")) {
@@ -40,6 +41,7 @@ public class primarni_izraz extends Node {
 				}
 
 				this.setType(new Tip(TipBasic.CHAR));
+				this.setValue(value);
 				this.characteristics.setlIzraz(false);
 			
 			} else if (childNula.getName().equals("NIZ_ZNAKOVA")) {
@@ -47,6 +49,7 @@ public class primarni_izraz extends Node {
 					writeErrorMessage();
 				}
 				this.setType(new Tip(TipBasic.const_CHAR, true));
+				this.setValue(value);
 				this.characteristics.setlIzraz(false);
 			
 			} else {

@@ -1,3 +1,5 @@
+import java.util.List;
+
 
 
 public class inicijalizator extends Node{
@@ -14,9 +16,16 @@ public class inicijalizator extends Node{
 		Node childNula = child.get(0);
 		if(childNula.getName().equals("<izraz_pridruzivanja>")){
 			childNula.provjeri();
-			if(false/*childNula => NIZ_ZNAKOVA*/){	// TODO
+			if(childNula.getValue()!=null){	// TODO
+				int length =childNula.getValue().length();
+				this.characteristics.setBrElem(length+1); // zbog \0
+				List<Tip> types=this.getTypes();
+				for(int i=0;i<length;++i){
+					types.add(new Tip(TipBasic.CHAR));
+				}
+				
 				//this.characteristics.setBrElem(duljina niza znakova + 1);
-				//this.characteristics.addType(tip);
+				
 			}
 			else{
 				this.characteristics.setType(childNula.getType());
