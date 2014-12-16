@@ -23,7 +23,10 @@ public class cast_izraz extends Node {
 			Node childJedan = child.get(1);
 			Node childTri = child.get(3);
 			childJedan.provjeri();
-			Provjerinator.isCastable(childTri.getType(), childJedan.getType());
+			childTri.provjeri();
+			if (!Provjerinator.isCastable(childTri.getType(), childJedan.getType())){
+				writeErrorMessage();
+			}
 			this.characteristics.setType(childJedan.getType());
 			this.characteristics.setlIzraz(false);
 			

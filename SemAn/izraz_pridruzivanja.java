@@ -13,7 +13,9 @@ public class izraz_pridruzivanja extends Node {
 		Node childNula = child.get(0);
 		if(childNula.getName().equals("<log_ili_izraz>")){
 			childNula.provjeri();
+			//TODO Check this value assignement
 			this.setValue(childNula.getValue());
+			this.getCharacteristics().setlIzraz(childNula.getlIzraz());
 			this.setType(childNula.getType());
 		}
 		else if(childNula.getName().equals("<"+postfiks_izraz.class.getName()+">")){
