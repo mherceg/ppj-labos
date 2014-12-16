@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 
 public class slozena_naredba extends Node{
 	
@@ -11,11 +13,18 @@ public class slozena_naredba extends Node{
 	@Override
 	public void provjeri() {
 		mem.goDown();
+		Iterator<Tip> tipIter = this.getTypes().iterator();
+		Iterator<String> imeIter = this.getNames().iterator();
+
+		while (tipIter.hasNext() && imeIter.hasNext()) {
+			mem.add(imeIter.next(), tipIter.next());
+//			System.out.println("dodao parametar");
+		}
 		Node childJedan = child.get(1);
-		if(childJedan.getName().equals("<"+lista_naredbi.class.getName()+">")){
+		if(childJedan.getName().equals("<lista_naredbi>")){
 			childJedan.provjeri();
 		}
-		else if(childJedan.getName().equals("<"+lista_deklaracija.class.getName()+">")){
+		else if(childJedan.getName().equals("<lista_deklaracija>")){
 			Node childDva = child.get(2);
 			childJedan.provjeri();
 			childDva.provjeri();

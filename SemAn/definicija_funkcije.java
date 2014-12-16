@@ -60,10 +60,10 @@ public class definicija_funkcije extends Node {
 			funcmem.add(imeFunkcije, new Function(new Tip(ime_tipa.getType()
 					.getGlavni(), null, false, true), true));
 
-			mem.goDown();
 			Node.activeFuncRetType = ime_tipa.getType().getGlavni();
 			child.get(5).provjeri();
-			mem.goUp();
+			Node.activeFuncRetType=null;
+
 		} else if (lista_parametara.getName().equals("<lista_parametara>")) {
 
 			ime_tipa.provjeri();
@@ -99,16 +99,15 @@ public class definicija_funkcije extends Node {
 			 * provjeri (<slozena_naredba>) uz parametre funkcije koristeci
 			 * <lista_parametara>.tipovi i <lista_parametara>.imena.
 			 */
-			mem.goDown();
-			Iterator<Tip> tipIter = child.get(3).getTypes().iterator();
-			Iterator<String> imeIter = child.get(3).getNames().iterator();
+			
 
-			while (tipIter.hasNext() && imeIter.hasNext()) {
-				mem.add(imeIter.next(), tipIter.next());
-			}
 			Node.activeFuncRetType = child.get(0).getType().getGlavni();
-			child.get(5).provjeri(); // provjeri (slozena naredba)
-			mem.goUp();
+			Node childPet = child.get(5);
+			childPet.setTypes(child.get(3).getTypes());
+			childPet.setNames(child.get(3).getNames());
+			
+			childPet.provjeri(); // provjeri (slozena naredba)
+			Node.activeFuncRetType=null;
 		}
 	}
 
