@@ -73,7 +73,7 @@ public class postfiks_izraz extends Node {
 
 					// TODONE this.characteristics.setlIzraz( l-izraz X !=
 					// const(T));
-					this.characteristics.setlIzraz(TipBasic.equals(childNula
+					this.characteristics.setlIzraz(!TipBasic.equals(childNula
 							.getType().getGlavni(), TipBasic.const_T));
 
 				} else if (childDva.getName().equals("<lista_argumenata>")) {

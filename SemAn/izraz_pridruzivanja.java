@@ -20,7 +20,9 @@ public class izraz_pridruzivanja extends Node {
 			Node childDva = child.get(2);
 			childNula.provjeri();
 			//  <postfiks_izraz>.l-izraz = 1
-			childNula.getCharacteristics().setlIzraz(true);
+			if (childNula.getlIzraz() != true){
+				writeErrorMessage();
+			}
 			
 			childDva.provjeri();
 			//  <izraz_pridruzivanja>.tip tilda <postfiks_izraz>.tip
