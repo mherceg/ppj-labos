@@ -46,7 +46,7 @@ public class Provjerinator {
 	 */
 	public static boolean znakOK(String znak) {
 		if (znak == null) return false;
-		if (znak.length() == 1) return true;
+		if (znak.length() == 1 || znak.length() == 3 && znak.charAt(0) == '\'' && znak.charAt(2) == '\'') return true;
 		if (znak.length() == 2 && !znak.startsWith("\\")) return false;
 		if (new String("tn0'\"\\").contains("" + znak.charAt(1))) return true;
 		else return false;

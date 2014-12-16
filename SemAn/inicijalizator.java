@@ -18,7 +18,7 @@ public class inicijalizator extends Node{
 			childNula.provjeri();
 			if(childNula.getValue()!=null){
 				int length =childNula.getValue().length();
-				this.characteristics.setBrElem(length+1); // zbog \0
+				this.characteristics.setBrElem(length+1-2); // zbog \0 i ""
 				List<Tip> types=this.getTypes();
 				for(int i=0;i<length;++i){
 					types.add(new Tip(TipBasic.CHAR));
