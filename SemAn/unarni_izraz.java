@@ -29,7 +29,6 @@ public class unarni_izraz extends Node {
 			this.setType(new Tip(TipBasic.INT));
 			this.characteristics.setlIzraz(false);
 		} else if (child.size() == 2) {
-			if (childNula.getName().equals("<unarni_izraz>")) {
 				Node childJedan = child.get(1);
 				childJedan.provjeri();
 
@@ -43,10 +42,6 @@ public class unarni_izraz extends Node {
 				// this.characteristics.setType(Tip.int);
 				this.setType(new Tip(TipBasic.INT));
 				this.characteristics.setlIzraz(false);
-			} else {
-				System.err.println("Greska kod " + this.getClass().getName()
-						+ " za -> " + child.toString());
-			}
 		} else {
 			System.err.println("Greska kod " + this.getClass().getName()
 					+ " za -> " + child.toString());
