@@ -47,7 +47,7 @@ public class izravni_deklarator extends Node {
 				}
 				this.getType().setArray(true); // povratni tip
 				// 4
-				
+				this.getCharacteristics().setBrElem(Integer.parseInt(dva.getValue()));
 				mem.add(name, this.getType());
 
 			} else if (dva.getName().equals("KR_VOID")) {

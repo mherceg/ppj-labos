@@ -16,14 +16,14 @@ public class inicijalizator extends Node{
 		Node childNula = child.get(0);
 		if(childNula.getName().equals("<izraz_pridruzivanja>")){
 			childNula.provjeri();
-			if(childNula.getValue()!=null){	// TODO
+			if(childNula.getValue()!=null){
 				int length =childNula.getValue().length();
 				this.characteristics.setBrElem(length+1); // zbog \0
 				List<Tip> types=this.getTypes();
 				for(int i=0;i<length;++i){
 					types.add(new Tip(TipBasic.CHAR));
 				}
-				
+				this.setType(childNula.getType());
 				//this.characteristics.setBrElem(duljina niza znakova + 1);
 				
 			}

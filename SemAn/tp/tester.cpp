@@ -17,7 +17,7 @@ int main(int argc, char **argv){
 		}
 	}
 
-	system("cd ..\njavac SemantickiAnalizator.java\n");
+	//system("cd ..\njavac SemantickiAnalizator.java\n");
 	for (int j = 0; j < v.size(); ++j){
 		int i = v[j];
 		printf("\n\nTest br %d\n",i);

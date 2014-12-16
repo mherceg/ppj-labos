@@ -88,6 +88,7 @@ public class NodeFactory {
 			String[] parts = input.split(" ");
 			Boolean lIzraz = parts[0].equals("IDN");
 			if (parts[0].equals("ZNAK")){ parts[2] = parts[2].replaceAll("'", "");}
+			if (parts[0].equals("NIZ_ZNAKOVA")){ parts[2] = parts[2].replaceAll("\"", "");}
 			return new UniformniZnak(parts[0], lIzraz, null, Integer.parseInt(parts[1]), 0, parts[2]);
 		}
 	}
