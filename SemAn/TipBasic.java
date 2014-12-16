@@ -11,6 +11,15 @@ public enum TipBasic {
 		default: return a;
 		}
 	}
+	
+	public static TipBasic addConst(TipBasic a){
+		switch (a){
+		case INT: return const_INT;
+		case CHAR: return const_CHAR;
+		case T: return const_T;
+		default: return a;
+		}
+	}
 
 	public static boolean equals(TipBasic a, TipBasic b) {
 		if (a == b) {

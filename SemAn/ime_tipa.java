@@ -24,7 +24,7 @@ public class ime_tipa extends Node {
 			if (childJedan.getType().equals(new Tip(TipBasic.VOID))) {
 				writeErrorMessage();
 			}
-			this.characteristics.setType(childJedan.getType());
+			this.setType(new Tip(TipBasic.addConst(childJedan.getType().getGlavni())));
 
 		} else {
 			System.err.println("Greska kod " + this.getClass().getName()
