@@ -1,15 +1,21 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 
 public class SemantickiAnalizator {
 	int Snjeguljica;
 	char Patuljak;
+	
+	public static List<Function> ArhivaFunkcija;
 
 	public static void main(String[] args) throws IOException {
 		Stack<Node> stack = new Stack<>();
+		
+		ArhivaFunkcija = new ArrayList<>();
 		
 		BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
 		
@@ -45,12 +51,13 @@ public class SemantickiAnalizator {
 		/*
 		 * Ako postoji main
 		 */
-		if(node.funcmem.contains("main")){
+		if(Node.funcmem.contains("main")){
 			/*
 			 * Ako programu NE postoji funkcija imena main i tipa funkcija(void -> int) syso...
 			 */
-			if(!(node.funcmem.get("main").getTipFunkcije().equals(new Tip(TipBasic.INT,null,false, true)))){
+			if(!(Node.funcmem.get("main").getTipFunkcije().equals(new Tip(TipBasic.INT,null,false, true)))){
 				System.out.println("main");
+				System.exit(0);
 			}			
 		}
 		/*
@@ -58,6 +65,14 @@ public class SemantickiAnalizator {
 		 */
 		else {
 			System.out.println("main");
+			System.exit(0);
+		}
+		ArhivaFunkcija.addAll(Node.funcmem.hm.values());
+		for (Function f : ArhivaFunkcija){
+			if (!f.getImplementirana()){
+				System.out.println("funkcija");
+				System.exit(0);
+			}
 		}
 		
 		

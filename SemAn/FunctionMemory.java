@@ -25,5 +25,10 @@ public class FunctionMemory extends VariableMemory<Function> {
 		current.hm.put(name, function);
 		return true;
 	}
+	
+	public void goUp() {
+		SemantickiAnalizator.ArhivaFunkcija.addAll(this.current.hm.values());
+		this.current = this.current.previous;
+	}
 
 }

@@ -1,4 +1,4 @@
-import java.util.Iterator;
+
 
 public class definicija_funkcije extends Node {
 
@@ -57,7 +57,7 @@ public class definicija_funkcije extends Node {
 			 * zabiljezi definiciju i deklaraciju funkcije
 			 */
 
-			funcmem.add(imeFunkcije, new Function(new Tip(ime_tipa.getType()
+			funcmem.add(imeFunkcije, new Function(imeFunkcije,new Tip(ime_tipa.getType()
 					.getGlavni(), null, false, true), true));
 
 			Node.activeFuncRetType = ime_tipa.getType().getGlavni();
@@ -93,7 +93,7 @@ public class definicija_funkcije extends Node {
 			/*
 			 * zabiljezi definiciju i deklaraciju funkcije
 			 */
-			funcmem.add(imeFunkcije, new Function(new Tip(child.get(0)
+			funcmem.add(imeFunkcije, new Function(imeFunkcije, new Tip(child.get(0)
 					.getType().getGlavni(), lista_parametara.getTypes(), false, true), true));
 			/*
 			 * provjeri (<slozena_naredba>) uz parametre funkcije koristeci

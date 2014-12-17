@@ -65,7 +65,7 @@ public class izravni_deklarator extends Node {
 						writeErrorMessage();
 					}
 				} else {
-					funcmem.add(imeFunkcije, new Function(new Tip(this
+					funcmem.add(imeFunkcije, new Function(imeFunkcije,new Tip(this
 							.getType().getGlavni(), null, false, true), false));
 				}
 
@@ -74,13 +74,13 @@ public class izravni_deklarator extends Node {
 				String imeFunkcije = ((UniformniZnak) child.get(0)).getValue();
 				if (funcmem.contains(imeFunkcije)) {
 					if (!(funcmem.get(imeFunkcije).getTipFunkcije()
-							.equals(new Function(new Tip(this.getType()
+							.equals(new Function(imeFunkcije,new Tip(this.getType()
 									.getGlavni(), child.get(2).getTypes(),
 									false, true), false)))) {
 						writeErrorMessage();
 					}
 				} else {
-					funcmem.add(imeFunkcije, new Function(new Tip(this
+					funcmem.add(imeFunkcije, new Function(imeFunkcije,new Tip(this
 							.getType().getGlavni(), child.get(2).getTypes(),
 							false, true), false));
 				}

@@ -1,10 +1,12 @@
 public class Function {
 
+	public String imeFunkcije;
 	private Tip tipFunkcije;
 	private Boolean implementirana;
 
-	public Function(Tip tipFunkcije, Boolean implementirana) {
+	public Function(String imeFunkcije,Tip tipFunkcije, Boolean implementirana) {
 		super();
+		this.imeFunkcije = imeFunkcije;
 		this.tipFunkcije = tipFunkcije;
 		this.implementirana = implementirana;
 	}
