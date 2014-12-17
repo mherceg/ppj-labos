@@ -35,16 +35,32 @@ public class VariableMemory<V> {
 	}
 
 	public boolean containsAtThisLevel(String name) {
+
 		if (current.hm.containsKey(name)) {
 			return true;
 		}
 		return false;
 	}
 
+	private boolean containsAtGlobalLevel(String name) {
+
+		if (this.hm.containsKey(name)) {
+			return true;
+		}
+		return false;
+	}
+
+	/*
+	 * TODO ovo ne radi kako treba
+	 */
 	public boolean contains(String name) {
 		VariableMemory<V> iter = current;
+
 		while (iter != null) {
-			if (iter.containsAtThisLevel(name)) {
+			/*
+			 * lokalna razina se tretira kao nova globalna razina
+			 */
+			if (iter.containsAtGlobalLevel(name)) {
 				return true;
 			}
 			iter = iter.previous;

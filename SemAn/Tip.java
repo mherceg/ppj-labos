@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,7 +8,6 @@ public class Tip {
 
 	private TipBasic glavni;// ili povratni tip ili osnovni tip (int,..)
 	private List<Tip> polje;// to su parametri ili polje tipova
-
 
 	public Tip(TipBasic glavni, List<Tip> polje, boolean array, boolean function) {
 		this.setArray(array);
@@ -63,7 +63,6 @@ public class Tip {
 		this.glavni = glavni;
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {
@@ -83,12 +82,24 @@ public class Tip {
 		 * do ovuda je potrebno za sve situacije koliko ja znam, ostatak je za
 		 * svaki slucaj
 		 */
-		if (function && other.function) {
-			if (!(this.polje.containsAll(other.getPolje()) && other.polje
-					.containsAll(this.getPolje()))) {
+		Iterator<Tip> thisIter = this.getPolje().iterator();
+		Iterator<Tip> otherIter = other.getPolje().iterator();
+
+		while (thisIter.hasNext() && otherIter.hasNext()) {
+			if (!thisIter.next().equals(otherIter.next())) {
 				return false;
 			}
 		}
+		if (thisIter.hasNext() || otherIter.hasNext()) {
+			return false;
+		}
+
+		// if (function && other.function) {
+		// if (!(this.polje.containsAll(other.getPolje()) && other.polje
+		// .containsAll(this.getPolje()))) {
+		// return false;
+		// }
+		// }
 		return true;
 	}
 
