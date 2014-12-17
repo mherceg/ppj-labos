@@ -13,6 +13,7 @@ public class slozena_naredba extends Node{
 	@Override
 	public void provjeri() {
 		mem.goDown();
+		funcmem.goDown(); // TODO prati VariableMemory.contains
 		Iterator<Tip> tipIter = this.getTypes().iterator();
 		Iterator<String> imeIter = this.getNames().iterator();
 
@@ -29,6 +30,8 @@ public class slozena_naredba extends Node{
 			childJedan.provjeri();
 			childDva.provjeri();
 		}		
+
+		funcmem.goUp();
 		mem.goUp();
 		
 	}
