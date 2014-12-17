@@ -19,12 +19,13 @@ public class primarni_izraz extends Node {
 				if (!mem.contains(value)&&!funcmem.contains(value)) {
 					writeErrorMessage();
 				}
-				if (mem.contains(value)){					
-					this.setType(mem.get(value));
-				}
-				else{
-					this.setType(funcmem.get(value).getTipFunkcije());
-				}
+				
+				VariableMemory<Tip> varMem = mem;
+				FunctionMemory funcMem = funcmem;
+				
+				Tip foundType = findType(value,varMem,funcMem);
+
+				this.setType(foundType);
 				this.characteristics.setlIzraz(childNula.getCharacteristics()
 						.islIzraz());
 			} else if (childNula.getName().equals("BROJ")) {
@@ -63,6 +64,34 @@ public class primarni_izraz extends Node {
 			System.err.println("Greska kod " + this.getClass().getName()
 					+ " za -> " + child.toString());
 		}
+	}
+	
+	private Tip findType(String value, VariableMemory<Tip> varMem, FunctionMemory funcMem){
+		boolean found = false;
+		Tip ret = null;
+		
+		VariableMemory<Tip> memo = varMem.current;
+		VariableMemory<Function> func = funcMem.current;
+		
+		while (!found && (memo != null || func != null)){
+			if (memo != null){
+				if (memo.hm.containsKey(value)){
+					ret = memo.hm.get(value);
+					found = true;
+				}
+				memo = memo.previous;
+			}
+			if (func != null){
+				if (func.hm.containsKey(value)){
+					ret = func.hm.get(value).getTipFunkcije();
+					found = true;
+				}
+				func = func.previous;
+			}
+		}
+		
+		return ret;
+		
 	}
 
 }
