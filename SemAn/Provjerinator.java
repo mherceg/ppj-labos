@@ -97,7 +97,10 @@ public class Provjerinator {
 					|| (a.getGlavni() == TipBasic.const_INT && b.getGlavni() == TipBasic.INT)) {
 				return true;
 			}
-			if (a.getGlavni() == TipBasic.CHAR && b.getGlavni() == TipBasic.INT) {
+			/*
+			 * prije  const_CHAR -/> int, a vrijedilo je const_CHAR->CHAR->INT
+			 */
+			if (TipBasic.stripConst(a.getGlavni()) == TipBasic.CHAR && b.getGlavni() == TipBasic.INT) {
 				return true;
 			}
 		} else if (a.isArray() && b.isArray()) {// oba su nizovi

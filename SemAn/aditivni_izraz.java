@@ -18,7 +18,7 @@ public class aditivni_izraz extends Node {
 			this.setValue(childNula.getValue());
 			this.characteristics.setlIzraz(childNula.getlIzraz());
 		}
-		else if(childNula.getName().equals("<"+aditivni_izraz.class.getName()+">")){
+		else if(childNula.getName().equals("<aditivni_izraz>")){
 			Node childDva = child.get(2);
 			childNula.provjeri();
 			if(!Provjerinator.tilda(childNula.getType(), new Tip(TipBasic.INT))){
