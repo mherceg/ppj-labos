@@ -79,10 +79,11 @@ public class definicija_funkcije extends Node {
 
 			Function funkcijaKojuProvjeravamo = funcmem.get(imeFunkcije);
 			// TODO check this
+			//Should be working now
 			if (funkcijaKojuProvjeravamo != null
 					&& !funkcijaKojuProvjeravamo.getTipFunkcije().equals(
 							new Tip(child.get(0).getType().getGlavni(), child
-									.get(2).getTypes(), false, true))) {
+									.get(3).getTypes(), false, true))) {
 				writeErrorMessage();
 
 			}
