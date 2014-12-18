@@ -133,8 +133,6 @@ input/0b1239e7ad906a87bb3edcdc7d1293da.in
 > <definicija_funkcije> ::= <ime_tipa> IDN(12,a) L_ZAGRADA(12,() <lista_parametara> D_ZAGRADA(12,)) <slozena_naredba>
 input/0b3baa80f81fe56a09db7f9f003b07f2.in
 ===========================================
-0a1
-> <primarni_izraz> ::= ZNAK(3,'\a')
 input/0b4e48f8b6591e276f6e6abe8e9aef78.in
 ===========================================
 input/0b58d3e7221a75624739c5a1837c76fb.in
@@ -211,10 +209,6 @@ input/11649c880fd291cc408c2ece1c7ea607.in
 ===========================================
 input/117d2975935b0cb68e025e5e4708a48d.in
 ===========================================
-1c1
-< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\")
 input/119bf48a92f0afb28934409106b330d4.in
 ===========================================
 input/119c0c4e309faf2966e771f86fce9d13.in
@@ -243,8 +237,6 @@ input/133fcd34cb7bcc6ba02b9a937fe7d97c.in
 > <primarni_izraz> ::= IDN(116,y)
 input/13d200ad71e91818df80e3cf48a93a59.in
 ===========================================
-0a1
-> <primarni_izraz> ::= ZNAK(19,'\z')
 input/13d4c45a20699c993f8f6224353ed5cd.in
 ===========================================
 input/13eaab6bbc8c7da0529d48c7f9a425e4.in
@@ -373,10 +365,6 @@ input/1e4a1ede880a5c3ae3dae1acbc70e1ae.in
 ===========================================
 input/1e815cb3cb47cef90613c35e93cd86dc.in
 ===========================================
-1c1
-< main
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"x\")
 input/1ecce0a451b1d55979bc6ed842f73e54.in
 ===========================================
 input/1f5a9751e455095bc5e92ba0092e6de3.in
@@ -515,10 +503,6 @@ input/28a81bb51c84be9ddd60f89bee36a0ca.in
 ===========================================
 input/28e691d9c6f372dc76c9d6fb8711e970.in
 ===========================================
-1c1
-< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(21,=) <inicijalizator>
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(21,"bok\")
 input/291275fe8e5037a2c74eac527533b5b4.in
 ===========================================
 input/2968bd37257ecf1dd887974eed02b80e.in
@@ -645,8 +629,6 @@ input/36bc6fcfe99c87dbce9da26c6ce10e85.in
 ===========================================
 input/3705dd25d6071f3106082ccb46d2bde6.in
 ===========================================
-0a1
-> <primarni_izraz> ::= ZNAK(1,'\x')
 input/37635cee5dde357d72aac04ac9432445.in
 ===========================================
 input/37785f598f0e567c8a08a022c1fb0955.in
@@ -699,10 +681,6 @@ input/3a8a12dfaa3870ad1cc865c944440022.in
 ===========================================
 input/3aa0fe42a6bfd8df1e080d0352dcf53a.in
 ===========================================
-1c1
-< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\0\")
 input/3b66f45238a90adef784c4665e6874e3.in
 ===========================================
 input/3b6c2cd4aed0595833a42770ce826fc4.in
@@ -819,8 +797,6 @@ input/43536d10ee6a0ea11fc4299b5f6ca05e.in
 > <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(8,=) <izraz_pridruzivanja>
 input/4377a6445ce53eb901582723d9b43d9d.in
 ===========================================
-0a1
-> <primarni_izraz> ::= NIZ_ZNAKOVA(18,"abc\")
 input/4383250e3028c96cde8de6ef2537d48e.in
 ===========================================
 input/438bd4ab91730841d8d74e621907cee3.in
@@ -979,10 +955,6 @@ input/4fb59610efa32a784873befcc4803be7.in
 > <izravni_deklarator> ::= IDN(107,f2)
 input/4ff8732fb493600370fad9a9f57a6c54.in
 ===========================================
-1c1
-< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\")
 input/5007b7c340ccbc5db3386ce83857d3ad.in
 ===========================================
 input/51471702f1049d92eb365b278bbced0d.in
@@ -1091,10 +1063,6 @@ input/56ac46b145190a7052fe2055c3ea58f9.in
 ===========================================
 input/56b10c968939787755f30041eccff5a6.in
 ===========================================
-1c1
-< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(7,=) <inicijalizator>
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(7,"bok\")
 input/56b939a11de2f9168b4fa09674afaec5.in
 ===========================================
 1c1
@@ -1105,10 +1073,6 @@ input/56d525aa0f027a9dc757cff1c3c87c96.in
 ===========================================
 input/57793ad98b0f28f01c34cf3a1ff81b63.in
 ===========================================
-1c1
-< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\")
 input/57acaa376139ad6f6bc1d3a476525224.in
 ===========================================
 input/57caf972e9ebedae5e254fa018f5c193.in
@@ -1161,10 +1125,6 @@ input/5dbe49bce1421cd82f692da8b17f70b2.in
 ===========================================
 input/5de71c5bfcac334d7e78e734fd07390e.in
 ===========================================
-1c1
-< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\")
 input/5e7ab61cd3dad1cc0a5d44118baf129f.in
 ===========================================
 input/5e92d1b0cc30aea43d21bbbbc530a979.in
@@ -1187,8 +1147,6 @@ input/5fa960e11b26b967be1730c9ab3e604c.in
 ===========================================
 input/5fba36d5899f7f7b339d329fed665d87.in
 ===========================================
-0a1
-> <primarni_izraz> ::= ZNAK(19,'\z')
 input/5fea709851b2d9003104c1534daf9d45.in
 ===========================================
 input/60153504544aba2fbdf292694ecaa71b.in
@@ -1429,8 +1387,6 @@ input/7399991ee5a7b8ce0a6788a799f4b511.in
 ===========================================
 input/73c4a79e8dc995689ddee8493f0ee7b9.in
 ===========================================
-0a1
-> <primarni_izraz> ::= ZNAK(19,'\o')
 input/7415270d9217ca5b6f86ccc89e9ea662.in
 ===========================================
 input/742406c3523b4136fde166d04099ce39.in
@@ -1455,8 +1411,6 @@ input/7511e1a85949794ee519e71e44f581c2.in
 > <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(24,=) <izraz_pridruzivanja>
 input/753f682afc774fd2325e152f7d13445a.in
 ===========================================
-0a1
-> <primarni_izraz> ::= ZNAK(3,'\x')
 input/757eb3601894cddf1602ef3e01eb6501.in
 ===========================================
 input/75916666ad3a942e7617debf7dece118.in
@@ -1567,8 +1521,6 @@ input/7d8a612cbcef14110e48c18a04a7e232.in
 ===========================================
 input/7d992a3112b861bcb43de8712faf206a.in
 ===========================================
-0a1
-> <primarni_izraz> ::= NIZ_ZNAKOVA(3,"\")
 input/7d9fba8a7df997df548d7ff27b300af9.in
 ===========================================
 input/7ebfa26618d00e2644e5c3d20d125fda.in
@@ -1749,10 +1701,6 @@ input/8f63401e013f53b8f5543c4efee2cdb5.in
 ===========================================
 input/8f67da264e91c8f0f3c25ec033edeaf2.in
 ===========================================
-1c1
-< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"x\"\0\n\t\")
 input/8f9192e31a4145ee1c30728178a5cdd2.in
 ===========================================
 input/8face33cdd5a58d2c44d8a904ec14b74.in
@@ -1959,18 +1907,12 @@ input/9f3f7fe8542328e8b1fb6ea67d139aa7.in
 ===========================================
 input/9f45ae05f7bca9e1aa0ccbed4c41760f.in
 ===========================================
-0a1
-> <primarni_izraz> ::= NIZ_ZNAKOVA(21,"hello world!\n\")
 input/a0031b74b3ddf50983425e4a48d9f086.in
 ===========================================
 1d0
 < <primarni_izraz> ::= BROJ(1,0x434)
 input/a065ed037980467e2071b7a1792bac65.in
 ===========================================
-1c1
-< main
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\")
 input/a06b7951f29ff1621e27d5bab8bc8f0c.in
 ===========================================
 input/a0928ac8e040e21ff4fa0cbc0b84fb00.in
@@ -2129,10 +2071,6 @@ input/ade8057886edafb37cb33bd23ad7bcb7.in
 ===========================================
 input/ae31d2559f0f343f103c6a1dd869911b.in
 ===========================================
-1c1
-< main
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\")
 input/ae3413ee8159361ef06f96d98e711043.in
 ===========================================
 input/ae353e793a78947febcde51dc0b1decd.in
@@ -2227,10 +2165,6 @@ input/b47a29603bac0afa66bdb6b1013ab8ae.in
 > <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(4,=) <izraz_pridruzivanja>
 input/b48f9038b184476a4adcea4dcbb56017.in
 ===========================================
-1c1
-< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
----
-> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"x\"\0\n\t\\\")
 input/b4e80635975127c99513fac2f6120e63.in
 ===========================================
 input/b507e94285261199545ec091631972e6.in
@@ -2831,8 +2765,6 @@ input/e077c8caaa06fe36262375446c70454d.in
 ===========================================
 input/e0a4c5d0eb547166a8ed64f5d474e56f.in
 ===========================================
-0a1
-> <primarni_izraz> ::= NIZ_ZNAKOVA(18,"\")
 input/e0f68abeb3b78258f731f98e56ca2138.in
 ===========================================
 input/e1142202912f9b6895f14f64e5eaeb74.in
@@ -2841,8 +2773,6 @@ input/e1142202912f9b6895f14f64e5eaeb74.in
 > <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
 input/e170726d35111c7ad2d7be5c76e1663e.in
 ===========================================
-0a1
-> <primarni_izraz> ::= ZNAK(19,'\p')
 input/e1a5a2172c05d03a04562ed5b9bb2ebf.in
 ===========================================
 input/e219559a12d7fe32a14cd953ff2205a1.in
@@ -2919,10 +2849,6 @@ input/e698b3ec7d7dcd1528916ba749c89084.in
 ===========================================
 input/e6bc5b2d27b8711d189442a449ba7de5.in
 ===========================================
-1c1
-< main
----
-> <primarni_izraz> ::= ZNAK(1,'\x')
 input/e6f15b51f0bbe71ebd8fac38afbbfe6f.in
 ===========================================
 input/e7104ce83902a64a9c9d8a2886d046c1.in

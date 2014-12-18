@@ -47,6 +47,10 @@ public class Provjerinator {
 	public static boolean znakOK(String znak) {
 		if (znak == null) return false;
 		if (znak.length() == 1 && znak.charAt(0) != '\\' || znak.length() == 3 && znak.charAt(0) == '\'' && znak.charAt(2) == '\'') return true;
+		if(znak.length()== 4 && znak.charAt(0) == '\'' && znak.charAt(1) == '\\' && znak.charAt(3) == '\''){ // za ovo: '\x'
+			if (new String("tn0'\"\\").contains("" + znak.charAt(2))) return true;
+			else return false;
+		}
 		if (znak.length() == 2 && !znak.startsWith("\\")) return false;
 		if (new String("tn0'\"\\").contains("" + znak.charAt(1))) return true;
 		else return false;
@@ -60,8 +64,9 @@ public class Provjerinator {
 	 */
 	public static boolean konstNizZnakovaOK(String niz) {
 		boolean isOK = true;
-		for (int i = 0; i < niz.length() - 1; ++i){
+		for (int i = 1; i < niz.length() - 1; ++i){ // string je okruzen sa ""
 			if (niz.charAt(i) == '\\'){
+				if(i==niz.length()-2) return false; // samostalan \ je zadnji znak
 				isOK &= znakOK("\\" + niz.charAt(i+1));
 				++i;
 			}
@@ -69,7 +74,7 @@ public class Provjerinator {
 				isOK &= znakOK("" + niz.charAt(i));
 			}
 		}
-		return isOK && znakOK(""+niz.charAt(niz.length()-1));
+		return isOK;// && znakOK(""+niz.charAt(niz.length()-1)); cini se nepotrebno
 	}
 
 	/**
