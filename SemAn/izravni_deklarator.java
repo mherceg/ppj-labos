@@ -39,8 +39,14 @@ public class izravni_deklarator extends Node {
 				if (mem.containsAtThisLevel(name)) {
 					writeErrorMessage();
 				}
-				int arraySize = Integer
-						.parseInt(((UniformniZnak) child.get(2)).getValue());
+				int arraySize = 0;
+				try{					
+					arraySize = Integer
+							.parseInt( child.get(2).getValue());
+				}
+				catch (NumberFormatException e){
+					writeErrorMessage();
+				}
 				// 3
 				if (arraySize <= 0 || arraySize > 1024) {
 					writeErrorMessage();

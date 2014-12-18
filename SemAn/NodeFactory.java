@@ -87,7 +87,10 @@ public class NodeFactory {
 		else{
 			String[] parts = input.split(" ");
 			Boolean lIzraz = parts[0].equals("IDN");
-			//Krivo, uništi ispis
+			if (parts.length > 3){
+				parts[2] = input.substring(parts[0].length() + parts[1].length() + 2);
+			}
+			//Krivo, unisti ispis
 			//if (parts[0].equals("ZNAK")){ parts[2] = parts[2].replaceAll("'", "");}
 			//if (parts[0].equals("NIZ_ZNAKOVA")){ parts[2] = parts[2].replaceAll("\"", "");}
 			return new UniformniZnak(parts[0], lIzraz, null, Integer.parseInt(parts[1]), 0, parts[2]);

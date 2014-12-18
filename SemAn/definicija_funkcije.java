@@ -16,7 +16,6 @@ public class definicija_funkcije extends Node {
 	@Override
 	public void provjeri() {
 		Node lista_parametara = child.get(3);
-		Node IDN = child.get(1);
 		Node ime_tipa = child.get(0);
 		String imeFunkcije = ((UniformniZnak) child.get(1)).getValue();
 
@@ -28,8 +27,7 @@ public class definicija_funkcije extends Node {
 			}
 			/*
 			 * ako postoji deklaracija imena IDN.ime (child[1]) u globalnom
-			 * djelokrugu onda je pripadni tip te deklaracije funkcija(void →
-			 * <ime_tipa>.tip)
+			 * djelokrugu onda je pripadni tip te deklaracije funkcija(void			 * <ime_tipa>.tip)
 			 */
 			if (funcmem.contains((imeFunkcije))) {
 				if (funcmem.get(imeFunkcije).getImplementirana()) {
@@ -38,7 +36,6 @@ public class definicija_funkcije extends Node {
 				/*
 				 * ako postoji deklaracija imena IDN.ime (child[1]) u globalnom
 				 * djelokrugu onda je pripadni tip te deklaracije funkcija(void
-				 * → <ime_tipa>.tip)
 				 */
 				else {
 					Function funkcijaKojuProvjeravamo = funcmem
@@ -74,7 +71,7 @@ public class definicija_funkcije extends Node {
 			 * ne postoji prije definirana funkcija imena IDN.ime (child[1])
 			 */
 			if (funcmem.contains((imeFunkcije))) {
-				if (funcmem.get(IDN.getName()).getImplementirana()) {
+				if (funcmem.get(imeFunkcije).getImplementirana()) {
 					writeErrorMessage();
 				}
 			}

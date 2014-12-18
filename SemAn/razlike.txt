@@ -1,0 +1,3243 @@
+RAZLIKE:
+input/01188136ecbf0c35092d4e1936c83d80.in
+===========================================
+input/015054ee8a33ec0cd6e56d89f68e9462.in
+===========================================
+input/0198dde424b1909f562735b85dd8338e.in
+===========================================
+input/01bcb050d3bcd0bd75e95207be2a2783.in
+===========================================
+input/01ce7f4010ed250f9658e3596e06b1b4.in
+===========================================
+input/020d11837a89d130b1a2fb196840dde2.in
+===========================================
+input/0214c7a05c85562369df592594482063.in
+===========================================
+input/02e5cbbfcec2fafd3799a705cc69d531.in
+===========================================
+input/0323878b59504f4c10055d0e8f186cdc.in
+===========================================
+input/03a2a9e31e00fb6cc4f0ed54f95f2048.in
+===========================================
+input/03b70a1caba049785b7c55ed8494a101.in
+===========================================
+input/040533ca8441380ce8449caff340918b.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(9,a) L_ZAGRADA(9,() <lista_parametara> D_ZAGRADA(9,)) <slozena_naredba>
+input/040a7dcc55df9276458d612913da1076.in
+===========================================
+input/04133f84dbc71981e06916aeeae48212.in
+===========================================
+input/044f819f9f11ca9b475f57f74e3c236e.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(38,=) <inicijalizator>
+input/04801ab50432f7a3e42c41466afb117f.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+input/04c6ff1e9eb8fd3cc004f74891bf1240.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= BROJ(112,2147483648)
+input/04cd6d0798e641a8631ac869119b3463.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> main
+input/04de01e58558e435afdd1eab9913d8d4.in
+===========================================
+input/04f8993149b3442ec4a6c828659b86ca.in
+===========================================
+input/0531246945e08383e62a1164a57b7bee.in
+===========================================
+input/05d38706dedd4e23a39a032859cec376.in
+===========================================
+input/05dee8b55f132054946c50d62e3215e5.in
+===========================================
+input/05ee99094d0af5a62f039d01cd53f8b9.in
+===========================================
+input/0637c0224fec4b5fcf1f65c965789fef.in
+===========================================
+1c1
+< <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(6,=) <izraz_pridruzivanja>
+---
+> main
+input/063cf883a7fb06c04403a6f0bcadbbc2.in
+===========================================
+input/0660e32e20a8581d41bf8ec6d72f38c2.in
+===========================================
+input/06ccbe4b7c2f49e79805237fcf338756.in
+===========================================
+input/06fa11ad52e26bfd18c47d585d4d262c.in
+===========================================
+1d0
+< <aditivni_izraz> ::= <aditivni_izraz> PLUS(12,+) <multiplikativni_izraz>
+input/077126758a8f4474e4348eaa49c9fb8a.in
+===========================================
+input/0786220c9819419c42dc90de4a932f48.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(5,=) <inicijalizator>
+input/07ab81e799c53a3ab4585087a5f581f1.in
+===========================================
+input/07e75c6e4d0c8ae85b9ef5cc336747fa.in
+===========================================
+input/0806cf4375c4a1a18bec26369f8aa5d8.in
+===========================================
+input/08248ac8adbe058eaa65168e6ab3c03d.in
+===========================================
+input/084d5c8d13e7b2155edd1b2e986ed1fe.in
+===========================================
+input/08535d48033c6b8f0c2b7a71ce19c246.in
+===========================================
+input/0896b79e318b84fb629e154056a8b4e1.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(51,break) TOCKAZAREZ(51,;)
+input/08c83d67dc96d4915456e2657bfe2def.in
+===========================================
+1c1
+< main
+---
+> <definicija_funkcije> ::= <ime_tipa> IDN(17,x) L_ZAGRADA(17,() KR_VOID(17,void) D_ZAGRADA(17,)) <slozena_naredba>
+input/08cfdab9ba5e023c198b04237cfaa467.in
+===========================================
+input/0995bde513fefb74011579d010609106.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <definicija_funkcije> ::= <ime_tipa> IDN(101,f2) L_ZAGRADA(101,() <lista_parametara> D_ZAGRADA(101,)) <slozena_naredba>
+input/09a490b211e7ad4b883bc8b9bb181edc.in
+===========================================
+input/09d0c57086ca8d0c2e4f9f5b0d165c80.in
+===========================================
+input/09d807502e2dc00e388c5e4358c1dd4a.in
+===========================================
+input/09d83644628b4bf271078e6303b6cafd.in
+===========================================
+input/09fe4d87e4ae591ef3bb2f6d5bc73ca6.in
+===========================================
+input/0a9e424f46b16256f55924e6cfa0d3ce.in
+===========================================
+input/0b0942a9ed375c696e090ce1badb7bd8.in
+===========================================
+input/0b1239e7ad906a87bb3edcdc7d1293da.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(3,a) L_ZAGRADA(3,() <lista_parametara> D_ZAGRADA(3,)) <slozena_naredba>
+---
+> <definicija_funkcije> ::= <ime_tipa> IDN(12,a) L_ZAGRADA(12,() <lista_parametara> D_ZAGRADA(12,)) <slozena_naredba>
+input/0b3baa80f81fe56a09db7f9f003b07f2.in
+===========================================
+0a1
+> <primarni_izraz> ::= ZNAK(3,'\a')
+input/0b4e48f8b6591e276f6e6abe8e9aef78.in
+===========================================
+input/0b58d3e7221a75624739c5a1837c76fb.in
+===========================================
+input/0b887669dfc27add09bdccfd77e05837.in
+===========================================
+input/0c1bf77b81080432d4774f4a522cddda.in
+===========================================
+input/0c1d94c4a53a73b9a474e4a0e5d38634.in
+===========================================
+input/0c41921ac9d594c1ab611ecc028cb1d7.in
+===========================================
+1d0
+< <primarni_izraz> ::= BROJ(1,0x123)
+input/0c77d712cdee4951de6f338e0288e77c.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\"\0\n\t\\"")
+input/0c8a932978e5aaa227c81e5eee2eea9a.in
+===========================================
+input/0cdc8e2af32aed391eb34b03765a365e.in
+===========================================
+input/0cf421b4664cba141767888fd0221657.in
+===========================================
+input/0d1dbf20ef3ec454ac654b5974702628.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(3,=) <inicijalizator>
+input/0dae7b3c433adadfce2999edc31d996c.in
+===========================================
+input/0db68c36e424025f4cda44e11249666d.in
+===========================================
+input/0dea6029c2dd66e3760771270edad744.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(91,main2)
+input/0dfadd3b96035cc8679ad62e40315b46.in
+===========================================
+input/0e1c5aaded68d3d3fe2ab25d2ef08438.in
+===========================================
+input/0ecd747136c7350a0685e27e50687eee.in
+===========================================
+input/0ef7d1b49e59407f44d4484a67f91764.in
+===========================================
+input/0f07ddc6edc6421523c73b4ec8eca616.in
+===========================================
+input/0f292bbd2b3565d5c30753244c2df280.in
+===========================================
+input/0f8a7b8a0f1f0625e6b966a3fdcc8228.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+input/10032d9fa823ac467068b7f331aba25f.in
+===========================================
+input/1030b1dd700050398a3c6a62a58c9428.in
+===========================================
+input/105b5c11b839492fbab5653a925db933.in
+===========================================
+input/108a143d19aadccc1c36b570108f4517.in
+===========================================
+input/10c29046433a1c7ca4fc7bbdaf7c7d84.in
+===========================================
+input/10d8e8a94755627ed1ac20055c34b55b.in
+===========================================
+input/112345caebd2adfbf81580d9a36761bc.in
+===========================================
+input/1159dd08e92c65b4748c27e930e0c81c.in
+===========================================
+input/11649c880fd291cc408c2ece1c7ea607.in
+===========================================
+input/117d2975935b0cb68e025e5e4708a48d.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\")
+input/119bf48a92f0afb28934409106b330d4.in
+===========================================
+input/119c0c4e309faf2966e771f86fce9d13.in
+===========================================
+input/11cfc541ed9e3ca76df286a7b2aad6b7.in
+===========================================
+1c1
+< <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(20,=) <izraz_pridruzivanja>
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(19,=) <inicijalizator>
+input/1201266f15719a858e6df05588cf1eda.in
+===========================================
+input/1213ba1d29d1980d82c2b8bf6e19496c.in
+===========================================
+input/12434ff7dd534f4ee42ff282cb433ba9.in
+===========================================
+input/12846391a5137c7488d495de0c88aecc.in
+===========================================
+input/1328c9d0d8e1c63e3b3ab6ea9669d58c.in
+===========================================
+input/133fcd34cb7bcc6ba02b9a937fe7d97c.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(116,y)
+input/13d200ad71e91818df80e3cf48a93a59.in
+===========================================
+0a1
+> <primarni_izraz> ::= ZNAK(19,'\z')
+input/13d4c45a20699c993f8f6224353ed5cd.in
+===========================================
+input/13eaab6bbc8c7da0529d48c7f9a425e4.in
+===========================================
+input/14bf4b0d5c28e2a40327051ec95cebf4.in
+===========================================
+input/14db0b656ba0690cfeb2302d6ce3dea2.in
+===========================================
+input/150a4b74347e79623a70e68a7bbfdc3c.in
+===========================================
+input/15dc49db2cb11fbfe933034e9f8547de.in
+===========================================
+input/15e3ca3eda5bdf3ad8c99a24752eab09.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(47,foo) L_ZAGRADA(47,() <lista_parametara> D_ZAGRADA(47,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_RETURN(76,return) <izraz> TOCKAZAREZ(76,;)
+input/164c2cec76f0b70600fbc824caf9c3b2.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(51,break) TOCKAZAREZ(51,;)
+input/167f9a2418c8cdc4f6dd4592602589b5.in
+===========================================
+input/168854de6d10fa91d0d54a9756a84634.in
+===========================================
+input/16a34da066519616864c7fa72a259f7d.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(48,break) TOCKAZAREZ(48,;)
+input/16ae8fac3a31aaeebe50187a9795629d.in
+===========================================
+input/16c616d2a2fa46ed6d1dd6798201f5b0.in
+===========================================
+input/1707a6750ab0a2aa94e0863c3bfc99f1.in
+===========================================
+input/17973cafc3adcecda4d109b9c7f69f07.in
+===========================================
+input/17af68f5e793a139c2119c493320b809.in
+===========================================
+input/17e6e2bfb21c6572a113047ba044e9e4.in
+===========================================
+input/17ed95fedeaaf1905e4c59bf19e1bfa2.in
+===========================================
+input/17fd985e8bdfc7d7f51754a0d5bbe7e5.in
+===========================================
+input/1829ef7bca8b9c4c604d7fe0ee2fae42.in
+===========================================
+input/186cbe90f88382a7c7c916db7aecb75e.in
+===========================================
+input/1870bd28b2ad6d51bff4e6bc23c48236.in
+===========================================
+input/18b07642917a56b16d7b361e7cd3095c.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(40,=) <inicijalizator>
+input/18b7554cd8bb4130b2ba801b49c0ca1c.in
+===========================================
+0a1
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(3,=) <izraz_pridruzivanja>
+input/18f130e30217e9a636f193e3b0f6d5f3.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\\"")
+input/192602a73a09aa92cdb2b4a02128e06e.in
+===========================================
+input/1948c859137bdd41978c385d2fe4a777.in
+===========================================
+input/19a2202260de69dd43c076af3339f58d.in
+===========================================
+input/1a2cc0b2ed3c603945d72c5af274a28e.in
+===========================================
+input/1a4a584f5a2f5f55fb3e34bf5f60e37f.in
+===========================================
+input/1b041398049c367d88c3b85ce9f5a4a0.in
+===========================================
+input/1b0cd347940aeacf8afdc78ecc34014c.in
+===========================================
+input/1b1507a17e0844633818bd4058276c44.in
+===========================================
+input/1b71f5fd7fe5ff4a135a65c6901265cc.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_RETURN(59,return) <izraz> TOCKAZAREZ(59,;)
+input/1b7dbb7f3ca06067dd2ebc4130be4fc3.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+input/1b7e21060df0fa3a6b25afdfb439afc8.in
+===========================================
+input/1bb88c2c59ab04c4e69666a21b270688.in
+===========================================
+input/1c1792535ec0d28dbf9189ae33deb564.in
+===========================================
+input/1c36fe8ea1b217e323c6758b4b1fb6bf.in
+===========================================
+input/1c4126c8be200e7ef39a6e17815ebdd2.in
+===========================================
+input/1cca53d76a7b988f1bc8f192449c81fd.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(41,=) <inicijalizator>
+input/1cde4b3c673e9ee9b385a2f367604e8d.in
+===========================================
+input/1ce9f5facad61dc91cc290c6e27cde81.in
+===========================================
+input/1d0f74fdd7c4bd31c3e38f79cee37a83.in
+===========================================
+input/1da9701786ca07c59fb44ba0ca8a162b.in
+===========================================
+input/1de6f7a7cc9767cbfcbeb454670952f6.in
+===========================================
+input/1e4a1ede880a5c3ae3dae1acbc70e1ae.in
+===========================================
+input/1e815cb3cb47cef90613c35e93cd86dc.in
+===========================================
+1c1
+< main
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"x\")
+input/1ecce0a451b1d55979bc6ed842f73e54.in
+===========================================
+input/1f5a9751e455095bc5e92ba0092e6de3.in
+===========================================
+input/1f622eed98f24e2224e764413fb9fa97.in
+===========================================
+input/1f825f557e1f44ad675f840312cb865e.in
+===========================================
+input/1fcf9c5feeec86c51ed1e8000a66e47c.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(47,foo) L_ZAGRADA(47,() <lista_parametara> D_ZAGRADA(47,)) <slozena_naredba>
+input/1feac3acc1930c9dca2fdd66850f91ab.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(36,break) TOCKAZAREZ(36,;)
+input/204c3e4728beb40f44a1c23bc22c9896.in
+===========================================
+input/20623ea227f730d590904afb4263f214.in
+===========================================
+input/2079346adfa883103aca2c5c4e95fe49.in
+===========================================
+input/20e962dbc711ca562b0956545da6e4a7.in
+===========================================
+input/21597c9f9ad54322586d4d5d6499f0e6.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(6,f) L_ZAGRADA(6,() <lista_parametara> D_ZAGRADA(6,)) <slozena_naredba>
+input/2180cc40a8fe09409fa88548e5ca5e44.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+input/2196950c32f5e6254e7bd6dd5cf433b8.in
+===========================================
+input/22505ba401d8f83bf59bed50c78c1458.in
+===========================================
+input/22a45cba596e1a9697dfe058d577d846.in
+===========================================
+input/22ae5950e7be8f245c84395e8cce027d.in
+===========================================
+input/22cd8d2c96dc0836abeb28af9cf43f4d.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(47,foo) L_ZAGRADA(47,() <lista_parametara> D_ZAGRADA(47,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(64,break) TOCKAZAREZ(64,;)
+input/22f376e19b1155f9ef692b82f33057ec.in
+===========================================
+input/2322f360ec0f2729dd9aa874a6660685.in
+===========================================
+input/2347ac5ce6bb7a35fd7ac17e2ab6ba79.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(5,=) <inicijalizator>
+input/234e811857f0c19fb6b55692d9ddc632.in
+===========================================
+1d0
+< funkcija
+input/237d47e54666ff5fd9afe7abd654d58a.in
+===========================================
+input/23a9e505b05f59fc60e4ad7597d7d55c.in
+===========================================
+input/23b85bd46a32491b60273875e6439418.in
+===========================================
+input/23cabc3eacae2e82e02ef1d7c48f3fcf.in
+===========================================
+input/23f869acedfdea875bacdb533f636f67.in
+===========================================
+input/241c30cef3e4a0cfb85990b3daa1ba27.in
+===========================================
+0a1
+> <postfiks_izraz> ::= <postfiks_izraz> OP_DEC(3,--)
+input/24637a34e8c6d8f1e79dffd6863973a1.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+input/247708a47dedd47fc367b4008bdbdff5.in
+===========================================
+input/24d0b9ce0d43a179a9552914c0d4fc10.in
+===========================================
+input/24f27b5fd1842d312c2f2fbfa59c2fc2.in
+===========================================
+input/250f25c252872db91f4bafb9544bbf3b.in
+===========================================
+input/2528a2577351566868285d7b76e5a171.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+input/253522e6f683e07598102e3875a8bb79.in
+===========================================
+0a1
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(24,=) <izraz_pridruzivanja>
+input/2581b51bcf019acab2b35223cff178f3.in
+===========================================
+input/2583f41355c1dc8674820f2acf0b3ee1.in
+===========================================
+input/25870a5f6538d5d7b1e726cceded7c5c.in
+===========================================
+input/2601219ae8fa7159b8d30c90eed49b6e.in
+===========================================
+input/260ce64ad644dbd7a82723efdba00ffa.in
+===========================================
+input/264d71085079aade1704b90f8d7fc95f.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\"\0\n\t\\"")
+input/2657591623d0bf535092ce2f65ad0503.in
+===========================================
+input/266d83cb1ab43d6ef5a0182fe7e67830.in
+===========================================
+input/26c0165997db02b96323336086d73119.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(47,foo) L_ZAGRADA(47,() <lista_parametara> D_ZAGRADA(47,)) <slozena_naredba>
+---
+> <definicija_funkcije> ::= <ime_tipa> IDN(114,f2) L_ZAGRADA(114,() <lista_parametara> D_ZAGRADA(114,)) <slozena_naredba>
+input/26dcde27247e6831e47cc8b8199edb03.in
+===========================================
+input/26df2ff82449540810afa4a357f48160.in
+===========================================
+input/27c48ad7b8c47d7c28ba4dec0361a69a.in
+===========================================
+input/281150fbdbc5493c3b773d420a73cffa.in
+===========================================
+input/282321b92c633107d8c23fb89924001e.in
+===========================================
+input/2825d707d313b12022e28f2cba072f97.in
+===========================================
+input/2859028234bd8c3c2e98f94a37ef3c7d.in
+===========================================
+input/28a81bb51c84be9ddd60f89bee36a0ca.in
+===========================================
+input/28e691d9c6f372dc76c9d6fb8711e970.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(21,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(21,"bok\")
+input/291275fe8e5037a2c74eac527533b5b4.in
+===========================================
+input/2968bd37257ecf1dd887974eed02b80e.in
+===========================================
+input/29b40f1417ad89388698ea2ce6405b5b.in
+===========================================
+input/29d181dba75f0562189897a35005e4ee.in
+===========================================
+input/29e06450c4d6013c05d6044e287ad824.in
+===========================================
+input/2a2d3d5e483441cc12075a7f38f24233.in
+===========================================
+input/2a6ee6ff7ba3d7ab6d0f9eb1aa05e625.in
+===========================================
+input/2a947e6e14a77167cee9ffadc78eb826.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+input/2bdeeff88e79f8fe65a10ce4c695c9b8.in
+===========================================
+input/2cd6ebfacc53449550998a0a8dc43af8.in
+===========================================
+input/2da5a0e037c8bfee7040785fb6adfb73.in
+===========================================
+input/2dc8c3499dfb3c74c53e50e804a37b2d.in
+===========================================
+input/2e7e18eb5152567445e90792920098d5.in
+===========================================
+input/2ead9665488c009537183489fbe97287.in
+===========================================
+0a1
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(24,=) <izraz_pridruzivanja>
+input/2ee5302353fa3d33b9857e69892659fb.in
+===========================================
+input/2ef058118f8a6ccaa0d4af54034d724a.in
+===========================================
+input/2ef451f72f00de02becbbcf2d711cb95.in
+===========================================
+input/2f4782ce524e0896614ad544dd4bf01a.in
+===========================================
+input/2f47b66841c3c8b130a1e9307960d05e.in
+===========================================
+input/2f6652f9a252380866f424bc10ebdd11.in
+===========================================
+input/30108789b33b7d4b148248efe0ce98ac.in
+===========================================
+input/3016eac7849df37631e19339efcaf2d4.in
+===========================================
+input/30228f663302d3a717c84c5785c63d15.in
+===========================================
+input/302a8c2bc9a08d60793097a2862d33e2.in
+===========================================
+input/3059daa86f2629828a5812ef92e93f03.in
+===========================================
+1c1
+< main
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+input/306df3c79783f179814e3f75fb8c4593.in
+===========================================
+input/3073ff89b3df2c9916e99252072a657c.in
+===========================================
+1d0
+< funkcija
+input/3135a5cddda54270dc83998793528ce3.in
+===========================================
+input/317f52a41576fb691e1c29cfb7df69bc.in
+===========================================
+input/321f94283fd8bcd2903320d271146f01.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <izravni_deklarator> ::= IDN(99,f2)
+input/3252a8420305b06e1c16598eb3e7d143.in
+===========================================
+input/327e42dbea871c638f5eb3f326c12adc.in
+===========================================
+input/32850ce619572e4d9844f54d700e0b39.in
+===========================================
+input/32bca29a5ea05e317502042fd5d9c00b.in
+===========================================
+input/32c57151475320985cea1ea64dfd3815.in
+===========================================
+input/32f3670c12191d01b613ad752b63b05c.in
+===========================================
+input/32fdcaf623e63a344378d0ce68674078.in
+===========================================
+input/3378cb6a793e6d334e0e55e0486b8ae5.in
+===========================================
+input/33a857080c19a80c10f06d7d83abff01.in
+===========================================
+input/33afe63b1ee4035db26b059b2d99aa35.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+input/33bffc3922ec781b1c94e26efb03d869.in
+===========================================
+input/33e90cb4dcff919775cb54ceb68e2e64.in
+===========================================
+input/343b3b1c9c1951a701130dabc57deca1.in
+===========================================
+input/34587dc38d43c38a1dc8333d0346c79c.in
+===========================================
+input/3486eda7f157e69beba075b4d0b13a3f.in
+===========================================
+input/3508a8888bff0cf69ae1a284d6668a40.in
+===========================================
+input/352863e3e39c1474a50ea99f6a2e4773.in
+===========================================
+input/35994db87b1a0af7f85463b8e6c131e4.in
+===========================================
+input/35c0739d8532f8e189a3725dacb950d0.in
+===========================================
+input/35e345bd5e5eadac207af77ca9f939e2.in
+===========================================
+input/3660233a7f3651f2e2982a865dbb1799.in
+===========================================
+input/369cd413abdbb77d8f7187bce42156c9.in
+===========================================
+input/36a0436c5a0e5f59ad58e355c4e42655.in
+===========================================
+input/36bc6fcfe99c87dbce9da26c6ce10e85.in
+===========================================
+input/3705dd25d6071f3106082ccb46d2bde6.in
+===========================================
+0a1
+> <primarni_izraz> ::= ZNAK(1,'\x')
+input/37635cee5dde357d72aac04ac9432445.in
+===========================================
+input/37785f598f0e567c8a08a022c1fb0955.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(47,foo) L_ZAGRADA(47,() <lista_parametara> D_ZAGRADA(47,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(104,main2)
+input/377e8803fba3ed242ead4e931a566097.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(38,=) <inicijalizator>
+input/3793ef642533fcb36bf2f7ca6007c221.in
+===========================================
+input/37e218ea31b5173226d113e7a355d0bd.in
+===========================================
+input/38034091097c6c4eec459a12da16952c.in
+===========================================
+input/38269734c1087754e7c7c5ff3d4b8da2.in
+===========================================
+input/383210305d781c910fb1c61b89a0cb2b.in
+===========================================
+input/384238d1a2d2e6e70eb207eeddd74bb9.in
+===========================================
+input/3857c23a12dcf38f1f66d8b2e0527518.in
+===========================================
+input/3891c1c135769e1d1889a997ebc8ca70.in
+===========================================
+input/38e0270cbad72804754ca3c8fa1d4b24.in
+===========================================
+input/38ffc42d1897309bf9def0964452e519.in
+===========================================
+input/394720e211101504778110f0f2d18bac.in
+===========================================
+input/3981b118d1f8b6b31d927746d603c147.in
+===========================================
+input/3a22de4b7663ebfaaefe88a8e38257ac.in
+===========================================
+input/3a4cbb2cce6eaf04a205f758ab9a18d5.in
+===========================================
+input/3a5ade3a8b80f1ffa15679b04b80c132.in
+===========================================
+input/3a72a6ea2186d99fa4cf6bda28cf947d.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+input/3a8a12dfaa3870ad1cc865c944440022.in
+===========================================
+input/3aa0fe42a6bfd8df1e080d0352dcf53a.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\0\")
+input/3b66f45238a90adef784c4665e6874e3.in
+===========================================
+input/3b6c2cd4aed0595833a42770ce826fc4.in
+===========================================
+input/3bc16fea20cd6cf5306bb2a4d185fe9c.in
+===========================================
+input/3bdff8642247053269e94ce8d6c8999b.in
+===========================================
+input/3bed429bcb7f0e489ca7794068db017d.in
+===========================================
+input/3c8fe675879ed4958cf3509cd7599231.in
+===========================================
+input/3ceaf35e8dfefb20de3f9225e403a9cd.in
+===========================================
+input/3d7ee50413ca0c8902e1def552f5acdd.in
+===========================================
+input/3d911ff1d075188faf84f44da74bca6b.in
+===========================================
+1c1
+< main
+---
+> <izravni_deklarator> ::= IDN(6,f2)
+input/3d922bf44aec54ca7db292b72bf7ff5a.in
+===========================================
+input/3da220e204222474f6bbce84ba31d36d.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(51,break) TOCKAZAREZ(51,;)
+input/3dcfabafaef7ad8880dd20e04b8f11d9.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_RETURN(63,return) <izraz> TOCKAZAREZ(63,;)
+input/3dd57c715aa0e7388c200d52438a76c1.in
+===========================================
+input/3de86e2909917faf34a96def1da0f7e6.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\\"")
+input/3e0548c44fd9958569574478a5eb1f2a.in
+===========================================
+input/3e093d7c4d8ea2b7df65d16ec3d95478.in
+===========================================
+input/3e920d5dc3767ec92106590686f99d14.in
+===========================================
+input/3f08ee303ccc1829e4ac1956eff2336b.in
+===========================================
+input/3f72967136d6189c194a40b95e712a9f.in
+===========================================
+input/3f935e7cf122536279f61d60043f8782.in
+===========================================
+1c1
+< <aditivni_izraz> ::= <aditivni_izraz> PLUS(15,+) <multiplikativni_izraz>
+---
+> <primarni_izraz> ::= IDN(20,s)
+input/4002a780093cf551152138538393ac75.in
+===========================================
+input/40234f970f99d55366dbe5cd2811c98c.in
+===========================================
+input/402a625a4aef54467f5b9a3c24071ebe.in
+===========================================
+input/4045857503f229290f4aefebb39d0826.in
+===========================================
+input/404c6360bedeaf78847160cf5ffac7b1.in
+===========================================
+input/406d16eac6536f69451e26651c815228.in
+===========================================
+input/40928502ca1a7ae4bdb78e2f75da9263.in
+===========================================
+input/4096705367038518f93ec6090a40e236.in
+===========================================
+input/40c53c67cc71fdafa37d4d4646ba0e11.in
+===========================================
+input/40c749853d91f954d25c9c94f14322df.in
+===========================================
+input/40ff23de4505c477fd86a352e433ba85.in
+===========================================
+input/4109e8e0d7b42327fa1fc34cba89dd51.in
+===========================================
+input/416729f3d8fc668da88298d6a04d22ee.in
+===========================================
+1d0
+< funkcija
+input/416a4be209665b189889c55df0bcdacd.in
+===========================================
+input/41a6af923987c4f4b347ff7b7f35a83d.in
+===========================================
+input/4225fdffe23f2b6068db376e7ca3344a.in
+===========================================
+input/4264a7f6bf74c37323270bd09864ca9b.in
+===========================================
+input/42722e7e664932fba29fe318533415f8.in
+===========================================
+input/429dfe9a007cc7e97f06131df0650a53.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> main
+input/42d93d58de11e650b1892560b94a7407.in
+===========================================
+input/4306b22ba0675361989b51007f089d95.in
+===========================================
+input/43490deb802bf688cc3d7efa2e492815.in
+===========================================
+input/434d0508eb6ee6fda29077919fac4bc5.in
+===========================================
+input/43536d10ee6a0ea11fc4299b5f6ca05e.in
+===========================================
+1c1
+< <primarni_izraz> ::= IDN(10,z)
+---
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(8,=) <izraz_pridruzivanja>
+input/4377a6445ce53eb901582723d9b43d9d.in
+===========================================
+0a1
+> <primarni_izraz> ::= NIZ_ZNAKOVA(18,"abc\")
+input/4383250e3028c96cde8de6ef2537d48e.in
+===========================================
+1c1
+< <aditivni_izraz> ::= <aditivni_izraz> PLUS(13,+) <multiplikativni_izraz>
+---
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(16,=) <izraz_pridruzivanja>
+input/438bd4ab91730841d8d74e621907cee3.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(7,=) <inicijalizator>
+input/43ef65729f80a8a024ab1a943b445975.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(40,=) <inicijalizator>
+input/4401463fc0f2b6042e1dc0cbce2f51c5.in
+===========================================
+input/45df811a39adec8f491124639043f693.in
+===========================================
+input/45fcba968f3d1bb5f0fed170b850832c.in
+===========================================
+input/46161de8f5be830fe2b41f42cd03fe11.in
+===========================================
+input/4627f47a60a80eedaa96a68e8a02f4c5.in
+===========================================
+input/4636566218db035d41f13177e01f747a.in
+===========================================
+input/464722172396c31495ae2c207ed5e33c.in
+===========================================
+input/46736ccaeabb77f28d8f979165aa8067.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(11,p) L_ZAGRADA(11,() <lista_parametara> D_ZAGRADA(11,)) <slozena_naredba>
+---
+> main
+input/467c7107bfdfb531035369bfe6f8af3b.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(9,=) <inicijalizator>
+input/46851eb1b42056f413dc005e60bdb124.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> main
+input/46bfb3d2f1dcf84e014d14b850b42974.in
+===========================================
+input/470df6aeca9383aa1bf8a5f04bef5cdc.in
+===========================================
+input/471d95597a55903185fd18104ba65826.in
+===========================================
+input/473bcd6f9827d7abd6a816cae11a2ed8.in
+===========================================
+input/475fafdfdf7b2b805822868e20c10f3b.in
+===========================================
+input/476985096e225126bd0daa9080a474a4.in
+===========================================
+input/47adc907f64e7694c287f9cf3fd295cc.in
+===========================================
+0a1
+> <postfiks_izraz> ::= <postfiks_izraz> OP_INC(4,++)
+input/47d4002b3f2cb1665b0f9df50f75983f.in
+===========================================
+input/480e4ff7658fbd634657f1150495ad7d.in
+===========================================
+input/484b77ea36cae93a1c400f972a62d016.in
+===========================================
+input/4874746dacd396b24cd586fcc141ee06.in
+===========================================
+input/48fc5561bd78524388bd0248b4da0362.in
+===========================================
+input/48fdb19eab6bb905edf72d5f1a62e47b.in
+===========================================
+1d0
+< <aditivni_izraz> ::= <aditivni_izraz> PLUS(17,+) <multiplikativni_izraz>
+input/4912c571c9c0d00905911d96d9b4ac50.in
+===========================================
+input/49c89e642a114f3ef534dacb8405d5f6.in
+===========================================
+input/4a1979e1da0d0f953a29214fbca7eae7.in
+===========================================
+input/4a2237681a826e363d300f8388040f6a.in
+===========================================
+input/4a887c65597be55728b708f59cbc45c5.in
+===========================================
+input/4ab16e33673e21e5185d03461d75aa4b.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(9,a) L_ZAGRADA(9,() <lista_parametara> D_ZAGRADA(9,)) <slozena_naredba>
+input/4af37ab62817b097b88e34966990880c.in
+===========================================
+input/4b59a1cbeb5cacc78031c03e80c089d9.in
+===========================================
+input/4b64f13ffcbdb114019a80e1ed51f896.in
+===========================================
+input/4b754be21e1e15a6a7fc4066f1d24396.in
+===========================================
+input/4bbae76f6457d000f234b2db7064bff5.in
+===========================================
+input/4bbfb9ee4bfecb6ffc74bfcce92985b7.in
+===========================================
+input/4bdd7774df49e079f17977c471599f5d.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(3,a) L_ZAGRADA(3,() <lista_parametara> D_ZAGRADA(3,)) <slozena_naredba>
+input/4bf1dfa85c88173bf9c13c938d4a4d46.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\\"")
+input/4c1936cd469564fb19c2d088c127acec.in
+===========================================
+input/4c21c74a9c6408585bfa8edbe75563d4.in
+===========================================
+input/4cc4db1bca87653a5c8064854f41ed74.in
+===========================================
+input/4d80b821c8c178fef5e6474b2a9591f0.in
+===========================================
+input/4da5d44edd3167d1dfd560468747629e.in
+===========================================
+input/4daaba4b08693c6d7c863a049567d255.in
+===========================================
+input/4db866b217048fe7f41e6c68a9aa2211.in
+===========================================
+0a1
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(19,=) <izraz_pridruzivanja>
+input/4dc96f08512e2e51270d083b669b9cd3.in
+===========================================
+input/4deaa37f7ab9d9189a945c5a8c2442f3.in
+===========================================
+input/4e51f5d26eeca8535858ded89a4ebb7a.in
+===========================================
+input/4e748cdcc5639e9d266334c7481bfe9c.in
+===========================================
+input/4ec019aeadec9c748e9f4a74b5be44c5.in
+===========================================
+input/4ecc9fc8bd28015a7caed9cfdfc821d2.in
+===========================================
+input/4ece129b198f04babe491b1b15bb2c92.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(6,=) <inicijalizator>
+---
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(9,=) <izraz_pridruzivanja>
+input/4ed48520561495b5ec11692e6d0557f3.in
+===========================================
+input/4efdf84c440ef71e188fb51317f56125.in
+===========================================
+input/4f24e0dbd7b6c793b38cfa480d8c113c.in
+===========================================
+input/4f6edb33afcf3b1c4464525fc8aeb053.in
+===========================================
+input/4f7e5d0265e6e709a9ee92a0205a4d00.in
+===========================================
+input/4fa5e24112125e76b698c0f2da026167.in
+===========================================
+input/4fb59610efa32a784873befcc4803be7.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <izravni_deklarator> ::= IDN(107,f2)
+input/4ff8732fb493600370fad9a9f57a6c54.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\")
+input/5007b7c340ccbc5db3386ce83857d3ad.in
+===========================================
+input/51471702f1049d92eb365b278bbced0d.in
+===========================================
+input/5171e8c4fb4bb44fcf3bda9cc8044b98.in
+===========================================
+1c1
+< <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(7,=) <izraz_pridruzivanja>
+---
+> main
+input/5176fb2d204e94c506bef81b8d400e22.in
+===========================================
+input/51866edb591c097e91150b12a94db68a.in
+===========================================
+input/51cde1547ba6bee18371ea1bf7be55fb.in
+===========================================
+input/5204cf8255d603bbf4afff25046ed68c.in
+===========================================
+input/52610684b7c5fd467580681ad55f0073.in
+===========================================
+input/52c90ae648fae0d5183f072f1f9991e8.in
+===========================================
+input/52e9467b08009d6b086f1d16e85b1801.in
+===========================================
+input/52eb257a9490a1084dcf16718447c42f.in
+===========================================
+input/5302a3818011e82c40135877f7b1f927.in
+===========================================
+input/5335d150187a259a7d73365ee983ae57.in
+===========================================
+input/533e98311447ad1a9ec13f3f474b8f2d.in
+===========================================
+input/5342695530ccb9962bd007f00f07d9d3.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <definicija_funkcije> ::= <ime_tipa> IDN(93,f2) L_ZAGRADA(93,() <lista_parametara> D_ZAGRADA(93,)) <slozena_naredba>
+input/534a4b287c3ee20c45059c72cfd3e618.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(48,break) TOCKAZAREZ(48,;)
+input/5374d64a1844d7ea1e0d56022d7f8c4f.in
+===========================================
+input/5377a120ae67da80aa25932eba25e972.in
+===========================================
+input/538fdaa9c91fbd4932c3397d1773cbe0.in
+===========================================
+1c1
+< <aditivni_izraz> ::= <aditivni_izraz> PLUS(5,+) <multiplikativni_izraz>
+---
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(5,=) <izraz_pridruzivanja>
+input/53bfcba9d87b08052a695b8e6f34b9a3.in
+===========================================
+input/53c23cd47d47bfe00fc70193edd71a8b.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+input/54461da6694661652742599c17208ee3.in
+===========================================
+input/548bef8069cd4256f291429a17fac664.in
+===========================================
+input/549666f98c0acd1f60b2ea5716270072.in
+===========================================
+input/54cb57d844b307d1f429e6e13bd73206.in
+===========================================
+input/54d848325ddd6dbd10624cc2f97bd350.in
+===========================================
+1d0
+< funkcija
+input/55184fcb0421fc81b7571b53cc7fb32d.in
+===========================================
+input/552e79192ca226a2d557d4b4f5e60dec.in
+===========================================
+input/5542d89d0922a996669859b5d5489427.in
+===========================================
+input/554e21f2778a38f1152891592462e35d.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(8,=) <inicijalizator>
+input/557e64c6ec114b5c352597912154e50a.in
+===========================================
+input/55b168588941adcf30e7e160b46181d4.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <izravni_deklarator> ::= IDN(107,f2)
+input/55d7c49fb6ff29c78333995db45ef58e.in
+===========================================
+input/55da18644a80000a231f82ebe6c59851.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(47,foo) L_ZAGRADA(47,() <lista_parametara> D_ZAGRADA(47,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(88,i)
+input/55e52310370746727698f8bf27a746d6.in
+===========================================
+input/564471378ac4c18148e47949e2b42093.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(75,i)
+input/5657dc15fd6f1d13fbc599085911e7bc.in
+===========================================
+input/56ac46b145190a7052fe2055c3ea58f9.in
+===========================================
+input/56b10c968939787755f30041eccff5a6.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(7,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(7,"bok\")
+input/56b939a11de2f9168b4fa09674afaec5.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\"\0\n\t\\"")
+input/56d525aa0f027a9dc757cff1c3c87c96.in
+===========================================
+input/57793ad98b0f28f01c34cf3a1ff81b63.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\")
+input/57acaa376139ad6f6bc1d3a476525224.in
+===========================================
+input/57caf972e9ebedae5e254fa018f5c193.in
+===========================================
+input/57e2deadc09dd66c9ec00b000749ea3b.in
+===========================================
+input/57ef28291683ff366bc4797522d83869.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= BROJ(111,2147483648)
+input/58f04251e8e3f00818846fcd0186fc50.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"x\"\0\n\t\\"")
+input/590071daef9ff0014a3bfcc26707ab73.in
+===========================================
+input/591d2f62391d6f4ab2ff9ed400374bbc.in
+===========================================
+input/5937c50f2cd8c251f84775c110d47663.in
+===========================================
+input/59580ebf9df028311e3b06cd02b46dc1.in
+===========================================
+input/59b5bcbe7875adff5334bb7528bf5ea6.in
+===========================================
+1d0
+< funkcija
+input/5a9eda8055b1da14284358833e6ad792.in
+===========================================
+input/5aacb4c13de83c2c0a8cbf4bff9e3004.in
+===========================================
+input/5ace96a1fb8e01d7a18aa8c51b86e0d4.in
+===========================================
+input/5b1d28021c2a5752cd5b5d29785d2e98.in
+===========================================
+1d0
+< funkcija
+input/5bd63570a0705fd5d1ba87b607ea0214.in
+===========================================
+input/5c1b36b9163d285186931117494e8df9.in
+===========================================
+input/5ccd361e524632567d22ce3bbf1d3919.in
+===========================================
+input/5cd9bb1043db534c548f660fa657721f.in
+===========================================
+input/5dbe49bce1421cd82f692da8b17f70b2.in
+===========================================
+input/5de71c5bfcac334d7e78e734fd07390e.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\")
+input/5e7ab61cd3dad1cc0a5d44118baf129f.in
+===========================================
+input/5e92d1b0cc30aea43d21bbbbc530a979.in
+===========================================
+input/5f3bde4b1b31bf5a7db2201193cb8e8e.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+input/5f3d0c82d6ed7db43f3a35f8ed043c27.in
+===========================================
+1c1
+< <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(5,=) <izraz_pridruzivanja>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\"\0\n\t\\"")
+input/5f3fee791ae89823a3d1ca41ebd21af1.in
+===========================================
+input/5f4928a02055b924e6068c73b5d77e3d.in
+===========================================
+input/5fa960e11b26b967be1730c9ab3e604c.in
+===========================================
+input/5fba36d5899f7f7b339d329fed665d87.in
+===========================================
+0a1
+> <primarni_izraz> ::= ZNAK(19,'\z')
+input/5fea709851b2d9003104c1534daf9d45.in
+===========================================
+input/60153504544aba2fbdf292694ecaa71b.in
+===========================================
+input/603a861cc9897905525c051ae9338d70.in
+===========================================
+input/604eed38be4c2ddc1c88f520c6bf6ea9.in
+===========================================
+input/60ac31d18de5eb22e38f472463d8829d.in
+===========================================
+input/60b8f5cdcd5f523f4182a62da51e09e7.in
+===========================================
+input/6108bfeb5b28b1ddaf47f4595eb41b76.in
+===========================================
+input/6109cded6ee3eb641330e944b173b773.in
+===========================================
+input/611ad3a913ac527bbc1f4e0a14bdff82.in
+===========================================
+1d0
+< funkcija
+input/6133b53bd12b8e5b4c40e95bd2cbadba.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(11,p) L_ZAGRADA(11,() <lista_parametara> D_ZAGRADA(11,)) <slozena_naredba>
+---
+> <definicija_funkcije> ::= <ime_tipa> IDN(17,p) L_ZAGRADA(17,() <lista_parametara> D_ZAGRADA(17,)) <slozena_naredba>
+input/614a492922cc04b37f8eaca9f69271fe.in
+===========================================
+input/6228e5161bca64784f3b627b644bf8fd.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(39,break) TOCKAZAREZ(39,;)
+input/6281f5693c5a1e32e52f56fe48079407.in
+===========================================
+input/628721f319b444c689f9e22a67788b7d.in
+===========================================
+input/62c531fd492d1ebb554a8cd0e823ea2a.in
+===========================================
+input/62d3806f08d270fd841a4c4604ed7375.in
+===========================================
+input/63101b4693c83d6e2d4875a83b51a55f.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+input/6318cf9013cfefed23cf10ce6a0c0497.in
+===========================================
+input/632c8b8ee5701af517dae0655ff33988.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= BROJ(111,2222222222222222222222)
+input/6382ecfdd2179830134728347e8b2000.in
+===========================================
+input/6386a6f62987c6018203ae94176ffd1c.in
+===========================================
+1d0
+< funkcija
+input/63c957ed0543213ba5468dc76b51fec6.in
+===========================================
+input/6407f544efe21fc86fd0f3740a7e2cf1.in
+===========================================
+input/642e396d40b63d0122f4a55287c9d0e0.in
+===========================================
+input/64691152945457339eb913aa332d0dec.in
+===========================================
+input/64733ac16a82aa4b4ea9e81005b943c4.in
+===========================================
+input/64a3214f9bef5224cf9aed4911d93a23.in
+===========================================
+input/650ffa2b31c37c2f9e50e898dac7c592.in
+===========================================
+1c1
+< <aditivni_izraz> ::= <aditivni_izraz> PLUS(20,+) <multiplikativni_izraz>
+---
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(20,=) <izraz_pridruzivanja>
+input/651bd8f9d939fe48749c58d3ac46161e.in
+===========================================
+input/6531b5b6fa75bdac7b149e105e7ea90e.in
+===========================================
+input/65b9de67362a7aa3b005e9f78fbd3403.in
+===========================================
+0a1
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(24,=) <izraz_pridruzivanja>
+input/660c2f3647e9c053cde559882cb75fb0.in
+===========================================
+input/6625466c44e451192414fa898bb1d3cc.in
+===========================================
+input/66e628075f74c4507de4078484a24cb9.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+input/66eef9634cc735de35f9c6d091004154.in
+===========================================
+input/67080317b3dfce1147abd607dd105889.in
+===========================================
+input/6728cdc9bbc4aae0afd1643083f7e34b.in
+===========================================
+input/6738694fe385fc7211e40621dff9daba.in
+===========================================
+input/6796a332f0527aa5bbf11a6e8daea2fe.in
+===========================================
+input/6798dbec8fe4053664c8081dc99b2787.in
+===========================================
+input/67bca6b37242b4353559f8255a0fb1f8.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\"\0\n\t\\"")
+input/67bd6965fa2e33b103b12fe408ae03fb.in
+===========================================
+input/67e86aed8c6565a47f64809ec3e29dcf.in
+===========================================
+input/680903315b93efa99158a17b39aa6cfa.in
+===========================================
+input/68175d4590f9ab9ff2852dab598ba105.in
+===========================================
+input/6819222bbc777bc85d15bd9f4986b9bf.in
+===========================================
+input/68400556cb281b60a916f01c517a9471.in
+===========================================
+input/6840956f680427980f5f991459457c2e.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(38,=) <inicijalizator>
+input/68d6f6ca445562dbd27b3da6027ae7f5.in
+===========================================
+input/68fcf22db08c816e09190174f692a925.in
+===========================================
+input/69369ee272c4798ac90ce81e50040a6f.in
+===========================================
+input/69d1383c1bf57a4220352969a5e172ab.in
+===========================================
+input/6a8cde9919893b98e3a0bb40f33da3be.in
+===========================================
+input/6a965d219317607dcc40b9b12291e4b5.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(23,bar) L_ZAGRADA(23,() <lista_parametara> D_ZAGRADA(23,)) <slozena_naredba>
+---
+> main
+input/6af0088c0e6c7ebd4eef2e94b316f887.in
+===========================================
+input/6b23db4fa6009a62f073d579c43a7883.in
+===========================================
+input/6b54836a761dc1c5aa733d812eb75c80.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(9,a) L_ZAGRADA(9,() <lista_parametara> D_ZAGRADA(9,)) <slozena_naredba>
+input/6b577255ef26fa1e6bb09c39ada7dd9a.in
+===========================================
+input/6b62ffe9f894dcac5b4e110e94d3271b.in
+===========================================
+input/6b8e534d1557f6a249083a7ef3b2d03a.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+input/6b8eccd52d36223456182ba3fce41ee6.in
+===========================================
+input/6b9519c6485c78878576cb3ddca3036c.in
+===========================================
+input/6c386720cfc8f45e9ffd925086415ad2.in
+===========================================
+input/6c8dbbaf696e15dad604ac402921d377.in
+===========================================
+input/6cd7f43c95c8eb0c48a45e4be51fe904.in
+===========================================
+input/6d2a93a84277f115669e1b6adbbbff80.in
+===========================================
+input/6da4ff945441e800dbf782e689964ef9.in
+===========================================
+input/6dc2a80f9423ec02963941d90d602ce7.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(75,i)
+input/6e2ee301369b8892b4529f59069d9b36.in
+===========================================
+input/6e480f7f1b3f24725aaa0b8eeca6f683.in
+===========================================
+input/6e653fdef45970419c867b15bb16649c.in
+===========================================
+input/6f2546f3afa0bc5049b23f0dec327e9f.in
+===========================================
+input/6f61d56d10729c7bb48ea1ed44732e3a.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+input/6faf40eb93d7653fd359d31984b030b1.in
+===========================================
+input/6fbacb914176620efe57b0cf4b5f63b0.in
+===========================================
+input/6fe4cd7a7dccd783f40cbea173c11351.in
+===========================================
+input/70438bb4df74c5ce75aae198a4dd3e9b.in
+===========================================
+input/70bb2e8053ca8595f0722a010238a2ad.in
+===========================================
+input/70d86ce16188528ed2a71f0b657de9c2.in
+===========================================
+input/70e4cadc96b451d3c4e5300977895325.in
+===========================================
+input/70f4c84018d399b5b373a43c7d9f4188.in
+===========================================
+input/7128fff6a4a11a418afa42679501b52f.in
+===========================================
+input/71af94b25275c957b2ea1f595864096b.in
+===========================================
+input/71b55e5d1435e2f1a9e1bee9e0e25a66.in
+===========================================
+input/71ffc20e2d711b7e40c8f8b6529c1ca4.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(42,break) TOCKAZAREZ(42,;)
+input/7226277ef00180fe01f065c9c9e39635.in
+===========================================
+input/72946a9318ff30204c35f474aa203c47.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <definicija_funkcije> ::= <ime_tipa> IDN(101,f2) L_ZAGRADA(101,() <lista_parametara> D_ZAGRADA(101,)) <slozena_naredba>
+input/72bb1d3772b64afbf720794e4ed30301.in
+===========================================
+input/72f0d3199e51061941585eb3428f8710.in
+===========================================
+input/731e4b7ab233f78e009f74de7ebee5f2.in
+===========================================
+input/7399991ee5a7b8ce0a6788a799f4b511.in
+===========================================
+input/73c4a79e8dc995689ddee8493f0ee7b9.in
+===========================================
+0a1
+> <primarni_izraz> ::= ZNAK(19,'\o')
+input/7415270d9217ca5b6f86ccc89e9ea662.in
+===========================================
+input/742406c3523b4136fde166d04099ce39.in
+===========================================
+input/7444b14e21186bd7bef6db4b4d812d63.in
+===========================================
+input/7454a9df471375d0d5401cbbd8296e58.in
+===========================================
+input/7454d5cd2b73e0886ede8793736548e1.in
+===========================================
+input/74ba73da01374884568ea71fda7f5b7e.in
+===========================================
+input/7501788ede4051f5f09cc89417b8f2e3.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(51,break) TOCKAZAREZ(51,;)
+input/7511e1a85949794ee519e71e44f581c2.in
+===========================================
+0a1
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(24,=) <izraz_pridruzivanja>
+input/753f682afc774fd2325e152f7d13445a.in
+===========================================
+0a1
+> <primarni_izraz> ::= ZNAK(3,'\x')
+input/757eb3601894cddf1602ef3e01eb6501.in
+===========================================
+input/75916666ad3a942e7617debf7dece118.in
+===========================================
+input/759f2f027f089da360f44d2619c28fad.in
+===========================================
+input/76238cd1608fe13d6f85e4e5532eda8e.in
+===========================================
+input/7627cdf7cbddac4dff275a041b167020.in
+===========================================
+input/764a267be57be2af8eafeedcb82109af.in
+===========================================
+input/76d32c6c35bf80b9a573df7529fdd8fb.in
+===========================================
+input/76e03fcc96f34f89c626428021616e66.in
+===========================================
+input/7700d2a5ab455d8fd48c480aee5daf4f.in
+===========================================
+input/770690f970e8732c00aedfb4c94db5a2.in
+===========================================
+input/771b41889b74fb726455db6a88478af9.in
+===========================================
+input/775d4cc7e0bee856855f95d5d1e2b722.in
+===========================================
+input/777eeb78154816bebf7593f2d8c7c89b.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <izravni_deklarator> ::= IDN(107,f2)
+input/77e35017b49318677339c96dc114cd79.in
+===========================================
+input/7810f7085631752a4513bba27e3418d6.in
+===========================================
+1d0
+< funkcija
+input/782ed9574aeb9f8818a074f0f2f8f753.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(47,foo) L_ZAGRADA(47,() <lista_parametara> D_ZAGRADA(47,)) <slozena_naredba>
+---
+> funkcija
+input/784279d2e9bf88cd15edfd3aae26862a.in
+===========================================
+input/788f8a700ae93fafd9c9084a8baea1b9.in
+===========================================
+input/78e68ef6e06fe1cc22833486d29e9e16.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= BROJ(111,2222222222222222222)
+input/793d90f871baca765fdd9c06f7577020.in
+===========================================
+input/796487f9085808b0fb9659c8afa616f5.in
+===========================================
+input/7968ae26668292314a66b80e9876faf2.in
+===========================================
+input/79a6595497aa0dfd4a63a5936966ad25.in
+===========================================
+input/79b31c09e06de5a716aa5f334d9edd5f.in
+===========================================
+input/79e5c8b7e8a75bc907fb8ce5a342d9c7.in
+===========================================
+input/7a676d3d67172a04a727a990884fda18.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(47,foo) L_ZAGRADA(47,() <lista_parametara> D_ZAGRADA(47,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_RETURN(62,return) <izraz> TOCKAZAREZ(62,;)
+input/7a6a3f7ec7f3386d1a707f94ff0e7e98.in
+===========================================
+input/7ac978dc4c9b2e8f247f7c75c4b74cfc.in
+===========================================
+input/7b26e12bd65ba8b5b1d5012ce971bc38.in
+===========================================
+input/7b60648e1a8f2b74b175060db683722a.in
+===========================================
+input/7ba737cab0417b9e2670d64fd1485147.in
+===========================================
+1c1
+< main
+---
+> <definicija_funkcije> ::= <ime_tipa> IDN(18,x) L_ZAGRADA(18,() KR_VOID(18,void) D_ZAGRADA(18,)) <slozena_naredba>
+input/7bce6f710abfe394b2d7cba560a3705b.in
+===========================================
+input/7beb46df30e39db447921c005e661b63.in
+===========================================
+input/7beb94918629f8a5ddd2a9d6d7041b97.in
+===========================================
+input/7c3431344411af73ae8c7500565774fa.in
+===========================================
+input/7c3709291169bef3652933c7d5a4821e.in
+===========================================
+input/7c7422ab930ebd14398a0c1bff3b9884.in
+===========================================
+input/7cd1b57e0a810642862aa2a8dec42226.in
+===========================================
+input/7d1b4d23d17c8d41c1ff71d3064ba65e.in
+===========================================
+input/7d32c79b6efa5d6e56423469cb955266.in
+===========================================
+1c1
+< <naredba_skoka> ::= KR_RETURN(3,return) TOCKAZAREZ(3,;)
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\\"")
+input/7d8a612cbcef14110e48c18a04a7e232.in
+===========================================
+input/7d992a3112b861bcb43de8712faf206a.in
+===========================================
+0a1
+> <primarni_izraz> ::= NIZ_ZNAKOVA(3,"\")
+input/7d9fba8a7df997df548d7ff27b300af9.in
+===========================================
+input/7ebfa26618d00e2644e5c3d20d125fda.in
+===========================================
+input/7f13e04e9e0d3124d88f8b89581cfaaf.in
+===========================================
+input/7fab9cd7a5117fa5aba70958998b6fde.in
+===========================================
+input/800f0a35a6fe9c42deedbb208b9c4098.in
+===========================================
+input/801812c0e152108a38c0a527694de47b.in
+===========================================
+input/8083ac03c4e4b6da57573a88d39ed2a1.in
+===========================================
+1d0
+< <aditivni_izraz> ::= <aditivni_izraz> PLUS(17,+) <multiplikativni_izraz>
+input/80ffe108caedb4fe968ead24a534d4ed.in
+===========================================
+input/81493da0f3af485d9c736a88fc7806d0.in
+===========================================
+input/81a4b6052ad4b0b1e817dd8a2dc7b019.in
+===========================================
+input/81b2829485aafbfe1be48edd42626d2b.in
+===========================================
+input/81c68a07189044b50f25cae87a49101e.in
+===========================================
+input/81f6e1d3ff93a12e3f6f2772e0ca0dd8.in
+===========================================
+input/8202ce9f11c5435a37067bacc651e196.in
+===========================================
+input/820d897283943bb43b1c6f3ad79bc7a7.in
+===========================================
+input/823ff167dfb178680d529897197a4777.in
+===========================================
+input/82564203155086d82a01a52deb698912.in
+===========================================
+input/834595c6fd0ef0fa4d6458f28434c2de.in
+===========================================
+input/835ec7cf47b72b6a558ad4f6b6917ccd.in
+===========================================
+input/83b4258e45c5d9aff8bdf2b877a2c4c0.in
+===========================================
+input/83c6eec63426dacd0ce42418c82f7883.in
+===========================================
+input/83e18c6cb414eb09050091ae82d9638c.in
+===========================================
+input/83e2b52811e00c4243fe9b5c2bd24603.in
+===========================================
+input/84088813da3d12c97ea514bbb28c6edb.in
+===========================================
+input/84251cecca3cc4ccf2b0bec50c765216.in
+===========================================
+input/843f7241945ba216cf27cf4dd4035da0.in
+===========================================
+input/8448ba93a3f4f119fd38b5e4dc6233e4.in
+===========================================
+input/84a609a738ead3d6f6f9e8b04247cad3.in
+===========================================
+input/84c75184d61b7f93e258e4c3820c5a50.in
+===========================================
+input/84e813a1687408952921e7759de63e24.in
+===========================================
+input/8534e3df9823930906d88791e270f558.in
+===========================================
+input/8548451c0f59b8a8a487fc0d599d9f51.in
+===========================================
+input/854d941d229f7a4e6088a2eb70b6dae6.in
+===========================================
+input/8569196e386293ecd61d25fdb8f9e4ee.in
+===========================================
+input/85da5c4f24a4dd8823dd5327bd9fb92d.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\"\0\n\t\\"")
+input/8647d1ba61ec9b58177a09e47321529d.in
+===========================================
+input/8687c9e66965b463c2cb380b99d645f5.in
+===========================================
+input/869329872d54060bdb9644cf947e8cd9.in
+===========================================
+input/86bdabf71aea73939ae6594e4f0c3070.in
+===========================================
+input/871555f7b477b1b4ed6ee12c599b2934.in
+===========================================
+input/8775694f14205d6328238909e4c4e100.in
+===========================================
+input/879b3d7a3f07e71fdaa56cd9e57aa549.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(56,x)
+input/87c8876f09c71c0760ea973a822accc1.in
+===========================================
+input/880b91e43afbf08eb41f2062901efb21.in
+===========================================
+input/885f163b24e0db12528d131a82f6dcf2.in
+===========================================
+input/886b1f56d81feaf6bbf8dfeec4d535fa.in
+===========================================
+input/887a8436e9548ca891c1794f21cca6d3.in
+===========================================
+input/88bebf8409ba24411e4a7a3fa502b2ff.in
+===========================================
+input/894bbdddbc0b5517919a6a1148d08f81.in
+===========================================
+input/895dd4dab4b3d49253df6e412f4b61df.in
+===========================================
+input/89c95deecf9d5ab6ee21331e94ebd355.in
+===========================================
+input/89d296a51b011b4be0184445bb319c69.in
+===========================================
+1c1
+< main
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+input/89eef19cf686c3fc729a128ba598a576.in
+===========================================
+input/89f8510d5431705960d8991db46aafdf.in
+===========================================
+input/8a2fa29b4e1b773863def6342f1255d9.in
+===========================================
+input/8a5b66de60e21a44bc2c26213d09a98c.in
+===========================================
+input/8a6679b5951e7fe4967c49f9bae900be.in
+===========================================
+input/8ab164a4ebf4313e9055658629ff190b.in
+===========================================
+1d0
+< funkcija
+input/8ad37beafe5eec7f67622ec5d23c8a1e.in
+===========================================
+input/8adb873b38d8ee6a0ce770d80c473eff.in
+===========================================
+input/8adc1fdfd3e86e29154bd0cc1b8a6e77.in
+===========================================
+input/8ae761e9fa02268c433cc448d16338cb.in
+===========================================
+input/8ae9e6d18ad1bfac062a1b28f2c5d016.in
+===========================================
+input/8b3b50df6377339576dadfb3a7ed62d2.in
+===========================================
+input/8b710114ecbedff1318868c7df4c341f.in
+===========================================
+input/8c44abc32f66a67956cc76cbd0c6ccdb.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+input/8c551739e38f4435ccdd049de5e5370b.in
+===========================================
+input/8cf38fc49c44a1b6f7f29d2007f54e22.in
+===========================================
+input/8cfa24f07f261877d7803f43d9caced7.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+input/8d07cc68f0c7a5892ea85b774f614e50.in
+===========================================
+input/8d49e3fcc69b1a02d3996d9dfec6dbc4.in
+===========================================
+input/8d6f00919dab006c15e9ee6ba17f393c.in
+===========================================
+input/8df48f12a2491c3ff3a3fa488fd1903e.in
+===========================================
+input/8dfc509fa257dffe10749312447b7379.in
+===========================================
+input/8e122a2b52c4a9296a36d1f9e45a9cfd.in
+===========================================
+input/8e1a0542ff4b7b070604c2ac03484666.in
+===========================================
+input/8e40375c6fcf07e169877bbeda4716d5.in
+===========================================
+input/8e4a8afedfdf223053395a419b6b3589.in
+===========================================
+input/8e585163186c8cf4d368eccb409fe38a.in
+===========================================
+input/8f63401e013f53b8f5543c4efee2cdb5.in
+===========================================
+input/8f67da264e91c8f0f3c25ec033edeaf2.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"x\"\0\n\t\")
+input/8f9192e31a4145ee1c30728178a5cdd2.in
+===========================================
+input/8face33cdd5a58d2c44d8a904ec14b74.in
+===========================================
+input/8fc3851c237f0ccacab7316bb8afd91f.in
+===========================================
+input/8fdc186497b31ae34585044df2b7614d.in
+===========================================
+input/8fef24be0aa35e01c4502133ee17cc90.in
+===========================================
+input/900f17888b670b6894bb209aa7a32e83.in
+===========================================
+input/90354bfdd8249c99f5cf26f2ff5688cc.in
+===========================================
+input/9083425c9aead51aa41d45ad4cef11e7.in
+===========================================
+input/909c0aab39957138a7c5166e091236ce.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"x\"\0\n\t\\"")
+input/913a7bad65397d952bf54bbe90ca9121.in
+===========================================
+input/9197f40f36e115d8f2497af11cd3b2d2.in
+===========================================
+1d0
+< funkcija
+input/9213fe5a4052ef928ec1c05e15ff03b4.in
+===========================================
+input/9221e0c1b74ef1d08d2b222a4e4d479e.in
+===========================================
+input/922b93d26b906ca79b0d12cd9a8974d6.in
+===========================================
+input/929d6fbda2da504354fac2127c1f702e.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+input/92a677f2f4322e2bf577e7f2cf359463.in
+===========================================
+input/934092d62b0bf7b419fdbd8d9b95b8f9.in
+===========================================
+input/9372ed6f0d2caab501944f11f3803f8b.in
+===========================================
+input/9399142eeb05e31032ba029145c6d3a7.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+---
+> main
+input/93b432b2010e47ad2c914cd6b1bef4b9.in
+===========================================
+input/93c3b80ddbcf9dca27501ccb0b69b611.in
+===========================================
+input/93d0602703fcce99aa8638e18d204935.in
+===========================================
+input/941e1cf373a87ad7c058aaad254021cf.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <izravni_deklarator> ::= IDN(107,f2)
+input/946a7496e58f6cba276eceea035f4092.in
+===========================================
+input/94a0fca0fe82af6eea87976274d307a7.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(3,a) L_ZAGRADA(3,() <lista_parametara> D_ZAGRADA(3,)) <slozena_naredba>
+input/953ca7dbd8374f2c0618114d07474589.in
+===========================================
+input/956da136029b50f9185a539269692462.in
+===========================================
+input/9579b1d7414718036153a2a03c661912.in
+===========================================
+input/95cb9454264524436c49bbf5b16a0a83.in
+===========================================
+input/960b757deb83605e0d3bbd8d9ad3e53d.in
+===========================================
+input/964ede6d8316275d8c4d0c4108b0cc34.in
+===========================================
+input/965cac4689c1be4ed9de3d8847fe37d8.in
+===========================================
+input/966359c2eba95e4c64100cb012aa621a.in
+===========================================
+input/96a05e927b2e1317833f6500b89f7821.in
+===========================================
+input/96a8f06d5b912dac69d3c080c04ecaa5.in
+===========================================
+1d0
+< <postfiks_izraz> ::= <postfiks_izraz> L_ZAGRADA(22,() <lista_argumenata> D_ZAGRADA(22,))
+input/96b97cd31ae7dd037f63bf94a285374a.in
+===========================================
+input/96cf81211af440b651ba8e0dbeaccefb.in
+===========================================
+input/97103099b3c17085e600cf8cce8592c4.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> main
+input/975503875ec4ae507cbf1b3eb174c57a.in
+===========================================
+input/977088b5c7e20346d6e73ecf93d9252c.in
+===========================================
+input/97a6cad4c371b1b9aeb2433914960470.in
+===========================================
+input/97da0cba5a1ac0c808c2bf1c96e81d6e.in
+===========================================
+input/9843ca3c3cee5bf8b8dd5518a67929f1.in
+===========================================
+input/9852e1f0707b791923e08038b000806f.in
+===========================================
+1c1
+< main
+---
+> <primarni_izraz> ::= ZNAK(2,'\')
+input/98b3c6316085063e511d25f04277ea5a.in
+===========================================
+input/9970a65e1a24cc20e050dd920c277fca.in
+===========================================
+input/998b66d3ef857f9e6a91fa0aa37051e3.in
+===========================================
+input/999af79b33d1198650ad6c8b0bc24b6a.in
+===========================================
+input/99be9510bc3e78336267f21376ec7f0b.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= BROJ(111,2147483648)
+input/99c95d225ac72b89fc660a7a5fe37f2d.in
+===========================================
+input/99d1b987a168be222fede4843e3b3062.in
+===========================================
+input/99dc62feeedd613a92af72411db5d6dd.in
+===========================================
+input/9a3fb179c90e6c47d5bb4277d1f5d224.in
+===========================================
+input/9a6404fba1b765b299558471005896de.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"x\"\0\n\t\\"")
+input/9aff2b8cdc9aba6eeff6e2e3798d1a6e.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> main
+input/9b48f401bba6d21e73190fd44330cf8e.in
+===========================================
+input/9b6cf29008b651b04e12684ed87c929d.in
+===========================================
+input/9b8b8107a2fc0896bdde6c3d3b813eb1.in
+===========================================
+input/9bfe3d823eb2ed9c33e4c79e2bc287db.in
+===========================================
+input/9c206e7e8ddeefd5e23e577a88bca3a3.in
+===========================================
+input/9c2bb5c8577e7b0259ccda69926fa1bc.in
+===========================================
+input/9c398631ee585b40844f0cd4091a1d75.in
+===========================================
+input/9c57c325a81a74c488ee1596ebd0f1a5.in
+===========================================
+input/9ca16998e63558682cd5ddfa7f3ca99d.in
+===========================================
+input/9cc676af9126d50314602b801da659a5.in
+===========================================
+input/9ce8985c0f86e6fa740d9e314e4d2896.in
+===========================================
+input/9d2ae61a55c6e1e9ac5455db66ce1139.in
+===========================================
+input/9d2e6fea7dda9e0834027ece5124895b.in
+===========================================
+input/9d3224914ed230187a3c256c06856ac0.in
+===========================================
+input/9d632cc88d1815334df8285c4837dfcb.in
+===========================================
+input/9d9be85230dc0f53b35889732482f8ce.in
+===========================================
+input/9dc02a4f40005cd7ee7cb7233599cd34.in
+===========================================
+input/9ddb4597486f1fe6954be78e2b5e56e6.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\"\0\n\t\\"")
+input/9deab47817c5fa4a37cf7dafb14e5707.in
+===========================================
+input/9e1bdea6527ca0d6eb7aac2666d9d54b.in
+===========================================
+input/9e281040b8a3e9291621fd862437afad.in
+===========================================
+input/9e34cf9f8f78e709d501f35c41b33bae.in
+===========================================
+input/9f02c1f24f4be220405ae0be72cfd94a.in
+===========================================
+input/9f0f98793d446af15f8481352c40b475.in
+===========================================
+input/9f12baf4fa5207d0fa6fafda0bd7bd08.in
+===========================================
+input/9f3f7fe8542328e8b1fb6ea67d139aa7.in
+===========================================
+input/9f45ae05f7bca9e1aa0ccbed4c41760f.in
+===========================================
+0a1
+> <primarni_izraz> ::= NIZ_ZNAKOVA(21,"hello world!\n\")
+input/a0031b74b3ddf50983425e4a48d9f086.in
+===========================================
+1d0
+< <primarni_izraz> ::= BROJ(1,0x434)
+input/a065ed037980467e2071b7a1792bac65.in
+===========================================
+1c1
+< main
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\")
+input/a06b7951f29ff1621e27d5bab8bc8f0c.in
+===========================================
+input/a0928ac8e040e21ff4fa0cbc0b84fb00.in
+===========================================
+input/a1624551364c5f59994c56725c863a95.in
+===========================================
+input/a1750752881f057cab3d228df816db14.in
+===========================================
+input/a1994db427139baca78e82293979c442.in
+===========================================
+input/a19a61f305be89fc43a3d30b4a9035d6.in
+===========================================
+input/a245f4d2cfa89d06d89a634eca97c7ed.in
+===========================================
+input/a24953f4046e642e4a62e1faf77a4290.in
+===========================================
+input/a2879df87d10f69945da1215695317c6.in
+===========================================
+input/a2c4a910ab0c53081e6b81859c109611.in
+===========================================
+input/a30dc0d55ed37ad4f9a05160baed8a1d.in
+===========================================
+input/a36947ef167542c6a8caebe391132da0.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+input/a39f1d5e5c57d8e5e7cc95eeca5e7a8f.in
+===========================================
+input/a429515432697bd78ffba54de81cd12d.in
+===========================================
+input/a4392e6fae124af34142d9998840c9f2.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(50,break) TOCKAZAREZ(50,;)
+input/a44b261f1640c272f266ac29ecdfa27a.in
+===========================================
+input/a44becb6a93498622d758288967ff57c.in
+===========================================
+input/a460c9b3d1a440ea02544e73bd92cc08.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(40,=) <inicijalizator>
+input/a4873fc1f065a9447b83b2cdfe29f14b.in
+===========================================
+input/a4deee9ad59c9785d1c06daa468d740f.in
+===========================================
+input/a4f26e5ea68e33ce75c33876de880264.in
+===========================================
+input/a5377d3eaad1d6922f01cb5da35582a5.in
+===========================================
+input/a539479b65873065afb911ba906ebcb0.in
+===========================================
+input/a58f7a5f99225ae42eaa26ab0fac6428.in
+===========================================
+input/a5baac0f0d3ece63da828ded3ef47af4.in
+===========================================
+input/a5cef0dfb47f9f5c6b9f137906fc36c0.in
+===========================================
+input/a605b38c9977e897b054f3cc897d3fd7.in
+===========================================
+input/a6238d1fa0be429cac8c7be1d762e228.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_RETURN(49,return) <izraz> TOCKAZAREZ(49,;)
+input/a647c32c4d3973dd9b013660ceb005a2.in
+===========================================
+input/a680ef592e8fd84ec0bd501da6b84363.in
+===========================================
+input/a696fbb378d4921ce9cc560c71aa8c4d.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> funkcija
+input/a6ac3175d97d5489fefa93cef47bc038.in
+===========================================
+input/a72194b036235891b2efe94ba3f0345e.in
+===========================================
+input/a732a018c2cf77278a1a72589976e362.in
+===========================================
+input/a73e6825907f9ca6e5e04235fbbd537c.in
+===========================================
+input/a78374fa7d710afaeb03878a16199074.in
+===========================================
+input/a7a3130274adc4a5f65a26920bed67cb.in
+===========================================
+input/a809ab678e02fb08d82fed61da8cb241.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(11,p) L_ZAGRADA(11,() <lista_parametara> D_ZAGRADA(11,)) <slozena_naredba>
+---
+> funkcija
+input/a80bf95290fd9ef2f16fd4988c8f8d28.in
+===========================================
+input/a851784a9eeb1f8b0a5b9f7db91b4631.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(42,break) TOCKAZAREZ(42,;)
+input/a8b5fdf81539eeeb11e0fd8dfcadf39c.in
+===========================================
+input/a9080f27060b3ddb18256759828cc73e.in
+===========================================
+input/a94762dbaea6f9876983fb510c64d3fc.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <izravni_deklarator> ::= IDN(107,f2)
+input/a958b490ee80bb7ce04a8e5654e38961.in
+===========================================
+input/a95d446117e5fdde0455359b5bdb71c8.in
+===========================================
+input/a9833466ac6ff22f5c65a2c9d8b85dc4.in
+===========================================
+input/a9a36115f2ab2d2eb6f1e37f01711fed.in
+===========================================
+input/a9c14fb64a1ea74317a4778c460a4788.in
+===========================================
+input/aa6c661ad1d6b7604d2a59a74357189b.in
+===========================================
+input/aaf65e3abea689c2906cde813885072a.in
+===========================================
+input/aafad95f5d456a9a8c83e4271ae74988.in
+===========================================
+input/ab1f812824587ebbe0a655e97b792059.in
+===========================================
+input/ab1fe11cef89c2d4274a084ccb5b8c98.in
+===========================================
+input/ab6b5b2a770b5fa369f3411e6a005d10.in
+===========================================
+input/abae06b46321b67f10d51fc778e18a25.in
+===========================================
+input/ac2290a671efc70140201c7dc2abddb7.in
+===========================================
+input/ac88596fb9ca9af0ce995444e224e0b5.in
+===========================================
+input/ad5fd0d9c9b19f4b02938f74e0b95ebe.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+input/ad85b98d95448c831502abc900a9581e.in
+===========================================
+input/ad88390f364022fbe7fc5ff1ef4f209b.in
+===========================================
+input/ad98c7b2f8540a7bc063ad3dbe4341ed.in
+===========================================
+input/ade8057886edafb37cb33bd23ad7bcb7.in
+===========================================
+input/ae31d2559f0f343f103c6a1dd869911b.in
+===========================================
+1c1
+< main
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\")
+input/ae3413ee8159361ef06f96d98e711043.in
+===========================================
+input/ae353e793a78947febcde51dc0b1decd.in
+===========================================
+input/ae77d7b5569949cd4e18bee78a8d8e5b.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= BROJ(111,2147483648)
+input/ae9c229c1db9a1828707ef7c239f8584.in
+===========================================
+input/aef15dc3f06008623e2c30431b26c6a8.in
+===========================================
+input/af0886b0ff26621d2fa58a8508540658.in
+===========================================
+1d0
+< funkcija
+input/af25a65e27f520cecbc228e7048d2a6e.in
+===========================================
+input/af521e0efa99b8727700e026f35599a9.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+input/af7afe4de13b05d1827d14e358f17c58.in
+===========================================
+1d0
+< funkcija
+input/afb93f685d62d8af44288659a15247ff.in
+===========================================
+input/affaec37beaede45b732a85668933542.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_RETURN(49,return) <izraz> TOCKAZAREZ(49,;)
+input/b020baa244b503bb304c36b638fc3cf8.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+input/b047865a355a6b5d65876ca31c62fdd7.in
+===========================================
+input/b0a8093ab41a7acca22d3eafb17fcb3d.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(91,main2)
+input/b0d9fa9b4c7b1a2890dc84677bcbab72.in
+===========================================
+input/b142c418447fad43665cc13f99901a32.in
+===========================================
+input/b169eb15830697bbb86e4d0d01a083b2.in
+===========================================
+input/b1885c0f8f975b331992240cf78d134e.in
+===========================================
+input/b1dc238229d1eec6e5c4cae8e852ed3e.in
+===========================================
+input/b209a1db32a72b28177327c90278ce89.in
+===========================================
+input/b246545ffd67c007c940667d4b6a00f4.in
+===========================================
+input/b2cea695f087c33e6682be494179b09d.in
+===========================================
+input/b2d1ab058412d4226b3d13e11721845b.in
+===========================================
+input/b31fb0a0663893e90e9e589b95ec3ac7.in
+===========================================
+input/b323dc1863d5604e14d50699c9658ce8.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(42,break) TOCKAZAREZ(42,;)
+input/b34c8e6065420152792c763867345c52.in
+===========================================
+input/b35ee24542ed4fcbf520f4258d3a95d2.in
+===========================================
+input/b41766430a05ebf8d500088f4a7b5a9a.in
+===========================================
+input/b432fcf363e4400a37412bbb85c70747.in
+===========================================
+0a1
+> <primarni_izraz> ::= NIZ_ZNAKOVA(1,"\\"")
+input/b43772fef15889529c13fe5a187bdbd6.in
+===========================================
+input/b4448589011a5ab6b7a9d745b71433a5.in
+===========================================
+input/b47a29603bac0afa66bdb6b1013ab8ae.in
+===========================================
+0a1
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(4,=) <izraz_pridruzivanja>
+input/b48f9038b184476a4adcea4dcbb56017.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"x\"\0\n\t\\\")
+input/b4e80635975127c99513fac2f6120e63.in
+===========================================
+input/b507e94285261199545ec091631972e6.in
+===========================================
+input/b52253fe074043315168d92a04726ef0.in
+===========================================
+input/b55e5b6c1c3d7f5929810fea57b06495.in
+===========================================
+input/b57156d14b59da8fe0ceef19b4b3a2b7.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(51,break) TOCKAZAREZ(51,;)
+input/b5ce58aa4b38c141b2a5db0d8af67feb.in
+===========================================
+input/b5d480b058abb137333c8bdc39281496.in
+===========================================
+input/b5f5926f2a97c9ddd49a0573e4ae9453.in
+===========================================
+input/b71f99981913c970b6bb6bb945acaf6b.in
+===========================================
+input/b75fa6d79208999c1a76d6777cf22641.in
+===========================================
+input/b798de7414fbe80b5ac40596b54961af.in
+===========================================
+input/b81d3e7bf766016b780102d1aa92403b.in
+===========================================
+input/b8b623da98599fe808993a8876c1d033.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(3,=) <inicijalizator>
+input/b8b7c8f42afc552d101ded6b40c69bf6.in
+===========================================
+input/b8d237dfffeab6fdc70a72afa8663064.in
+===========================================
+input/b8d2e4cf85e6c29b8d2c5e4e434db973.in
+===========================================
+input/b8f918d00ab7e0228d4dc2409eeafbe6.in
+===========================================
+input/b98242ec5c36c83eed5eb61280687283.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_RETURN(63,return) <izraz> TOCKAZAREZ(63,;)
+input/b9c9d5a1b0158e34cacad8d26a21cf99.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(47,foo) L_ZAGRADA(47,() <lista_parametara> D_ZAGRADA(47,)) <slozena_naredba>
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(53,=) <inicijalizator>
+input/b9cfd83bbe7c040c5f3b7df00c1199fe.in
+===========================================
+input/b9d8816ba03b2348d0cc17bf56c22aa5.in
+===========================================
+input/b9d8e78b497ef150dc4ba3dc1225f3c1.in
+===========================================
+input/ba28578330f76225ac566051c2c04dab.in
+===========================================
+input/ba4d5b7c1767ca1b30f621526370d06a.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= BROJ(110,2147483648)
+input/ba8133bd3c10ed09edf8512fc16c29af.in
+===========================================
+input/bb19ce8990b2376555ce7a1fbc11fad8.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+input/bb2182da4d3ff7671dabeedd72450832.in
+===========================================
+input/bb3c340fc2b34f6f68151c064b712c07.in
+===========================================
+1d0
+< funkcija
+input/bb8dc9074669169abc7f2ce2ab095ca0.in
+===========================================
+input/bb9f830c2970a0e3bfa59e3db514af31.in
+===========================================
+input/bbb6289d9028f9d46eebc285ffd5b186.in
+===========================================
+input/bbd22d8ba8629a5e0e1d1e8277b169e2.in
+===========================================
+input/bbd62a562a45f85b1e5971e3c465f661.in
+===========================================
+input/bbe08ee2bf23b489932e1ad479ff4459.in
+===========================================
+input/bbe310478b185592fd67a9230ae33f3a.in
+===========================================
+1d0
+< <cast_izraz> ::= L_ZAGRADA(5,() <ime_tipa> D_ZAGRADA(5,)) <cast_izraz>
+input/bbe7abc5c833fa5ffa474d2cbe475271.in
+===========================================
+input/bbfa3b1dc17838ffe0e1aa5d28309133.in
+===========================================
+input/bc0434ce2d761a3e0be0e1779de0bd83.in
+===========================================
+input/bc5f4f0fde3203abc9a9bf49701c0a2e.in
+===========================================
+input/bd0869d36d07d77a990a4a5d3d5784e2.in
+===========================================
+input/bd188516b2fb648a06361067352ab051.in
+===========================================
+input/bd1ab2d252bed1226d3ac625eaa620c3.in
+===========================================
+input/be32d2e56d9ad3e272c2571e45e25c3c.in
+===========================================
+input/be3f893e87678a00e8516d156b2c5797.in
+===========================================
+input/bebc1a2068b7017c78567996b41a1ec1.in
+===========================================
+input/bebdb60e732e977cebde04c004157820.in
+===========================================
+input/bee3990d8d9decacc7c30a8977b85d9d.in
+===========================================
+input/bee410142c9b30aa2d4a7510f3f054f3.in
+===========================================
+input/bf090447465f1220114babea3d8a8127.in
+===========================================
+input/bf277268306348dd44764fc70b853f8a.in
+===========================================
+input/bf453986a58cb07fad3175a630d3db59.in
+===========================================
+input/bf565bd9bf196bd8fbf8a49d2cead5d5.in
+===========================================
+input/bf7ac7698dd13587c48761298322471e.in
+===========================================
+input/bf9a7ecbe35f69a9747b8dd37a0139c7.in
+===========================================
+input/bf9b098970ce00da03a9a1c4911eea45.in
+===========================================
+input/bfd32336d806f78e05d9175258a40236.in
+===========================================
+input/bfe8e0c0e2ec01e832e96c94aaf54205.in
+===========================================
+input/c01698940a4a3a50ab393e5ee1abf5a3.in
+===========================================
+input/c0474914513711189795068dc2d0a60a.in
+===========================================
+input/c05649a93b415aa369e9857c8caecb84.in
+===========================================
+input/c0648b14ab121161137099db13bb2f4f.in
+===========================================
+input/c0dfc7d435b0eee49ca498d6c35077a3.in
+===========================================
+input/c11d7b942a33fac3835c6cb0b420bf30.in
+===========================================
+input/c14ce8fe42c25fa2b13c72ea181ec04a.in
+===========================================
+input/c16d8918f571176c7cbbb7c43d6dbd03.in
+===========================================
+input/c1a53e4e7df4008dfdd2a942a4c71a32.in
+===========================================
+input/c1ac1819cad274fc68c913203a55f584.in
+===========================================
+input/c209b7e7038c352ce51d17859b9a5c91.in
+===========================================
+input/c25c3376f36a6fd3724728678f9d2101.in
+===========================================
+input/c268e83b3db77bb3b6efce03d4fcf482.in
+===========================================
+input/c271b7477c65c22fb35734339c2ef5d9.in
+===========================================
+input/c281c75356593ddae751f8c91ee0c2b2.in
+===========================================
+input/c294e7383d5bd585df3b1dbb8caf4400.in
+===========================================
+0a1
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(9,=) <izraz_pridruzivanja>
+input/c2c3b009fa58c879b80891b694dd9030.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(48,break) TOCKAZAREZ(48,;)
+input/c2ce69fffe1f8631372e46169d06ef0b.in
+===========================================
+input/c2f619d7556f317913f11a0088646f62.in
+===========================================
+input/c30f00ab3fe1ca9eda9345986677f4fa.in
+===========================================
+input/c333ab5bc4504714208b09c1ab7aa713.in
+===========================================
+input/c3687119291787b0ca6f7141fd53fc14.in
+===========================================
+input/c36cc4aa8ee12b68b3c13d460e011d0c.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> funkcija
+input/c37ff86fa0541a61a8ad9330fb3fcedc.in
+===========================================
+input/c3916609a2663d566c9a98b9b45e08ad.in
+===========================================
+1d0
+< funkcija
+input/c3aa56ff1e5156a6e1390b5d9f58173f.in
+===========================================
+input/c3c3ff3307f9fd2defe0292b9f7d6067.in
+===========================================
+input/c3d1447e7e17544299003d9382fde57a.in
+===========================================
+input/c402ab77c299294b3fb4cadaa3fc6732.in
+===========================================
+input/c4458bd75fe65e025c32690f24559680.in
+===========================================
+input/c463b534c2af1015679a778648e4ca47.in
+===========================================
+input/c4efa7d250aed09be8458b6807b3ee45.in
+===========================================
+input/c4fd0516ba042008f7e6e9a92a29d95a.in
+===========================================
+input/c519d53c3c95541af8257043525e49f4.in
+===========================================
+input/c5c871a20900c23b246f3e40ac88cae8.in
+===========================================
+input/c5d79f295d5f5dd66f97b24c8de895f2.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(9,a) L_ZAGRADA(9,() <lista_parametara> D_ZAGRADA(9,)) <slozena_naredba>
+---
+> funkcija
+input/c620abb44ecb1f190dd2671d66b30dc2.in
+===========================================
+input/c6345458392c262a76b7e78cf8bac1fd.in
+===========================================
+input/c64d1705720a06ea2fb142d1a3de8c67.in
+===========================================
+input/c65d6b31991db1410be56661ebd47ba9.in
+===========================================
+input/c6643834f8a9ff68014d1b5bacae56b1.in
+===========================================
+input/c66f92cba90ed7327a59f28e052b911f.in
+===========================================
+input/c683260b3d2d39e49c6e16252460007b.in
+===========================================
+input/c6988ba7fb4762bee6ea5d044fb1d84c.in
+===========================================
+input/c69902db1082fcad3dae65a6e547bbc4.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> funkcija
+input/c72b6db1537a05ec3753a3d880b961a2.in
+===========================================
+input/c7607c1939bcb556e2784b4fda2a718b.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+input/c76cc35387d704c4a25f105dd3db5564.in
+===========================================
+input/c7762e071292b60092fd6551fbc1bc8a.in
+===========================================
+input/c79cb2e7ba24278fc506b0831b27de91.in
+===========================================
+input/c7e384a81314d32165e1848ebebd7427.in
+===========================================
+input/c7e44808139a390fb4dc079b0e1bffe0.in
+===========================================
+input/c8b7b55951e65c049ef29444616bbf8e.in
+===========================================
+input/c8d574bf5b5f273ac8ef196f29bb9f02.in
+===========================================
+input/c8f058afb99718544d832aa91eb88003.in
+===========================================
+input/c97cea898daab5efb85de905192ada0c.in
+===========================================
+input/c9a3b614fc75b2d25421d448a4230dd8.in
+===========================================
+input/c9b0e780843f5a23874350fbe603e2fa.in
+===========================================
+input/c9e7485fc3428ff30d4a755acde7a78c.in
+===========================================
+input/c9e90e64b3a4835778836c5af8345cd3.in
+===========================================
+input/ca4536cf64bdb94e48e5c2da32f90cbb.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\"\0\n\t\\"")
+input/ca8ee2ec1e37f8b7d8240f2fed68afae.in
+===========================================
+input/ca90eb5f945041323cf93ae5d5708e1f.in
+===========================================
+input/cac92b399f170e430b8754efc9ec023f.in
+===========================================
+input/cb47aeae6234a0ac62a2791968223449.in
+===========================================
+input/cb89d8e7abc5b1ed94d51cf447532c64.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(24,=) <inicijalizator>
+input/cc09f45ea59e2a82e6a8a5acf97a3f5d.in
+===========================================
+input/cc19111cf44845e4dfc2d910d72875cf.in
+===========================================
+input/cc3dd5312edce7bd14baae2a199e47a2.in
+===========================================
+input/cccbf6a443afffd9dd8c86cb995952e0.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(47,foo) L_ZAGRADA(47,() <lista_parametara> D_ZAGRADA(47,)) <slozena_naredba>
+---
+> <izravni_deklarator> ::= IDN(120,f2)
+input/cccf957f27772d781ace6bc6a2d390c0.in
+===========================================
+input/ccde87efd0cfa8a20ff239ac0a8c9c40.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"x\"\0\n\t\\"")
+input/cce5bdf98082a0f485c9ec82001148de.in
+===========================================
+input/cd059cedaedb3e0c4febf09592fbc1a6.in
+===========================================
+input/cd2ff3dcba4b74819ee77a6b92c22a2d.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+input/cd33689fb29939466feca96e1edbf11a.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_RETURN(49,return) <izraz> TOCKAZAREZ(49,;)
+input/cdfdfcc416f0e115410388a6c4b3ff8f.in
+===========================================
+input/ce1747b662ed48d8f3b37b05b6ef41f7.in
+===========================================
+input/ce346f8749d2cd3f1afb32fda8f5e32d.in
+===========================================
+input/ce747e446823c8a4280f6abbec3fdacf.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+---
+> main
+input/ce9e3a3da2d1ebd46eba8637bd55ad95.in
+===========================================
+input/cef716214a56a54a304ff79ad63ecaae.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_RETURN(48,return) <izraz> TOCKAZAREZ(48,;)
+input/cf05a2730a371277084aa058c03c0523.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(49,break) TOCKAZAREZ(49,;)
+input/cf4008017edadfc0ce6cb160bad7ec7d.in
+===========================================
+input/cf472eadfd5f36956da65a3a8d445356.in
+===========================================
+1d0
+< funkcija
+input/cf4e3e2f53e511f95d0a3c72ff875c56.in
+===========================================
+input/cf520ac565f6d5d8f7d1db9f9a2fe94a.in
+===========================================
+input/cf71c4e5bca199b51c6304a487f43895.in
+===========================================
+input/cf854d5781f2d21ae3ec748f8482b5ae.in
+===========================================
+input/cfda1bd6b919749abe1fc285c0c8ce7c.in
+===========================================
+input/d0149c3bf344ab1101976960ea2905cf.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+input/d02d72a39db33741611827bcaf0c2596.in
+===========================================
+1c1
+< <aditivni_izraz> ::= <aditivni_izraz> PLUS(5,+) <multiplikativni_izraz>
+---
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(5,=) <izraz_pridruzivanja>
+input/d050e2487be2d5c9dba1c3f03af69300.in
+===========================================
+input/d066cf6f867d618242ee081c13f62202.in
+===========================================
+input/d07dfa076d4b4ca2543b5b5f7c25824c.in
+===========================================
+input/d088aefe0d48d54453a38d700fb25739.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(51,break) TOCKAZAREZ(51,;)
+input/d09b9a22c5d15168b309d8e2d48a8043.in
+===========================================
+input/d0b11f4a707f6afab09c2c4732d50794.in
+===========================================
+input/d0c4abf43d9ab6fd3c541b2cb116de70.in
+===========================================
+input/d107f85a92df4ec6b75aff3b187831e3.in
+===========================================
+input/d12640e5f104c7140e4cd3ac2a9c41f4.in
+===========================================
+input/d154cf8b3be79c192e10d16abb1381dd.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+input/d18bfdf5886c9b86f787e4094eaa2f73.in
+===========================================
+input/d1e6dacaca9c83667068437b62fe2072.in
+===========================================
+input/d2301e8ca6032e1d94938f85a07a6225.in
+===========================================
+1d0
+< funkcija
+input/d23bd6427ddb43e0d3e284e157a8ff9c.in
+===========================================
+input/d25018cf6ae1c90ab19727a0b6ad69e1.in
+===========================================
+input/d25703cf829a175dc9bcd63ef69fb009.in
+===========================================
+input/d2684b8b85fe1812ef4c5ddf8add336b.in
+===========================================
+input/d34c65ab05fa9e66429ebf35fefacfcf.in
+===========================================
+input/d45e8e546507e04e602d2ce0f6802478.in
+===========================================
+input/d4a4cc0de18d7691d888934c5235f61b.in
+===========================================
+input/d51998edcbc1eaa2c2ec4cfdd015af11.in
+===========================================
+input/d566cc2dca82c47092610ff8dfc3d5c7.in
+===========================================
+input/d5743092aa4fd5be302ac8ba59808ed1.in
+===========================================
+input/d59f3a0645e673d3d7e382c5d810b13c.in
+===========================================
+input/d5d4cfbfbc419824c5645e1089c632a9.in
+===========================================
+input/d5f51d6c5cdc4dd0e3689e241895d419.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(91,main2)
+input/d5fb1fa12c72fc2b776a6f57db9530e6.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= BROJ(103,2147483648)
+input/d61bdbd48f40a313f4fd85ab0a6941c5.in
+===========================================
+input/d63b2f87afcd98c4d20da4a41c10de7b.in
+===========================================
+input/d66239b6dc60124222b8ddf1ec9d7b96.in
+===========================================
+input/d69ccb5155085a3db69552f6a32ed136.in
+===========================================
+input/d705fff0bd38b77871a5c4beadf312a1.in
+===========================================
+input/d7492e0f059f3f9540107b1dbcd0ef7e.in
+===========================================
+input/d768ab4b87a7a9cbc29c822d372062fc.in
+===========================================
+input/d7c20f2f20236e549e6afd515bf732b7.in
+===========================================
+input/d81326798f81d7f388f18f791e06a2e4.in
+===========================================
+input/d8152faaad3804550ea13ff7fd134624.in
+===========================================
+input/d83da5db0842af7c2bb706814b420214.in
+===========================================
+input/d844e53cac800976bf425ec5a137afaf.in
+===========================================
+input/d874bb285ec3c9f9f87e3ff12a81f935.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> <primarni_izraz> ::= NIZ_ZNAKOVA(2,"\"\0\n\t\\"")
+input/d876ded6f576d69d3acd837584f1cdae.in
+===========================================
+input/d8c97626e6911952b5e221c8639b4c28.in
+===========================================
+input/d8d7bd1643efa738f9c2149347c8cfaf.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(75,i)
+input/d8f428b2e9f7f8ddceb42a5858a88471.in
+===========================================
+input/d909b0a904d5ce02f7b2cec106e097ef.in
+===========================================
+input/d90a581dfe9b466e5bd448faeaecc5c6.in
+===========================================
+input/d9256d70108e0bebda93448d73ae43eb.in
+===========================================
+input/d95f97afd85c9e0fb0292e20714d3c00.in
+===========================================
+input/d97754422eaac44c5bad4c99fda9ab47.in
+===========================================
+input/d992b747f1d28d88c8b180daebd35eb4.in
+===========================================
+input/d9cdb540d374e0581528659cd98c516c.in
+===========================================
+input/d9db4e8763c783e124641b37393a5fc0.in
+===========================================
+input/da20ab4a9539e702d8b86acf218c84c6.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+input/da35f4eae40324a35d4be877c7b3f48e.in
+===========================================
+input/da8446fb9e8f03d035c8d3a512422a75.in
+===========================================
+input/da899a9927184bbbeed1e87431d2c7b1.in
+===========================================
+input/daddf590ede536be732df807c281dda3.in
+===========================================
+input/dae3a80780fb21cf169b511c1dedad85.in
+===========================================
+input/db0aed7d628dfa7f572171ab1d42ffe3.in
+===========================================
+input/db13b5e2089cadebdb9887066ef8d6e4.in
+===========================================
+input/db1d00816d5b80e703e03c2cb1ce228f.in
+===========================================
+input/db6f62039d3ff249e2aba73588a538dc.in
+===========================================
+input/db8e520b3c9aa60af4439cdbf4d81212.in
+===========================================
+input/dba203d85fc24cecae9665d356fede39.in
+===========================================
+input/dba73f337af3ba79f0750242929225ca.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(47,foo) L_ZAGRADA(47,() <lista_parametara> D_ZAGRADA(47,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= BROJ(124,2147483648)
+input/dbc69f8377fabad9b34174c060258c0e.in
+===========================================
+input/dbf457092c3ae71ab902c89304c793ac.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(50,foo) L_ZAGRADA(50,() <lista_parametara> D_ZAGRADA(50,)) <slozena_naredba>
+input/dbfab680fe5dfec2bb03c4d5e329a20c.in
+===========================================
+input/dc2245d0faf43a37df85998aef6b9f08.in
+===========================================
+input/dc236974f3954c7a08f76832a6065730.in
+===========================================
+input/dc2fdb09dc421f272b711cd9f8bf1386.in
+===========================================
+input/dc99fdb8b771e4edf1b966ba5e26e82c.in
+===========================================
+input/dc9fd33116b2cdf1b48b1b52e7d9753f.in
+===========================================
+input/dccb2c410b8518996f887b8e662cadc8.in
+===========================================
+input/dcfafe8d5c5cc18a55ac62fbc66a446a.in
+===========================================
+input/dd2f8f0b68b2c79f1fcc5958ae867879.in
+===========================================
+input/dd59fc00b53a4bc9d993f6f52216bd9c.in
+===========================================
+input/dd5d3fd5315d14ea631b65865fed4276.in
+===========================================
+input/dd81b442ef44e96b899dd1fd585766bc.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(48,break) TOCKAZAREZ(48,;)
+input/ddb0b00dfbfc77efb7d13ff84a184d0b.in
+===========================================
+input/dde8f4ba1c5317cc8264aa1a29f5b263.in
+===========================================
+input/de435aa50e7101974138bd3ed0dd1cdb.in
+===========================================
+input/df99bbaf9af331e7c01e46749f3ea486.in
+===========================================
+input/dfa0a77a9c7ea1f9a5df32f6613bd9f4.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(7,=) <inicijalizator>
+input/e008167c32e85cf051d2c2343cb0beb8.in
+===========================================
+input/e02181d895cc76eac5b97bd52423a7c9.in
+===========================================
+input/e0497862fa60438bc3a0c776e8bd4810.in
+===========================================
+input/e077c8caaa06fe36262375446c70454d.in
+===========================================
+input/e0a4c5d0eb547166a8ed64f5d474e56f.in
+===========================================
+0a1
+> <primarni_izraz> ::= NIZ_ZNAKOVA(18,"\")
+input/e0f68abeb3b78258f731f98e56ca2138.in
+===========================================
+input/e1142202912f9b6895f14f64e5eaeb74.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(4,=) <inicijalizator>
+input/e170726d35111c7ad2d7be5c76e1663e.in
+===========================================
+0a1
+> <primarni_izraz> ::= ZNAK(19,'\p')
+input/e1a5a2172c05d03a04562ed5b9bb2ebf.in
+===========================================
+input/e219559a12d7fe32a14cd953ff2205a1.in
+===========================================
+input/e22a86353b2f09ddc0c65df46072689d.in
+===========================================
+1d0
+< funkcija
+input/e271caa421dd8461e31e5e4d3c75a6c3.in
+===========================================
+input/e295a862e5981fe50c152df55cf7615b.in
+===========================================
+input/e2b80bd8888eceee8c21f0d431da7468.in
+===========================================
+input/e3b89dafe7dea1ef1bff13f68d7d58b5.in
+===========================================
+input/e3c91320ebc59e201b8394246f53122a.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> <definicija_funkcije> ::= <ime_tipa> IDN(101,f2) L_ZAGRADA(101,() <lista_parametara> D_ZAGRADA(101,)) <slozena_naredba>
+input/e3e6facfc3bc8dc31b67b5d986bb1c04.in
+===========================================
+input/e46e7cd1fcb7954fd8864734f79536ed.in
+===========================================
+input/e4771e6f69bba85e8b9e52e83172ecea.in
+===========================================
+input/e4854f9a38ca9310f4dea899f20cd1f3.in
+===========================================
+input/e49876ac5287845b0e90e532ad2804f0.in
+===========================================
+0a1
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(17,=) <inicijalizator>
+input/e53c08822c9343670bd3075693b37af5.in
+===========================================
+input/e5610ef1b3ce6c5bc495f6df36ed01e8.in
+===========================================
+input/e5879b542a59d4f4c0d6d133635900ac.in
+===========================================
+input/e592ba627de80627fb1989aa7612446d.in
+===========================================
+0a1
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(23,=) <izraz_pridruzivanja>
+input/e5b61101a62e7abadbcab0d4b86a3f4c.in
+===========================================
+input/e5c5aafb3dbec62102e67def68403245.in
+===========================================
+input/e5f26bb1358664a842609a4efdbe7ea4.in
+===========================================
+input/e6084d12c6215c32edf2dc5fd4740670.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> funkcija
+input/e6445063c1309cfffadf642a607a4ddc.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+---
+> funkcija
+input/e65eb951a0824554ee8d1ffc55c73692.in
+===========================================
+input/e66939ad8615d07408f7637dc2e36ff2.in
+===========================================
+input/e6699ea8472cce25127fbcd3c7c3d6d1.in
+===========================================
+1c1
+< main
+---
+> <definicija_funkcije> ::= <ime_tipa> IDN(4,x) L_ZAGRADA(4,() KR_VOID(4,void) D_ZAGRADA(4,)) <slozena_naredba>
+input/e698b3ec7d7dcd1528916ba749c89084.in
+===========================================
+input/e6bc5b2d27b8711d189442a449ba7de5.in
+===========================================
+1c1
+< main
+---
+> <primarni_izraz> ::= ZNAK(1,'\x')
+input/e6f15b51f0bbe71ebd8fac38afbbfe6f.in
+===========================================
+input/e7104ce83902a64a9c9d8a2886d046c1.in
+===========================================
+input/e7497e7ef68a57fdc886c30a0a333f9e.in
+===========================================
+1c1
+< <cast_izraz> ::= L_ZAGRADA(6,() <ime_tipa> D_ZAGRADA(6,)) <cast_izraz>
+---
+> main
+input/e76311ea10865f2f754c612268393e92.in
+===========================================
+input/e7e273240004107b6e0ccd6ec40e9154.in
+===========================================
+input/e802aad55af9e7b4565db819ee97bfd1.in
+===========================================
+input/e884c6b10f4c3f95b3e55e1a0d4a0ce3.in
+===========================================
+1d0
+< funkcija
+input/e911a4b4c8e72b727af209b5f5580ed3.in
+===========================================
+input/ea2202cd74d58c2738166a9a72c07188.in
+===========================================
+input/ea5ab039d547e9ed9b41237eef92139e.in
+===========================================
+input/ea5bc2b4b88eacee448583a48e4f1762.in
+===========================================
+input/eb261e1567148686d6dd20a0739a1fc5.in
+===========================================
+input/eb41154753f9554bc8faeb6c1454db57.in
+===========================================
+input/eb5fd233951658fb4f57e93ced02a766.in
+===========================================
+input/eb74e1fb194d9037b3ffb8aa87b198ea.in
+===========================================
+input/eb9274af69db310af872de9d6000452d.in
+===========================================
+input/ebf8c61e5108c531fd38301d8254f8d3.in
+===========================================
+input/ecf015516dcde72c69a7f0f3fdc03856.in
+===========================================
+input/ed3442531778b9833f5c242752be4bde.in
+===========================================
+input/ed68fbdbf506412593d24245f2c33ae8.in
+===========================================
+input/edabb4e1a1863833184025a3a19b90df.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_RETURN(59,return) <izraz> TOCKAZAREZ(59,;)
+input/edc70198b23c9ef3efdf6c8c114d2b62.in
+===========================================
+input/edf3cb2a0cbaa2f173be006a46912ef6.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(40,=) <inicijalizator>
+input/ee015286edbc66330706692e60abbc5c.in
+===========================================
+input/ee5a75749915362265de0317782f7b4f.in
+===========================================
+input/eea1dffc70faaa2beb74bb62194bfcc9.in
+===========================================
+input/eee97e9d7c7ec0f5f035bfab3d31a27e.in
+===========================================
+input/ef09b487c2e69e0dba8e6bff2f714ece.in
+===========================================
+input/efb49c0dea7b50d39e23236720df8ad9.in
+===========================================
+input/eff5cf599243960efb04ac0fa8126368.in
+===========================================
+input/f03744e1061099eaee22748890706a2e.in
+===========================================
+input/f0451dc6f3576c8498b729ab09580c45.in
+===========================================
+input/f04a904dfef518465c530693bb68e382.in
+===========================================
+input/f05385cd0968b9c3ed5e5c318c349482.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(83,main2)
+input/f085d4bad426959a19220238a0261953.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(35,foo) L_ZAGRADA(35,() <lista_parametara> D_ZAGRADA(35,)) <slozena_naredba>
+input/f09b3dbf31c9b462b0cff4ce70b1e9f3.in
+===========================================
+input/f0a7f5ff22d892e820119ac886a282b0.in
+===========================================
+1d0
+< funkcija
+input/f0d0b2852ebb0188e50b0cefe1b02e39.in
+===========================================
+input/f0f3c547fd4f5e3ca11b35591042088c.in
+===========================================
+input/f112d13a56849e3da737e8d3200456bc.in
+===========================================
+input/f13b732ed4cf6b91ea622dad73869909.in
+===========================================
+input/f1811052de337056b74ded4d8296fcd7.in
+===========================================
+input/f1bbf90380a4293f763c84288730cbf2.in
+===========================================
+input/f218848ff4d02e27a20f59a7d724883f.in
+===========================================
+1d0
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+input/f27795a167c668572abf98ac93cb8cc2.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(9,b) L_ZAGRADA(9,() <lista_parametara> D_ZAGRADA(9,)) <slozena_naredba>
+---
+> funkcija
+input/f2ab342092285d644d895018e33fa21b.in
+===========================================
+input/f3041e93f719e5913cf90382e28974e8.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= IDN(69,i)
+input/f32c02916ed0d43ea64d99e8cb50a4ae.in
+===========================================
+input/f38226c1c9532015d49199d0d7b29bb4.in
+===========================================
+input/f4203ac70bd7425b078ece762211fc2a.in
+===========================================
+input/f4389c8c8454aef7e71d9b722a77129f.in
+===========================================
+input/f4b29b412ff72e4dd5c2a84e91bba88b.in
+===========================================
+input/f4c9df37bf078245d112697bb843df40.in
+===========================================
+input/f52f9da0adb30ea7057094c03007bf7d.in
+===========================================
+input/f57a298c8885a6dee7cbddca79bfb74e.in
+===========================================
+input/f586e7fab53d7f860bf83ee98e24dca8.in
+===========================================
+input/f587ed43382bf862343929f1e08b97f8.in
+===========================================
+input/f5889ce28ddf2d201e48216c7258602a.in
+===========================================
+input/f58e7c3e3aa15d869a2bd4f49f5b1b90.in
+===========================================
+input/f5aa68d865e3a7d0dc9463aa6c150808.in
+===========================================
+input/f5bc130b9fb7003dfbedc7eeb84b3123.in
+===========================================
+input/f5ddd65f83358ca29b706a6edc4016d4.in
+===========================================
+input/f5e0c012fd30c7c5261920fda1370360.in
+===========================================
+input/f5ef3207698f3129f4c1250c75732c45.in
+===========================================
+input/f60024cb87660fadd938f2a87d7b25ac.in
+===========================================
+0a1
+> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(12,=) <izraz_pridruzivanja>
+input/f62a7fc760b6fc24ce3b6149b882ec8b.in
+===========================================
+input/f62d802ba1bd4078352bef4f12752263.in
+===========================================
+input/f656fd9687760cc4c196cb39dcd10428.in
+===========================================
+input/f665c6adbc381f048a7e23704a86f107.in
+===========================================
+input/f66d61dd58ad478e5597674b3a73db64.in
+===========================================
+input/f677b52e82a4d5bf4cc0350e6fc4af4e.in
+===========================================
+input/f6925f17037d59c836704637bbc7a553.in
+===========================================
+input/f6eb2335ecddb4b03d4778f912c0f295.in
+===========================================
+input/f758859644f5226ee03b6039fdb99865.in
+===========================================
+input/f7761c5fffff65431a326f5b6e7cba89.in
+===========================================
+input/f77dc27e94f6e2df9e9f00dd6995da64.in
+===========================================
+input/f785703d4b9819affadc9e6171280d3f.in
+===========================================
+input/f79fa39a15831fdc5128cb53b2fd331b.in
+===========================================
+input/f7a72db13e9e418cf3a768fad77c6b26.in
+===========================================
+input/f7aee28ef62bd7c6882b0e2e30348af0.in
+===========================================
+input/f7b84fced168478936fb7ad238aed3c5.in
+===========================================
+input/f7f2e1b67648da20cabedf6b5f882adf.in
+===========================================
+input/f85ed188c6fd7eb71059f82c4866b158.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+input/f8db783b13f856951aecc873929a1751.in
+===========================================
+input/f8fbbe7cefe3d9546c859644db3c9bd3.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_RETURN(48,return) <izraz> TOCKAZAREZ(48,;)
+input/f904f836f690d22f3ff61a36265db710.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> main
+input/f9108cf5f92b3a1a8a0e7d60cacaf5dc.in
+===========================================
+input/f93d867124aa4dac496c7c2efe733360.in
+===========================================
+input/f963f7136aefde06cc251b1469503217.in
+===========================================
+input/f98524b58702e1a4e13d1a99bd064435.in
+===========================================
+input/f98ef18aa3c0d437df3c380976da8b0e.in
+===========================================
+input/f9dfaa0419c94620ec466e4ce040462e.in
+===========================================
+input/f9e7e071752924192523a9f23994adf0.in
+===========================================
+input/fa25b4064439bdf4662b52719a347ff5.in
+===========================================
+input/fa74d8409480224b77e17a912bcaf799.in
+===========================================
+1c1
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(2,=) <inicijalizator>
+---
+> main
+input/fa75bccc4a373a6aaae81c23dceed9da.in
+===========================================
+input/fa7693340b2e0eac85fd9845d9cfcd46.in
+===========================================
+input/fa891670a305c8bbda9b28c2a7a396bd.in
+===========================================
+input/fa9f5349b2f04f10031f2979e4c013f0.in
+===========================================
+input/fb2c35935357b8381a81160e78dbc52d.in
+===========================================
+input/fb329ffb6ec6a28e55854b72b1f043c2.in
+===========================================
+1d0
+< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(1,=) <inicijalizator>
+input/fb340afada3c1059cb5c986dd6f5ff2b.in
+===========================================
+input/fb75046c9feabc2a775208b1076fdae1.in
+===========================================
+input/fd44f0bef82707f88d172f345d0ff9d0.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> funkcija
+input/fd5c759a06b3fa7fe7fd4b8b82f9704c.in
+===========================================
+input/fddcd6c742fb5ec26f4060fafecef38b.in
+===========================================
+input/fde440a56c013ff0f9859b58d60ab083.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(34,foo) L_ZAGRADA(34,() <lista_parametara> D_ZAGRADA(34,)) <slozena_naredba>
+---
+> <primarni_izraz> ::= BROJ(111,2147483648)
+input/fe46bc09a65fc4b4a85da141e58f708e.in
+===========================================
+input/fef5d2123341a35199b24ddf3391afd5.in
+===========================================
+input/ff64e19ce3ac6c567a30f7c9f5719230.in
+===========================================
+input/ffbcb38a64d67621754944865e215b49.in
+===========================================
+1c1
+< <definicija_funkcije> ::= <ime_tipa> IDN(32,foo) L_ZAGRADA(32,() <lista_parametara> D_ZAGRADA(32,)) <slozena_naredba>
+---
+> <naredba_skoka> ::= KR_BREAK(42,break) TOCKAZAREZ(42,;)
+input/ffbf68bc37a9d44f7de3ae36b338098e.in
+===========================================
+input/ffc5bcf432fca69c46046d1b23e8bf24.in
+===========================================
+input/ffc88ac501c6d9e79529365db924ba6f.in
+===========================================
+input/fffacf952cb161edb7a78963ceced563.in
+===========================================

@@ -12,7 +12,7 @@ public class FunctionMemory extends VariableMemory<Function> {
 				if (current.get(name).getTipFunkcije()
 						.equals(function.getTipFunkcije())) {
 					if (function.getImplementirana() == true) {
-						current.hm.replace(name, function);
+						current.hm.put(name, function);
 					}
 					return true;
 				} else {
