@@ -65,10 +65,6 @@ input/05ee99094d0af5a62f039d01cd53f8b9.in
 ===========================================
 input/0637c0224fec4b5fcf1f65c965789fef.in
 ===========================================
-1c1
-< <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(6,=) <izraz_pridruzivanja>
----
-> main
 input/063cf883a7fb06c04403a6f0bcadbbc2.in
 ===========================================
 input/0660e32e20a8581d41bf8ec6d72f38c2.in
@@ -77,8 +73,6 @@ input/06ccbe4b7c2f49e79805237fcf338756.in
 ===========================================
 input/06fa11ad52e26bfd18c47d585d4d262c.in
 ===========================================
-1d0
-< <aditivni_izraz> ::= <aditivni_izraz> PLUS(12,+) <multiplikativni_izraz>
 input/077126758a8f4474e4348eaa49c9fb8a.in
 ===========================================
 input/0786220c9819419c42dc90de4a932f48.in
@@ -765,10 +759,6 @@ input/3f72967136d6189c194a40b95e712a9f.in
 ===========================================
 input/3f935e7cf122536279f61d60043f8782.in
 ===========================================
-1c1
-< <aditivni_izraz> ::= <aditivni_izraz> PLUS(15,+) <multiplikativni_izraz>
----
-> <primarni_izraz> ::= IDN(20,s)
 input/4002a780093cf551152138538393ac75.in
 ===========================================
 input/40234f970f99d55366dbe5cd2811c98c.in
@@ -833,10 +823,6 @@ input/4377a6445ce53eb901582723d9b43d9d.in
 > <primarni_izraz> ::= NIZ_ZNAKOVA(18,"abc\")
 input/4383250e3028c96cde8de6ef2537d48e.in
 ===========================================
-1c1
-< <aditivni_izraz> ::= <aditivni_izraz> PLUS(13,+) <multiplikativni_izraz>
----
-> <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(16,=) <izraz_pridruzivanja>
 input/438bd4ab91730841d8d74e621907cee3.in
 ===========================================
 1d0
@@ -869,8 +855,6 @@ input/46736ccaeabb77f28d8f979165aa8067.in
 > main
 input/467c7107bfdfb531035369bfe6f8af3b.in
 ===========================================
-1d0
-< <init_deklarator> ::= <izravni_deklarator> OP_PRIDRUZI(9,=) <inicijalizator>
 input/46851eb1b42056f413dc005e60bdb124.in
 ===========================================
 1c1
@@ -905,8 +889,6 @@ input/48fc5561bd78524388bd0248b4da0362.in
 ===========================================
 input/48fdb19eab6bb905edf72d5f1a62e47b.in
 ===========================================
-1d0
-< <aditivni_izraz> ::= <aditivni_izraz> PLUS(17,+) <multiplikativni_izraz>
 input/4912c571c9c0d00905911d96d9b4ac50.in
 ===========================================
 input/49c89e642a114f3ef534dacb8405d5f6.in
@@ -1007,10 +989,6 @@ input/51471702f1049d92eb365b278bbced0d.in
 ===========================================
 input/5171e8c4fb4bb44fcf3bda9cc8044b98.in
 ===========================================
-1c1
-< <izraz_pridruzivanja> ::= <postfiks_izraz> OP_PRIDRUZI(7,=) <izraz_pridruzivanja>
----
-> main
 input/5176fb2d204e94c506bef81b8d400e22.in
 ===========================================
 input/51866edb591c097e91150b12a94db68a.in
@@ -1605,8 +1583,6 @@ input/801812c0e152108a38c0a527694de47b.in
 ===========================================
 input/8083ac03c4e4b6da57573a88d39ed2a1.in
 ===========================================
-1d0
-< <aditivni_izraz> ::= <aditivni_izraz> PLUS(17,+) <multiplikativni_izraz>
 input/80ffe108caedb4fe968ead24a534d4ed.in
 ===========================================
 input/81493da0f3af485d9c736a88fc7806d0.in
@@ -1865,8 +1841,6 @@ input/96a05e927b2e1317833f6500b89f7821.in
 ===========================================
 input/96a8f06d5b912dac69d3c080c04ecaa5.in
 ===========================================
-1d0
-< <postfiks_izraz> ::= <postfiks_izraz> L_ZAGRADA(22,() <lista_argumenata> D_ZAGRADA(22,))
 input/96b97cd31ae7dd037f63bf94a285374a.in
 ===========================================
 input/96cf81211af440b651ba8e0dbeaccefb.in
