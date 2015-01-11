@@ -27,7 +27,7 @@ public class FunctionMemory extends VariableMemory<Function> {
 	}
 	
 	public void goUp() {
-		SemantickiAnalizator.ArhivaFunkcija.addAll(this.current.hm.values());
+		GeneratorKoda.ArhivaFunkcija.addAll(this.current.hm.values());
 		this.current = this.current.previous;
 	}
 

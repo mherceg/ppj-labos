@@ -10,6 +10,8 @@ public class GeneratorKoda {
 	int Snjeguljica;
 	char Patuljak;
 	
+	public static StringBuilder sb = new StringBuilder();
+	
 	public static List<Function> ArhivaFunkcija;
 
 	public static void main(String[] args) throws IOException {
