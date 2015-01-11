@@ -82,5 +82,12 @@ public class GeneratorKoda {
 		
 		
 	}
+	
+	public static void append(String smth){
+		sb.append("    " + smth);
+	}
+	public static void append(String label, String smth){
+		sb.append(label + " " + smth);
+	}
 
 }
