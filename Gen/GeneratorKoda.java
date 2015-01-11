@@ -21,6 +21,10 @@ public class GeneratorKoda {
 		
 		BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
 		
+		GeneratorKoda.append("MOVE 40000, R7");
+		GeneratorKoda.append("CALL main");
+		GeneratorKoda.append("HALT");
+		
 		String input = "";
 		input = br.readLine();
 		Node node = NodeFactory.create(input);

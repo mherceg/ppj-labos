@@ -17,9 +17,7 @@ public class prijevodna_jedinica extends Node {
 	@Override
 	public void provjeri() {
 		Node childNula = child.get(0);
-		GeneratorKoda.append("MOVE 40000, R7");
-		GeneratorKoda.append("CALL main");
-		GeneratorKoda.append("HALT");
+		
 		if(childNula.getName().equals("<"+vanjska_deklaracija.class.getName()+">")){
 			childNula.provjeri();
 		}

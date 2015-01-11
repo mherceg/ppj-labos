@@ -20,7 +20,7 @@ public class definicija_funkcije extends Node {
 		String imeFunkcije = ((UniformniZnak) child.get(1)).getValue();
 
 		if (lista_parametara.getName().equals("KR_VOID")) {
-
+			GeneratorKoda.appendBez(imeFunkcije+"\n");
 			ime_tipa.provjeri();
 			if (ime_tipa.getType().equals(new Tip(TipBasic.const_T))) {
 				writeErrorMessage();
@@ -53,7 +53,6 @@ public class definicija_funkcije extends Node {
 			/*
 			 * zabiljezi definiciju i deklaraciju funkcije
 			 */
-
 			funcmem.add(imeFunkcije, new Function(imeFunkcije,new Tip(ime_tipa.getType()
 					.getGlavni(), null, false, true), true));
 
@@ -62,7 +61,7 @@ public class definicija_funkcije extends Node {
 			Node.activeFuncRetType=null;
 
 		} else if (lista_parametara.getName().equals("<lista_parametara>")) {
-
+			GeneratorKoda.appendBez(imeFunkcije+"\n");
 			ime_tipa.provjeri();
 			if (ime_tipa.getType().equals(new Tip(TipBasic.const_T))) {
 				writeErrorMessage();
@@ -91,6 +90,8 @@ public class definicija_funkcije extends Node {
 			/*
 			 * zabiljezi definiciju i deklaraciju funkcije
 			 */
+
+			
 			if (!funcmem.contains(imeFunkcije)){
 				funcmem.add(imeFunkcije, new Function(imeFunkcije, new Tip(child.get(0)
 						.getType().getGlavni(), lista_parametara.getTypes(), false, true), true));

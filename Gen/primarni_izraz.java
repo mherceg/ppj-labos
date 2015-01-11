@@ -35,6 +35,9 @@ public class primarni_izraz extends Node {
 				this.setType(new Tip(TipBasic.INT));
 				this.characteristics.setlIzraz(false);
 				
+				GeneratorKoda.append("MOVE %D"+value+",R1");
+				GeneratorKoda.append("PUSH R1");
+				
 			} else if (childNula.getName().equals("ZNAK")) {
 				if (!Provjerinator.znakOK(value)) {
 					writeErrorMessage();
