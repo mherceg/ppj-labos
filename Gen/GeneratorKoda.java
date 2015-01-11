@@ -69,7 +69,7 @@ public class GeneratorKoda {
 			System.out.println("main");
 			System.exit(0);
 		}
-		ArhivaFunkcija.addAll(Node.funcmem.hm.values());
+//		ArhivaFunkcija.addAll(Node.funcmem.hm.values());
 		for (Function f : ArhivaFunkcija){
 			if (!f.getImplementirana()){
 				System.out.println("funkcija");

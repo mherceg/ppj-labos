@@ -101,7 +101,11 @@ public class VariableMemory<V> {
 	public boolean isLevelLocal() {
 		return level == 0;
 	}
+	
+	public boolean add(String name, V value) {
+		return this.add(name, value, "");
 
+	}
 	public boolean add(String name, V value, String location) {
 		if (current.containsAtThisLevel(name)) {
 			return false;
@@ -122,6 +126,7 @@ public class VariableMemory<V> {
 		return null;
 	}
 	
+	
 	public V get(String name) {
 		V ret = null;
 		VariableMemory<V> iter = current;
@@ -136,8 +141,5 @@ public class VariableMemory<V> {
 	public int countCurrentlevelVariables(){
 		return current.hm.size();
 	}
-	public boolean add(String name, V value) {
-		return this.add(name, value, "");
-
-	}
+	
 }
