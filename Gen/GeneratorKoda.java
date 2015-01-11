@@ -50,6 +50,8 @@ public class GeneratorKoda {
 		while(stack.size() > 1) stack.pop();
 		stack.pop().provjeri();
 		
+		
+		System.exit(-1); //ignoriramo arhivu funkcija
 		/*
 		 * Ako postoji main
 		 */

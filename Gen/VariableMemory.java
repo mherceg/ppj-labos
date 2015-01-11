@@ -91,7 +91,7 @@ public class VariableMemory<V> {
 	}
 
 	public boolean contains(String name) {
-		return this.contains(name, false);
+		return this.contains(name, true);
 	}
 
 	public boolean isLevelGlobal() {
@@ -101,11 +101,12 @@ public class VariableMemory<V> {
 	public boolean isLevelLocal() {
 		return level == 0;
 	}
-	
+
 	public boolean add(String name, V value) {
 		return this.add(name, value, "");
 
 	}
+
 	public boolean add(String name, V value, String location) {
 		if (current.containsAtThisLevel(name)) {
 			return false;
@@ -113,7 +114,7 @@ public class VariableMemory<V> {
 		current.hm.put(name, new MemoryElement(value, location));
 		return true;
 	}
-	
+
 	public MemoryElement getWithLocation(String name) {
 		MemoryElement ret = null;
 		VariableMemory<V> iter = current;
@@ -125,21 +126,23 @@ public class VariableMemory<V> {
 		}
 		return null;
 	}
-	
-	
+
 	public V get(String name) {
 		V ret = null;
 		VariableMemory<V> iter = current;
 		while (iter != null) {
-			if ((ret = iter.hm.get(name).value) != null) {
-				return ret;
+			if (iter.hm.get(name) != null) {
+				if ((ret = iter.hm.get(name).value) != null) {
+					return ret;
+				}
 			}
 			iter = iter.previous;
 		}
 		return null;
 	}
-	public int countCurrentlevelVariables(){
+
+	public int countCurrentlevelVariables() {
 		return current.hm.size();
 	}
-	
+
 }
