@@ -10,6 +10,9 @@ public class naredba_grananja extends Node {
 	@Override
 	public void provjeri() {
 		int childCount = child.size();
+		//GeneratorKoda.append("POP R0");
+		//GeneratorKoda.append("CMP R0, 0");
+		
 		if(childCount == 5){
 			Node childDva = child.get(2);
 			
