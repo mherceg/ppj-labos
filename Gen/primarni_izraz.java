@@ -19,6 +19,7 @@ public class primarni_izraz extends Node {
 				if (!mem.contains(value)&&!funcmem.contains(value)) {
 					writeErrorMessage();
 				}
+				this.setValue(value);
 				
 				VariableMemory<Tip> varMem = mem;
 				FunctionMemory funcMem = funcmem;

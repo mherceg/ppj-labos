@@ -107,7 +107,13 @@ public class definicija_funkcije extends Node {
 			childPet.setTypes(child.get(3).getTypes());
 			childPet.setNames(child.get(3).getNames());
 			
+			GeneratorKoda.append("MOVE R7, R5");
+			
+			GeneratorKoda.append("PUSH R5");
 			childPet.provjeri(); // provjeri (slozena naredba)
+			GeneratorKoda.append("POP R5");
+			
+			
 			Node.activeFuncRetType=null;
 		}
 	}

@@ -40,7 +40,9 @@ public class postfiks_izraz extends Node {
 						|| !childNula.getType().isFunction()) {
 					writeErrorMessage();
 				}
-
+				GeneratorKoda.append("CALL " + childNula.value);
+				GeneratorKoda.append("PUSH R6");
+				
 				// this.characteristics.setType(Tip.pov);
 				this.setType(new Tip(childNula.getType().getGlavni()));
 
