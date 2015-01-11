@@ -133,7 +133,9 @@ public class VariableMemory<V> {
 		}
 		return null;
 	}
-
+	public int countCurrentlevelVariables(){
+		return current.hm.size();
+	}
 	public boolean add(String name, V value) {
 		return this.add(name, value, "");
 
