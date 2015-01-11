@@ -53,7 +53,7 @@ public class definicija_funkcije extends Node {
 			/*
 			 * zabiljezi definiciju i deklaraciju funkcije
 			 */
-
+			GeneratorKoda.appendBez(imeFunkcije );
 			funcmem.add(imeFunkcije, new Function(imeFunkcije,new Tip(ime_tipa.getType()
 					.getGlavni(), null, false, true), true));
 
@@ -91,6 +91,8 @@ public class definicija_funkcije extends Node {
 			/*
 			 * zabiljezi definiciju i deklaraciju funkcije
 			 */
+
+			GeneratorKoda.appendBez(imeFunkcije );
 			if (!funcmem.contains(imeFunkcije)){
 				funcmem.add(imeFunkcije, new Function(imeFunkcije, new Tip(child.get(0)
 						.getType().getGlavni(), lista_parametara.getTypes(), false, true), true));
