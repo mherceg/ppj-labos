@@ -50,6 +50,8 @@ public class GeneratorKoda {
 		while(stack.size() > 1) stack.pop();
 		stack.pop().provjeri();
 		
+		
+		System.exit(-1); //ignoriramo arhivu funkcija
 		/*
 		 * Ako postoji main
 		 */
@@ -69,7 +71,7 @@ public class GeneratorKoda {
 			System.out.println("main");
 			System.exit(0);
 		}
-		ArhivaFunkcija.addAll(Node.funcmem.hm.values());
+//		ArhivaFunkcija.addAll(Node.funcmem.hm.values());
 		for (Function f : ArhivaFunkcija){
 			if (!f.getImplementirana()){
 				System.out.println("funkcija");

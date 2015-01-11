@@ -76,14 +76,14 @@ public class primarni_izraz extends Node {
 		while (!found && (memo != null || func != null)){
 			if (memo != null){
 				if (memo.hm.containsKey(value)){
-					ret = memo.hm.get(value);
+					ret = memo.get(value);
 					found = true;
 				}
 				memo = memo.previous;
 			}
 			if (func != null){
 				if (func.hm.containsKey(value)){
-					ret = func.hm.get(value).getTipFunkcije();
+					ret = func.get(value).getTipFunkcije();
 					found = true;
 				}
 				func = func.previous;

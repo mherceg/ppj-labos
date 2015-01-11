@@ -1,4 +1,6 @@
 
+
+
 public class FunctionMemory extends VariableMemory<Function> {
 
 	public FunctionMemory() {
@@ -6,13 +8,14 @@ public class FunctionMemory extends VariableMemory<Function> {
 	}
 
 	@Override
-	public boolean add(String name, Function function) {
+	public boolean add(String name, Function function,String location) {
 		if (current.containsAtThisLevel(name)) {
 			if (current.get(name).getImplementirana() == false) {
 				if (current.get(name).getTipFunkcije()
 						.equals(function.getTipFunkcije())) {
 					if (function.getImplementirana() == true) {
-						current.hm.put(name, function);
+						current.add(name, function);
+//						current.hm.put(name, function);
 					}
 					return true;
 				} else {
@@ -22,12 +25,12 @@ public class FunctionMemory extends VariableMemory<Function> {
 				return false;
 			}
 		}
-		current.hm.put(name, function);
+		current.hm.put(name, new MemoryElement(function, location));
 		return true;
 	}
 	
 	public void goUp() {
-		GeneratorKoda.ArhivaFunkcija.addAll(this.current.hm.values());
+//		GeneratorKoda.ArhivaFunkcija.addAll(this.current.hm.values());
 		this.current = this.current.previous;
 	}
 

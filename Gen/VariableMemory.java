@@ -12,7 +12,7 @@ import java.util.HashMap;
  */
 public class VariableMemory<V> {
 
-	protected HashMap<String, V> hm;
+	protected HashMap<String, MemoryElement> hm;
 
 	protected VariableMemory<V> previous;
 	protected VariableMemory<V> next;
@@ -21,8 +21,20 @@ public class VariableMemory<V> {
 
 	protected int level;
 
+	public class MemoryElement {
+		private V value;
+		private String location;
+
+		public MemoryElement(V value, String location) {
+			super();
+			this.value = value;
+			this.location = location;
+		}
+
+	}
+
 	public VariableMemory() {
-		this.hm = new HashMap<String, V>();
+		this.hm = new HashMap<String, MemoryElement>();
 		this.current = this;
 		this.level = 0;
 	}
@@ -51,7 +63,7 @@ public class VariableMemory<V> {
 		return false;
 	}
 
-	private boolean containsAtGlobalLevel(String name) {
+	public boolean containsAtGlobalLevel(String name) {
 
 		if (this.hm.containsKey(name)) {
 			return true;
@@ -79,7 +91,7 @@ public class VariableMemory<V> {
 	}
 
 	public boolean contains(String name) {
-		return this.contains(name, false);
+		return this.contains(name, true);
 	}
 
 	public boolean isLevelGlobal() {
@@ -91,15 +103,20 @@ public class VariableMemory<V> {
 	}
 
 	public boolean add(String name, V value) {
+		return this.add(name, value, "");
+
+	}
+
+	public boolean add(String name, V value, String location) {
 		if (current.containsAtThisLevel(name)) {
 			return false;
 		}
-		current.hm.put(name, value);
+		current.hm.put(name, new MemoryElement(value, location));
 		return true;
 	}
 
-	public V get(String name) {
-		V ret = null;
+	public MemoryElement getWithLocation(String name) {
+		MemoryElement ret = null;
 		VariableMemory<V> iter = current;
 		while (iter != null) {
 			if ((ret = iter.hm.get(name)) != null) {
@@ -108,6 +125,24 @@ public class VariableMemory<V> {
 			iter = iter.previous;
 		}
 		return null;
-
 	}
+
+	public V get(String name) {
+		V ret = null;
+		VariableMemory<V> iter = current;
+		while (iter != null) {
+			if (iter.hm.get(name) != null) {
+				if ((ret = iter.hm.get(name).value) != null) {
+					return ret;
+				}
+			}
+			iter = iter.previous;
+		}
+		return null;
+	}
+
+	public int countCurrentlevelVariables() {
+		return current.hm.size();
+	}
+
 }
