@@ -23,6 +23,7 @@ public class lista_naredbi extends Node {
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
 		}
+		GeneratorKoda.append("POP R0");
 	}
 
 }
