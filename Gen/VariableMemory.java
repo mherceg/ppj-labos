@@ -19,19 +19,28 @@ public class VariableMemory<V> {
 
 	protected VariableMemory<V> current;
 
+	protected int level;
+
 	public VariableMemory() {
 		this.hm = new HashMap<String, V>();
 		this.current = this;
+		this.level = 0;
+	}
+
+	public int getLevel() {
+		return level;
 	}
 
 	public void goDown() {
 		this.current.next = new VariableMemory<>();
 		this.current.next.previous = this.current;
 		this.current = this.current.next;
+		level++;
 	}
 
 	public void goUp() {
 		this.current = this.current.previous;
+		level--;
 	}
 
 	public boolean containsAtThisLevel(String name) {
@@ -50,13 +59,13 @@ public class VariableMemory<V> {
 		return false;
 	}
 
-	/*
-	 * TODO ovo ne radi kako treba
-	 */
-	public boolean contains(String name) {
+	public boolean contains(String name, boolean searchGlobal) {
 		VariableMemory<V> iter = current;
-
-		while (iter != null) {
+		VariableMemory<V> limit = null;
+		if (!searchGlobal) {
+			limit = this;
+		}
+		while (iter != limit) {
 			/*
 			 * lokalna razina se tretira kao nova globalna razina
 			 */
@@ -67,6 +76,18 @@ public class VariableMemory<V> {
 
 		}
 		return false;
+	}
+
+	public boolean contains(String name) {
+		return this.contains(name, false);
+	}
+
+	public boolean isLevelGlobal() {
+		return level != 0;
+	}
+
+	public boolean isLevelLocal() {
+		return level == 0;
 	}
 
 	public boolean add(String name, V value) {
