@@ -77,10 +77,6 @@ public class GeneratorKoda {
 			}
 		}
 		
-		
-		
-		
-		
 	}
 	
 	public static void append(String smth){
