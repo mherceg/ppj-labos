@@ -2,7 +2,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 import java.util.Stack;
 
 
@@ -11,6 +14,7 @@ public class GeneratorKoda {
 	char Patuljak;
 	
 	public static StringBuilder sb = new StringBuilder();
+	public static Set<String> Labels = new HashSet<>();
 	
 	public static List<Function> ArhivaFunkcija;
 
@@ -54,6 +58,7 @@ public class GeneratorKoda {
 		while(stack.size() > 1) stack.pop();
 		stack.pop().provjeri();
 		
+		//newLabel();
 		
 		System.exit(-1); //ignoriramo arhivu funkcija
 		/*
@@ -95,4 +100,17 @@ public class GeneratorKoda {
 		sb.append(smth);
 	}
 
+	public static String newLabel(){
+		StringBuilder lb = new StringBuilder();
+		for (int i = 0; i < 6; ++i){
+			char rnd = (char) ('a' + (char) new Random().nextInt('z'-'a'));
+			lb.append(rnd);
+		}
+		if (!Labels.contains(lb.toString())){
+			return lb.toString();
+		}
+		else{
+			return newLabel();
+		}
+	}
 }
