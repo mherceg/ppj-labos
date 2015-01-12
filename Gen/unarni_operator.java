@@ -22,9 +22,11 @@ public class unarni_operator extends Node {
 					.setlIzraz(nula.getCharacteristics().islIzraz());
 			break;
 		case "OP_INC":
+			
 		case "OP_DEC":
 			Node unarni_izraz = child.get(1);
 			unarni_izraz.provjeri();
+			
 			if (!unarni_izraz.getCharacteristics().islIzraz()
 					|| !Provjerinator.tilda(unarni_izraz.getType(), new Tip(
 							TipBasic.INT))) {
@@ -37,6 +39,7 @@ public class unarni_operator extends Node {
 		case "<unarni_operator>":
 			Node cast_izraz = child.get(1);
 			cast_izraz.provjeri();
+			
 			if (!Provjerinator.tilda(cast_izraz.getType(),
 					new Tip(TipBasic.INT))) {
 				

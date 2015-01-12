@@ -31,11 +31,22 @@ public class aditivni_izraz extends Node {
 			this.characteristics.setType(new Tip(TipBasic.INT));
 			this.characteristics.setlIzraz(false);
 			
-			GeneratorKoda.append("PULL R2");
-			GeneratorKoda.append("PULL R1");
+			if(child.get(1).getName().startsWith("MINUS")){
+				GeneratorKoda.append("POP R2");
+				GeneratorKoda.append("POP R1");
+				
+				GeneratorKoda.append("SUB R1,R2,R1");
+				GeneratorKoda.append("PUSH R1");
+			}else{
+				GeneratorKoda.append("POP R2");
+				GeneratorKoda.append("POP R1");
+				
+				GeneratorKoda.append("ADD R1,R2,R1");
+				GeneratorKoda.append("PUSH R1");
+				
+			}
 			
-			GeneratorKoda.append("ADD R1,R2,R1");
-			GeneratorKoda.append("PUSH R1");
+			
 		}		
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
