@@ -1,4 +1,6 @@
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -14,6 +16,8 @@ public class GeneratorKoda {
 	char Patuljak;
 	
 	public static StringBuilder sb = new StringBuilder();
+	public static StringBuilder init = new StringBuilder();
+	public static StringBuilder later = new StringBuilder();
 	public static Set<String> Labels = new HashSet<>();
 	
 	public static List<Function> ArhivaFunkcija;
@@ -27,6 +31,7 @@ public class GeneratorKoda {
 		
 		GeneratorKoda.append("MOVE 40000, R7");
 		GeneratorKoda.append("CALL main");
+		GeneratorKoda.append("CALL init");
 		GeneratorKoda.append("HALT");
 		
 		String input = "";
@@ -59,6 +64,18 @@ public class GeneratorKoda {
 		stack.pop().provjeri();
 		
 		//newLabel();
+		FileWriter fw;
+		try {
+			fw = new FileWriter(new File("a.frisc"));
+			fw.write(GeneratorKoda.sb.toString() + '\n');
+			appendInit("RET");
+			fw.write("init " + GeneratorKoda.init.toString() + '\n');
+			fw.write(GeneratorKoda.later.toString());
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		System.exit(-1); //ignoriramo arhivu funkcija
 		/*
@@ -98,6 +115,26 @@ public class GeneratorKoda {
 	}
 	public static void appendBez(String smth){
 		sb.append(smth);
+	}
+	
+	public static void appendInit(String smth){
+		init.append("    " + smth + "\n");
+	}
+	public static void appendInit(String label, String smth){
+		init.append(label + " " + smth + "\n");
+	}
+	public static void appendBezInit(String smth){
+		init.append(smth);
+	}
+	
+	public static void appendLater(String smth){
+		later.append("    " + smth + "\n");
+	}
+	public static void appendLater(String label, String smth){
+		later.append(label + " " + smth + "\n");
+	}
+	public static void appendBezLater(String smth){
+		later.append(smth);
 	}
 
 	public static String newLabel(){
