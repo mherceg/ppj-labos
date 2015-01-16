@@ -22,8 +22,8 @@ public class slozena_naredba extends Node{
 		
 		while (tipIter.hasNext() && imeIter.hasNext()) {
 			/*
-			 * Integer.toHexString((definedBefore+1+1)*4)
-			 * 
+			 * Integer.toHexString((definedBefore+1)*4)
+			 * ide se po 4 jer su okteti, +1 jer se moramo maknut od R5
 			 * 
 			 */
 			mem.add(imeIter.next(), tipIter.next(), "R5-"+Integer.toHexString((definedBefore+1)*4));

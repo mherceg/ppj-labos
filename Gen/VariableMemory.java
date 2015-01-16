@@ -109,11 +109,11 @@ public class VariableMemory<V> {
 	}
 
 	public boolean isLevelGlobal() {
-		return level != 0;
+		return level == 0;
 	}
 
 	public boolean isLevelLocal() {
-		return level == 0;
+		return level != 0;
 	}
 
 	public boolean add(String name, V value) {

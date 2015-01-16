@@ -24,7 +24,7 @@ public class init_deklarator extends Node {
 		} else if (child.size() == 3) {
 			nula.setType(this.getType()); // ntip
 			nula.provjeri();
-
+			
 			Node inici = child.get(2);
 			inici.provjeri();
 
@@ -37,7 +37,12 @@ public class init_deklarator extends Node {
 					
 					writeErrorMessage();
 				}
+			// nije niz, radi u skladu s tim
 				
+				GeneratorKoda.append("POP R0 ");
+				
+				GeneratorKoda.append("STORE R0, ("+nula.getValue()+")");
+					
 			} else if (nula.getType().equals(new Tip(TipBasic.T, true))
 					|| nula.getType().equals(new Tip(TipBasic.const_T, true))) {
 				
@@ -54,6 +59,8 @@ public class init_deklarator extends Node {
 						writeErrorMessage();
 					}
 				}
+				
+				// TODO 4 dobili smo niz znakova nakon =, sta sad?
 			} else {
 				writeErrorMessage();
 			}

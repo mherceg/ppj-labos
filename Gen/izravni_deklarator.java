@@ -24,8 +24,15 @@ public class izravni_deklarator extends Node {
 				writeErrorMessage();
 			}
 			// 3
-			mem.add(name, this.getType());
-
+			if(mem.isLevelGlobal()){
+				mem.add(name, this.getType(), name);
+				GeneratorKoda.appendLater(name, "DW 0");
+				this.setValue(name);
+			}else{
+				int definedBefore = mem.countCurrentlevelVariables();
+				mem.add(name, this.getType(), "R5-"+Integer.toHexString((definedBefore+1)*4));
+				this.setValue("R5-"+Integer.toHexString((definedBefore+1)*4));
+			}
 		} else {
 			Node dva = child.get(2);
 			
@@ -54,6 +61,10 @@ public class izravni_deklarator extends Node {
 				this.getType().setArray(true); // povratni tip
 				// 4
 				this.getCharacteristics().setBrElem(Integer.parseInt(dva.getValue()));
+				/*
+				 * TODO 4 
+				 * kako cemo spremat polja?
+				 */
 				mem.add(name, this.getType(), name);
 
 			} else if (dva.getName().equals("KR_VOID")) {
