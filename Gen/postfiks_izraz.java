@@ -44,7 +44,7 @@ public class postfiks_izraz extends Node {
 				GeneratorKoda.append("MOVE R7, R5");
 				GeneratorKoda.append("CALL " + childNula.value);
 				GeneratorKoda.append("POP R5");
-				
+				GeneratorKoda.append("POP R4");
 				GeneratorKoda.append("PUSH R6");
 				
 				// this.characteristics.setType(Tip.pov);
@@ -83,7 +83,11 @@ public class postfiks_izraz extends Node {
 							.getType().getGlavni(), TipBasic.const_T));
 
 				} else if (childDva.getName().equals("<lista_argumenata>")) {
-
+					
+					
+					GeneratorKoda.append("PUSH R5");
+					GeneratorKoda.append("MOVE R7, R5");
+					
 					childNula.provjeri();
 					childDva.provjeri();
 					
@@ -92,8 +96,7 @@ public class postfiks_izraz extends Node {
 						writeErrorMessage();
 					}
 					
-					GeneratorKoda.append("PUSH R5");
-					GeneratorKoda.append("MOVE R7, R5");
+					
 					// redom po elementima
 					// arg-tip iz <lista_argumenata>.tipovi i param-tip iz
 					// params vrijedi arg-tip tilda param-tip
@@ -112,10 +115,10 @@ public class postfiks_izraz extends Node {
 						writeErrorMessage();
 					}
 					
-
+					
 					GeneratorKoda.append("CALL " + childNula.value);
 					GeneratorKoda.append("POP R5");
-					
+					GeneratorKoda.append("POP R4");
 					GeneratorKoda.append("PUSH R6");
 					
 					//  this.characteristics.setType(Tip.pov);

@@ -26,6 +26,7 @@ public class GeneratorKoda {
 		BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
 		
 		GeneratorKoda.append("MOVE 40000, R7");
+		GeneratorKoda.append("MOVE 40000, R5");
 		GeneratorKoda.append("CALL main");
 		GeneratorKoda.append("HALT");
 		

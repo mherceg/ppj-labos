@@ -20,7 +20,12 @@ public class slozena_naredba extends Node{
 
 		int definedBefore = mem.countCurrentlevelVariables();
 		while (tipIter.hasNext() && imeIter.hasNext()) {
-			mem.add(imeIter.next(), tipIter.next(), "R5-"+Integer.toHexString((definedBefore+1)*4));
+			/*
+			 * Integer.toHexString((definedBefore+1+1)*4)
+			 * 
+			 * 
+			 */
+			mem.add(imeIter.next(), tipIter.next(), "R5-"+Integer.toHexString((definedBefore+1+1)*4));
 //			System.out.println("dodao parametar");
 		}
 		Node childJedan = child.get(1);

@@ -20,7 +20,7 @@ public class definicija_funkcije extends Node {
 		String imeFunkcije = ((UniformniZnak) child.get(1)).getValue();
 
 		if (lista_parametara.getName().equals("KR_VOID")) {
-			GeneratorKoda.appendBez(imeFunkcije+"\n");
+			GeneratorKoda.append(imeFunkcije, "POP R4");
 			ime_tipa.provjeri();
 			if (ime_tipa.getType().equals(new Tip(TipBasic.const_T))) {
 				writeErrorMessage();
@@ -61,7 +61,7 @@ public class definicija_funkcije extends Node {
 			Node.activeFuncRetType=null;
 
 		} else if (lista_parametara.getName().equals("<lista_parametara>")) {
-			GeneratorKoda.appendBez(imeFunkcije+"\n");
+			GeneratorKoda.append(imeFunkcije, "POP R4");
 			ime_tipa.provjeri();
 			if (ime_tipa.getType().equals(new Tip(TipBasic.const_T))) {
 				writeErrorMessage();

@@ -35,6 +35,8 @@ public class naredba_skoka extends Node {
 				if (this.getActiveFuncRetType() != TipBasic.VOID) {
 					writeErrorMessage();
 				}
+				GeneratorKoda.append("MOVE R5, R7");
+				GeneratorKoda.append("PUSH R4");
 				GeneratorKoda.append("RET");
 			} else {
 				izraz.provjeri();
@@ -49,6 +51,8 @@ public class naredba_skoka extends Node {
 				}
 
 				GeneratorKoda.append("POP R6");
+				GeneratorKoda.append("MOVE R5, R7");
+				GeneratorKoda.append("PUSH R4");
 				GeneratorKoda.append("RET");
 			}
 		}
