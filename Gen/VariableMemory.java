@@ -28,6 +28,20 @@ public class VariableMemory<V> {
 		public MemoryElement(V value, String location) {
 			super();
 			this.value = value;
+			this.setLocation(location);
+		}
+
+		/**
+		 * @return the location
+		 */
+		public String getLocation() {
+			return location;
+		}
+
+		/**
+		 * @param location the location to set
+		 */
+		public void setLocation(String location) {
 			this.location = location;
 		}
 

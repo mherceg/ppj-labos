@@ -19,14 +19,16 @@ public class slozena_naredba extends Node{
 
 
 		int definedBefore = mem.countCurrentlevelVariables();
+		
 		while (tipIter.hasNext() && imeIter.hasNext()) {
 			/*
 			 * Integer.toHexString((definedBefore+1+1)*4)
 			 * 
 			 * 
 			 */
-			mem.add(imeIter.next(), tipIter.next(), "R5-"+Integer.toHexString((definedBefore+1+1)*4));
+			mem.add(imeIter.next(), tipIter.next(), "R5-"+Integer.toHexString((definedBefore+1)*4));
 //			System.out.println("dodao parametar");
+			definedBefore++;
 		}
 		Node childJedan = child.get(1);
 		if(childJedan.getName().equals("<lista_naredbi>")){

@@ -14,8 +14,15 @@ public class unarni_izraz extends Node {
 		Node childNula = child.get(0);
 		if (childNula.getName().equals("<postfiks_izraz>")) {
 			childNula.provjeri();
+			
 			this.characteristics.setType(childNula.getType());
 			this.setValue(childNula.getValue());
+			if(this.value!=null && !this.value.startsWith("\"")){//moze vratit il ime IDN il niz znakova oblika "niz"
+				//IDN
+				VariableMemory<Tip>.MemoryElement lokacija = Node.mem.getWithLocation(value);
+				GeneratorKoda.append("LOAD R0, (" + lokacija.getLocation() + ")");
+				GeneratorKoda.append("PUSH R0");
+			}
 			this.characteristics.setlIzraz(childNula.getlIzraz());
 		} else if (childNula.getName().equals("<unarni_operator>")) {
 			Node childJedan = child.get(1);
