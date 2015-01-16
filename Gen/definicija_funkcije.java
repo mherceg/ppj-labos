@@ -2,6 +2,8 @@
 
 public class definicija_funkcije extends Node {
 
+	public static boolean inFunction = false;
+	
 	public definicija_funkcije(String name, boolean lIzraz, Tip type, int red,
 			int brElem) {
 		super(name, lIzraz, type, red, brElem);
@@ -15,6 +17,7 @@ public class definicija_funkcije extends Node {
 	 */
 	@Override
 	public void provjeri() {
+		inFunction = true;
 		Node lista_parametara = child.get(3);
 		Node ime_tipa = child.get(0);
 		String imeFunkcije = ((UniformniZnak) child.get(1)).getValue();
@@ -114,6 +117,7 @@ public class definicija_funkcije extends Node {
 			
 			Node.activeFuncRetType=null;
 		}
+		inFunction = false;
 	}
 
 }

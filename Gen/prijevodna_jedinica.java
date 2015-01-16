@@ -29,17 +29,7 @@ public class prijevodna_jedinica extends Node {
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
 		}
-		FileWriter fw;
-		try {
-			fw = new FileWriter(new File("a.frisc"));
-			fw.write(GeneratorKoda.sb.toString());
-			fw.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-
 	}
 
 }
