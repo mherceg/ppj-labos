@@ -40,7 +40,6 @@ public class init_deklarator extends Node {
 			// nije niz, radi u skladu s tim
 				
 				GeneratorKoda.append("POP R0 ");
-				
 				GeneratorKoda.append("STORE R0, ("+nula.getValue()+")");
 					
 			} else if (nula.getType().equals(new Tip(TipBasic.T, true))

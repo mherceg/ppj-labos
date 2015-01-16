@@ -18,7 +18,7 @@ public class izraz_pridruzivanja extends Node {
 			this.getCharacteristics().setlIzraz(childNula.getlIzraz());
 			this.setType(childNula.getType());
 		}
-		else if(childNula.getName().equals("<"+postfiks_izraz.class.getName()+">")){
+		else if(childNula.getName().equals("<postfiks_izraz>")){
 			Node childDva = child.get(2);
 			childNula.provjeri();
 			//  <postfiks_izraz>.l-izraz = 1
@@ -33,6 +33,10 @@ public class izraz_pridruzivanja extends Node {
 			}
 			this.characteristics.setType(childNula.getType());
 			this.characteristics.setlIzraz(false);
+			
+			GeneratorKoda.append("POP R0");
+			VariableMemory<Tip>.MemoryElement withLocation = mem.getWithLocation(childNula.getValue());
+			GeneratorKoda.append("STORE R0, ("+withLocation.getLocation()+")");
 		}		
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
