@@ -29,10 +29,10 @@ public class GeneratorKoda {
 		
 		BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
 		
-		GeneratorKoda.append("MOVE 40000, R7");
-		GeneratorKoda.append("CALL main");
-		GeneratorKoda.append("CALL init");
-		GeneratorKoda.append("HALT");
+		sb.append("MOVE 40000, R7" + '\n');
+		sb.append("CALL init" + '\n');
+		sb.append("CALL main" + '\n');
+		sb.append("HALT" + '\n');
 		
 		String input = "";
 		input = br.readLine();
@@ -108,13 +108,28 @@ public class GeneratorKoda {
 	}
 	
 	public static void append(String smth){
-		sb.append("    " + smth + "\n");
+		if (!definicija_funkcije.inFunction){
+			appendInit(smth);
+		}
+		else{
+			sb.append("    " + smth + "\n");
+		}
 	}
 	public static void append(String label, String smth){
-		sb.append(label + " " + smth + "\n");
+		if (!definicija_funkcije.inFunction){
+			appendInit(label,smth);
+		}
+		else{
+			sb.append(label + " " + smth + "\n");
+		}
 	}
 	public static void appendBez(String smth){
-		sb.append(smth);
+		if (!definicija_funkcije.inFunction){
+			appendBezInit(smth);
+		}
+		else{
+			sb.append(smth);
+		}
 	}
 	
 	public static void appendInit(String smth){
