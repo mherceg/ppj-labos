@@ -40,6 +40,7 @@ public class postfiks_izraz extends Node {
 						|| !childNula.getType().isFunction()) {
 					writeErrorMessage();
 				}
+				GeneratorKoda.append("PUSH R4");
 				GeneratorKoda.append("PUSH R5");
 				GeneratorKoda.append("MOVE R7, R5");
 				GeneratorKoda.append("CALL " + childNula.value);
@@ -84,7 +85,7 @@ public class postfiks_izraz extends Node {
 
 				} else if (childDva.getName().equals("<lista_argumenata>")) {
 					
-					
+					GeneratorKoda.append("PUSH R4");
 					GeneratorKoda.append("PUSH R5");
 					GeneratorKoda.append("MOVE R7, R5");
 					
