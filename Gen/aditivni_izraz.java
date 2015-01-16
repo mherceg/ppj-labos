@@ -42,10 +42,8 @@ public class aditivni_izraz extends Node {
 				GeneratorKoda.append("POP R1");
 				
 				GeneratorKoda.append("ADD R1,R2,R1");
-				GeneratorKoda.append("PUSH R1");
-				
-			}
-			
+				GeneratorKoda.append("PUSH R1");				
+			}		
 			
 		}		
 		else{

@@ -33,6 +33,54 @@ public class multiplikativni_izraz extends Node{
 			//  this.characteristics.setType(Tip.int);
 			this.setType(new Tip(TipBasic.INT));
 			this.characteristics.setlIzraz(false);
+			
+			if(child.get(1).getName().equals("OP_PUTA")){
+				// Mnozenje
+				GeneratorKoda.append("POP R2");
+				GeneratorKoda.append("POP R1");
+				
+				String labelaZaMULPetlju = GeneratorKoda.newLabel();
+				String labelaZaIzlazIzMULPetlje = GeneratorKoda.newLabel();
+				
+				GeneratorKoda.append("MOVE 0,R3");
+				GeneratorKoda.append("OR R2,R2,R2");
+				GeneratorKoda.append("JR_Z " + labelaZaIzlazIzMULPetlje);
+				GeneratorKoda.append(labelaZaMULPetlju, "ADD R3,R1,R3");
+				GeneratorKoda.append("SUB R2,1,R2");
+				GeneratorKoda.append("JR_NZ " + labelaZaMULPetlju);
+				GeneratorKoda.append(labelaZaIzlazIzMULPetlje, "PUSH R3");
+			}
+			else if(child.get(1).getName().equals("OP_DIJELI")){
+				//dijeljenje  R1/R2 -> od R1 oduzimam R2 n puta
+				GeneratorKoda.append("POP R2");
+				GeneratorKoda.append("POP R1");
+				
+				String labelaZaDIVPetlju = GeneratorKoda.newLabel();
+				
+				GeneratorKoda.append("MOVE -1,R3");
+				GeneratorKoda.append(labelaZaDIVPetlju, "ADD R3,1,R3");
+				GeneratorKoda.append("SUB R1,R2,R1");
+				GeneratorKoda.append("JR_NN " + labelaZaDIVPetlju);
+				
+				GeneratorKoda.append("PUSH R3");
+			}
+			else {
+				// modulo
+				GeneratorKoda.append("POP R2");
+				GeneratorKoda.append("POP R1");
+				
+				String labelaZaDIVPetlju = GeneratorKoda.newLabel();
+				
+				GeneratorKoda.append("MOVE -1,R3");
+				GeneratorKoda.append(labelaZaDIVPetlju, "ADD R3,1,R3");
+				GeneratorKoda.append("SUB R1,R2,R1");
+				GeneratorKoda.append("JR_NN " + labelaZaDIVPetlju);
+				
+				GeneratorKoda.append("ADD R1,R2,R1");
+				GeneratorKoda.append("PUSH R1");
+			}
+			
+			
 		}		
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());

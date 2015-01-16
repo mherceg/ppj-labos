@@ -31,6 +31,12 @@ public class bin_i_izraz extends Node {
 			}
 			this.characteristics.setType(new Tip(TipBasic.INT));
 			this.characteristics.setlIzraz(false);
+			
+			GeneratorKoda.append("POP R2");
+			GeneratorKoda.append("POP R1");
+			
+			GeneratorKoda.append("AND R1,R2,R3");
+			GeneratorKoda.append("PUSH R3");
 		}		
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
