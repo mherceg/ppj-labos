@@ -40,7 +40,11 @@ public class postfiks_izraz extends Node {
 						|| !childNula.getType().isFunction()) {
 					writeErrorMessage();
 				}
+				GeneratorKoda.append("PUSH R5");
+				GeneratorKoda.append("MOVE R7, R5");
 				GeneratorKoda.append("CALL " + childNula.value);
+				GeneratorKoda.append("POP R5");
+				
 				GeneratorKoda.append("PUSH R6");
 				
 				// this.characteristics.setType(Tip.pov);
@@ -87,6 +91,9 @@ public class postfiks_izraz extends Node {
 					if(!childNula.getType().isFunction()){
 						writeErrorMessage();
 					}
+					
+					GeneratorKoda.append("PUSH R5");
+					GeneratorKoda.append("MOVE R7, R5");
 					// redom po elementima
 					// arg-tip iz <lista_argumenata>.tipovi i param-tip iz
 					// params vrijedi arg-tip tilda param-tip
@@ -96,6 +103,7 @@ public class postfiks_izraz extends Node {
 					
 					while(argIter.hasNext()&&paramIter.hasNext()){
 						if(!Provjerinator.tilda(argIter.next(), paramIter.next())){
+							
 							writeErrorMessage();
 						}
 					}
@@ -103,6 +111,12 @@ public class postfiks_izraz extends Node {
 						// neki ima vise argumenata
 						writeErrorMessage();
 					}
+					
+
+					GeneratorKoda.append("CALL " + childNula.value);
+					GeneratorKoda.append("POP R5");
+					
+					GeneratorKoda.append("PUSH R6");
 					
 					//  this.characteristics.setType(Tip.pov);
 					this.setType(new Tip(childNula.getType().getGlavni()));
