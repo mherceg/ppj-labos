@@ -30,8 +30,8 @@ public class izravni_deklarator extends Node {
 				this.setValue(name);
 			}else{
 				int definedBefore = mem.countCurrentlevelVariables();
-				mem.add(name, this.getType(), "R5-"+Integer.toHexString((definedBefore+1)*4));
-				this.setValue("R5-"+Integer.toHexString((definedBefore+1)*4));
+				mem.add(name, this.getType(), "R5-"+(definedBefore+1)*4);
+				this.setValue("R5-"+(definedBefore+1)*4);
 			}
 		} else {
 			Node dva = child.get(2);

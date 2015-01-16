@@ -26,7 +26,7 @@ public class slozena_naredba extends Node{
 			 * ide se po 4 jer su okteti, +1 jer se moramo maknut od R5
 			 * 
 			 */
-			mem.add(imeIter.next(), tipIter.next(), "R5-"+Integer.toHexString((definedBefore+1)*4));
+			mem.add(imeIter.next(), tipIter.next(), "R5-"+(definedBefore+1)*4);
 //			System.out.println("dodao parametar");
 			definedBefore++;
 		}
