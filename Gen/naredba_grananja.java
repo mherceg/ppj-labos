@@ -18,7 +18,7 @@ public class naredba_grananja extends Node {
 			String label = GeneratorKoda.newLabel();
 			GeneratorKoda.append("POP R0");
 			GeneratorKoda.append("CMP R0, 0");
-			GeneratorKoda.append("JP_NE " + label);
+			GeneratorKoda.append("JP_EQ " + label);
 			//<izraz>.tip tilda int
 			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
 				writeErrorMessage();
@@ -33,7 +33,7 @@ public class naredba_grananja extends Node {
 			childDva.provjeri();
 			GeneratorKoda.append("POP R0");
 			GeneratorKoda.append("CMP R0, 0");
-			GeneratorKoda.append("JP_NE " + labelelse);
+			GeneratorKoda.append("JP_EQ " + labelelse);
 			//<izraz>.tip tilda int
 			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
 				writeErrorMessage();
