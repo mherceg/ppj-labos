@@ -30,6 +30,7 @@ public class GeneratorKoda {
 
 		sb.append(" MOVE 40000, R7" + '\n');
 		sb.append(" MOVE 40000, R5" + '\n');
+		sb.append(" `BASE D\n");
 		sb.append(" CALL init" + '\n');
 		sb.append(" CALL main" + '\n');
 		sb.append(" HALT" + '\n');

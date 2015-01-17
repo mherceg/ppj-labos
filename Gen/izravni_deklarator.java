@@ -29,7 +29,8 @@ public class izravni_deklarator extends Node {
 				GeneratorKoda.appendLater(name, "DW 0");
 				this.setValue(name);
 			}else{
-				int definedBefore = mem.countCurrentlevelVariables();
+				int definedBefore = mem.countCurrentFunctionVariables();
+				System.out.println(definedBefore);
 				mem.add(name, this.getType(), "R5-"+(definedBefore+1)*4);
 				this.setValue("R5-"+(definedBefore+1)*4);
 			}

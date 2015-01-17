@@ -18,6 +18,7 @@ public class definicija_funkcije extends Node {
 	@Override
 	public void provjeri() {
 		inFunction = true;
+		mem.setFunctionStartOnNextGoDown(true);
 		Node lista_parametara = child.get(3);
 		Node ime_tipa = child.get(0);
 		String imeFunkcije = ((UniformniZnak) child.get(1)).getValue();

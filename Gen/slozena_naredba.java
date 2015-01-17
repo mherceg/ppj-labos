@@ -13,20 +13,22 @@ public class slozena_naredba extends Node{
 	@Override
 	public void provjeri() {
 		mem.goDown();
-		funcmem.goDown(); // TODO prati VariableMemory.contains
+		funcmem.goDown();
 		Iterator<Tip> tipIter = this.getTypes().iterator();
 		Iterator<String> imeIter = this.getNames().iterator();
 
 
-		int definedBefore = mem.countCurrentlevelVariables();
-		
+		int definedBefore = mem.countCurrentFunctionVariables();
+		System.out.println(definedBefore);
 		while (tipIter.hasNext() && imeIter.hasNext()) {
 			/*
 			 * Integer.toHexString((definedBefore+1)*4)
 			 * ide se po 4 jer su okteti, +1 jer se moramo maknut od R5
 			 * 
 			 */
-			mem.add(imeIter.next(), tipIter.next(), "R5-"+(definedBefore+1)*4);
+			String imeNext = imeIter.next();
+			System.out.println(imeNext+"   " + "R5-"+(definedBefore+1)*4);
+			mem.add(imeNext, tipIter.next(), "R5-"+(definedBefore+1)*4);
 //			System.out.println("dodao parametar");
 			definedBefore++;
 		}

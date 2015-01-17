@@ -20,6 +20,9 @@ public class VariableMemory<V> {
 	protected VariableMemory<V> current;
 
 	protected int level;
+	protected boolean functionStart;
+
+	protected boolean functionNextGoDown;
 
 	public class MemoryElement {
 		private V value;
@@ -39,7 +42,8 @@ public class VariableMemory<V> {
 		}
 
 		/**
-		 * @param location the location to set
+		 * @param location
+		 *            the location to set
 		 */
 		public void setLocation(String location) {
 			this.location = location;
@@ -51,6 +55,8 @@ public class VariableMemory<V> {
 		this.hm = new HashMap<String, MemoryElement>();
 		this.current = this;
 		this.level = 0;
+		this.functionStart = false;
+		this.functionNextGoDown = false;
 	}
 
 	public int getLevel() {
@@ -61,6 +67,10 @@ public class VariableMemory<V> {
 		this.current.next = new VariableMemory<>();
 		this.current.next.previous = this.current;
 		this.current = this.current.next;
+		if (this.functionNextGoDown == true) {
+			this.functionNextGoDown = false;
+			this.current.functionStart = true;
+		}
 		level++;
 	}
 
@@ -157,6 +167,31 @@ public class VariableMemory<V> {
 
 	public int countCurrentlevelVariables() {
 		return current.hm.size();
+	}
+
+	public int countCurrentFunctionVariables() {
+		int cnt = 0;
+		VariableMemory<V> iter = current;
+		while (iter != null) {
+			cnt += iter.hm.size();
+			if (iter.functionStart == true) {
+				System.out.println("kraj funkcije");
+				break;
+			}else{
+				System.out.println("nije kraj funkcije");
+			}
+			iter = iter.previous;
+			
+		}
+		return cnt;
+	}
+
+	public void setCurrentFunctionStart(boolean bul) {
+		this.current.functionStart = bul;
+	}
+
+	public void setFunctionStartOnNextGoDown(boolean bul) {
+		this.functionNextGoDown = bul;
 	}
 
 }
