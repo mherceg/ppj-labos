@@ -19,7 +19,7 @@ public class postfiks_izraz extends Node {
 			this.characteristics.setType(childNula.getType());
 			this.setValue(childNula.getValue());
 			this.characteristics.setlIzraz(childNula.getlIzraz());
-			
+
 		} else if (childNula.getName().equals(
 				"<" + postfiks_izraz.class.getName() + ">")) {
 			if (child.size() == 2) {
@@ -29,6 +29,22 @@ public class postfiks_izraz extends Node {
 								TipBasic.INT))) {
 					writeErrorMessage();
 				}
+				/**
+				 * x++, x--
+				 */
+				String location = mem.getWithLocation(childNula.getValue()).getLocation();
+				GeneratorKoda.append("LOAD R0, ("+ location + ")");
+				GeneratorKoda.append("PUSH R0");
+				switch (child.get(1).getName()) {
+				case "OP_INC":
+					GeneratorKoda.append("ADD R0, 1, R0");
+					break;
+				case "OP_DEC":
+					GeneratorKoda.append("SUB R0, 1, R0");
+					break;
+				}
+				GeneratorKoda.append("STORE R0, ("+ location + ")");
+				
 				this.setType(new Tip(TipBasic.INT));
 				this.characteristics.setlIzraz(false);
 
@@ -47,7 +63,7 @@ public class postfiks_izraz extends Node {
 				GeneratorKoda.append("POP R5");
 				GeneratorKoda.append("POP R4");
 				GeneratorKoda.append("PUSH R6");
-				
+
 				// this.characteristics.setType(Tip.pov);
 				this.setType(new Tip(childNula.getType().getGlavni()));
 
@@ -84,45 +100,45 @@ public class postfiks_izraz extends Node {
 							.getType().getGlavni(), TipBasic.const_T));
 
 				} else if (childDva.getName().equals("<lista_argumenata>")) {
-					
+
 					GeneratorKoda.append("PUSH R4");
 					GeneratorKoda.append("PUSH R5");
 					GeneratorKoda.append("MOVE R7, R5");
-					
+
 					childNula.provjeri();
 					childDva.provjeri();
-					
-					//  3. <postfiks_izraz>.tip = funkcija(params -> pov) 
-					if(!childNula.getType().isFunction()){
+
+					// 3. <postfiks_izraz>.tip = funkcija(params -> pov)
+					if (!childNula.getType().isFunction()) {
 						writeErrorMessage();
 					}
-					
-					
+
 					// redom po elementima
 					// arg-tip iz <lista_argumenata>.tipovi i param-tip iz
 					// params vrijedi arg-tip tilda param-tip
-					
+
 					Iterator<Tip> argIter = childDva.getTypes().iterator();
-					Iterator<Tip> paramIter = childNula.getType().getPolje().iterator();
-					
-					while(argIter.hasNext()&&paramIter.hasNext()){
-						if(!Provjerinator.tilda(argIter.next(), paramIter.next())){
-							
+					Iterator<Tip> paramIter = childNula.getType().getPolje()
+							.iterator();
+
+					while (argIter.hasNext() && paramIter.hasNext()) {
+						if (!Provjerinator.tilda(argIter.next(),
+								paramIter.next())) {
+
 							writeErrorMessage();
 						}
 					}
-					if(argIter.hasNext() || paramIter.hasNext()){
+					if (argIter.hasNext() || paramIter.hasNext()) {
 						// neki ima vise argumenata
 						writeErrorMessage();
 					}
-					
-					
+
 					GeneratorKoda.append("CALL " + childNula.value);
 					GeneratorKoda.append("POP R5");
 					GeneratorKoda.append("POP R4");
 					GeneratorKoda.append("PUSH R6");
-					
-					//  this.characteristics.setType(Tip.pov);
+
+					// this.characteristics.setType(Tip.pov);
 					this.setType(new Tip(childNula.getType().getGlavni()));
 					this.characteristics.setlIzraz(false);
 				} else {

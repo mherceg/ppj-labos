@@ -72,7 +72,7 @@ public class unarni_izraz extends Node {
 		} else if (child.size() == 2) {
 				Node childJedan = child.get(1);
 				childJedan.provjeri();
-
+				
 				// 2. <unarni_izraz>.l-izraz = 1 i <unarni_izraz>.tip  int
 				if (!childJedan.getCharacteristics().islIzraz()
 						|| !Provjerinator.tilda(childJedan.getType(), new Tip(
@@ -83,6 +83,23 @@ public class unarni_izraz extends Node {
 				// this.characteristics.setType(Tip.int);
 				this.setType(new Tip(TipBasic.INT));
 				this.characteristics.setlIzraz(false);
+				
+				/**
+				 * ++x, --x
+				 */
+				String location = mem.getWithLocation(child.get(1).getValue()).getLocation();
+				GeneratorKoda.append("LOAD R0, ("+ location + ")");
+				
+				switch (child.get(0).getName()) {
+				case "OP_INC":
+					GeneratorKoda.append("ADD R0, 1, R0");
+					break;
+				case "OP_DEC":
+					GeneratorKoda.append("SUB R0, 1, R0");
+					break;
+				}
+				GeneratorKoda.append("PUSH R0");
+				GeneratorKoda.append("STORE R0, ("+ location + ")");
 		} else {
 			System.err.println("Greska kod " + this.getClass().getName()
 					+ " za -> " + child.toString());
