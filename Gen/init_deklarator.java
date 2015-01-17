@@ -41,7 +41,9 @@ public class init_deklarator extends Node {
 				
 				GeneratorKoda.append("POP R0 ");
 				GeneratorKoda.append("STORE R0, ("+nula.getValue()+")");
-					
+				if(mem.isLevelLocal()){
+				GeneratorKoda.append("PUSH R0 ");
+				}
 			} else if (nula.getType().equals(new Tip(TipBasic.T, true))
 					|| nula.getType().equals(new Tip(TipBasic.const_T, true))) {
 				

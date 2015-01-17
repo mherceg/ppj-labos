@@ -37,6 +37,10 @@ public class izraz_pridruzivanja extends Node {
 			GeneratorKoda.append("POP R0");
 			VariableMemory<Tip>.MemoryElement withLocation = mem.getWithLocation(childNula.getValue());
 			GeneratorKoda.append("STORE R0, ("+withLocation.getLocation()+")");
+			if(mem.isLevelLocal()){
+				GeneratorKoda.append("PUSH R0 ");
+				}
+			
 		}		
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
