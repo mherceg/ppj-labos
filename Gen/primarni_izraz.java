@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class primarni_izraz extends Node {
 
 	public primarni_izraz(String name, boolean lIzraz, Tip type, int red,
@@ -34,10 +36,40 @@ public class primarni_izraz extends Node {
 				}
 				this.setType(new Tip(TipBasic.INT));
 				this.characteristics.setlIzraz(false);
-
-				GeneratorKoda.append("MOVE %D " + value + ",R1");
-				GeneratorKoda.append("PUSH R1");
-
+				
+				if (Integer.parseInt(value) < 10000){
+					GeneratorKoda.append("MOVE %D " + value + ",R1");
+					GeneratorKoda.append("PUSH R1");
+				}
+				else {
+					GeneratorKoda.append("MOVE 0,R0");
+					String[] chunks = chunkIt(value);
+					int length = chunks.length;
+					for (int i = 0; i < length - 1; ++i){
+						if (i < length - 2){
+							GeneratorKoda.append("MOVE %D 100, R2");
+						}
+						else{
+							GeneratorKoda.append("MOVE %D " + Integer.toString((int) Math.pow(10,chunks[i+1].length()))+ ",R2");
+						}
+							GeneratorKoda.append("MOVE %D " + chunks[i] + ",R1");
+							GeneratorKoda.append("ADD R1, R0, R1");
+							
+							String labelaZaMULPetlju = GeneratorKoda.newLabel();
+							String labelaZaIzlazIzMULPetlje = GeneratorKoda.newLabel();
+							
+							GeneratorKoda.append("MOVE 0,R3");
+							GeneratorKoda.append("OR R2,R2,R2");
+							GeneratorKoda.append("JR_Z " + labelaZaIzlazIzMULPetlje);
+							GeneratorKoda.append(labelaZaMULPetlju, "ADD R3,R1,R3");
+							GeneratorKoda.append("SUB R2,1,R2");
+							GeneratorKoda.append("JR_NZ " + labelaZaMULPetlju);
+							GeneratorKoda.append(labelaZaIzlazIzMULPetlje, "MOVE R3, R0");
+					}
+					GeneratorKoda.append("MOVE %D " + chunks[length-1] + ",R3");
+					GeneratorKoda.append("ADD R0, R3, R0");
+					GeneratorKoda.append("PUSH R0");
+				}
 			} else if (childNula.getName().equals("ZNAK")) {
 				if (!Provjerinator.znakOK(value)) {
 					writeErrorMessage();
@@ -67,6 +99,24 @@ public class primarni_izraz extends Node {
 			System.err.println("Greska kod " + this.getClass().getName()
 					+ " za -> " + child.toString());
 		}
+	}
+
+	private String[] chunkIt(String value) {
+		ArrayList<String> chunks = new ArrayList<>();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < value.length(); ++i){
+			if (i % 2 == 0 && i != 0){
+				chunks.add(sb.toString());
+				sb = new StringBuilder();
+			}
+			sb.append(value.charAt(i));
+		}
+		chunks.add(sb.toString());
+		String[] ret = new String[chunks.size()];
+		for (int i = 0; i < chunks.size(); ++i){
+			ret[i] = chunks.get(i);
+		}
+		return ret;
 	}
 
 	private Tip findType(String value, VariableMemory<Tip> varMem,
