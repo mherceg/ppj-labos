@@ -74,7 +74,10 @@ public class primarni_izraz extends Node {
 				if (!Provjerinator.znakOK(value)) {
 					writeErrorMessage();
 				}
-
+				int broj = value.charAt(1);
+				GeneratorKoda.append("MOVE %D " + broj + ",R1");
+				GeneratorKoda.append("PUSH R1");
+				
 				this.setType(new Tip(TipBasic.CHAR));
 				this.characteristics.setlIzraz(false);
 
