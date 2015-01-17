@@ -27,6 +27,40 @@ public class unarni_izraz extends Node {
 		} else if (childNula.getName().equals("<unarni_operator>")) {
 			Node childJedan = child.get(1);
 			childJedan.provjeri();
+			switch (((UniformniZnak)childNula.child.get(0)).getName()) {
+			case "PLUS":
+				break;
+			case "MINUS":
+				GeneratorKoda.append("POP R0");
+				GeneratorKoda.append("MOVE 0, R1");
+				GeneratorKoda.append("SUB R1,R0,R0");
+				GeneratorKoda.append("PUSH R0");
+				break;
+			case "OP_TILDA":
+				GeneratorKoda.append("POP R0");
+				GeneratorKoda.append("MOVE FFFF, R1");
+				GeneratorKoda.append("MOVE 20, R2");
+				GeneratorKoda.append("SHL R1, R2, R1");
+				GeneratorKoda.append("MOVE FFFF, R2");
+				GeneratorKoda.append("ADD R1, R2, R1");
+				GeneratorKoda.append("XOR R0, R1, R0");
+				GeneratorKoda.append("PUSH R0");
+				break;
+			case "OP_NEG":
+				GeneratorKoda.append("POP R0");
+				GeneratorKoda.append("CMP R0,0");
+				String zero = GeneratorKoda.newLabel();
+				String out = GeneratorKoda.newLabel();
+				GeneratorKoda.append("JP_EQ " + zero);
+				GeneratorKoda.append("MOVE 1, R0");
+				GeneratorKoda.append("JP " + out);
+				GeneratorKoda.append(zero, "MOVE 0, R0");
+				GeneratorKoda.append(out, "PUSH R0");
+				break;
+
+			default:
+				break;
+			}
 			// 2. <cast_izraz>.tip tilda int
 			if (!Provjerinator.tilda(childJedan.getType(),
 					new Tip(TipBasic.INT))) {
