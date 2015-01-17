@@ -103,7 +103,7 @@ public class postfiks_izraz extends Node {
 
 					GeneratorKoda.append("PUSH R4");
 					GeneratorKoda.append("PUSH R5");
-					GeneratorKoda.append("MOVE R7, R5");
+					GeneratorKoda.append("MOVE R7, R4");
 
 					childNula.provjeri();
 					childDva.provjeri();
@@ -132,7 +132,7 @@ public class postfiks_izraz extends Node {
 						// neki ima vise argumenata
 						writeErrorMessage();
 					}
-
+					GeneratorKoda.append("MOVE R4, R5");
 					GeneratorKoda.append("CALL " + childNula.value);
 					GeneratorKoda.append("POP R5");
 					GeneratorKoda.append("POP R4");
