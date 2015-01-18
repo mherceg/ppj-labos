@@ -63,6 +63,7 @@ public class definicija_funkcije extends Node {
 			Node.activeFuncRetType = ime_tipa.getType().getGlavni();
 			child.get(5).provjeri();
 			Node.activeFuncRetType=null;
+			mem.reduceFunctionLevel(1);
 
 		} else if (lista_parametara.getName().equals("<lista_parametara>")) {
 			GeneratorKoda.append(imeFunkcije, "POP R4");
@@ -117,6 +118,7 @@ public class definicija_funkcije extends Node {
 			
 			
 			Node.activeFuncRetType=null;
+			mem.reduceFunctionLevel(1);
 		}
 		inFunction = false;
 	}

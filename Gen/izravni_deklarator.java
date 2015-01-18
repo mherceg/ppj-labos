@@ -24,21 +24,21 @@ public class izravni_deklarator extends Node {
 				writeErrorMessage();
 			}
 			// 3
-			if(mem.isLevelGlobal()){
+			if (mem.isLevelGlobal()) {
 				mem.add(name, this.getType(), name);
 				GeneratorKoda.appendLater(name, "DW 0");
 				this.setValue(name);
-			}else{
+			} else {
 				int definedBefore = mem.countCurrentFunctionVariables();
 				System.out.println(definedBefore);
-				mem.add(name, this.getType(), "R5-"+(definedBefore+1)*4);
-				this.setValue("R5-"+(definedBefore+1)*4);
+				mem.add(name, this.getType(), "R5-" + (definedBefore + 1) * 4);
+				this.setValue("R5-" + (definedBefore + 1) * 4);
 			}
 		} else {
 			Node dva = child.get(2);
-			
+
 			if (dva.getName().equals("BROJ")) {
-				
+
 				// 1
 				if (this.getType().equals(new Tip(TipBasic.VOID))) {
 					writeErrorMessage();
@@ -48,23 +48,33 @@ public class izravni_deklarator extends Node {
 					writeErrorMessage();
 				}
 				int arraySize = 0;
-				try{					
-					arraySize = Integer
-							.parseInt( child.get(2).getValue());
-				}
-				catch (NumberFormatException e){
+				try {
+					arraySize = Integer.parseInt(child.get(2).getValue());
+				} catch (NumberFormatException e) {
 					writeErrorMessage();
 				}
 				// 3
 				if (arraySize <= 0 || arraySize > 1024) {
 					writeErrorMessage();
 				}
+				for (int i = 0; i < arraySize; i++) {
+					if (mem.isLevelGlobal()) {
+						if (i == arraySize - 1) {
+							GeneratorKoda.appendLater(name, "DW 0");
+						} else {
+							GeneratorKoda.appendLater("DW 0");
+						}
+					}else{
+						// TODO kad je lokalno
+					}
+				}
+				this.setValue(name);
 				this.getType().setArray(true); // povratni tip
 				// 4
-				this.getCharacteristics().setBrElem(Integer.parseInt(dva.getValue()));
+				this.getCharacteristics().setBrElem(
+						Integer.parseInt(dva.getValue()));
 				/*
-				 * TODO 4 
-				 * kako cemo spremat polja?
+				 * TODO 4 kako cemo spremat polja?
 				 */
 				mem.add(name, this.getType(), name);
 
@@ -75,17 +85,18 @@ public class izravni_deklarator extends Node {
 				 * 2.zabiljezi deklaraciju IDN.ime s odgovarajucim tipom ako
 				 * ista funkcija vec nije deklarirana u lokalnom djelokrugu
 				 */
-				String imeFunkcije =  child.get(0).getValue();
+				String imeFunkcije = child.get(0).getValue();
 				if (funcmem.containsAtThisLevel(imeFunkcije)) {
 					if (!(funcmem.get(imeFunkcije).getTipFunkcije()
 							.equals(new Tip(this.getType().getGlavni(), null,
 									false, true)))) {
-						
+
 						writeErrorMessage();
 					}
 				} else {
-					funcmem.add(imeFunkcije, new Function(imeFunkcije,new Tip(this
-							.getType().getGlavni(), null, false, true), false));
+					funcmem.add(imeFunkcije, new Function(imeFunkcije, new Tip(
+							this.getType().getGlavni(), null, false, true),
+							false));
 				}
 
 			} else if (dva.getName().equals("<lista_parametara>")) {
@@ -93,15 +104,14 @@ public class izravni_deklarator extends Node {
 				String imeFunkcije = ((UniformniZnak) child.get(0)).getValue();
 				if (funcmem.containsAtThisLevel(imeFunkcije)) {
 					if (!(funcmem.get(imeFunkcije).getTipFunkcije()
-							.equals(new Tip(this.getType()
-									.getGlavni(), child.get(2).getTypes(),
-									false, true)))) {
+							.equals(new Tip(this.getType().getGlavni(), child
+									.get(2).getTypes(), false, true)))) {
 						writeErrorMessage();
 					}
 				} else {
-					funcmem.add(imeFunkcije, new Function(imeFunkcije,new Tip(this
-							.getType().getGlavni(), child.get(2).getTypes(),
-							false, true), false));
+					funcmem.add(imeFunkcije, new Function(imeFunkcije, new Tip(
+							this.getType().getGlavni(),
+							child.get(2).getTypes(), false, true), false));
 				}
 
 			}
