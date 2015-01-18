@@ -32,8 +32,9 @@ public class postfiks_izraz extends Node {
 				/**
 				 * x++, x--
 				 */
-				String location = mem.getWithLocation(childNula.getValue()).getLocation();
-				GeneratorKoda.append("LOAD R0, ("+ location + ")");
+				String location = mem.getWithLocation(childNula.getValue())
+						.getLocation();
+				GeneratorKoda.append("LOAD R0, (" + location + ")");
 				GeneratorKoda.append("PUSH R0");
 				switch (child.get(1).getName()) {
 				case "OP_INC":
@@ -43,8 +44,8 @@ public class postfiks_izraz extends Node {
 					GeneratorKoda.append("SUB R0, 1, R0");
 					break;
 				}
-				GeneratorKoda.append("STORE R0, ("+ location + ")");
-				
+				GeneratorKoda.append("STORE R0, (" + location + ")");
+
 				this.setType(new Tip(TipBasic.INT));
 				this.characteristics.setlIzraz(false);
 
@@ -77,7 +78,56 @@ public class postfiks_izraz extends Node {
 					if (!childNula.getType().equals(new Tip(TipBasic.X, true))) {
 						writeErrorMessage();
 					}
+
 					childDva.provjeri();
+					GeneratorKoda.append("POP R0");
+
+					VariableMemory<Tip>.MemoryElement all = mem
+							.getWithLocation(childNula.getValue());
+
+					if (all.getFunctionLevelLabel().equals("")) {
+						// globalna
+						GeneratorKoda.append("MOVE " + all.getLocation()
+								+ ", R1");
+						String labelaZaMULPetlju = GeneratorKoda.newLabel();
+						String labelaZaIzlazIzMULPetlje = GeneratorKoda.newLabel();
+
+						GeneratorKoda.append("MOVE 0,R3");
+						GeneratorKoda.append("MOVE 4,R2");
+						GeneratorKoda.append("OR R2,R2,R2");
+						GeneratorKoda.append("JR_Z " + labelaZaIzlazIzMULPetlje);
+						GeneratorKoda.append(labelaZaMULPetlju, "ADD R3,R0,R3");
+						GeneratorKoda.append("SUB R2,1,R2");
+						GeneratorKoda.append("JR_NZ " + labelaZaMULPetlju);
+						GeneratorKoda.append(labelaZaIzlazIzMULPetlje, "");
+						GeneratorKoda.append("SUB R1, R3, R1");
+						GeneratorKoda.append("LOAD R0,(R1)");
+						GeneratorKoda.append("PUSH R0");
+						
+						
+					} else {
+						GeneratorKoda.append("PUSH R5");
+						GeneratorKoda.append("LOAD R5,("+ all.getFunctionLevelLabel() + ")");
+						
+						String labelaZaMULPetlju = GeneratorKoda.newLabel();
+						String labelaZaIzlazIzMULPetlje = GeneratorKoda.newLabel();
+						
+						GeneratorKoda.append("MUL R0, 4 ,R0");
+						GeneratorKoda.append("MOVE 0,R3");
+						GeneratorKoda.append("MOVE 4,R2");
+						GeneratorKoda.append("OR R2,R2,R2");
+						GeneratorKoda.append("JR_Z " + labelaZaIzlazIzMULPetlje);
+						GeneratorKoda.append(labelaZaMULPetlju, "ADD R3,R0,R3");
+						GeneratorKoda.append("SUB R2,1,R2");
+						GeneratorKoda.append("JR_NZ " + labelaZaMULPetlju);
+						GeneratorKoda.append(labelaZaIzlazIzMULPetlje, "");
+						GeneratorKoda.append("MOVE R3,R0");
+						
+						GeneratorKoda.append("SUB R5, R0 ,R5");
+						GeneratorKoda.append("LOAD R0,(R5)");
+						GeneratorKoda.append("POP R5");
+						GeneratorKoda.append("PUSH R0");
+					}
 
 					// 4. <izraz>.tip  int
 					if (!Provjerinator.tilda(childDva.getType(), new Tip(

@@ -23,7 +23,7 @@ public class VariableMemory<V> {
 	protected VariableMemory<V> current;
 
 	protected int level;
-	protected int functionLevel;
+	private int functionLevel;
 	protected int addedCountForArrays;
 
 	protected boolean functionStart;
@@ -81,7 +81,7 @@ public class VariableMemory<V> {
 		this.functionStart = false;
 		this.functionNextGoDown = false;
 		this.addedCountForArrays = 0;
-		this.functionLevel = 0;
+		this.setFunctionLevel(0);
 		this.functionLevelLabels = new HashMap<>();
 	}
 
@@ -96,11 +96,11 @@ public class VariableMemory<V> {
 		if (this.functionNextGoDown == true) {
 			this.functionNextGoDown = false;
 			this.current.functionStart = true;
-			this.functionLevel++;
-			if (!functionLevelLabels.containsKey(functionLevel)) {
+			this.setFunctionLevel(this.getFunctionLevel() + 1);
+			if (!functionLevelLabels.containsKey(getFunctionLevel())) {
 				String label = GeneratorKoda.newLabel();
 				GeneratorKoda.appendLater(label, "DW 0");
-				functionLevelLabels.put(functionLevel, label);
+				functionLevelLabels.put(getFunctionLevel(), label);
 			}
 		}
 		level++;
@@ -222,25 +222,48 @@ public class VariableMemory<V> {
 	}
 
 	public void reduceFunctionLevel(int amout) {
-		this.functionLevel -= amout;
+		this.setFunctionLevel(this.getFunctionLevel() - amout);
 	}
 
 	public void addArrayElementsToCount(int cnt) {
 		current.addedCountForArrays += cnt;
 	}
+	
+		
+	
+	public String getLevelLabel(int lvl){
+		String label = GeneratorKoda.newLabel();
+		GeneratorKoda.appendLater(label, "DW 0");
+		functionLevelLabels.put(lvl, label);
+		return label;
+	}
+	
 
 	public void setCurrentFunctionStart(boolean bul) {
 		this.current.functionStart = bul;
-		this.functionLevel++;
-		if (!functionLevelLabels.containsKey(functionLevel)) {
+		this.setFunctionLevel(this.getFunctionLevel() + 1);
+		if (!functionLevelLabels.containsKey(getFunctionLevel())) {
 			String label = GeneratorKoda.newLabel();
 			GeneratorKoda.appendLater(label, "DW 0");
-			functionLevelLabels.put(functionLevel, label);
+			functionLevelLabels.put(getFunctionLevel(), label);
 		}
 	}
 
 	public void setFunctionStartOnNextGoDown(boolean bul) {
 		this.functionNextGoDown = bul;
+	}
+
+	
+
+	/**
+	 * @param functionLevel the functionLevel to set
+	 */
+	public void setFunctionLevel(int functionLevel) {
+		this.functionLevel = functionLevel;
+	}
+
+	public int getFunctionLevel() {
+		return functionLevel;
 	}
 
 }

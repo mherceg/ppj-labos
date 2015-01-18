@@ -25,6 +25,7 @@ public class definicija_funkcije extends Node {
 
 		if (lista_parametara.getName().equals("KR_VOID")) {
 			GeneratorKoda.append(imeFunkcije, "POP R4");
+			GeneratorKoda.append("STORE R5, ("+mem.getLevelLabel(mem.getFunctionLevel()+1)+")");
 			ime_tipa.provjeri();
 			if (ime_tipa.getType().equals(new Tip(TipBasic.const_T))) {
 				writeErrorMessage();
@@ -67,6 +68,7 @@ public class definicija_funkcije extends Node {
 
 		} else if (lista_parametara.getName().equals("<lista_parametara>")) {
 			GeneratorKoda.append(imeFunkcije, "POP R4");
+			GeneratorKoda.append("STORE R5, ("+mem.getLevelLabel(mem.getFunctionLevel()+1)+")");
 			ime_tipa.provjeri();
 			if (ime_tipa.getType().equals(new Tip(TipBasic.const_T))) {
 				writeErrorMessage();
