@@ -26,7 +26,7 @@ public class init_deklarator extends Node {
 			nula.provjeri();
 			
 			Node inici = child.get(2);
-			inici.setValue(this.getValue());
+			inici.setValue(nula.getValue());
 			inici.provjeri();
 
 			if (nula.getType().equals(new Tip(TipBasic.T))
