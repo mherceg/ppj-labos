@@ -20,12 +20,12 @@ public class inicijalizator extends Node{
 				int length =childNula.getValue().length();
 				this.characteristics.setBrElem(length+1-2); // zbog \0 i ""
 				List<Tip> types=this.getTypes();
-				for(int i=length-1;i>=0;++i){
+				for(int i=length-1;i>=0;--i){
 					types.add(new Tip(TipBasic.CHAR));
-					GeneratorKoda.append("POP R0");
-					int temp=i*4;
-					GeneratorKoda.append(this.getValue(),"STORE R0,("+this.getValue()+"-"+i*4+")");					
-				}
+//					GeneratorKoda.append("POP R0");
+//					int temp=i*4;
+//					GeneratorKoda.append(this.getValue(),"STORE R0,("+this.getValue()+"-"+i*4+")");					
+			}
 				this.setType(childNula.getType());
 				//this.characteristics.setBrElem(duljina niza znakova + 1);
 				
@@ -39,6 +39,13 @@ public class inicijalizator extends Node{
 			childJedan.provjeri();
 			this.characteristics.setBrElem(childJedan.getBrElem());
 			this.characteristics.setType(childJedan.getType());
+			int length=childJedan.getBrElem();
+			for(int i=length-1;i>=0;--i){
+				
+				GeneratorKoda.append("POP R0");
+				int temp=i*4;
+				GeneratorKoda.append("STORE R0,("+this.getValue()+"-"+i*4+")");					
+			}
 		}	
 	}
 	
