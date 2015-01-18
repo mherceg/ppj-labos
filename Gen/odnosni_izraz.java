@@ -28,6 +28,30 @@ public class odnosni_izraz extends Node {
 			}
 			this.setType(new Tip(TipBasic.INT));
 			this.characteristics.setlIzraz(false);
+			String one = GeneratorKoda.newLabel();
+			String two = GeneratorKoda.newLabel();
+			GeneratorKoda.append("POP R0");
+			GeneratorKoda.append("POP R1");
+			GeneratorKoda.append("CMP R1,R0");
+			switch(child.get(1).getName()){
+			case "OP_LT":
+				GeneratorKoda.append("JP_SLT " + one);
+				break;
+			case "OP_GT":
+				GeneratorKoda.append("JP_SGT " + one);
+				break;
+			case "OP_LTE":
+				GeneratorKoda.append("JP_SLE " + one);
+				break;
+			case "OP_GTE":
+				GeneratorKoda.append("JP_SGE " + one);
+				break;
+			}
+			
+			GeneratorKoda.append("MOVE 0, R0");
+			GeneratorKoda.append("JP " + two);
+			GeneratorKoda.append(one, "MOVE 1, R0");
+			GeneratorKoda.append(two, "PUSH R0");
 			break;
 		default:
 			break;

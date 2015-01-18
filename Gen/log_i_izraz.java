@@ -12,6 +12,7 @@ public class log_i_izraz extends Node {
 	@Override
 	public void provjeri() {
 		Node childNula = child.get(0);
+		String label=GeneratorKoda.newLabel();
 		if(childNula.getName().equals("<bin_ili_izraz>")){
 			childNula.provjeri();
 			this.characteristics.setType(childNula.getType());
@@ -21,11 +22,19 @@ public class log_i_izraz extends Node {
 		else if(childNula.getName().equals("<"+log_i_izraz.class.getName()+">")){
 			Node childDva = child.get(2);
 			childNula.provjeri();
+			GeneratorKoda.append("POP R0");
+			GeneratorKoda.append("AND R0,R0,R0");
+			GeneratorKoda.append("CMP R0,0");
+			GeneratorKoda.append("JP_EQ "+label);
 			//  2. <log_i_izraz>.tip tilda int		
 			if(!Provjerinator.tilda(childNula.getType(), new Tip(TipBasic.INT))){
 				writeErrorMessage();
 			}
 			childDva.provjeri();
+			GeneratorKoda.append("POP R0");
+			GeneratorKoda.append(label,"PUSH R0");
+			
+			
 			//  4. <bin_ili_izraz>.tip  int
 			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
 				writeErrorMessage();

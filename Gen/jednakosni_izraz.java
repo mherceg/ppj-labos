@@ -29,6 +29,21 @@ public class jednakosni_izraz extends Node {
 			if(!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))){
 				writeErrorMessage();
 			}
+			String one = GeneratorKoda.newLabel();
+			String two = GeneratorKoda.newLabel();
+			GeneratorKoda.append("POP R0");
+			GeneratorKoda.append("POP R1");
+			GeneratorKoda.append("CMP R0, R1");
+			if (child.get(1).getName().equals("OP_EQ")){
+				GeneratorKoda.append("JP_EQ " + one);
+			}
+			else{
+				GeneratorKoda.append("JP_NE " + one);
+			}
+			GeneratorKoda.append("MOVE 0, R0");
+			GeneratorKoda.append("JP " + two);
+			GeneratorKoda.append(one, "MOVE 1, R0");
+			GeneratorKoda.append(two, "PUSH R0");
 			//  this.characteristics.setType(Tip.int);
 			this.setType(new Tip(TipBasic.INT));
 			this.characteristics.setlIzraz(false);
