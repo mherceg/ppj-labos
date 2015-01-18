@@ -40,9 +40,9 @@ public class naredba_grananja extends Node {
 			}
 			child.get(4).provjeri();
 			GeneratorKoda.append("JP " + labelout);
-			GeneratorKoda.appendBez(labelelse);
+			GeneratorKoda.appendBez(labelelse + '\n');
 			child.get(6).provjeri();
-			GeneratorKoda.appendBez(labelout);
+			GeneratorKoda.appendBez(labelout + '\n');
 		}		
 		else{
 			System.err.println("Greska kod " + this.getClass().getName() + " za -> " + child.toString());
