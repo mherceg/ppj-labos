@@ -21,7 +21,7 @@ public class naredba_petlje extends Node {
 			childDva.provjeri();
 			GeneratorKoda.append("POP R0");
 			GeneratorKoda.append("CMP R0, 0");
-			GeneratorKoda.append("JP_NE " + labelout);
+			GeneratorKoda.append("JP_EQ " + labelout);
 			
 			// 2. <izraz>.tip tilda int
 			if (!Provjerinator.tilda(childDva.getType(), new Tip(TipBasic.INT))) {
@@ -30,7 +30,7 @@ public class naredba_petlje extends Node {
 			Node.enterLoop();
 			childCetiri.provjeri();
 			Node.exitLoop();
-			GeneratorKoda.append("JP " + labelout);
+			GeneratorKoda.append("JP " + labelbegin);
 			GeneratorKoda.appendBez(labelout);
 			
 			
