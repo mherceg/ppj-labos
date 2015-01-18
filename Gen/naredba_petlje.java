@@ -70,13 +70,13 @@ public class naredba_petlje extends Node {
 				Node izraz = child.get(4);
 				Node naredba = child.get(6);
 				childDva.provjeri();
-				GeneratorKoda.appendBez(labelCheck);
+				GeneratorKoda.appendBez(labelCheck + '\n');
 				childTri.provjeri();
 				GeneratorKoda.append("POP R0");
 				GeneratorKoda.append("CMP R0,0");
-				GeneratorKoda.append("JP_NE " + labelOut);
+				GeneratorKoda.append("JP_EQ " + labelOut);
 				GeneratorKoda.append("JP " + labelCommand);
-				GeneratorKoda.appendBez(labelStep);
+				GeneratorKoda.appendBez(labelStep + '\n');
 				// <izraz_naredba>2.tip tilda int
 				if (!Provjerinator.tilda(childTri.getType(), new Tip(
 						TipBasic.INT))) {
@@ -86,10 +86,11 @@ public class naredba_petlje extends Node {
 				GeneratorKoda.append("JP " + labelCheck);
 				
 				Node.enterLoop();
-				GeneratorKoda.appendBez(labelCommand);
+				GeneratorKoda.appendBez(labelCommand + '\n');
 				naredba.provjeri();
 				GeneratorKoda.append("JP " + labelStep);
 				Node.exitLoop();
+				GeneratorKoda.appendBez(labelOut + '\n');
 			}
 		}
 		
