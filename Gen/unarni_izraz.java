@@ -23,6 +23,7 @@ public class unarni_izraz extends Node {
 				GeneratorKoda.append("LOAD R0, (" + lokacija.getLocation() + ")");
 				GeneratorKoda.append("PUSH R0");
 			}
+			
 			this.characteristics.setlIzraz(childNula.getlIzraz());
 		} else if (childNula.getName().equals("<unarni_operator>")) {
 			Node childJedan = child.get(1);
